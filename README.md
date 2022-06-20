@@ -5,4 +5,4 @@ administration of the firms resources. Main goal is to ensure that certain repea
 necessitating a task tracking service.
 
 The company is currently operating using accounting software that doesn't provide the desired functionalities. Therefore, 
-the necessity for a supporting app that will provide the desired tools and data aggregation.
+the necessity for a supporting app that will provide the desired tools and data aggregation. 

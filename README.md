@@ -6,4 +6,5 @@ necessitating a task tracking service.
 
 The company is currently operating using accounting software that doesn't provide the desired functionalities. Therefore, 
 the necessity for a supporting app that will provide the desired tools and data aggregation. Data from the existing SQL 
-database used by the accounting software will be utilized by this app as well.
+database used by the accounting software will be utilized by this app as well. Additional database will be added to hold
+data specific to the app and its functionalities.

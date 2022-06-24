@@ -9,3 +9,5 @@ the necessity for a supporting app that will provide the desired tools and data 
 database used by the accounting software will be utilized by this app as well. Additional database will be added to hold
 data specific to the app and its functionalities. Since the accounting software is using MSSql database, the app will 
 use the same technology for consistency.
+
+Agreed upon initial plan:

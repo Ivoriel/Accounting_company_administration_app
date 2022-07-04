@@ -11,3 +11,4 @@ data specific to the app and its functionalities. Since the accounting software 
 use the same technology for consistency.
 
 Agreed upon initial plan:
+

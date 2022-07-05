@@ -12,3 +12,5 @@ use the same technology for consistency.
 
 Agreed upon initial plan:
 
+Main goal of this project is to refine existing skill and learn new technologies while creating an MVP to use as a
+foundation for an ongoing development and sophistication of the app.

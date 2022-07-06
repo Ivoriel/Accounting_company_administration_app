@@ -10,7 +10,33 @@ database used by the accounting software will be utilized by this app as well. A
 data specific to the app and its functionalities. Since the accounting software is using MSSql database, the app will 
 use the same technology for consistency.
 
-Agreed upon initial plan:
-
 Main goal of this project is to refine existing skill and learn new technologies while creating an MVP to use as a
 foundation for an ongoing development and sophistication of the app.
+
+Agreed upon initial plan:
+1. Data will come from the Optima database (MSSql).
+2. There needs to exist a list of clients containing information:
+   a) Documents:
+        - delivered (boolean),
+        - delivery date,
+        - completed (boolean).
+   b) Accounting work:
+        - who does it,
+        - who checks it.
+   c) Taxes:
+        - how much,
+        - was info sent out (boolean).
+   d) Reminders:
+        - VAT returns,
+        - Leasing,
+        - Amortization,
+        - Interperodical settlements (accruals - rozliczenia międzyokresowe).
+3. A tool to track work is needed. A request was made for window with a start/stop button that would track how long 
+performing a task took.
+4. A tool tracking a list of additional tasks to be performed for a client was requested.
+5. Ability to read from database data for documents such as contracts.
+
+Some of the above ideas could be implemented by creating work templates containing checklists of periodically performed 
+tasks. Perhaps a list of smaller checklists would serve best (bread or specific). The time tracking tool could be paired
+with the checklist tracking progress of work along with time spent performing tasks. This could then be saved to database
+to build foundation for data analysis.

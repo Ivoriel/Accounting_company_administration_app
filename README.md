@@ -11,7 +11,8 @@ data specific to the app and its functionalities. Since the accounting software 
 use the same technology for consistency.
 
 Main goal of this project is to refine existing skill and learn new technologies while creating an MVP to use as a
-foundation for an ongoing development and sophistication of the app.
+foundation for an ongoing development and sophistication of the app. One of the aims is to divide the app into multiple
+microservices to get a better grasp on their architecture and required supporting technologies. 
 
 Agreed upon initial plan:
 1. Data will come from the Optima database (MSSql).
@@ -30,7 +31,7 @@ Agreed upon initial plan:
         - VAT returns,
         - Leasing,
         - Amortization,
-        - Interperodical settlements (accruals - rozliczenia międzyokresowe).
+        - Interperiodical settlements (accruals - rozliczenia międzyokresowe).
 3. A tool to track work is needed. A request was made for window with a start/stop button that would track how long 
 performing a task took.
 4. A tool tracking a list of additional tasks to be performed for a client was requested.

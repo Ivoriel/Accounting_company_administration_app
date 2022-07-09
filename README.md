@@ -41,3 +41,8 @@ Some of the above ideas could be implemented by creating work templates containi
 tasks. Perhaps a list of smaller checklists would serve best (bread or specific). The time tracking tool could be paired
 with the checklist tracking progress of work along with time spent performing tasks. This could then be saved to database
 to build foundation for data analysis.
+
+Technology stack:
+1. Java 14 with Spring framework
+2. REST API
+3. React

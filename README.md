@@ -43,6 +43,8 @@ with the checklist tracking progress of work along with time spent performing ta
 to build foundation for data analysis.
 
 Technology stack:
-1. Java 14 with Spring framework
+1. Java 14 with Maven and Spring framework
 2. REST API
 3. React
+4. JMS
+5. MSSQL

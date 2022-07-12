@@ -13,7 +13,8 @@ use the same technology for consistency.
 Main goal of this project is to refine existing skill and learn new technologies while creating an MVP to use as a
 foundation for an ongoing development and sophistication of the app. One of the aims is to divide the app into multiple
 microservices to get a better grasp on their architecture and required supporting technologies. One of the learning goals
-also coincides with using messaging and queueing tools.
+also coincides with using messaging and queueing tools. Building a functioning front end using the React framework is
+another.
 
 Agreed upon initial plan:
 1. Data will come from the Optima database (MSSql).

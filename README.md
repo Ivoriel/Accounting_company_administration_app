@@ -49,4 +49,5 @@ Technology stack:
 2. REST API - BE-FE communication
 3. React - FE
 4. JMS - microservices communication.
-5. MSSQL - DB
+5. RPC (GRPC) - calling methods between libraries.
+6. MSSQL - DB

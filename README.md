@@ -45,9 +45,9 @@ with the checklist tracking progress of work along with time spent performing ta
 to build foundation for data analysis.
 
 Technology stack:
-1. Java 14 with Maven and Spring framework - main logic and server side
-2. REST API - BE-FE communication
-3. React - FE
+1. Java 14 with Maven and Spring framework - main logic and server side.
+2. REST API - BE-FE communication.
+3. JS/React - FE.
 4. JMS - microservices communication.
 5. RPC (GRPC) - calling methods between libraries.
-6. MSSQL - DB
+6. MSSQL - DB.

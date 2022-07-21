@@ -29,7 +29,7 @@ Agreed upon initial plan:
    c) Taxes:
         - how much,
         - was info sent out (boolean).
-   d) Reminders:
+   d) Possible reminder examples:
         - VAT returns,
         - Leasing,
         - Amortization,

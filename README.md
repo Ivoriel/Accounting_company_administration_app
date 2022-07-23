@@ -51,3 +51,4 @@ Technology stack:
 4. JMS - microservices communication.
 5. RPC (GRPC) - calling methods between libraries.
 6. MSSQL - DB.
+7. 

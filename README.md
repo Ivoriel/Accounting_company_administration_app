@@ -8,7 +8,7 @@ The company is currently operating using accounting software that doesn't provid
 the necessity for a supporting app that will provide the desired tools and data aggregation. Data from the existing SQL 
 database used by the accounting software will be utilized by this app as well. Additional database will be added to hold
 data specific to the app and its functionalities. Since the accounting software is using MSSql database, the app will 
-use the same technology for consistency.
+use the same technology for consistency if possible. If not PostGreSql will be used.
 
 Main goal of this project is to refine existing skill and learn new technologies while creating an MVP to use as a
 foundation for an ongoing development and sophistication of the app. One of the aims is to divide the app into multiple
@@ -45,10 +45,10 @@ with the checklist tracking progress of work along with time spent performing ta
 to build foundation for data analysis.
 
 Technology stack:
-1. Java 14 with Maven and Spring framework - main logic and server side.
+1. Java 14 with Maven and Spring framework (with Spring boot generated via spring initializer) - main logic and server side.
 2. REST API - BE-FE communication.
 3. JS/React - FE.
 4. JMS - microservices communication.
 5. RPC (GRPC) - calling methods between libraries.
-6. MSSQL - DB.
+6. MSSQL (PSQL) - DB.
 7. 

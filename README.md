@@ -8,7 +8,8 @@ The company is currently operating using accounting software that doesn't provid
 the necessity for a supporting app that will provide the desired tools and data aggregation. Data from the existing SQL 
 database used by the accounting software will be utilized by this app as well. Additional database will be added to hold
 data specific to the app and its functionalities. Since the accounting software is using MSSql database, the app will 
-use the same technology for consistency if possible. If not PostGreSql will be used.
+use the same technology for consistency if possible. If not PostGreSql will be used which will necessitate migrating data
+from one db to the other in prod.
 
 Main goal of this project is to refine existing skill and learn new technologies while creating an MVP to use as a
 foundation for an ongoing development and sophistication of the app. One of the aims is to divide the app into multiple
@@ -40,7 +41,7 @@ performing a task took.
 5. Ability to read from database data for documents such as contracts.
 
 Some of the above ideas could be implemented by creating work templates containing checklists of periodically performed 
-tasks. Perhaps a list of smaller checklists would serve best (bread or specific). The time tracking tool could be paired
+tasks. Perhaps a list of smaller checklists would serve best (broad or specific). The time tracking tool could be paired
 with the checklist tracking progress of work along with time spent performing tasks. This could then be saved to database
 to build foundation for data analysis.
 

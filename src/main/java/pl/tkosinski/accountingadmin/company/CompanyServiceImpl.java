@@ -11,4 +11,8 @@ public class CompanyServiceImpl implements CompanyService {
     public Company getCompany() {
         return null;
     }
+
+    private CompanyDto toDto() {
+        return null;
+    }
 }

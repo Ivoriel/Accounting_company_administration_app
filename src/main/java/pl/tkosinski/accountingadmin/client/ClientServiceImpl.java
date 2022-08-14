@@ -6,6 +6,8 @@ public class ClientServiceImpl implements ClientService {
         return null;
     }
 
-
+    private Client toDto(ClientDao clientDao) {
+        return null;
+    }
 
 }

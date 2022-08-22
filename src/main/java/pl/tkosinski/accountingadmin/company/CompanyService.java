@@ -2,8 +2,8 @@ package pl.tkosinski.accountingadmin.company;
 
 public interface CompanyService {
 
-    Company saveCompany();
+    Company save();
 
-    Company getCompany();
+    Company get();
 
 }

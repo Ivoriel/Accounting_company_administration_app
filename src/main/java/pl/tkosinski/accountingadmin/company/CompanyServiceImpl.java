@@ -3,16 +3,16 @@ package pl.tkosinski.accountingadmin.company;
 public class CompanyServiceImpl implements CompanyService {
 
     @Override
-    public Company saveCompany() {
+    public Company save() {
         return null;
     }
 
     @Override
-    public Company getCompany() {
+    public Company get() {
         return null;
     }
 
-    private CompanyDto toDto() {
+    private Company toDto() {
         return null;
     }
 }

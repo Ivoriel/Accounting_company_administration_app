@@ -2,7 +2,6 @@ package pl.tkosinski.accountingadmin.client;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
-import pl.kosinski.acaa_dao.Address.AddressRepository;
 
 import javax.annotation.PostConstruct;
 import java.util.HashMap;
@@ -16,8 +15,6 @@ import java.util.concurrent.ThreadLocalRandom;
 @Component
 @AllArgsConstructor
 public class ClientRepositoryMock implements ClientRepository {
-
-    AddressRepository addressRepository;
 
     HashMap ClientDb;
 

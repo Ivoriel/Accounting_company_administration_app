@@ -1,6 +1,6 @@
 package pl.tkosinski.accountingadmin.domain.address;
 
-import pl.kosinski.acaa_dao.Common.BaseDao;
+import pl.tkosinski.accountingadmin.Common.BaseDao;
 
 public class AddressDao extends BaseDao {
     

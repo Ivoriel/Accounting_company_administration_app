@@ -1,6 +1,6 @@
-package pl.tkosinski.accountingadmin.client;
+package pl.tkosinski.accountingadmin.domain.client;
 
-import pl.kosinski.acaa_dao.Common.BaseDao;
+import pl.tkosinski.accountingadmin.Common.BaseDao;
 
 public class ClientDao extends BaseDao {
 

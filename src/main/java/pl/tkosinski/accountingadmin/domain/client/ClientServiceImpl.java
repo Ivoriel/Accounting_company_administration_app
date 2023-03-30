@@ -1,11 +1,11 @@
-package pl.tkosinski.accountingadmin.client;
+package pl.tkosinski.accountingadmin.domain.client;
 
 import lombok.var;
 import org.springframework.stereotype.Component;
 import pl.kosinski.acaa_dao.Client.ClientDao;
 import pl.kosinski.acaa_dao.Client.ClientRepository;
 import pl.kosinski.acaa_dto.ClientDto;
-import pl.kosinski.acaa_services.Address.AddressService;
+import pl.tkosinski.accountingadmin.domain.address.AddressService;
 
 import java.util.Optional;
 

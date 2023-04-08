@@ -1,13 +1,16 @@
 # Accounting_company_administration_app
 
-This app was originally conceived with an accounting company owner to create tools needed for proper management and
+This app was initially conceived with an accounting company owner to create tools needed for proper management and
 administration of the firms resources. While the requirements haven't changed much since then, the general idea of how
 the app should look like from a technological point of view has drastically evolved. This is mostly due to gaining much 
 more professional experience, internalizing knowledge gained in a software architecture training and generally becoming
 better informed and acting with more awareness. Therefore, while I've elected to keep the original summary (at least for
 now) it should be mostly used as a reference on how the concept was approached initially and how it evolved.
 
-
+At the start the app was supposed to be built using microservices. However, until the project reaches at least MVP level
+it seems to be best to develop it using the modular monolith concept. Most functionalities will be added in designated 
+packages and will be considered for separation later on. The goal is to begin development with clear boundaries between
+modules to make it as easy as possible to turn them into microservices if such need arises. 
 
 ## Legacy summary:
 

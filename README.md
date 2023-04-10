@@ -8,9 +8,11 @@ better informed and acting with more awareness. Therefore, while I've elected to
 now) it should be mostly used as a reference on how the concept was approached initially and how it evolved.
 
 At the start the app was supposed to be built using microservices. However, until the project reaches at least MVP level
-it seems to be best to develop it using the modular monolith concept. Most functionalities will be added in designated 
-packages and will be considered for separation later on. The goal is to begin development with clear boundaries between
-modules to make it as easy as possible to turn them into microservices if such need arises. 
+it appears that the best course is to develop it using the modular monolith concept. Most functionalities will be added 
+in designated packages and will be considered for separation later on. The goal is to begin development with clear 
+boundaries between modules to make it as easy as possible to turn them into microservices if such need arises. 
+Therefore, for the foreseeable future the project will most likely be limited to one repository, although it might take 
+a few iterations to get it properly organized.
 
 ## Legacy summary:
 

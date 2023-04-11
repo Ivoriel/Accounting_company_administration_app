@@ -14,6 +14,10 @@ boundaries between modules to make it as easy as possible to turn them into micr
 Therefore, for the foreseeable future the project will most likely be limited to one repository, although it might take 
 a few iterations to get it properly organized.
 
+At first the project was supposed to be developed using Java 14, however that will be changed to the latest widely
+adopted version, which at the time is Java 17. Architecture choices such as this one might be archived in designated
+package to keep track of them.
+
 ## Legacy summary:
 
 This app idea was conceived with an accounting company owner to create tools needed for proper management and

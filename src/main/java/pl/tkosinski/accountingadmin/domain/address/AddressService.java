@@ -1,6 +1,7 @@
 package pl.tkosinski.accountingadmin.domain.address;
 
 import pl.kosinski.acaa_dto.AddressDto;
+import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
 
 public interface AddressService {
 

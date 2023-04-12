@@ -2,6 +2,7 @@ package pl.tkosinski.accountingadmin.domain.address;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
+import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
 
 import javax.annotation.PostConstruct;
 import java.util.HashMap;

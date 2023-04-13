@@ -1,6 +1,7 @@
 package pl.tkosinski.accountingadmin.domain.client;
 
 import pl.kosinski.acaa_dto.ClientDto;
+import pl.tkosinski.accountingadmin.domain.client.dto.ClientDto;
 
 public interface ClientService {
 

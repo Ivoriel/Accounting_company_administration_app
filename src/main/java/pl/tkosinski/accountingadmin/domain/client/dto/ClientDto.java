@@ -1,4 +1,4 @@
-package pl.tkosinski.accountingadmin.domain.client;
+package pl.tkosinski.accountingadmin.domain.client.dto;
 
 import lombok.Data;
 

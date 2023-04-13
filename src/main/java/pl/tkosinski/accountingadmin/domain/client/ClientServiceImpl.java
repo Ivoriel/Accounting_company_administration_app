@@ -6,6 +6,7 @@ import pl.kosinski.acaa_dao.Client.ClientDao;
 import pl.kosinski.acaa_dao.Client.ClientRepository;
 import pl.kosinski.acaa_dto.ClientDto;
 import pl.tkosinski.accountingadmin.domain.address.AddressService;
+import pl.tkosinski.accountingadmin.domain.client.dto.ClientDto;
 
 import java.util.Optional;
 

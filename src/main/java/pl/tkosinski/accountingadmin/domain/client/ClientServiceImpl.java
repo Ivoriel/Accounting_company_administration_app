@@ -2,9 +2,6 @@ package pl.tkosinski.accountingadmin.domain.client;
 
 import lombok.var;
 import org.springframework.stereotype.Component;
-import pl.kosinski.acaa_dao.Client.ClientDao;
-import pl.kosinski.acaa_dao.Client.ClientRepository;
-import pl.kosinski.acaa_dto.ClientDto;
 import pl.tkosinski.accountingadmin.domain.address.AddressService;
 import pl.tkosinski.accountingadmin.domain.client.dto.ClientDto;
 
@@ -17,7 +14,7 @@ public class ClientServiceImpl implements ClientService {
     AddressService addressService;
 
     @Override
-    public pl.kosinski.acaa_dto.ClientDto save(ClientDto clientDto) {
+    public ClientDto save(ClientDto clientDto) {
         Optional<ClientDao> clientDaoOptional = clientRepository.get(clientDto.getId());
         if (Optional.ofNullable(clientDaoOptional).isPresent()) {
             var clientDao = clientDaoOptional.get();
@@ -30,8 +27,8 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public pl.kosinski.acaa_dto.ClientDto get(Long id) {
-        pl.kosinski.acaa_dto.ClientDto dto = new pl.kosinski.acaa_dto.ClientDto();
+    public ClientDto get(Long id) {
+        ClientDto dto = new ClientDto();
         Optional<ClientDao> daoOptional = clientRepository.get(id);
         if (Optional.ofNullable(daoOptional).isPresent()) {
             dto = toDto(daoOptional.get());
@@ -44,8 +41,8 @@ public class ClientServiceImpl implements ClientService {
         clientRepository.delete(id);
     }
 
-    private pl.kosinski.acaa_dto.ClientDto toDto(ClientDao clientDao) {
-        pl.kosinski.acaa_dto.ClientDto dto = new pl.kosinski.acaa_dto.ClientDto();
+    private ClientDto toDto(ClientDao clientDao) {
+        ClientDto dto = new ClientDto();
         dto.setId(clientDao.getId());
         dto.setName(clientDao.getName());
         dto.setAddressId(clientDao.getAddressId());

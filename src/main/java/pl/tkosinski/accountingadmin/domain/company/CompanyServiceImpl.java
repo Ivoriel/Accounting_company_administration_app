@@ -2,8 +2,6 @@ package pl.tkosinski.accountingadmin.domain.company;
 
 import lombok.var;
 import org.springframework.stereotype.Component;
-import pl.kosinski.acaa_dao.Company.CompanyDao;
-import pl.kosinski.acaa_dao.Company.CompanyRepository;
 import pl.tkosinski.accountingadmin.domain.company.dto.CompanyDto;
 
 import java.util.Optional;

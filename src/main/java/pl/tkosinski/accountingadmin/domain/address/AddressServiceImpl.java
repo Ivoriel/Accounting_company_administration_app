@@ -2,9 +2,6 @@ package pl.tkosinski.accountingadmin.domain.address;
 
 import lombok.var;
 import org.springframework.stereotype.Component;
-import pl.kosinski.acaa_dao.Address.AddressDao;
-import pl.kosinski.acaa_dao.Address.AddressRepository;
-import pl.kosinski.acaa_dto.AddressDto;
 import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
 
 import java.util.Optional;

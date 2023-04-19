@@ -2,8 +2,9 @@ package pl.tkosinski.accountingadmin.domain.company;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
-import pl.kosinski.acaa_dao.Address.AddressRepository;
-import pl.kosinski.acaa_dao.Client.ClientRepository;
+import pl.tkosinski.accountingadmin.domain.address.AddressRepository;
+import pl.tkosinski.accountingadmin.domain.client.ClientRepository;
+
 
 import javax.annotation.PostConstruct;
 import java.util.HashMap;

@@ -16,14 +16,14 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public ClientDto save(ClientDto clientDto) {
         Optional<ClientDao> clientDaoOptional = clientRepository.get(clientDto.getId());
+        ClientDao clientDao;
         if (Optional.ofNullable(clientDaoOptional).isPresent()) {
-            var clientDao = clientDaoOptional.get();
+            clientDao = clientDaoOptional.get();
             clientDao.edit(clientDto.getName(), clientDto.getAddressId());
-            return toDto(clientRepository.save(clientDao));
         } else {
-            var clientDao = new ClientDao(clientRepository.size(), clientDto.getName(), clientDto.getAddressId());
-            return toDto(clientRepository.save(clientDao));
+            clientDao = new ClientDao(clientRepository.size(), clientDto.getName(), clientDto.getAddressId());
         }
+        return toDto(clientRepository.save(clientDao));
     }
 
     @Override

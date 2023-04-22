@@ -14,16 +14,16 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public CompanyDto save(CompanyDto companyDto) {
         Optional<CompanyDao> companyDaoOptional = repository.get(companyDto.getId());
+        CompanyDao companyDao;
         if (Optional.ofNullable(companyDaoOptional).isPresent()) {
-            var companyDao = companyDaoOptional.get();
+            companyDao = companyDaoOptional.get();
             companyDao.edit(companyDto.getName(), companyDto.getClientId(),
                     companyDto.getAddressId());
-            return toDto(repository.save(companyDao));
         } else {
-            var companyDao = new CompanyDao(repository.size(), companyDto.getName(), companyDto.getClientId(),
+            companyDao = new CompanyDao(repository.size(), companyDto.getName(), companyDto.getClientId(),
                     companyDto.getAddressId());
-            return toDto(repository.save(companyDao));
         }
+        return toDto(repository.save(companyDao));
     }
 
     @Override

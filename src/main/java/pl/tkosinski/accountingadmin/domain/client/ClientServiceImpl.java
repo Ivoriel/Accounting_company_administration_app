@@ -1,6 +1,5 @@
 package pl.tkosinski.accountingadmin.domain.client;
 
-import lombok.var;
 import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.domain.address.AddressService;
 import pl.tkosinski.accountingadmin.domain.client.dto.ClientDto;
@@ -11,7 +10,6 @@ import java.util.Optional;
 public class ClientServiceImpl implements ClientService {
 
     ClientRepository clientRepository;
-    AddressService addressService;
 
     @Override
     public ClientDto save(ClientDto clientDto) {

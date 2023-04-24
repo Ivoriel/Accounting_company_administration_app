@@ -1,7 +1,6 @@
 package pl.tkosinski.accountingadmin.domain.client;
 
 import org.springframework.stereotype.Component;
-import pl.tkosinski.accountingadmin.domain.address.AddressService;
 import pl.tkosinski.accountingadmin.domain.client.dto.ClientDto;
 
 import java.util.Optional;

@@ -5,7 +5,7 @@ import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
 
 import java.util.Optional;
 
-public interface AddressRepository extends BaseRepository {
+interface AddressRepository extends BaseRepository {
 
     AddressDao save(AddressDao addressDao);
 

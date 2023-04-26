@@ -15,7 +15,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 @Component
 @AllArgsConstructor
-public class AddressRepositoryMock implements AddressRepository{
+class AddressRepositoryMock implements AddressRepository{
 
     HashMap AddressDb;
 

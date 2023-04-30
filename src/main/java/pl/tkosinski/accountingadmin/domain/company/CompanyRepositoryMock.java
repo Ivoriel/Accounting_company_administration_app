@@ -17,14 +17,14 @@ import java.util.concurrent.ThreadLocalRandom;
 
 @Component
 @AllArgsConstructor
-public class CompanyRepositoryMock implements CompanyRepository{
+class CompanyRepositoryMock implements CompanyRepository{
 
     HashMap CompanyDb;
     AddressRepository addressRepository;
     ClientRepository clientRepository;
 
 
-    @PostConstruct
+    @PostConstructpublic
     public void init() {
         populateCompanyDb();
     }

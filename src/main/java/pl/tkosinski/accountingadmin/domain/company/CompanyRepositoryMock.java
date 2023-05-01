@@ -24,7 +24,7 @@ class CompanyRepositoryMock implements CompanyRepository{
     ClientRepository clientRepository;
 
 
-    @PostConstructpublic
+    @PostConstruct
     public void init() {
         populateCompanyDb();
     }

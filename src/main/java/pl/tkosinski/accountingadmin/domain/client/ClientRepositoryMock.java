@@ -2,7 +2,7 @@ package pl.tkosinski.accountingadmin.domain.client;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
-import pl.tkosinski.accountingadmin.domain.address.AddressRepository;
+import pl.tkosinski.accountingadmin.domain.address.AddressService;
 
 import javax.annotation.PostConstruct;
 import java.util.HashMap;
@@ -18,7 +18,7 @@ import java.util.concurrent.ThreadLocalRandom;
 class ClientRepositoryMock implements ClientRepository {
 
     HashMap ClientDb;
-    AddressRepository addressRepository;
+    AddressService addressService;
 
     @PostConstruct
     public void init() {
@@ -57,7 +57,7 @@ class ClientRepositoryMock implements ClientRepository {
     }
 
     private ClientDao generateClient(long id) {
-        ClientDao dao = new ClientDao(id, generateName(), generateAddressId());
+        ClientDao dao = new ClientDao(id, generateName(), addressService.generate().getId());
         return dao;
     }
 
@@ -73,10 +73,6 @@ class ClientRepositoryMock implements ClientRepository {
         name.append(lastNames[generateRandomInt(0, lastNames.length - 1)]);
 
         return name.toString();
-    }
-
-    private int generateAddressId() {
-        return generateRandomInt(0, addressRepository.size() - 1);
     }
 
     private int generateRandomInt(int min, int max) {

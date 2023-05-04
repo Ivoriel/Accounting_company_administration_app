@@ -3,7 +3,7 @@ package pl.tkosinski.accountingadmin.domain.company;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.domain.address.AddressService;
-import pl.tkosinski.accountingadmin.domain.client.ClientRepository;
+import pl.tkosinski.accountingadmin.domain.client.ClientService;
 
 
 import javax.annotation.PostConstruct;
@@ -21,7 +21,7 @@ class CompanyRepositoryMock implements CompanyRepository{
 
     HashMap CompanyDb;
     AddressService addressService;
-    ClientRepository clientRepository;
+    ClientService clientService;
 
 
     @PostConstruct
@@ -57,7 +57,7 @@ class CompanyRepositoryMock implements CompanyRepository{
     }
 
     private CompanyDao generateCompany(long id) {
-        CompanyDao dao = new CompanyDao(id, generateCompanyName(), clientRepository.generate().getId(),
+        CompanyDao dao = new CompanyDao(id, generateCompanyName(), clientService.generate().getId(),
                 addressService.generate().getId());
         return dao;
     }

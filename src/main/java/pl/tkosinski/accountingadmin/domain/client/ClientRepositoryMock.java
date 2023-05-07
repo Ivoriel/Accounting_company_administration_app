@@ -68,13 +68,13 @@ class ClientRepositoryMock implements ClientRepository {
         String[] lastNames = {"Pędziwiatr", "Krzyżtopór", "Zagłoba", "Makarow", "Kowal", "Anioł", "Kosa", "Młot", "Nowak",
                 "żak", "Anonim", "Kot", "Lasek"};
 
-        return firstNames[generateRandomInt(0, firstNames.length - 1)]
+        return firstNames[generateRandomInt(firstNames.length - 1)]
                 + " " +
-                lastNames[generateRandomInt(0, lastNames.length - 1)];
+                lastNames[generateRandomInt(lastNames.length - 1)];
     }
 
-    private int generateRandomInt(int min, int max) {
-        return ThreadLocalRandom.current().nextInt(min, max +1);
+    private int generateRandomInt(int max) {
+        return ThreadLocalRandom.current().nextInt(0, max +1);
     }
 
 }

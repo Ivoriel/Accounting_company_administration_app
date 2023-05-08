@@ -57,9 +57,8 @@ class CompanyRepositoryMock implements CompanyRepository{
     }
 
     private CompanyDao generateCompany(long id) {
-        CompanyDao dao = new CompanyDao(id, generateCompanyName(), clientService.generate().getId(),
+        return new CompanyDao(id, generateCompanyName(), clientService.generate().getId(),
                 addressService.generate().getId());
-        return dao;
     }
 
     private String generateCompanyName() {

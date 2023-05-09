@@ -10,4 +10,5 @@ public interface ClientService {
 
     void delete(Long id);
 
+    ClientDto generate();
 }

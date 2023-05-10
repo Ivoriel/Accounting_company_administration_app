@@ -38,6 +38,11 @@ public class ClientServiceImpl implements ClientService {
         clientRepository.delete(id);
     }
 
+    @Override
+    public ClientDto generate() {
+        return toDto(clientRepository.generate());
+    }
+
     private ClientDto toDto(ClientDao clientDao) {
         ClientDto dto = new ClientDto();
         dto.setId(clientDao.getId());

@@ -50,6 +50,11 @@ class CompanyRepositoryMock implements CompanyRepository{
         return CompanyDb.size();
     }
 
+    @Override
+    public CompanyDao generate() {
+        return generateCompany(size());
+    }
+
     private void populateCompanyDb() {
         for (long i = 1; i < 10; i++) {
             CompanyDb.put(i, generateCompany(i));
@@ -65,11 +70,11 @@ class CompanyRepositoryMock implements CompanyRepository{
         String[] names = {"Januszex Janusz Typowy", "PolExport sp. z o.o.", "BiznesEx s.c.", "PolBiznes SA",
                 "ExKosmos s.j.", "Mydło i Powidło Jan Nowak", "Warzywa i owoca Ewelina Bluszcz", "PHU Kliper s.c.",
                 "Story-Train Bill Smith", "Gilgamesh sp. z o.o.", "Enkidu SA", "HusariaPol Marian Kmieć"};
-        return names[generateRandomInt(0, names.length - 1)];
+        return names[generateRandomInt(names.length - 1)];
     }
 
-    private int generateRandomInt(int min, int max) {
-        return ThreadLocalRandom.current().nextInt(min, max +1);
+    private int generateRandomInt(int max) {
+        return ThreadLocalRandom.current().nextInt(0, max +1);
     }
 
 }

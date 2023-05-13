@@ -41,6 +41,11 @@ public class CompanyServiceImpl implements CompanyService {
         repository.delete(id);
     }
 
+    @Override
+    public CompanyDao generate() {
+        return repository.generate();
+    }
+
     private CompanyDto toDto(CompanyDao companyDao) {
         CompanyDto dto = new CompanyDto();
         dto.setId(companyDao.getId());

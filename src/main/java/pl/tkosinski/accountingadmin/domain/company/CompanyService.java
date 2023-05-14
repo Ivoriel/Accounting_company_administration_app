@@ -10,4 +10,5 @@ public interface CompanyService {
 
     void delete(Long id);
 
+    CompanyDao generate();
 }

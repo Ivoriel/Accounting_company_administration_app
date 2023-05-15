@@ -1,17 +1,15 @@
 package pl.tkosinski.accountingadmin.domain.address;
 
-import lombok.var;
 import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
 
 import java.util.Optional;
 
 @Component
-public class AddressServiceImpl implements AddressService{
+public class AddressServiceImpl {
 
     AddressRepository addressRepository;
 
-    @Override
     public AddressDto save(AddressDto addressDto) {
         Optional<AddressDao> addressDaoOptional = addressRepository.get(addressDto.getId());
         AddressDao addressDao;
@@ -28,7 +26,6 @@ public class AddressServiceImpl implements AddressService{
         return toDto(addressRepository.save(addressDao));
     }
 
-    @Override
     public AddressDto get(long id) {
         AddressDto addressDto = new AddressDto();
         Optional<AddressDao> addressDaoOptional = addressRepository.get(id);
@@ -38,12 +35,10 @@ public class AddressServiceImpl implements AddressService{
         return addressDto;
     }
 
-    @Override
     public void delete(long id) {
         addressRepository.delete(id);
     }
 
-    @Override
     public AddressDto generate() {;
         return addressRepository.generate();
     }

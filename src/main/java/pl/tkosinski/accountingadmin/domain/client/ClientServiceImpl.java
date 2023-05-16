@@ -6,11 +6,10 @@ import pl.tkosinski.accountingadmin.domain.client.dto.ClientDto;
 import java.util.Optional;
 
 @Component
-public class ClientServiceImpl implements ClientService {
+public class ClientServiceImpl {
 
     ClientRepository clientRepository;
 
-    @Override
     public ClientDto save(ClientDto clientDto) {
         Optional<ClientDao> clientDaoOptional = clientRepository.get(clientDto.getId());
         ClientDao clientDao;
@@ -23,7 +22,6 @@ public class ClientServiceImpl implements ClientService {
         return toDto(clientRepository.save(clientDao));
     }
 
-    @Override
     public ClientDto get(Long id) {
         ClientDto dto = new ClientDto();
         Optional<ClientDao> daoOptional = clientRepository.get(id);
@@ -33,12 +31,10 @@ public class ClientServiceImpl implements ClientService {
         return dto;
     }
 
-    @Override
     public void delete(Long id) {
         clientRepository.delete(id);
     }
 
-    @Override
     public ClientDto generate() {
         return toDto(clientRepository.generate());
     }

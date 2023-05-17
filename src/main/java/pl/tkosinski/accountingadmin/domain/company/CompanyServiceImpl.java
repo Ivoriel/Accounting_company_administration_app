@@ -7,11 +7,10 @@ import pl.tkosinski.accountingadmin.domain.company.dto.CompanyDto;
 import java.util.Optional;
 
 @Component
-public class CompanyServiceImpl implements CompanyService {
+public class CompanyServiceImpl {
 
     CompanyRepository repository;
 
-    @Override
     public CompanyDto save(CompanyDto companyDto) {
         Optional<CompanyDao> companyDaoOptional = repository.get(companyDto.getId());
         CompanyDao companyDao;
@@ -26,7 +25,6 @@ public class CompanyServiceImpl implements CompanyService {
         return toDto(repository.save(companyDao));
     }
 
-    @Override
     public CompanyDto get(Long id) {
         var companyDto = new CompanyDto();
         var companyDaoOptional = repository.get(id);
@@ -36,12 +34,10 @@ public class CompanyServiceImpl implements CompanyService {
         return companyDto;
     }
 
-    @Override
     public void delete(Long id) {
         repository.delete(id);
     }
 
-    @Override
     public CompanyDao generate() {
         return repository.generate();
     }

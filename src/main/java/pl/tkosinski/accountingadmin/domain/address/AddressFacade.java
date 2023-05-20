@@ -6,7 +6,7 @@ import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
 import java.util.Optional;
 
 @Component
-public class AddressServiceImpl {
+public class AddressFacade {
 
     AddressRepository addressRepository;
 

@@ -6,7 +6,7 @@ import pl.tkosinski.accountingadmin.domain.client.dto.ClientDto;
 import java.util.Optional;
 
 @Component
-public class ClientServiceImpl {
+public class ClientFacade {
 
     ClientRepository clientRepository;
 

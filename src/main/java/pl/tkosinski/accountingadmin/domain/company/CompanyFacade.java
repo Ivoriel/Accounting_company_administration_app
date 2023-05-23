@@ -7,7 +7,7 @@ import pl.tkosinski.accountingadmin.domain.company.dto.CompanyDto;
 import java.util.Optional;
 
 @Component
-public class CompanyServiceImpl {
+public class CompanyFacade {
 
     CompanyRepository repository;
 

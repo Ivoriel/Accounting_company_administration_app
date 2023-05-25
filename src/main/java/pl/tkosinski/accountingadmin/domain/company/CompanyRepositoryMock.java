@@ -2,9 +2,8 @@ package pl.tkosinski.accountingadmin.domain.company;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
-import pl.tkosinski.accountingadmin.domain.address.AddressService;
-import pl.tkosinski.accountingadmin.domain.client.ClientService;
-
+import pl.tkosinski.accountingadmin.domain.address.AddressFacade;
+import pl.tkosinski.accountingadmin.domain.client.ClientFacade;
 
 import javax.annotation.PostConstruct;
 import java.util.HashMap;
@@ -20,8 +19,8 @@ import java.util.concurrent.ThreadLocalRandom;
 class CompanyRepositoryMock implements CompanyRepository{
 
     HashMap CompanyDb;
-    AddressService addressService;
-    ClientService clientService;
+    AddressFacade addressFacade;
+    ClientFacade clientFacade;
 
 
     @PostConstruct
@@ -62,8 +61,8 @@ class CompanyRepositoryMock implements CompanyRepository{
     }
 
     private CompanyDao generateCompany(long id) {
-        return new CompanyDao(id, generateCompanyName(), clientService.generate().getId(),
-                addressService.generate().getId());
+        return new CompanyDao(id, generateCompanyName(), clientFacade.generate().getId(),
+                addressFacade.generate().getId());
     }
 
     private String generateCompanyName() {

@@ -5,6 +5,8 @@ import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
 
 import java.util.Optional;
 
+import static pl.tkosinski.accountingadmin.domain.address.AddressMapper.toDto;
+
 @Component
 public class AddressFacade {
 
@@ -23,14 +25,14 @@ public class AddressFacade {
                     addressDto.getRegion(), addressDto.getZipCode(), addressDto.getStreet(),
                     addressDto.getBuildingNumber(), addressDto.getAdditionalIdentifier());
         }
-        return toDto(addressRepository.save(addressDao));
+        return AddressMapper.toDto(addressRepository.save(addressDao));
     }
 
     public AddressDto get(long id) {
         AddressDto addressDto = new AddressDto();
         Optional<AddressDao> addressDaoOptional = addressRepository.get(id);
         if (Optional.ofNullable(addressDaoOptional).isPresent()) {
-            addressDto = toDto(addressDaoOptional.get());
+            addressDto = AddressMapper.toDto(addressDaoOptional.get());
         }
         return addressDto;
     }
@@ -41,18 +43,5 @@ public class AddressFacade {
 
     public AddressDto generate() {;
         return addressRepository.generate();
-    }
-
-    private AddressDto toDto(AddressDao addressDao) {
-        AddressDto addressDto = new AddressDto();
-        addressDto.setId(addressDao.getId());
-        addressDto.setCountry(addressDao.getCountry());
-        addressDto.setMunicipality(addressDao.getMunicipality());
-        addressDto.setRegion(addressDao.getRegion());
-        addressDto.setZipCode(addressDao.getZipCode());
-        addressDto.setStreet(addressDao.getStreet());
-        addressDto.setBuildingNumber(addressDao.getBuildingNumber());
-        addressDto.setAdditionalIdentifier(addressDao.getAdditionalIdentifier());
-        return addressDto;
     }
 }

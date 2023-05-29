@@ -22,14 +22,14 @@ public class CompanyFacade {
             companyDao = new CompanyDao(repository.size(), companyDto.getName(), companyDto.getClientId(),
                     companyDto.getAddressId());
         }
-        return toDto(repository.save(companyDao));
+        return CompanyMapper.toDto(repository.save(companyDao));
     }
 
     public CompanyDto get(Long id) {
         var companyDto = new CompanyDto();
         var companyDaoOptional = repository.get(id);
         if (Optional.ofNullable(companyDaoOptional).isPresent()) {
-            companyDto = toDto(companyDaoOptional.get());
+            companyDto = CompanyMapper.toDto(companyDaoOptional.get());
         }
         return companyDto;
     }
@@ -40,14 +40,5 @@ public class CompanyFacade {
 
     public CompanyDao generate() {
         return repository.generate();
-    }
-
-    private CompanyDto toDto(CompanyDao companyDao) {
-        CompanyDto dto = new CompanyDto();
-        dto.setId(companyDao.getId());
-        dto.setName(companyDao.getName());
-        dto.setClientId(companyDao.getClientId());
-        dto.setAddressId(companyDao.getAddressId());
-        return dto;
     }
 }

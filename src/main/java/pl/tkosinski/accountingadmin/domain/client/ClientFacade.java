@@ -19,14 +19,14 @@ public class ClientFacade {
         } else {
             clientDao = new ClientDao(clientRepository.size(), clientDto.getName(), clientDto.getAddressId());
         }
-        return toDto(clientRepository.save(clientDao));
+        return ClientMapper.toDto(clientRepository.save(clientDao));
     }
 
     public ClientDto get(Long id) {
         ClientDto dto = new ClientDto();
         Optional<ClientDao> daoOptional = clientRepository.get(id);
         if (Optional.ofNullable(daoOptional).isPresent()) {
-            dto = toDto(daoOptional.get());
+            dto = ClientMapper.toDto(daoOptional.get());
         }
         return dto;
     }
@@ -36,15 +36,7 @@ public class ClientFacade {
     }
 
     public ClientDto generate() {
-        return toDto(clientRepository.generate());
-    }
-
-    private ClientDto toDto(ClientDao clientDao) {
-        ClientDto dto = new ClientDto();
-        dto.setId(clientDao.getId());
-        dto.setName(clientDao.getName());
-        dto.setAddressId(clientDao.getAddressId());
-        return dto;
+        return ClientMapper.toDto(clientRepository.generate());
     }
 
 }

@@ -5,8 +5,6 @@ import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
 
 import java.util.Optional;
 
-import static pl.tkosinski.accountingadmin.domain.address.AddressMapper.toDto;
-
 @Component
 public class AddressFacade {
 

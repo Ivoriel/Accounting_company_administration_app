@@ -10,20 +10,9 @@ public class AddressFacade {
 
     AddressRepository addressRepository;
 
-    public AddressDto save(AddressDto addressDto) {
-        Optional<AddressDao> addressDaoOptional = addressRepository.get(addressDto.getId());
-        AddressDao addressDao;
-        if (Optional.ofNullable(addressDaoOptional).isPresent()) {
-            addressDao = addressDaoOptional.get();
-            addressDao.edit(addressDto.getCountry(),
-                    addressDto.getMunicipality(), addressDto.getRegion(), addressDto.getZipCode(), addressDto.getStreet(),
-                    addressDto.getBuildingNumber(), addressDto.getAdditionalIdentifier());
-        } else {
-            addressDao = new AddressDao(addressRepository.size(), addressDto.getCountry(), addressDto.getMunicipality(),
-                    addressDto.getRegion(), addressDto.getZipCode(), addressDto.getStreet(),
-                    addressDto.getBuildingNumber(), addressDto.getAdditionalIdentifier());
-        }
-        return AddressMapper.toDto(addressRepository.save(addressDao));
+    public void save(AddressDto addressDto) {
+        addressRepository.get(addressDto.getId())
+                .ifPresentOrElse(it -> updateAddress(it, addressDto), () -> createAddress(addressDto));
     }
 
     public AddressDto get(long id) {
@@ -41,5 +30,16 @@ public class AddressFacade {
 
     public AddressDto generate() {;
         return addressRepository.generate();
+    }
+
+    private void updateAddress(AddressDao dao, AddressDto dto) {
+        dao.edit(dto.getCountry(), dto.getMunicipality(), dto.getRegion(), dto.getZipCode(), dto.getStreet(),
+                dto.getBuildingNumber(), dto.getAdditionalIdentifier());
+    }
+
+    private void createAddress(AddressDto dto) {
+        addressRepository.save(new AddressDao(addressRepository.size(), dto.getCountry(), dto.getMunicipality(),
+                dto.getRegion(), dto.getZipCode(), dto.getStreet(), dto.getBuildingNumber(),
+                dto.getAdditionalIdentifier()));
     }
 }

@@ -3,6 +3,7 @@ package pl.tkosinski.accountingadmin.domain.address;
 import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Component
@@ -16,12 +17,7 @@ public class AddressFacade {
     }
 
     public AddressDto get(long id) {
-        AddressDto addressDto = new AddressDto();
-        Optional<AddressDao> addressDaoOptional = addressRepository.get(id);
-        if (Optional.ofNullable(addressDaoOptional).isPresent()) {
-            addressDto = AddressMapper.toDto(addressDaoOptional.get());
-        }
-        return addressDto;
+        return AddressMapper.toDto(addressRepository.get(id).orElseThrow(NoSuchElementException::new));
     }
 
     public void delete(long id) {

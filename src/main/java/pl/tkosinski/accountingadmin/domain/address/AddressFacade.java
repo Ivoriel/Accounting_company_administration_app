@@ -29,8 +29,8 @@ public class AddressFacade {
     }
 
     private void updateAddress(AddressDao dao, AddressDto dto) {
-        dao.edit(dto.getCountry(), dto.getMunicipality(), dto.getRegion(), dto.getZipCode(), dto.getStreet(),
-                dto.getBuildingNumber(), dto.getAdditionalIdentifier());
+        addressRepository.save(dao.edit(dto.getCountry(), dto.getMunicipality(), dto.getRegion(), dto.getZipCode(),
+                dto.getStreet(), dto.getBuildingNumber(), dto.getAdditionalIdentifier()));
     }
 
     private void createAddress(AddressDto dto) {

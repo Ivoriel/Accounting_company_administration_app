@@ -1,6 +1,5 @@
 package pl.tkosinski.accountingadmin.domain.company;
 
-import lombok.var;
 import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.domain.company.dto.CompanyDto;
 
@@ -11,18 +10,8 @@ public class CompanyFacade {
 
     CompanyRepository repository;
 
-    public CompanyDto save(CompanyDto companyDto) {
-        Optional<CompanyDao> companyDaoOptional = repository.get(companyDto.getId());
-        CompanyDao companyDao;
-        if (Optional.ofNullable(companyDaoOptional).isPresent()) {
-            companyDao = companyDaoOptional.get();
-            companyDao.edit(companyDto.getName(), companyDto.getClientId(),
-                    companyDto.getAddressId());
-        } else {
-            companyDao = new CompanyDao(repository.size(), companyDto.getName(), companyDto.getClientId(),
-                    companyDto.getAddressId());
-        }
-        return CompanyMapper.toDto(repository.save(companyDao));
+    public void save(CompanyDto dto) {
+        repository.get(dto.getId()).ifPresentOrElse(it -> updateCompany(it, dto), () -> createCompany(dto));
     }
 
     public CompanyDto get(Long id) {
@@ -40,5 +29,13 @@ public class CompanyFacade {
 
     public CompanyDao generate() {
         return repository.generate();
+    }
+
+    private void updateCompany(CompanyDao dao, CompanyDto dto) {
+        repository.save(dao.edit(dto.getName(), dto.getClientId(), dto.getAddressId()));
+    }
+
+    private void createCompany(CompanyDto dto) {
+        repository.save(new CompanyDao(repository.size(), dto.getName(), dto.getClientId(), dto.getAddressId()));
     }
 }

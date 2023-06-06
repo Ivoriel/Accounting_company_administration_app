@@ -1,8 +1,10 @@
 package pl.tkosinski.accountingadmin.domain.company;
 
 import org.springframework.stereotype.Component;
+import pl.tkosinski.accountingadmin.domain.address.AddressMapper;
 import pl.tkosinski.accountingadmin.domain.company.dto.CompanyDto;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Component
@@ -15,12 +17,7 @@ public class CompanyFacade {
     }
 
     public CompanyDto get(Long id) {
-        var companyDto = new CompanyDto();
-        var companyDaoOptional = repository.get(id);
-        if (Optional.ofNullable(companyDaoOptional).isPresent()) {
-            companyDto = CompanyMapper.toDto(companyDaoOptional.get());
-        }
-        return companyDto;
+        return CompanyMapper.toDto(repository.get(id).orElseThrow(NoSuchElementException::new));
     }
 
     public void delete(Long id) {

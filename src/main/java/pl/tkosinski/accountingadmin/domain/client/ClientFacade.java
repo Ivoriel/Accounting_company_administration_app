@@ -10,16 +10,8 @@ public class ClientFacade {
 
     ClientRepository clientRepository;
 
-    public ClientDto save(ClientDto clientDto) {
-        Optional<ClientDao> clientDaoOptional = clientRepository.get(clientDto.getId());
-        ClientDao clientDao;
-        if (Optional.ofNullable(clientDaoOptional).isPresent()) {
-            clientDao = clientDaoOptional.get();
-            clientDao.edit(clientDto.getName(), clientDto.getAddressId());
-        } else {
-            clientDao = new ClientDao(clientRepository.size(), clientDto.getName(), clientDto.getAddressId());
-        }
-        return ClientMapper.toDto(clientRepository.save(clientDao));
+    public void save(ClientDto dto) {
+        clientRepository.get(dto.getId()).ifPresentOrElse(it -> updateClient(it, dto), () -> createClient(dto));
     }
 
     public ClientDto get(Long id) {
@@ -39,4 +31,11 @@ public class ClientFacade {
         return ClientMapper.toDto(clientRepository.generate());
     }
 
+    private void updateClient(ClientDao dao, ClientDto dto) {
+        clientRepository.save(dao.edit(dto.getName(), dto.getAddressId()));
+    }
+
+    private void createClient(ClientDto dto) {
+        clientRepository.save(new ClientDao(clientRepository.size(), dto.getName(), dto.getAddressId()));
+    }
 }

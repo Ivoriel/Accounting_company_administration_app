@@ -3,6 +3,7 @@ package pl.tkosinski.accountingadmin.domain.client;
 import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.domain.client.dto.ClientDto;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Component
@@ -15,12 +16,7 @@ public class ClientFacade {
     }
 
     public ClientDto get(Long id) {
-        ClientDto dto = new ClientDto();
-        Optional<ClientDao> daoOptional = clientRepository.get(id);
-        if (Optional.ofNullable(daoOptional).isPresent()) {
-            dto = ClientMapper.toDto(daoOptional.get());
-        }
-        return dto;
+        return ClientMapper.toDto(clientRepository.get(id).orElseThrow(NoSuchElementException::new));
     }
 
     public void delete(Long id) {

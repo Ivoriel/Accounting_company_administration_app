@@ -1,11 +1,9 @@
 package pl.tkosinski.accountingadmin.domain.company;
 
 import org.springframework.stereotype.Component;
-import pl.tkosinski.accountingadmin.domain.address.AddressMapper;
 import pl.tkosinski.accountingadmin.domain.company.dto.CompanyDto;
 
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @Component
 public class CompanyFacade {

@@ -2,6 +2,8 @@ package pl.tkosinski.accountingadmin.api;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +20,11 @@ public class AddressController {
     @PostMapping("/save")
     public void save(@RequestParam AddressDto dto) {
         facade.save(dto);
+    }
+
+    @GetMapping("/${id}/get")
+    public AddressDto get(@PathVariable Long id) {
+        return facade.get(id);
     }
 
 }

@@ -27,4 +27,9 @@ public class ClientController {
     public ClientDto get(@PathVariable Long id) {
         return facade.get(id);
     }
+
+    @DeleteMapping("{id}/delete")
+    public void delete(@PathVariable Long id) {
+        facade.delete(id);
+    }
 }

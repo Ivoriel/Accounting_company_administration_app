@@ -32,4 +32,9 @@ public class ClientController {
     public void delete(@PathVariable Long id) {
         facade.delete(id);
     }
+
+    @GetMapping("/generate")
+    public ClientDto generate() {
+        return facade.generate();
+    }
 }

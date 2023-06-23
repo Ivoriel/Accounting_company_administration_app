@@ -4,7 +4,6 @@ import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.domain.client.dto.ClientDto;
 
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @Component
 public class ClientFacade {

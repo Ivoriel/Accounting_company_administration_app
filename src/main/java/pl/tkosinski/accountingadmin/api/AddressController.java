@@ -33,4 +33,8 @@ public class AddressController {
         facade.delete(id);
     }
 
+    @GetMapping("/generate")
+    public void generate() {
+        facade.generate();
+    }
 }

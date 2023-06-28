@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import pl.tkosinski.accountingadmin.domain.company.CompanyFacade;
 import pl.tkosinski.accountingadmin.domain.company.dto.CompanyDto;
 
@@ -19,7 +19,7 @@ public class CompanyController {
     private final CompanyFacade facade;
 
     @PostMapping("/save")
-    public void save(@RequestParam CompanyDto dto) {
+    public void save(@RequestBody CompanyDto dto) {
         facade.save(dto);
     }
 
@@ -28,7 +28,7 @@ public class CompanyController {
         return facade.get(id);
     }
 
-    @DeleteMapping("{/id}/delete")
+    @DeleteMapping("/{id}/delete")
     public void delete(@PathVariable Long id) {
         facade.delete(id);
     }

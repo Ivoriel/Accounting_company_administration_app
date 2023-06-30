@@ -22,8 +22,8 @@ public class CompanyFacade {
         repository.delete(id);
     }
 
-    public CompanyDao generate() {
-        return repository.generate();
+    public CompanyDto generate() {
+        return CompanyMapper.toDto(repository.generate());
     }
 
     private void updateCompany(CompanyDao dao, CompanyDto dto) {

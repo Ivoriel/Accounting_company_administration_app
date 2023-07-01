@@ -23,8 +23,8 @@ public class AddressFacade {
         addressRepository.delete(id);
     }
 
-    public AddressDto generate() {;
-        return addressRepository.generate();
+    public AddressDto generate() {
+        return AddressMapper.toDto(addressRepository.generate());
     }
 
     private void updateAddress(AddressDao dao, AddressDto dto) {

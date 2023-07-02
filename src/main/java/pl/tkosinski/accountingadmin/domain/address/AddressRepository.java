@@ -15,6 +15,6 @@ interface AddressRepository extends BaseRepository {
 
     int size();
 
-    AddressDto generate();
+    AddressDao generate();
 
 }

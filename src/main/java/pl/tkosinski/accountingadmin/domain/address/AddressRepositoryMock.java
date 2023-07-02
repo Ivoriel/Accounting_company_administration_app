@@ -47,24 +47,16 @@ class AddressRepositoryMock implements AddressRepository{
 
     private void populateAddressDb(){
         for (long i = 1; i < 10; i++) {
-            save(generate(i));
+            save(generateAddress());
         }
     }
 
-    public AddressDto generate() {
-        AddressDto generated = new AddressDto();
-        generated.setCountry(generateCountry());
-        generated.setMunicipality(generateMunicipality());
-        generated.setRegion(generateRegion());
-        generated.setZipCode(generateZipCode());
-        generated.setStreet(generateStreet());
-        generated.setBuildingNumber(generateBuildingNumber());
-        generated.setAdditionalIdentifier(generateAdditionalIdentifier());
-        return generated;
+    public AddressDao generate() {
+        return generateAddress();
     }
 
-    private AddressDao generate(long id) {
-        return new AddressDao(id, generateCountry(), generateMunicipality(), generateRegion(), generateZipCode(),
+    private AddressDao generateAddress() {
+        return new AddressDao(size(), generateCountry(), generateMunicipality(), generateRegion(), generateZipCode(),
                 generateStreet(), generateBuildingNumber(), generateAdditionalIdentifier());
     }
 

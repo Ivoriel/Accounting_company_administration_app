@@ -17,4 +17,5 @@ interface AddressRepository extends BaseRepository {
 
     AddressDao generate();
 
+    AddressDao generateAndSave();
 }

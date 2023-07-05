@@ -55,6 +55,10 @@ class AddressRepositoryMock implements AddressRepository{
         return generateAddress();
     }
 
+    public AddressDao generateAndSave() {
+        return save(generateAddress());
+    }
+
     private AddressDao generateAddress() {
         return new AddressDao(size(), generateCountry(), generateMunicipality(), generateRegion(), generateZipCode(),
                 generateStreet(), generateBuildingNumber(), generateAdditionalIdentifier());

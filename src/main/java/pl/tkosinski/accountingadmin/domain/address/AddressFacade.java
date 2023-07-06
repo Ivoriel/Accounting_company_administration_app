@@ -27,6 +27,10 @@ public class AddressFacade {
         return AddressMapper.toDto(addressRepository.generate());
     }
 
+    public AddressDto generateAndSave() {
+        return AddressMapper.toDto(addressRepository.generateAndSave());
+    }
+
     private void updateAddress(AddressDao dao, AddressDto dto) {
         addressRepository.save(dao.edit(dto.getCountry(), dto.getMunicipality(), dto.getRegion(), dto.getZipCode(),
                 dto.getStreet(), dto.getBuildingNumber(), dto.getAdditionalIdentifier()));

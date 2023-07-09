@@ -37,4 +37,9 @@ public class AddressController {
     public void generate() {
         facade.generate();
     }
+
+    @GetMapping("/generate-and-save")
+    public void generateAndSave() {
+        facade.generateAndSave();
+    }
 }

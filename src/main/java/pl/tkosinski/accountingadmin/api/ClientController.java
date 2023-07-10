@@ -37,4 +37,9 @@ public class ClientController {
     public ClientDto generate() {
         return facade.generate();
     }
+
+    @GetMapping("/generate-and-save")
+    public ClientDto generateAndSave() {
+        return facade.generateAndSave();
+    }
 }

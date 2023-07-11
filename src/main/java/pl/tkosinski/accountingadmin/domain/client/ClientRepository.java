@@ -16,4 +16,5 @@ interface ClientRepository extends BaseRepository {
 
     ClientDao generate();
 
+    ClientDao generateAndSave();
 }

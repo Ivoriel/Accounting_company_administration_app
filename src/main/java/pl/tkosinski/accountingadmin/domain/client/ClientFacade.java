@@ -26,6 +26,10 @@ public class ClientFacade {
         return ClientMapper.toDto(clientRepository.generate());
     }
 
+    public ClientDto generateAndSave() {
+        return ClientMapper.toDto(clientRepository.generateAndSave());
+    }
+
     private void updateClient(ClientDao dao, ClientDto dto) {
         clientRepository.save(dao.edit(dto.getName(), dto.getAddressId()));
     }

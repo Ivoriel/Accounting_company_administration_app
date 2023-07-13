@@ -37,4 +37,9 @@ public class CompanyController {
     public CompanyDto generate() {
         return facade.generate();
     }
+
+    @GetMapping("/generate-and-save")
+    public CompanyDto generateAndSave() {
+        return facade.generateAndSave();
+    }
 }

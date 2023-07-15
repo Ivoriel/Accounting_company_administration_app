@@ -26,6 +26,10 @@ public class CompanyFacade {
         return CompanyMapper.toDto(repository.generate());
     }
 
+    public CompanyDto generateAndSave() {
+        return CompanyMapper.toDto(repository.generateAndSave());
+    }
+
     private void updateCompany(CompanyDao dao, CompanyDto dto) {
         repository.save(dao.edit(dto.getName(), dto.getClientId(), dto.getAddressId()));
     }

@@ -51,18 +51,23 @@ class CompanyRepositoryMock implements CompanyRepository{
 
     @Override
     public CompanyDao generate() {
-        return generateCompany(size());
+        return generateCompany();
+    }
+
+    @Override
+    public CompanyDao generateAndSave() {
+        return save(generateCompany());
+    }
+
+    private CompanyDao generateCompany() {
+        return new CompanyDao(size(), generateCompanyName(), clientFacade.generate().getId(),
+                addressFacade.generate().getId());
     }
 
     private void populateCompanyDb() {
         for (long i = 1; i < 10; i++) {
-            CompanyDb.put(i, generateCompany(i));
+            CompanyDb.put(i, generateAndSave());
         }
-    }
-
-    private CompanyDao generateCompany(long id) {
-        return new CompanyDao(id, generateCompanyName(), clientFacade.generate().getId(),
-                addressFacade.generate().getId());
     }
 
     private String generateCompanyName() {

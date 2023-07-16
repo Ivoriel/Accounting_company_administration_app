@@ -15,4 +15,6 @@ interface CompanyRepository extends BaseRepository {
     int size();
 
     CompanyDao generate();
+
+    CompanyDao generateAndSave();
 }

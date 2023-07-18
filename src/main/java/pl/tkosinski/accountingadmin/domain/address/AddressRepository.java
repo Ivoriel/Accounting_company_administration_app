@@ -1,7 +1,6 @@
 package pl.tkosinski.accountingadmin.domain.address;
 
 import pl.tkosinski.accountingadmin.Common.BaseRepository;
-import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
 
 import java.util.Optional;
 

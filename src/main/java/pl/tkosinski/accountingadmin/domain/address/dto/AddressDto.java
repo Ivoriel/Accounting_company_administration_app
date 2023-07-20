@@ -1,17 +1,24 @@
 package pl.tkosinski.accountingadmin.domain.address.dto;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+import lombok.Value;
 
-@Data
+import static lombok.AccessLevel.PRIVATE;
+
+@Value
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor(access = PRIVATE, force = true)
 public class AddressDto {
 
-    private long id;
-    private String country;
-    private String municipality;
-    private String region;
-    private String zipCode;
-    private String street;
-    private String buildingNumber;
-    private String additionalIdentifier;
-
+    long id;
+    String country;
+    String municipality;
+    String region;
+    String zipCode;
+    String street;
+    String buildingNumber;
+    String additionalIdentifier;
 }

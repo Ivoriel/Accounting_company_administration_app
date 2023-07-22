@@ -1,14 +1,16 @@
 package pl.tkosinski.accountingadmin.domain.address;
 
-import org.springframework.stereotype.Component;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
 
 import java.util.NoSuchElementException;
 
-@Component
+@Service
+@RequiredArgsConstructor
 public class AddressFacade {
 
-    AddressRepository addressRepository;
+    private final AddressRepository addressRepository;
 
     public void save(AddressDto addressDto) {
         addressRepository.get(addressDto.getId())

@@ -1,7 +1,11 @@
 package pl.tkosinski.accountingadmin.domain.address;
 
+import lombok.Builder;
+import lombok.Getter;
 import pl.tkosinski.accountingadmin.Common.BaseDao;
 
+@Builder
+@Getter
 public class AddressDao extends BaseDao {
     
     private final Long id;

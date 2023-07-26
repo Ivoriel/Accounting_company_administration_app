@@ -1,12 +1,17 @@
 package pl.tkosinski.accountingadmin.domain.client.dto;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+import static lombok.AccessLevel.PRIVATE;
+
+@Value
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor(access = PRIVATE, force = true)
 public class ClientDto {
 
-    private long id;
-    private String name;
-    private long addressId;
+    long id;
+    String name;
+    long addressId;
 
 }

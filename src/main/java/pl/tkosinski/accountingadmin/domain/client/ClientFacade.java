@@ -35,6 +35,10 @@ public class ClientFacade {
     }
 
     private void createClient(ClientDto dto) {
-        clientRepository.save(new ClientDao(clientRepository.size(), dto.getName(), dto.getAddressId()));
+        clientRepository.save(ClientDao.builder()
+                .id(clientRepository.size())
+                .name(dto.getName())
+                .addressId(dto.getAddressId())
+                .build());
     }
 }

@@ -61,7 +61,11 @@ class ClientRepositoryMock implements ClientRepository {
     }
 
     private ClientDao generateClient() {
-        return new ClientDao(size(), generateName(), addressFacade.generate().getId());
+        return ClientDao.builder()
+                .id(size())
+                .name(generateName())
+                .addressId(addressFacade.generate().getId())
+                .build();
     }
 
     private String generateName() {

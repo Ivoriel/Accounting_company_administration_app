@@ -40,36 +40,4 @@ public class AddressDao extends BaseDao {
         this.additionalIdentifier = additionalIdentifier;
         return this;
     }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public String getMunicipality() {
-        return municipality;
-    }
-
-    public String getRegion() {
-        return region;
-    }
-
-    public String getZipCode() {
-        return zipCode;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public String getBuildingNumber() {
-        return buildingNumber;
-    }
-
-    public String getAdditionalIdentifier() {
-        return additionalIdentifier;
-    }
 }

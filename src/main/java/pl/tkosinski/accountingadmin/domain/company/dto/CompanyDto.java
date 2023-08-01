@@ -1,13 +1,15 @@
 package pl.tkosinski.accountingadmin.domain.company.dto;
 
-import lombok.Data;
+import lombok.Builder;
+import lombok.Value;
 
-@Data
+@Value
+@Builder
 public class CompanyDto {
 
-    private long id;
-    private String name;
-    private Long clientId;
-    private Long addressId;
+    long id;
+    String name;
+    Long clientId;
+    Long addressId;
 
 }

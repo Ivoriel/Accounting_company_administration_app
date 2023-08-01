@@ -1,14 +1,16 @@
 package pl.tkosinski.accountingadmin.domain.client;
 
-import org.springframework.stereotype.Component;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import pl.tkosinski.accountingadmin.domain.client.dto.ClientDto;
 
 import java.util.NoSuchElementException;
 
-@Component
+@Service
+@RequiredArgsConstructor
 public class ClientFacade {
 
-    ClientRepository clientRepository;
+    private final ClientRepository clientRepository;
 
     public void save(ClientDto dto) {
         clientRepository.get(dto.getId()).ifPresentOrElse(it -> updateClient(it, dto), () -> createClient(dto));

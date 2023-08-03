@@ -1,7 +1,11 @@
 package pl.tkosinski.accountingadmin.domain.company;
 
+import lombok.Builder;
+import lombok.Getter;
 import pl.tkosinski.accountingadmin.Common.BaseDao;
 
+@Getter
+@Builder
 public class CompanyDao extends BaseDao {
 
     private final long id;
@@ -21,21 +25,5 @@ public class CompanyDao extends BaseDao {
         this.clientId = clientId;
         this.addressId = addressId;
         return this;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public long getClientId() {
-        return clientId;
-    }
-
-    public long getAddressId() {
-        return addressId;
     }
 }

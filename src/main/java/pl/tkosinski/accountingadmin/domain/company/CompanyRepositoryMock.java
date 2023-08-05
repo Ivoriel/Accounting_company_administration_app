@@ -60,8 +60,12 @@ class CompanyRepositoryMock implements CompanyRepository{
     }
 
     private CompanyDao generateCompany() {
-        return new CompanyDao(size(), generateCompanyName(), clientFacade.generate().getId(),
-                addressFacade.generate().getId());
+        return CompanyDao.builder()
+                .id(size())
+                .name(generateCompanyName())
+                .clientId(clientFacade.generate().getId())
+                .addressId(addressFacade.generate().getId())
+                .build();
     }
 
     private void populateCompanyDb() {

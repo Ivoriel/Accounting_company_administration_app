@@ -35,6 +35,11 @@ public class CompanyFacade {
     }
 
     private void createCompany(CompanyDto dto) {
-        repository.save(new CompanyDao(repository.size(), dto.getName(), dto.getClientId(), dto.getAddressId()));
+        repository.save(CompanyDao.builder()
+                .id(repository.size())
+                .name(dto.getName())
+                .clientId(dto.getClientId())
+                .addressId(dto.getAddressId())
+                .build());
     }
 }

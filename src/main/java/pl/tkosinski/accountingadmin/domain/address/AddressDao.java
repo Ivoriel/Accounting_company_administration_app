@@ -8,7 +8,7 @@ import pl.tkosinski.accountingadmin.Common.BaseDao;
 @Getter
 public class AddressDao extends BaseDao {
     
-    private final Long id;
+    private final long id;
     private String country;
     private String municipality;
     private String region;
@@ -39,5 +39,9 @@ public class AddressDao extends BaseDao {
         this.buildingNumber = buildingNumber;
         this.additionalIdentifier = additionalIdentifier;
         return this;
+    }
+
+    public long getId() {
+        return id;
     }
 }

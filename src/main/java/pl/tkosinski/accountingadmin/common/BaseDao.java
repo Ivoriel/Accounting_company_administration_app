@@ -1,4 +1,4 @@
-package pl.tkosinski.accountingadmin.Common;
+package pl.tkosinski.accountingadmin.common;
 
 public abstract class BaseDao {
 

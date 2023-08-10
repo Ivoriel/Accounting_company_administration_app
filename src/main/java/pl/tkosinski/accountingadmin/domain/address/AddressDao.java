@@ -2,7 +2,7 @@ package pl.tkosinski.accountingadmin.domain.address;
 
 import lombok.Builder;
 import lombok.Getter;
-import pl.tkosinski.accountingadmin.Common.BaseDao;
+import pl.tkosinski.accountingadmin.common.BaseDao;
 
 @Builder
 @Getter

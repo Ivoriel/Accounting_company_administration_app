@@ -1,6 +1,6 @@
 package pl.tkosinski.accountingadmin.domain.address;
 
-import pl.tkosinski.accountingadmin.Common.BaseRepository;
+import pl.tkosinski.accountingadmin.common.BaseRepository;
 
 import java.util.Optional;
 

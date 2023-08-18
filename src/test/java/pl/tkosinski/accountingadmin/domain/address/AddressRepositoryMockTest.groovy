@@ -10,7 +10,7 @@ class AddressRepositoryMockTest extends Specification {
     def "Init"() {
     }
 
-    def "should create and get Address"() {
+    def "should create and get address"() {
         given:
         def daoToSave = AddressDao.builder()
                 .country("Polska")
@@ -28,6 +28,12 @@ class AddressRepositoryMockTest extends Specification {
 
         then:
         savedDao.country == dao.country
+        savedDao.municipality == dao.municipality
+        savedDao.region == dao.region
+        savedDao.zipCode == dao.zipCode
+        savedDao.street == dao.street
+        savedDao.buildingNumber == dao.buildingNumber
+        savedDao.additionalIdentifier == dao.additionalIdentifier
     }
 
     def "Get"() {

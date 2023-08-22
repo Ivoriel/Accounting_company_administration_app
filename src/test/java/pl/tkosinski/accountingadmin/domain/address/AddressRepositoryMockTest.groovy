@@ -61,8 +61,24 @@ class AddressRepositoryMockTest extends Specification {
         retrievedDao.additionalIdentifier == daoToSave.additionalIdentifier
     }
 
-    def "Delete"() {
+    def "should delete address"() {
+        given:
+        def daoToSave = AddressDao.builder()
+                .country("Polska")
+                .municipality("Toruń")
+                .region("kujawsko-pomorskie")
+                .zipCode("87-100")
+                .street("Jasna")
+                .buildingNumber("1")
+                .additionalIdentifier("2p")
+                .build()
+        def addressId = repository.save(daoToSave).getId()
 
+        when:
+        repository.delete(addressId)
+
+        then:
+        repository.AddressDb.isEmpty()
     }
 
     def "Size"() {

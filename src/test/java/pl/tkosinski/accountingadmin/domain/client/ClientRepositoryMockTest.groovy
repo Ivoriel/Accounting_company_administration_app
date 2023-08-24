@@ -29,6 +29,19 @@ class ClientRepositoryMockTest extends Specification {
     }
 
     def "Get"() {
+        given:
+        var daoToSave = ClientDao.builder()
+                .name("nazwa")
+                .addressId(1)
+                .build()
+        var clientId = repository.save(daoToSave).getId()
+
+        when:
+        var retrievedDao = repository.get(clientId).get()
+
+        then:
+        retrievedDao.name == daoToSave.name
+        retrievedDao.addressId == daoToSave.addressId
     }
 
     def "Delete"() {

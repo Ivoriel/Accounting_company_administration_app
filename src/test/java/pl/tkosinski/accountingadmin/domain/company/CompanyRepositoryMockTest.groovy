@@ -32,7 +32,22 @@ class CompanyRepositoryMockTest extends Specification {
         savedDao.clientId == companyToSave.clientId
     }
 
-    def "Get"() {
+    def "should get company"() {
+        given:
+        var companyToSave = CompanyDao.builder()
+                .name("company test name")
+                .clientId(1)
+                .addressId(1)
+                .build()
+        var savedDaoId = repository.save(companyToSave).getId()
+
+        when:
+        var retrievedDao = repository.get(savedDaoId).get()
+
+        then:
+        retrievedDao.name == companyToSave.name
+        retrievedDao.addressId == companyToSave.addressId
+        retrievedDao.clientId == companyToSave.clientId
     }
 
     def "Delete"() {

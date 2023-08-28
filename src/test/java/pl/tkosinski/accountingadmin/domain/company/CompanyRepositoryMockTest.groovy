@@ -50,7 +50,20 @@ class CompanyRepositoryMockTest extends Specification {
         retrievedDao.clientId == companyToSave.clientId
     }
 
-    def "Delete"() {
+    def "should delete company"() {
+        given:
+        var companyToSave = CompanyDao.builder()
+                .name("company test name")
+                .clientId(1)
+                .addressId(1)
+                .build()
+        var savedDaoId = repository.save(companyToSave).getId()
+
+        when:
+        repository.delete(savedDaoId)
+
+        then:
+        repository.CompanyDb.isEmpty()
     }
 
     def "Size"() {

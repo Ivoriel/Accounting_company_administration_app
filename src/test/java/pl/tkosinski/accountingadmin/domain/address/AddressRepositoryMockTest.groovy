@@ -81,7 +81,20 @@ class AddressRepositoryMockTest extends Specification {
         repository.AddressDb.isEmpty()
     }
 
-    def "Size"() {
+    def "should return repository size"() {
+        when:
+        repository.save(AddressDao.builder()
+                .country("Polska")
+                .municipality("Toruń")
+                .region("kujawsko-pomorskie")
+                .zipCode("87-100")
+                .street("Jasna")
+                .buildingNumber("1")
+                .additionalIdentifier("2p")
+                .build())
+
+        then:
+        repository.size() == 1
     }
 
     def "Generate"() {

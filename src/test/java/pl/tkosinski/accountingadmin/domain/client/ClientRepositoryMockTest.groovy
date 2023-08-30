@@ -59,7 +59,15 @@ class ClientRepositoryMockTest extends Specification {
         repository.ClientDb.isEmpty()
     }
 
-    def "Size"() {
+    def "should return repository size"() {
+        when:
+        repository.save(ClientDao.builder()
+                .name("nazwa")
+                .addressId(1)
+                .build())
+
+        then:
+        repository.size() == 1
     }
 
     def "Generate"() {

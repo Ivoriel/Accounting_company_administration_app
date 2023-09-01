@@ -66,7 +66,16 @@ class CompanyRepositoryMockTest extends Specification {
         repository.CompanyDb.isEmpty()
     }
 
-    def "Size"() {
+    def "should return repository size"() {
+        when:
+        repository.save( CompanyDao.builder()
+                .name("company test name")
+                .clientId(1)
+                .addressId(1)
+                .build())
+
+        then:
+        repository.size() == 1
     }
 
     def "Generate"() {

@@ -97,7 +97,18 @@ class AddressRepositoryMockTest extends Specification {
         repository.size() == 1
     }
 
-    def "Generate"() {
+    def "should generate and return address"() {
+        when:
+        def generatedDao = repository.generate()
+
+        then:
+        generatedDao.country != null
+        generatedDao.municipality != null
+        generatedDao.region != null
+        generatedDao.zipCode != null
+        generatedDao.street != null
+        generatedDao.buildingNumber != null
+        generatedDao.additionalIdentifier != null
     }
 
     def "GenerateAndSave"() {

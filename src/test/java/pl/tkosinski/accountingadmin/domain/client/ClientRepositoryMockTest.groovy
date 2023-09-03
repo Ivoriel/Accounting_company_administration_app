@@ -70,7 +70,12 @@ class ClientRepositoryMockTest extends Specification {
         repository.size() == 1
     }
 
-    def "Generate"() {
+    def "should generate and return client"() {
+        when:
+        def generatedDao = repository.generate()
+
+        then:
+        generatedDao.name != null
     }
 
     def "GenerateAndSave"() {

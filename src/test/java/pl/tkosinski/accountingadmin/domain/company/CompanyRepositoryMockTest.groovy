@@ -68,7 +68,7 @@ class CompanyRepositoryMockTest extends Specification {
 
     def "should return repository size"() {
         when:
-        repository.save( CompanyDao.builder()
+        repository.save(CompanyDao.builder()
                 .name("company test name")
                 .clientId(1)
                 .addressId(1)
@@ -78,7 +78,12 @@ class CompanyRepositoryMockTest extends Specification {
         repository.size() == 1
     }
 
-    def "Generate"() {
+    def "should generate and return company"() {
+        when:
+        def generatedDao = repository.generate()
+
+        then:
+        generatedDao.name != null
     }
 
     def "GenerateAndSave"() {

@@ -8,6 +8,7 @@ class AddressMapperTest extends Specification {
 
     def "should map address entity to dto"() {
         def dao = AddressDao.builder()
+                .id(17)
                 .country("Polska")
                 .municipality("Toruń")
                 .region("kujawsko-pomorskie")
@@ -21,6 +22,7 @@ class AddressMapperTest extends Specification {
         def dto = mapper.toDto(dao)
 
         then:
+        dto.id == dao.id
         dto.country == dao.country
         dto.municipality == dao.municipality
         dto.region == dao.region

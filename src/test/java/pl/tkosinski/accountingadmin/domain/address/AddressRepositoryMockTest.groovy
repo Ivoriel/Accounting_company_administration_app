@@ -111,6 +111,20 @@ class AddressRepositoryMockTest extends Specification {
         generatedDao.additionalIdentifier != null
     }
 
-    def "GenerateAndSave"() {
+    def "should generate and save address"() {
+        given:
+        def generatedDao = repository.generateAndSave()
+
+        when:
+        def retrievedDao = repository.get(generatedDao.getId()).get()
+
+        then:
+        retrievedDao.country == generatedDao.country
+        retrievedDao.municipality == generatedDao.municipality
+        retrievedDao.region == generatedDao.region
+        retrievedDao.zipCode == generatedDao.zipCode
+        retrievedDao.street == generatedDao.street
+        retrievedDao.buildingNumber == generatedDao.buildingNumber
+        retrievedDao.additionalIdentifier == generatedDao.additionalIdentifier
     }
 }

@@ -79,5 +79,14 @@ class ClientRepositoryMockTest extends Specification {
     }
 
     def "GenerateAndSave"() {
+        given:
+        def generatedDao = repository.generateAndSave()
+
+        when:
+        def retrievedDao = repository.get(generatedDao.id).get()
+
+        then:
+        retrievedDao.name == generatedDao.name
+        retrievedDao.addressId == generatedDao.addressId
     }
 }

@@ -86,6 +86,16 @@ class CompanyRepositoryMockTest extends Specification {
         generatedDao.name != null
     }
 
-    def "GenerateAndSave"() {
+    def "should generate and save company"() {
+        given:
+        def generatedDao = repository.generateAndSave()
+
+        when:
+        def retrievedDao = repository.get(generatedDao.id).get()
+
+        then:
+        retrievedDao.name == generatedDao.name
+        retrievedDao.addressId == generatedDao.addressId
+        retrievedDao.clientId == generatedDao.clientId
     }
 }

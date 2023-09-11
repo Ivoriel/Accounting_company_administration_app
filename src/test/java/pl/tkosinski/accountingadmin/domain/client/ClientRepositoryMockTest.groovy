@@ -2,7 +2,6 @@ package pl.tkosinski.accountingadmin.domain.client
 
 import pl.tkosinski.accountingadmin.domain.address.AddressFacade
 import pl.tkosinski.accountingadmin.domain.address.AddressRepositoryMock
-import pl.tkosinski.accountingadmin.domain.address.AddressRepositoryMockTest
 import spock.lang.Specification
 
 class ClientRepositoryMockTest extends Specification {
@@ -34,7 +33,7 @@ class ClientRepositoryMockTest extends Specification {
                 .name("nazwa")
                 .addressId(1)
                 .build()
-        var clientId = repository.save(daoToSave).getId()
+        var clientId = repository.save(daoToSave).id
 
         when:
         var retrievedDao = repository.get(clientId).get()
@@ -50,7 +49,7 @@ class ClientRepositoryMockTest extends Specification {
                 .name("nazwa")
                 .addressId(1)
                 .build()
-        var clientId = repository.save(daoToSave).getId()
+        var clientId = repository.save(daoToSave).id
 
         when:
         repository.delete(clientId)

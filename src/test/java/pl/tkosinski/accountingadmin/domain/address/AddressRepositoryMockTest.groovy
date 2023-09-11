@@ -1,6 +1,6 @@
 package pl.tkosinski.accountingadmin.domain.address
 
-import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto
+
 import spock.lang.Specification
 
 class AddressRepositoryMockTest extends Specification {
@@ -46,7 +46,7 @@ class AddressRepositoryMockTest extends Specification {
                 .buildingNumber("1")
                 .additionalIdentifier("2p")
                 .build()
-        def addressId = repository.save(daoToSave).getId()
+        def addressId = repository.save(daoToSave).id
 
         when:
         def retrievedDao = repository.get(addressId).get()
@@ -72,7 +72,7 @@ class AddressRepositoryMockTest extends Specification {
                 .buildingNumber("1")
                 .additionalIdentifier("2p")
                 .build()
-        def addressId = repository.save(daoToSave).getId()
+        def addressId = repository.save(daoToSave).id
 
         when:
         repository.delete(addressId)
@@ -116,7 +116,7 @@ class AddressRepositoryMockTest extends Specification {
         def generatedDao = repository.generateAndSave()
 
         when:
-        def retrievedDao = repository.get(generatedDao.getId()).get()
+        def retrievedDao = repository.get(generatedDao.id).get()
 
         then:
         retrievedDao.country == generatedDao.country

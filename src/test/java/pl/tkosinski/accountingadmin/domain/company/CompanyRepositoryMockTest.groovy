@@ -39,7 +39,7 @@ class CompanyRepositoryMockTest extends Specification {
                 .clientId(1)
                 .addressId(1)
                 .build()
-        var savedDaoId = repository.save(companyToSave).getId()
+        var savedDaoId = repository.save(companyToSave).id
 
         when:
         var retrievedDao = repository.get(savedDaoId).get()
@@ -57,7 +57,7 @@ class CompanyRepositoryMockTest extends Specification {
                 .clientId(1)
                 .addressId(1)
                 .build()
-        var savedDaoId = repository.save(companyToSave).getId()
+        var savedDaoId = repository.save(companyToSave).id
 
         when:
         repository.delete(savedDaoId)

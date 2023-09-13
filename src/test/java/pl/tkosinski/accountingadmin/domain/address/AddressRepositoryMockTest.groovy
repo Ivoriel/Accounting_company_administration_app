@@ -7,7 +7,12 @@ class AddressRepositoryMockTest extends Specification {
 
     AddressRepository repository = new AddressRepositoryMock(new HashMap())
 
-    def "Init"() {
+    def "should generate initial db when instance is created"() {
+        when:
+        repository.init()
+
+        then:
+        repository.size() > 0
     }
 
     def "should create address"() {

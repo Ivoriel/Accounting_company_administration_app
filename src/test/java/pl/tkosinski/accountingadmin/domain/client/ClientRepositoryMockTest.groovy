@@ -9,7 +9,12 @@ class ClientRepositoryMockTest extends Specification {
     ClientRepository repository = new ClientRepositoryMock(new HashMap(), new AddressFacade(new AddressRepositoryMock(
             new HashMap())))
 
-    def "Init"() {
+    def "should generate initial db when instance is created"() {
+        when:
+        repository.init()
+
+        then:
+        repository.size() > 0
     }
 
     def "should create client"() {

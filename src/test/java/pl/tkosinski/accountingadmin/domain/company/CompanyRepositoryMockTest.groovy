@@ -12,7 +12,12 @@ class CompanyRepositoryMockTest extends Specification {
     CompanyRepository repository = new CompanyRepositoryMock(new HashMap(), addressFacade,
             new ClientFacade(new ClientRepositoryMock(new HashMap(), addressFacade)))
 
-    def "Init"() {
+    def "should generate initial db when instance is created"() {
+        when:
+        repository.init()
+
+        then:
+        repository.size() > 0
     }
 
     def "should create and save company"() {

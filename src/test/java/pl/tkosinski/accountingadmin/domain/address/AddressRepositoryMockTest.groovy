@@ -83,7 +83,7 @@ class AddressRepositoryMockTest extends Specification {
         repository.delete(addressId)
 
         then:
-        repository.AddressDb.isEmpty()
+        repository.addressDb.isEmpty()
     }
 
     def "should return repository size"() {

@@ -16,7 +16,7 @@ import java.util.concurrent.ThreadLocalRandom;
 @AllArgsConstructor
 class AddressRepositoryMock implements AddressRepository{
 
-    HashMap AddressDb;
+    HashMap addressDb;
 
     @PostConstruct
     public void init() {
@@ -25,23 +25,23 @@ class AddressRepositoryMock implements AddressRepository{
 
     @Override
     public AddressDao save(AddressDao addressDao) {
-        AddressDb.put(addressDao.getId(), addressDao);
+        addressDb.put(addressDao.getId(), addressDao);
         return addressDao;
     }
 
     @Override
     public Optional<AddressDao> get(long id) {
-        return Optional.of((AddressDao) AddressDb.get(id));
+        return Optional.of((AddressDao) addressDb.get(id));
     }
 
     @Override
     public void delete(long id) {
-        AddressDb.remove(id);
+        addressDb.remove(id);
     }
 
     @Override
     public int size() {
-        return AddressDb.size();
+        return addressDb.size();
     }
 
     private void populateAddressDb(){

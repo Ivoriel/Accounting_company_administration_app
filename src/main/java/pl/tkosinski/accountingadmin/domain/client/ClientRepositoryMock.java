@@ -17,7 +17,7 @@ import java.util.concurrent.ThreadLocalRandom;
 @AllArgsConstructor
 class ClientRepositoryMock implements ClientRepository {
 
-    HashMap ClientDb;
+    HashMap clientDb;
     AddressFacade addressFacade;
 
     @PostConstruct
@@ -27,23 +27,23 @@ class ClientRepositoryMock implements ClientRepository {
 
     @Override
     public ClientDao save(ClientDao clientDao) {
-        ClientDb.put(clientDao.getId(), clientDao);
+        clientDb.put(clientDao.getId(), clientDao);
         return clientDao;
     }
 
     @Override
     public Optional<ClientDao> get(long id) {
-        return Optional.of((ClientDao) ClientDb.get(id));
+        return Optional.of((ClientDao) clientDb.get(id));
     }
 
     @Override
     public void delete(long id) {
-        ClientDb.remove(id);
+        clientDb.remove(id);
     }
 
     @Override
     public int size() {
-        return ClientDb.size();
+        return clientDb.size();
     }
 
     public ClientDao generate() {

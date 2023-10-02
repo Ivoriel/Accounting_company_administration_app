@@ -60,7 +60,7 @@ class ClientRepositoryMockTest extends Specification {
         repository.delete(clientId)
 
         then:
-        repository.ClientDb.isEmpty()
+        repository.clientDb.isEmpty()
     }
 
     def "should return repository size"() {

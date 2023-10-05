@@ -18,7 +18,7 @@ import java.util.concurrent.ThreadLocalRandom;
 @AllArgsConstructor
 class CompanyRepositoryMock implements CompanyRepository{
 
-    HashMap CompanyDb;
+    HashMap companyDb;
     AddressFacade addressFacade;
     ClientFacade clientFacade;
 
@@ -30,23 +30,23 @@ class CompanyRepositoryMock implements CompanyRepository{
 
     @Override
     public CompanyDao save(CompanyDao companyDao) {
-        CompanyDb.put(companyDao.getId(), companyDao);
+        companyDb.put(companyDao.getId(), companyDao);
         return companyDao;
     }
 
     @Override
     public Optional<CompanyDao> get(long id) {
-        return Optional.ofNullable((CompanyDao) CompanyDb.get(id));
+        return Optional.ofNullable((CompanyDao) companyDb.get(id));
     }
 
     @Override
     public void delete(long id) {
-        CompanyDb.remove(id);
+        companyDb.remove(id);
     }
 
     @Override
     public int size() {
-        return CompanyDb.size();
+        return companyDb.size();
     }
 
     @Override
@@ -70,7 +70,7 @@ class CompanyRepositoryMock implements CompanyRepository{
 
     private void populateCompanyDb() {
         for (long i = 1; i < 10; i++) {
-            CompanyDb.put(i, generateAndSave());
+            companyDb.put(i, generateAndSave());
         }
     }
 

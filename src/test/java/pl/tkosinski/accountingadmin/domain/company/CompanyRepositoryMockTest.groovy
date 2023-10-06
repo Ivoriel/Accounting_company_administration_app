@@ -68,7 +68,7 @@ class CompanyRepositoryMockTest extends Specification {
         repository.delete(savedDaoId)
 
         then:
-        repository.CompanyDb.isEmpty()
+        repository.companyDb.isEmpty()
     }
 
     def "should return repository size"() {

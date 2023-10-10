@@ -17,7 +17,7 @@ import java.util.concurrent.ThreadLocalRandom;
 @AllArgsConstructor
 class ClientRepositoryMock implements ClientRepository {
 
-    HashMap clientDb;
+    HashMap<Long, ClientDao> clientDb;
     AddressFacade addressFacade;
 
     @PostConstruct

@@ -18,7 +18,7 @@ import java.util.concurrent.ThreadLocalRandom;
 @AllArgsConstructor
 class CompanyRepositoryMock implements CompanyRepository{
 
-    HashMap companyDb;
+    HashMap<Long, CompanyDao> companyDb;
     AddressFacade addressFacade;
     ClientFacade clientFacade;
 

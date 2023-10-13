@@ -31,7 +31,7 @@ class AddressRepositoryMock implements AddressRepository{
 
     @Override
     public Optional<AddressDao> get(long id) {
-        return Optional.of((AddressDao) addressDb.get(id));
+        return Optional.of(addressDb.get(id));
     }
 
     @Override

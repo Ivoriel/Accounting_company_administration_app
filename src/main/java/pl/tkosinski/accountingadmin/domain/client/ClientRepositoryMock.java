@@ -33,7 +33,7 @@ class ClientRepositoryMock implements ClientRepository {
 
     @Override
     public Optional<ClientDao> get(long id) {
-        return Optional.of((ClientDao) clientDb.get(id));
+        return Optional.of(clientDb.get(id));
     }
 
     @Override

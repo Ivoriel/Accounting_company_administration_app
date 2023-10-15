@@ -36,7 +36,7 @@ class CompanyRepositoryMock implements CompanyRepository{
 
     @Override
     public Optional<CompanyDao> get(long id) {
-        return Optional.ofNullable((CompanyDao) companyDb.get(id));
+        return Optional.ofNullable(companyDb.get(id));
     }
 
     @Override

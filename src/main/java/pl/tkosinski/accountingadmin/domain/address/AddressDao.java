@@ -40,8 +40,4 @@ public class AddressDao extends BaseDao {
         this.additionalIdentifier = additionalIdentifier;
         return this;
     }
-
-    public long getId() {
-        return id;
-    }
 }

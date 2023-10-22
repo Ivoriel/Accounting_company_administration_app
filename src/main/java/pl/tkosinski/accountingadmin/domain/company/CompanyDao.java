@@ -26,9 +26,4 @@ public class CompanyDao extends BaseDao {
         this.addressId = addressId;
         return this;
     }
-
-    @Override
-    public long getId() {
-        return id;
-    }
 }

@@ -4,7 +4,7 @@ import pl.tkosinski.accountingadmin.common.BaseRepository;
 
 import java.util.Optional;
 
-interface AddressRepository extends BaseRepository {
+interface AddressRepository extends BaseRepository<AddressDao> {
 
     AddressDao save(AddressDao addressDao);
 

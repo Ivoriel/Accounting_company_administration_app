@@ -4,7 +4,7 @@ import pl.tkosinski.accountingadmin.common.BaseRepository;
 
 import java.util.Optional;
 
-interface CompanyRepository extends BaseRepository {
+interface CompanyRepository extends BaseRepository<CompanyDao> {
 
     CompanyDao save(CompanyDao companyDao);
 

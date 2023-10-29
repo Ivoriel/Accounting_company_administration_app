@@ -1,8 +1,11 @@
 package pl.tkosinski.accountingadmin.domain.task;
 
+import java.util.HashMap;
 import java.util.Optional;
 
 public class TaskRepositoryMock implements TaskRepository {
+
+    HashMap<Long, TaskDao> taskDb;
 
     @Override
     public TaskDao save(TaskDao clientDao) {

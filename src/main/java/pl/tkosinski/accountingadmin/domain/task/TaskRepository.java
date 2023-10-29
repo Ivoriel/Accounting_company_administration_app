@@ -2,5 +2,19 @@ package pl.tkosinski.accountingadmin.domain.task;
 
 import pl.tkosinski.accountingadmin.common.BaseRepository;
 
-public interface TaskRepository extends BaseRepository {
+import java.util.Optional;
+
+public interface TaskRepository extends BaseRepository<TaskDao> {
+
+    TaskDao save(TaskDao clientDao);
+
+    Optional<TaskDao> get(long id);
+
+    void delete(long id);
+
+    int size();
+
+    TaskDao generate();
+
+    TaskDao generateAndSave();
 }

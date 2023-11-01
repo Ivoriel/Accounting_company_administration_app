@@ -24,7 +24,7 @@ public class TaskRepositoryMock implements TaskRepository {
 
     @Override
     public int size() {
-        return 0;
+        return taskDb.size();
     }
 
     @Override

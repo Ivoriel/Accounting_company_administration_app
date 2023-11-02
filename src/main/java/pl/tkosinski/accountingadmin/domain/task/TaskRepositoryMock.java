@@ -8,8 +8,8 @@ public class TaskRepositoryMock implements TaskRepository {
     HashMap<Long, TaskDao> taskDb;
 
     @Override
-    public TaskDao save(TaskDao clientDao) {
-        return null;
+    public TaskDao save(TaskDao taskDao) {
+        return taskDb.put(taskDao.getId(), taskDao);
     }
 
     @Override

@@ -19,7 +19,7 @@ public class TaskRepositoryMock implements TaskRepository {
 
     @Override
     public void delete(long id) {
-
+        taskDb.remove(id);
     }
 
     @Override

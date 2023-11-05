@@ -14,7 +14,7 @@ public class TaskRepositoryMock implements TaskRepository {
 
     @Override
     public Optional<TaskDao> get(long id) {
-        return Optional.empty();
+        return Optional.of(taskDb.get(id));
     }
 
     @Override

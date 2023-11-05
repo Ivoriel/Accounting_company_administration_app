@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.domain.task.dto.TaskDto;
 
+import java.util.NoSuchElementException;
+
 @Component
 @RequiredArgsConstructor
 public class TaskFacade {
@@ -12,6 +14,10 @@ public class TaskFacade {
 
     public void save(TaskDto dto) {
         repository.get(dto.getId()).ifPresentOrElse(it -> update(it, dto), () -> create(dto));
+    }
+
+    public TaskDto get(Long id) {
+        return TaskMapper.toDto(repository.get(id).orElseThrow(NoSuchElementException::new));
     }
 
     private void update(TaskDao dao, TaskDto dto) {

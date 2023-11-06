@@ -20,6 +20,10 @@ public class TaskFacade {
         return TaskMapper.toDto(repository.get(id).orElseThrow(NoSuchElementException::new));
     }
 
+    public void delete(Long id) {
+        repository.delete(id);
+    }
+
     private void update(TaskDao dao, TaskDto dto) {
         repository.save(dao.edit());
     }

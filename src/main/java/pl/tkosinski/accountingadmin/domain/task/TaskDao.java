@@ -9,4 +9,8 @@ import pl.tkosinski.accountingadmin.common.BaseDao;
 public class TaskDao extends BaseDao {
 
     private final long id;
+
+    public TaskDao edit() {
+        return this;
+    }
 }

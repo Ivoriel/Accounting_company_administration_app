@@ -29,7 +29,9 @@ public class TaskRepositoryMock implements TaskRepository {
 
     @Override
     public TaskDao generate() {
-        return null;
+        return TaskDao.builder()
+                .id(taskDb.size())
+                .build();
     }
 
     @Override

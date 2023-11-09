@@ -24,6 +24,10 @@ public class TaskFacade {
         repository.delete(id);
     }
 
+    public TaskDto generate() {
+        return TaskMapper.toDto(repository.generate());
+    }
+
     private void update(TaskDao dao, TaskDto dto) {
         repository.save(dao.edit());
     }

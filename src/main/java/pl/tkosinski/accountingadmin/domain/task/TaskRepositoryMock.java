@@ -36,6 +36,6 @@ public class TaskRepositoryMock implements TaskRepository {
 
     @Override
     public TaskDao generateAndSave() {
-        return null;
+        return save(generate());
     }
 }

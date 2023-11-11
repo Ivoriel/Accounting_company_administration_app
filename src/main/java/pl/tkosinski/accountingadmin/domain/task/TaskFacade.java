@@ -28,6 +28,10 @@ public class TaskFacade {
         return TaskMapper.toDto(repository.generate());
     }
 
+    public TaskDto generateAndSave() {
+        return TaskMapper.toDto(repository.generateAndSave());
+    }
+
     private void update(TaskDao dao, TaskDto dto) {
         repository.save(dao.edit());
     }

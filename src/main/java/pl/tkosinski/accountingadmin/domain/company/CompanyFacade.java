@@ -1,14 +1,16 @@
 package pl.tkosinski.accountingadmin.domain.company;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.domain.company.dto.CompanyDto;
 
 import java.util.NoSuchElementException;
 
 @Component
+@RequiredArgsConstructor
 public class CompanyFacade {
 
-    CompanyRepository repository;
+    private final CompanyRepository repository;
 
     public void save(CompanyDto dto) {
         repository.get(dto.getId()).ifPresentOrElse(it -> updateCompany(it, dto), () -> createCompany(dto));

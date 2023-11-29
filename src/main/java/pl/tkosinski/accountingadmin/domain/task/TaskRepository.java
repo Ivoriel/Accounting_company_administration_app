@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface TaskRepository extends BaseRepository<TaskDao> {
 
-    TaskDao save(TaskDao clientDao);
+    TaskDao save(TaskDao taskDao);
 
     Optional<TaskDao> get(long id);
 

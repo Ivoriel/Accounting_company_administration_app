@@ -1,7 +1,9 @@
 package pl.tkosinski.accountingadmin.domain.task;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Optional;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class TaskRepositoryMock implements TaskRepository {
 
@@ -29,13 +31,21 @@ public class TaskRepositoryMock implements TaskRepository {
 
     @Override
     public TaskDao generate() {
+        var start = generateRandomInt(60, 240);
+
         return TaskDao.builder()
                 .id(taskDb.size())
+                .start(LocalDateTime.now().minusMinutes(start))
+                .end(LocalDateTime.now().minusMinutes(start+60))
                 .build();
     }
 
     @Override
     public TaskDao generateAndSave() {
         return save(generate());
+    }
+
+    private int generateRandomInt(int min, int max) {
+        return ThreadLocalRandom.current().nextInt(min, max +1);
     }
 }

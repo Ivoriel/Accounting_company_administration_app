@@ -1,8 +1,12 @@
 package pl.tkosinski.accountingadmin.domain.user;
 
+import java.util.HashMap;
 import java.util.Optional;
 
 public class UserRepositoryMock implements UserRepository{
+
+    HashMap<Long, UserDao> userDb;
+
     @Override
     public UserDao save(UserDao userDao) {
         return null;

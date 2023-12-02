@@ -9,7 +9,7 @@ public class UserRepositoryMock implements UserRepository{
 
     @Override
     public UserDao save(UserDao userDao) {
-        return null;
+        return userDb.put(userDao.getId(), userDao);
     }
 
     @Override

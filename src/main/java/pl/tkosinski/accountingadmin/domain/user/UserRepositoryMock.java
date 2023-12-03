@@ -14,7 +14,7 @@ public class UserRepositoryMock implements UserRepository{
 
     @Override
     public Optional<UserDao> get(long id) {
-        return Optional.empty();
+        return Optional.of(userDb.get(id));
     }
 
     @Override

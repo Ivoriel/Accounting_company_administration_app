@@ -24,7 +24,7 @@ public class UserRepositoryMock implements UserRepository{
 
     @Override
     public int size() {
-        return 0;
+        return userDb.size();
     }
 
     @Override

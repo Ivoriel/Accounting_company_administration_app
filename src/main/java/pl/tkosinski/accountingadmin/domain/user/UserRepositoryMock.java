@@ -19,7 +19,7 @@ public class UserRepositoryMock implements UserRepository{
 
     @Override
     public void delete(long id) {
-
+        userDb.remove(id);
     }
 
     @Override

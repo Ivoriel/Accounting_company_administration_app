@@ -2,6 +2,7 @@ package pl.tkosinski.accountingadmin.domain.user;
 
 import java.util.HashMap;
 import java.util.Optional;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class UserRepositoryMock implements UserRepository{
 
@@ -29,11 +30,38 @@ public class UserRepositoryMock implements UserRepository{
 
     @Override
     public UserDao generate() {
-        return null;
+        return generateUser();
     }
 
     @Override
     public UserDao generateAndSave() {
         return null;
+    }
+
+    private UserDao generateUser() {
+        return UserDao.builder()
+                .id(userDb.size())
+                .givenName(generateGivenName())
+                .lastName(generateLastName())
+                .build();
+    }
+
+    private String generateGivenName() {
+
+        String[] firstNames = {"Stanisław", "Eustachy", "Janusz", "Maria", "Chryzostom", "Kunegunda", "Genowefa", "Alicja",
+                "Justyna", "Grzegorz", "Andrzej", "Anna"};
+
+        return firstNames[generateRandomInt(firstNames.length - 1)];
+    }
+
+    private String generateLastName() {
+        String[] lastNames = {"Pędziwiatr", "Krzyżtopór", "Zagłoba", "Makarow", "Kowal", "Anioł", "Kosa", "Młot", "Nowak",
+                "żak", "Anonim", "Kot", "Lasek"};
+
+        return lastNames[generateRandomInt(lastNames.length - 1)];
+    }
+
+    private int generateRandomInt(int max) {
+        return ThreadLocalRandom.current().nextInt(0, max +1);
     }
 }

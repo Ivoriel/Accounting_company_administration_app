@@ -4,6 +4,10 @@ import java.util.HashMap;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * The purpose of this class is to operate as a mock db during development.
+ */
+
 public class UserRepositoryMock implements UserRepository{
 
     HashMap<Long, UserDao> userDb;
@@ -35,7 +39,7 @@ public class UserRepositoryMock implements UserRepository{
 
     @Override
     public UserDao generateAndSave() {
-        return null;
+        return save(generateUser());
     }
 
     private UserDao generateUser() {

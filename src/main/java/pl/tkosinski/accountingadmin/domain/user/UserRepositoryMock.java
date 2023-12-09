@@ -1,5 +1,7 @@
 package pl.tkosinski.accountingadmin.domain.user;
 
+import jakarta.annotation.PostConstruct;
+
 import java.util.HashMap;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
@@ -11,6 +13,11 @@ import java.util.concurrent.ThreadLocalRandom;
 public class UserRepositoryMock implements UserRepository{
 
     HashMap<Long, UserDao> userDb;
+
+    @PostConstruct
+    public void init() {
+        populateUserDb();
+    }
 
     @Override
     public UserDao save(UserDao userDao) {
@@ -40,6 +47,12 @@ public class UserRepositoryMock implements UserRepository{
     @Override
     public UserDao generateAndSave() {
         return save(generateUser());
+    }
+
+    private void populateUserDb(){
+        for (long i = 1; i < 10; i++) {
+            generateAndSave();
+        }
     }
 
     private UserDao generateUser() {

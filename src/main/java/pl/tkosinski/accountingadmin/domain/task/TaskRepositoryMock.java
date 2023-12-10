@@ -1,13 +1,28 @@
 package pl.tkosinski.accountingadmin.domain.task;
 
+import jakarta.annotation.PostConstruct;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Component;
+
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * The purpose of this class is to operate as a mock db during development.
+ */
+
+@Component
+@AllArgsConstructor
 public class TaskRepositoryMock implements TaskRepository {
 
     HashMap<Long, TaskDao> taskDb;
+
+    @PostConstruct
+    public void init() {
+        populateTaskDb();
+    }
 
     @Override
     public TaskDao save(TaskDao taskDao) {
@@ -43,6 +58,12 @@ public class TaskRepositoryMock implements TaskRepository {
     @Override
     public TaskDao generateAndSave() {
         return save(generate());
+    }
+
+    private void populateTaskDb() {
+        for (long i = 1; i < 10; i++) {
+            generateAndSave();
+        }
     }
 
     private int generateRandomInt(int min, int max) {

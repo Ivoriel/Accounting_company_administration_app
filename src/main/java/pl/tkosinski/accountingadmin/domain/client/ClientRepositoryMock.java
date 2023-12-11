@@ -63,22 +63,25 @@ class ClientRepositoryMock implements ClientRepository {
     private ClientDao generateClient() {
         return ClientDao.builder()
                 .id(size())
-                .name(generateName())
+                .givenName(generateGivenName())
+                .lastName(generateLastName())
                 .addressId(addressFacade.generate().getId())
                 .build();
     }
 
-    private String generateName() {
+    private String generateGivenName() {
 
         String[] firstNames = {"Stanisław", "Eustachy", "Janusz", "Maria", "Chryzostom", "Kunegunda", "Genowefa", "Alicja",
                 "Justyna", "Grzegorz", "Andrzej", "Anna"};
 
+        return firstNames[generateRandomInt(firstNames.length - 1)];
+    }
+
+    private String generateLastName() {
         String[] lastNames = {"Pędziwiatr", "Krzyżtopór", "Zagłoba", "Makarow", "Kowal", "Anioł", "Kosa", "Młot", "Nowak",
                 "żak", "Anonim", "Kot", "Lasek"};
 
-        return firstNames[generateRandomInt(firstNames.length - 1)]
-                + " " +
-                lastNames[generateRandomInt(lastNames.length - 1)];
+        return lastNames[generateRandomInt(lastNames.length - 1)];
     }
 
     private int generateRandomInt(int max) {

@@ -9,17 +9,20 @@ import pl.tkosinski.accountingadmin.common.BaseDao;
 public class ClientDao extends BaseDao {
 
     private final long id;
-    private String name;
+    private String givenName;
+    private String lastName;
     private long addressId;
 
-    public ClientDao(long id, String name, long addressId) {
+    public ClientDao(long id, String givenName, String lastName, long addressId) {
         this.id = id;
-        this.name = name;
+        this.givenName = givenName;
+        this.lastName = lastName;
         this.addressId = addressId;
     }
 
-    public ClientDao edit(String name, long addressId) {
-        this.name = name;
+    public ClientDao edit(String givenName, String lastName, long addressId) {
+        this.givenName = givenName;
+        this.lastName = lastName;
         this.addressId = addressId;
         return this;
     }

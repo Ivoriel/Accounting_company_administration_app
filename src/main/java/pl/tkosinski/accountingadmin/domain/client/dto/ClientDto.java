@@ -11,7 +11,8 @@ import static lombok.AccessLevel.PRIVATE;
 public class ClientDto {
 
     long id;
-    String name;
+    String givenName;
+    String lastName;
     long addressId;
 
 }

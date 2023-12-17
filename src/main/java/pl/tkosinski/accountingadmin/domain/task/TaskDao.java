@@ -11,11 +11,14 @@ import java.time.LocalDateTime;
 public class TaskDao extends BaseDao {
 
     private final long id;
-    private final LocalDateTime start;
-    private final LocalDateTime end;
-    private final String comment;
+    private LocalDateTime start;
+    private LocalDateTime end;
+    private String comment;
 
-    public TaskDao edit() {
+    public TaskDao edit(LocalDateTime start, LocalDateTime end, String comment) {
+        this.start = start;
+        this.end = end;
+        this.comment = comment;
         return this;
     }
 }

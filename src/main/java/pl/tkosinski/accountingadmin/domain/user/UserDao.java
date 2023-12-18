@@ -11,4 +11,10 @@ public class UserDao extends BaseDao {
     private final long id;
     private String givenName;
     private String lastName;
+
+    public UserDao(long id, String givenName, String lastName) {
+        this.id = id;
+        this.givenName = givenName;
+        this.lastName = lastName;
+    }
 }

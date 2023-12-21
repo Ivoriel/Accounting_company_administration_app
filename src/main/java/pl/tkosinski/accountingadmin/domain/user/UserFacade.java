@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserDto;
 
+import java.util.NoSuchElementException;
+
 @Component
 @RequiredArgsConstructor
 public class UserFacade {
@@ -12,6 +14,10 @@ public class UserFacade {
 
     public void save(UserDto dto) {
         repository.get(dto.getId()).ifPresentOrElse(it -> update(it, dto), () -> create(dto));
+    }
+
+    public UserDto get(Long id) {
+        return UserMapper.toDto(repository.get(id).orElseThrow(NoSuchElementException::new));
     }
 
     private void create(UserDto dto) {

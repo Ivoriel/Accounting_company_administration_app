@@ -20,6 +20,10 @@ public class UserFacade {
         return UserMapper.toDto(repository.get(id).orElseThrow(NoSuchElementException::new));
     }
 
+    public void delete(long id) {
+        repository.delete(id);
+    }
+
     private void create(UserDto dto) {
         repository.save(UserDao.builder()
                 .id(repository.size())

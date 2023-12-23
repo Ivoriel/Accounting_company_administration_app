@@ -24,6 +24,10 @@ public class UserFacade {
         repository.delete(id);
     }
 
+    public UserDto generate() {
+        return UserMapper.toDto(repository.generate());
+    }
+
     private void create(UserDto dto) {
         repository.save(UserDao.builder()
                 .id(repository.size())

@@ -1,6 +1,9 @@
 package pl.tkosinski.accountingadmin.domain.task
 
+import pl.tkosinski.accountingadmin.domain.client.ClientDao
 import spock.lang.Specification
+
+import java.time.LocalDateTime
 
 class TaskRepositoryMockTest extends Specification {
 
@@ -14,7 +17,21 @@ class TaskRepositoryMockTest extends Specification {
         repository.size() > 0
     }
 
-    def "Save"() {
+    def "should create and save task"() {
+        given:
+        var daoToSave = TaskDao.builder()
+                .start(LocalDateTime.now().minusMinutes(60))
+                .end(LocalDateTime.now().minusMinutes(5))
+                .comment("test comment")
+                .build()
+
+        when:
+        var savedDao = repository.save(daoToSave)
+
+        then:
+        savedDao.start == daoToSave.start
+        savedDao.end == daoToSave.end
+        savedDao.comment == daoToSave.comment
     }
 
     def "Get"() {

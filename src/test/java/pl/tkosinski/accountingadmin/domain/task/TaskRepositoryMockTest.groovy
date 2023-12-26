@@ -34,7 +34,22 @@ class TaskRepositoryMockTest extends Specification {
         savedDao.comment == daoToSave.comment
     }
 
-    def "Get"() {
+    def "should retrieve task"() {
+        given:
+        var daoToSave = TaskDao.builder()
+                .start(LocalDateTime.now().minusMinutes(60))
+                .end(LocalDateTime.now().minusMinutes(5))
+                .comment("test comment")
+                .build()
+        var taskId = repository.save(daoToSave).id
+
+        when:
+        var retrievedDao = repository.get(taskId).get()
+
+        then:
+        retrievedDao.start == daoToSave.start
+        retrievedDao.end == daoToSave.end
+        retrievedDao.comment == daoToSave.comment
     }
 
     def "Delete"() {

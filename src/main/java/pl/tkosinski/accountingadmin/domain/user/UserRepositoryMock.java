@@ -1,6 +1,8 @@
 package pl.tkosinski.accountingadmin.domain.user;
 
 import jakarta.annotation.PostConstruct;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Optional;
@@ -10,6 +12,8 @@ import java.util.concurrent.ThreadLocalRandom;
  * The purpose of this class is to operate as a mock db during development.
  */
 
+@Component
+@AllArgsConstructor
 public class UserRepositoryMock implements UserRepository{
 
     HashMap<Long, UserDao> userDb;

@@ -28,6 +28,10 @@ public class UserFacade {
         return UserMapper.toDto(repository.generate());
     }
 
+    public UserDto generateAndSave() {
+        return UserMapper.toDto(repository.generateAndSave());
+    }
+
     private void create(UserDto dto) {
         repository.save(UserDao.builder()
                 .id(repository.size())

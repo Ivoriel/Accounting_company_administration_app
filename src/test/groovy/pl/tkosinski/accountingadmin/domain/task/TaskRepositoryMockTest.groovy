@@ -52,7 +52,20 @@ class TaskRepositoryMockTest extends Specification {
         retrievedDao.comment == daoToSave.comment
     }
 
-    def "Delete"() {
+    def "should delete task"() {
+        given:
+        var daoToSave = TaskDao.builder()
+                .start(LocalDateTime.now().minusMinutes(60))
+                .end(LocalDateTime.now().minusMinutes(5))
+                .comment("test comment")
+                .build()
+        var taskId = repository.save(daoToSave).id
+
+        when:
+        repository.delete(taskId)
+
+        then:
+        repository.taskDb.isEmpty()
     }
 
     def "Size"() {

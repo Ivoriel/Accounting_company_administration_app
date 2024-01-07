@@ -68,7 +68,16 @@ class TaskRepositoryMockTest extends Specification {
         repository.taskDb.isEmpty()
     }
 
-    def "Size"() {
+    def "should return repository size"() {
+        when:
+        repository.save(TaskDao.builder()
+                .start(LocalDateTime.now().minusMinutes(60))
+                .end(LocalDateTime.now().minusMinutes(5))
+                .comment("test comment")
+                .build())
+
+        then:
+        repository.size() == 1
     }
 
     def "Generate"() {

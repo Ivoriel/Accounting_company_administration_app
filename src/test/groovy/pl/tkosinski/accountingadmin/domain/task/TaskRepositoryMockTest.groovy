@@ -80,7 +80,7 @@ class TaskRepositoryMockTest extends Specification {
         repository.size() == 1
     }
 
-    def "should generate and return client"() {
+    def "should generate and return task"() {
         when:
         def generatedDao = repository.generate()
 
@@ -90,6 +90,16 @@ class TaskRepositoryMockTest extends Specification {
         generatedDao.comment != null
     }
 
-    def "GenerateAndSave"() {
+    def "should generate and return saved task"() {
+        given:
+        def generatedDao = repository.generate()
+
+        when:
+        def retrievedDao = repository.get(generatedDao.id).get()
+
+        then:
+        generatedDao.start == retrievedDao.start
+        generatedDao.end == retrievedDao.end
+        generatedDao.comment == retrievedDao.comment
     }
 }

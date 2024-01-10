@@ -82,7 +82,7 @@ class ClientRepositoryMockTest extends Specification {
         generatedDao.name != null
     }
 
-    def "GenerateAndSave"() {
+    def "should generate and return saved client"() {
         given:
         def generatedDao = repository.generateAndSave()
 

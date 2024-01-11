@@ -17,4 +17,10 @@ public class UserDao extends BaseDao {
         this.givenName = givenName;
         this.lastName = lastName;
     }
+
+    public UserDao edit(String givenName, String lastName) {
+        this.givenName = givenName;
+        this.lastName = lastName;
+        return this;
+    }
 }

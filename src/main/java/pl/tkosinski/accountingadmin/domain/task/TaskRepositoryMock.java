@@ -26,7 +26,8 @@ public class TaskRepositoryMock implements TaskRepository {
 
     @Override
     public TaskDao save(TaskDao taskDao) {
-        return taskDb.put(taskDao.getId(), taskDao);
+        taskDb.put(taskDao.getId(), taskDao);
+        return taskDb.get(taskDao.getId());
     }
 
     @Override

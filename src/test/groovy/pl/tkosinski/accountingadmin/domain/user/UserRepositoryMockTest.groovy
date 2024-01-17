@@ -1,5 +1,6 @@
 package pl.tkosinski.accountingadmin.domain.user
 
+
 import spock.lang.Specification
 
 class UserRepositoryMockTest extends Specification {
@@ -14,7 +15,21 @@ class UserRepositoryMockTest extends Specification {
         repository.size() > 0
     }
 
-    def "Save"() {
+    def "should create and save task"() {
+        given:
+        var daoToSave = UserDao.builder()
+                .id(616)
+                .givenName("Teodor")
+                .lastName("Nowak")
+                .build()
+
+        when:
+        var savedDao = repository.save(daoToSave)
+
+        then:
+        savedDao.id == daoToSave.id
+        savedDao.givenName == daoToSave.givenName
+        savedDao.lastName == daoToSave.lastName
     }
 
     def "Get"() {

@@ -32,7 +32,21 @@ class UserRepositoryMockTest extends Specification {
         savedDao.lastName == daoToSave.lastName
     }
 
-    def "Get"() {
+    def "should retrieve task"() {
+        given:
+        var daoToSave = UserDao.builder()
+                .id(616)
+                .givenName("Teodor")
+                .lastName("Nowak")
+                .build()
+        var userId = repository.save(daoToSave).id
+
+        when:
+        var retrievedDao = repository.get(userId).get()
+
+        then:
+        retrievedDao.givenName == daoToSave.givenName
+        retrievedDao.lastName == daoToSave.lastName
     }
 
     def "Delete"() {

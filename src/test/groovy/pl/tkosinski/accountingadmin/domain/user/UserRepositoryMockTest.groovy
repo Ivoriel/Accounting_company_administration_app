@@ -1,6 +1,6 @@
 package pl.tkosinski.accountingadmin.domain.user
 
-
+import pl.tkosinski.accountingadmin.domain.client.ClientDao
 import spock.lang.Specification
 
 class UserRepositoryMockTest extends Specification {
@@ -47,6 +47,22 @@ class UserRepositoryMockTest extends Specification {
         then:
         retrievedDao.givenName == daoToSave.givenName
         retrievedDao.lastName == daoToSave.lastName
+    }
+
+    def "should delete user"() {
+        given:
+        var daoToSave = UserDao.builder()
+                .id(616)
+                .givenName("Teodor")
+                .lastName("Nowak")
+                .build()
+        var userId = repository.save(daoToSave).id
+
+        when:
+        repository.delete(userId)
+
+        then:
+        repository.userDb.isEmpty()
     }
 
     def "Delete"() {

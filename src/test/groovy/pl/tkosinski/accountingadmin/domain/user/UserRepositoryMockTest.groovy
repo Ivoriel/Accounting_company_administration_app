@@ -65,10 +65,16 @@ class UserRepositoryMockTest extends Specification {
         repository.userDb.isEmpty()
     }
 
-    def "Delete"() {
-    }
+    def "should return repository size"() {
+        when:
+        repository.save(UserDao.builder()
+                .id(616)
+                .givenName("Teodor")
+                .lastName("Nowak")
+                .build())
 
-    def "Size"() {
+        then:
+        repository.size() == 1
     }
 
     def "Generate"() {

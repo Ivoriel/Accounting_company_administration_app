@@ -77,7 +77,13 @@ class UserRepositoryMockTest extends Specification {
         repository.size() == 1
     }
 
-    def "Generate"() {
+    def "should generate and return company"() {
+        when:
+        def generatedDao = repository.generate()
+
+        then:
+        generatedDao.givenName != null
+        generatedDao.lastName != null
     }
 
     def "GenerateAndSave"() {

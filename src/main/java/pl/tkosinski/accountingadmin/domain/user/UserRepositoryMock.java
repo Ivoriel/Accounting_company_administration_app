@@ -25,7 +25,8 @@ public class UserRepositoryMock implements UserRepository{
 
     @Override
     public UserDao save(UserDao userDao) {
-        return userDb.put(userDao.getId(), userDao);
+        userDb.put(userDao.getId(), userDao);
+        return userDb.get(userDao.getId());
     }
 
     @Override

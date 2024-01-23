@@ -1,6 +1,6 @@
 package pl.tkosinski.accountingadmin.domain.user
 
-import pl.tkosinski.accountingadmin.domain.client.ClientDao
+
 import spock.lang.Specification
 
 class UserRepositoryMockTest extends Specification {
@@ -77,7 +77,7 @@ class UserRepositoryMockTest extends Specification {
         repository.size() == 1
     }
 
-    def "should generate and return company"() {
+    def "should generate and return user"() {
         when:
         def generatedDao = repository.generate()
 
@@ -86,6 +86,15 @@ class UserRepositoryMockTest extends Specification {
         generatedDao.lastName != null
     }
 
-    def "GenerateAndSave"() {
+    def "should generate and save user"() {
+        given:
+        def generatedDao = repository.generateAndSave()
+
+        when:
+        def retrievedDao = repository.get(generatedDao.id).get()
+
+        then:
+        retrievedDao.givenName == generatedDao.givenName
+        retrievedDao.lastName == generatedDao.lastName
     }
 }

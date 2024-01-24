@@ -1,6 +1,6 @@
 package pl.tkosinski.accountingadmin.domain.task
 
-import pl.tkosinski.accountingadmin.domain.client.ClientDao
+
 import spock.lang.Specification
 
 import java.time.LocalDateTime

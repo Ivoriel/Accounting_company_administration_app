@@ -20,7 +20,8 @@ class ClientRepositoryMockTest extends Specification {
     def "should create client"() {
         given:
         var daoToSave = ClientDao.builder()
-                .name("nazwa")
+                .givenName("Teodor")
+                .lastName("Nowak")
                 .addressId(1)
                 .build()
 
@@ -28,14 +29,16 @@ class ClientRepositoryMockTest extends Specification {
         var savedDao = repository.save(daoToSave)
 
         then:
-        savedDao.name == daoToSave.name
+        savedDao.givenName == daoToSave.givenName
+        savedDao.lastName == daoToSave.lastName
         savedDao.addressId == daoToSave.addressId
     }
 
     def "should get client"() {
         given:
         var daoToSave = ClientDao.builder()
-                .name("nazwa")
+                .givenName("Teodor")
+                .lastName("Nowak")
                 .addressId(1)
                 .build()
         var clientId = repository.save(daoToSave).id
@@ -44,14 +47,16 @@ class ClientRepositoryMockTest extends Specification {
         var retrievedDao = repository.get(clientId).get()
 
         then:
-        retrievedDao.name == daoToSave.name
+        retrievedDao.givenName == daoToSave.givenName
+        retrievedDao.lastName = daoToSave.lastName
         retrievedDao.addressId == daoToSave.addressId
     }
 
     def "should delete client"() {
         given:
         var daoToSave = ClientDao.builder()
-                .name("nazwa")
+                .givenName("Teodor")
+                .lastName("Nowak")
                 .addressId(1)
                 .build()
         var clientId = repository.save(daoToSave).id
@@ -66,7 +71,8 @@ class ClientRepositoryMockTest extends Specification {
     def "should return repository size"() {
         when:
         repository.save(ClientDao.builder()
-                .name("nazwa")
+                .givenName("Teodor")
+                .lastName("Nowak")
                 .addressId(1)
                 .build())
 
@@ -79,7 +85,8 @@ class ClientRepositoryMockTest extends Specification {
         def generatedDao = repository.generate()
 
         then:
-        generatedDao.name != null
+        generatedDao.givenName != null
+        generatedDao.lastName != null
     }
 
     def "should generate and return saved client"() {
@@ -90,7 +97,8 @@ class ClientRepositoryMockTest extends Specification {
         def retrievedDao = repository.get(generatedDao.id).get()
 
         then:
-        retrievedDao.name == generatedDao.name
+        retrievedDao.givenName == generatedDao.givenName
+        retrievedDao.lastName == generatedDao.lastName
         retrievedDao.addressId == generatedDao.addressId
     }
 }

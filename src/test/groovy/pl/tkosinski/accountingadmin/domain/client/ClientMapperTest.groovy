@@ -9,17 +9,19 @@ class ClientMapperTest extends Specification {
     def "should map client entity to dto"() {
         given:
         def dao = ClientDao.builder()
-            .id(16)
-            .name("test client name")
-            .addressId(165)
-            .build()
+                .id(16)
+                .givenName("Teodor")
+                .lastName("Nowak")
+                .addressId(165)
+                .build()
 
         when:
         def dto = mapper.toDto(dao)
 
         then:
         dto.id == dao.id
-        dto.name == dao.name
+        dto.givenName == dao.givenName
+        dto.lastName == dao.lastName
         dto.addressId == dao.addressId
     }
 }

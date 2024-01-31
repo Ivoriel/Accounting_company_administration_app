@@ -3,6 +3,7 @@ package pl.tkosinski.accountingadmin.domain.user;
 import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
+import pl.tkosinski.accountingadmin.common.FullName;
 
 import java.util.HashMap;
 import java.util.Optional;
@@ -63,24 +64,21 @@ public class UserRepositoryMock implements UserRepository{
     private UserDao generateUser() {
         return UserDao.builder()
                 .id(userDb.size())
-                .givenName(generateGivenName())
-                .lastName(generateLastName())
+                .name(generateFullName())
                 .build();
     }
 
-    private String generateGivenName() {
+    private FullName generateFullName() {
 
         String[] firstNames = {"Stanisław", "Eustachy", "Janusz", "Maria", "Chryzostom", "Kunegunda", "Genowefa", "Alicja",
                 "Justyna", "Grzegorz", "Andrzej", "Anna"};
 
-        return firstNames[generateRandomInt(firstNames.length - 1)];
-    }
-
-    private String generateLastName() {
         String[] lastNames = {"Pędziwiatr", "Krzyżtopór", "Zagłoba", "Makarow", "Kowal", "Anioł", "Kosa", "Młot", "Nowak",
                 "żak", "Anonim", "Kot", "Lasek"};
 
-        return lastNames[generateRandomInt(lastNames.length - 1)];
+        return FullName.ofValue(
+                firstNames[generateRandomInt(firstNames.length - 1)],
+                lastNames[generateRandomInt(lastNames.length - 1)]);
     }
 
     private int generateRandomInt(int max) {

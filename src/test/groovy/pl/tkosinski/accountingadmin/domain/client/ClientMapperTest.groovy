@@ -1,5 +1,6 @@
 package pl.tkosinski.accountingadmin.domain.client
 
+import pl.tkosinski.accountingadmin.common.FullName
 import spock.lang.Specification
 
 class ClientMapperTest extends Specification {
@@ -10,8 +11,7 @@ class ClientMapperTest extends Specification {
         given:
         def dao = ClientDao.builder()
                 .id(16)
-                .givenName("Teodor")
-                .lastName("Nowak")
+                .name(FullName.ofValue("Teodor", "Nowak"))
                 .addressId(165)
                 .build()
 
@@ -20,8 +20,7 @@ class ClientMapperTest extends Specification {
 
         then:
         dto.id == dao.id
-        dto.givenName == dao.givenName
-        dto.lastName == dao.lastName
+        dto.name == dao.name
         dto.addressId == dao.addressId
     }
 }

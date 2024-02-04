@@ -3,11 +3,10 @@ package pl.tkosinski.accountingadmin.domain.user;
 import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
-import pl.tkosinski.accountingadmin.common.FullName;
+import pl.tkosinski.accountingadmin.common.generator.FullNameGenerator;
 
 import java.util.HashMap;
 import java.util.Optional;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * The purpose of this class is to operate as a mock db during development.
@@ -64,24 +63,7 @@ public class UserRepositoryMock implements UserRepository{
     private UserDao generateUser() {
         return UserDao.builder()
                 .id(userDb.size())
-                .name(generateFullName())
+                .name(FullNameGenerator.generate())
                 .build();
-    }
-
-    private FullName generateFullName() {
-
-        String[] firstNames = {"Stanisław", "Eustachy", "Janusz", "Maria", "Chryzostom", "Kunegunda", "Genowefa", "Alicja",
-                "Justyna", "Grzegorz", "Andrzej", "Anna"};
-
-        String[] lastNames = {"Pędziwiatr", "Krzyżtopór", "Zagłoba", "Makarow", "Kowal", "Anioł", "Kosa", "Młot", "Nowak",
-                "żak", "Anonim", "Kot", "Lasek"};
-
-        return FullName.ofValue(
-                firstNames[generateRandomInt(firstNames.length - 1)],
-                lastNames[generateRandomInt(lastNames.length - 1)]);
-    }
-
-    private int generateRandomInt(int max) {
-        return ThreadLocalRandom.current().nextInt(0, max +1);
     }
 }

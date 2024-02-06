@@ -1,6 +1,6 @@
 package pl.tkosinski.accountingadmin.domain.user
 
-
+import pl.tkosinski.accountingadmin.common.FullName
 import spock.lang.Specification
 
 class UserMapperTest extends Specification {
@@ -13,8 +13,7 @@ class UserMapperTest extends Specification {
     def "should map user dao to dto"() {
         def dao = UserDao.builder()
                 .id(616)
-                .givenName("Teodor")
-                .lastName("Nowak")
+                .name(FullName.ofValue("Teodor", "Nowak"))
                 .build()
 
         when:
@@ -22,7 +21,6 @@ class UserMapperTest extends Specification {
 
         then:
         dto.id == dao.id
-        dto.givenName == dao.givenName
-        dto.lastName == dao.lastName
+        dto.name == dao.name
     }
 }

@@ -1,6 +1,6 @@
 package pl.tkosinski.accountingadmin.domain.user
 
-
+import pl.tkosinski.accountingadmin.common.FullName
 import spock.lang.Specification
 
 class UserRepositoryMockTest extends Specification {
@@ -19,8 +19,7 @@ class UserRepositoryMockTest extends Specification {
         given:
         var daoToSave = UserDao.builder()
                 .id(616)
-                .givenName("Teodor")
-                .lastName("Nowak")
+                .name(FullName.ofValue("Teodor", "Nowak"))
                 .build()
 
         when:
@@ -28,16 +27,14 @@ class UserRepositoryMockTest extends Specification {
 
         then:
         savedDao.id == daoToSave.id
-        savedDao.givenName == daoToSave.givenName
-        savedDao.lastName == daoToSave.lastName
+        savedDao.name == daoToSave.name
     }
 
     def "should retrieve task"() {
         given:
         var daoToSave = UserDao.builder()
                 .id(616)
-                .givenName("Teodor")
-                .lastName("Nowak")
+                .name(FullName.ofValue("Teodor", "Nowak"))
                 .build()
         var userId = repository.save(daoToSave).id
 
@@ -45,16 +42,14 @@ class UserRepositoryMockTest extends Specification {
         var retrievedDao = repository.get(userId).get()
 
         then:
-        retrievedDao.givenName == daoToSave.givenName
-        retrievedDao.lastName == daoToSave.lastName
+        retrievedDao.name == daoToSave.name
     }
 
     def "should delete user"() {
         given:
         var daoToSave = UserDao.builder()
                 .id(616)
-                .givenName("Teodor")
-                .lastName("Nowak")
+                .name(FullName.ofValue("Teodor", "Nowak"))
                 .build()
         var userId = repository.save(daoToSave).id
 
@@ -69,8 +64,7 @@ class UserRepositoryMockTest extends Specification {
         when:
         repository.save(UserDao.builder()
                 .id(616)
-                .givenName("Teodor")
-                .lastName("Nowak")
+                .name(FullName.ofValue("Teodor", "Nowak"))
                 .build())
 
         then:
@@ -82,8 +76,7 @@ class UserRepositoryMockTest extends Specification {
         def generatedDao = repository.generate()
 
         then:
-        generatedDao.givenName != null
-        generatedDao.lastName != null
+        generatedDao.name != null
     }
 
     def "should generate and save user"() {
@@ -94,7 +87,6 @@ class UserRepositoryMockTest extends Specification {
         def retrievedDao = repository.get(generatedDao.id).get()
 
         then:
-        retrievedDao.givenName == generatedDao.givenName
-        retrievedDao.lastName == generatedDao.lastName
+        retrievedDao.name == generatedDao.name
     }
 }

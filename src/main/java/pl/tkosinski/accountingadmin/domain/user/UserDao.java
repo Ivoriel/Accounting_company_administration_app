@@ -3,24 +3,22 @@ package pl.tkosinski.accountingadmin.domain.user;
 import lombok.Builder;
 import lombok.Getter;
 import pl.tkosinski.accountingadmin.common.BaseDao;
+import pl.tkosinski.accountingadmin.common.FullName;
 
 @Getter
 @Builder
 public class UserDao extends BaseDao {
 
     private final long id;
-    private String givenName;
-    private String lastName;
+    private FullName name;
 
-    public UserDao(long id, String givenName, String lastName) {
+    public UserDao(long id, FullName name) {
         this.id = id;
-        this.givenName = givenName;
-        this.lastName = lastName;
+        this.name = name;
     }
 
-    public UserDao edit(String givenName, String lastName) {
-        this.givenName = givenName;
-        this.lastName = lastName;
+    public UserDao edit(FullName name) {
+        this.name = name;
         return this;
     }
 }

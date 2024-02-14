@@ -35,12 +35,11 @@ public class UserFacade {
     private void create(UserDto dto) {
         repository.save(UserDao.builder()
                 .id(repository.size())
-                .givenName(dto.getGivenName())
-                .lastName(dto.getLastName())
+                .name(dto.getName())
                 .build());
     }
 
     private void update(UserDao dao, UserDto dto) {
-        repository.save(dao.edit(dto.getGivenName(), dto.getLastName()));
+        repository.save(dao.edit(dto.getName()));
     }
 }

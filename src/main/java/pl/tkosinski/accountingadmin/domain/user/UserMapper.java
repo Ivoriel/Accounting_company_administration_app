@@ -7,8 +7,7 @@ public class UserMapper {
     public static UserDto toDto(UserDao dao) {
         return UserDto.builder()
                 .id(dao.getId())
-                .givenName(dao.getGivenName())
-                .lastName(dao.getLastName())
+                .name(dao.getName())
                 .build();
     }
 }

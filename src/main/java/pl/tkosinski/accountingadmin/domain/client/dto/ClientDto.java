@@ -1,6 +1,7 @@
 package pl.tkosinski.accountingadmin.domain.client.dto;
 
 import lombok.*;
+import pl.tkosinski.accountingadmin.common.FullName;
 
 import static lombok.AccessLevel.PRIVATE;
 
@@ -11,8 +12,7 @@ import static lombok.AccessLevel.PRIVATE;
 public class ClientDto {
 
     long id;
-    String givenName;
-    String lastName;
+    FullName name;
     long addressId;
 
 }

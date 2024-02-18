@@ -33,14 +33,13 @@ public class ClientFacade {
     }
 
     private void updateClient(ClientDao dao, ClientDto dto) {
-        clientRepository.save(dao.edit(dto.getGivenName(), dao.getLastName(), dto.getAddressId()));
+        clientRepository.save(dao.edit(dto.getName(), dto.getAddressId()));
     }
 
     private void createClient(ClientDto dto) {
         clientRepository.save(ClientDao.builder()
                 .id(clientRepository.size())
-                .givenName(dto.getGivenName())
-                .lastName(dto.getLastName())
+                .name(dto.getName())
                 .addressId(dto.getAddressId())
                 .build());
     }

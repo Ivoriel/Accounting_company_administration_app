@@ -7,8 +7,7 @@ public class ClientMapper {
     public static ClientDto toDto(ClientDao dao) {
         return ClientDto.builder()
                 .id(dao.getId())
-                .givenName(dao.getGivenName())
-                .lastName(dao.getLastName())
+                .name(dao.getName())
                 .addressId(dao.getAddressId())
                 .build();
     }

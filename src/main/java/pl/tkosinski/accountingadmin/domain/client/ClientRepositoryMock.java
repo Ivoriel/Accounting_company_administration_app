@@ -3,12 +3,11 @@ package pl.tkosinski.accountingadmin.domain.client;
 import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
-import pl.tkosinski.accountingadmin.common.FullName;
+import pl.tkosinski.accountingadmin.common.generator.FullNameGenerator;
 import pl.tkosinski.accountingadmin.domain.address.AddressFacade;
 
 import java.util.HashMap;
 import java.util.Optional;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * The purpose of this class is to operate as a mock db during development.
@@ -64,26 +63,8 @@ class ClientRepositoryMock implements ClientRepository {
     private ClientDao generateClient() {
         return ClientDao.builder()
                 .id(size())
-                .name(generateFullName())
+                .name(FullNameGenerator.generate())
                 .addressId(addressFacade.generate().getId())
                 .build();
     }
-
-    private FullName generateFullName() {
-
-        String[] firstNames = {"Stanisław", "Eustachy", "Janusz", "Maria", "Chryzostom", "Kunegunda", "Genowefa", "Alicja",
-                "Justyna", "Grzegorz", "Andrzej", "Anna"};
-
-        String[] lastNames = {"Pędziwiatr", "Krzyżtopór", "Zagłoba", "Makarow", "Kowal", "Anioł", "Kosa", "Młot", "Nowak",
-                "żak", "Anonim", "Kot", "Lasek"};
-
-        return FullName.ofValue(
-                firstNames[generateRandomInt(firstNames.length - 1)],
-                lastNames[generateRandomInt(lastNames.length - 1)]);
-    }
-
-    private int generateRandomInt(int max) {
-        return ThreadLocalRandom.current().nextInt(0, max +1);
-    }
-
 }

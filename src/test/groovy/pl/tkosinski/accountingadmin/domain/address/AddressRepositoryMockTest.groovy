@@ -1,9 +1,9 @@
 package pl.tkosinski.accountingadmin.domain.address
 
-
+import pl.tkosinski.accountingadmin.domain.sample.UsesAddressSample
 import spock.lang.Specification
 
-class AddressRepositoryMockTest extends Specification {
+class AddressRepositoryMockTest extends Specification implements UsesAddressSample {
 
     AddressRepository repository = new AddressRepositoryMock(new HashMap())
 
@@ -17,15 +17,7 @@ class AddressRepositoryMockTest extends Specification {
 
     def "should create address"() {
         given:
-        def daoToSave = AddressDao.builder()
-                .country("Polska")
-                .municipality("Toruń")
-                .region("kujawsko-pomorskie")
-                .zipCode("87-100")
-                .street("Jasna")
-                .buildingNumber("1")
-                .additionalIdentifier("2p")
-                .build()
+        def daoToSave = addressDaoSample().build()
 
         when:
         def savedDao = repository.save(daoToSave)
@@ -42,15 +34,7 @@ class AddressRepositoryMockTest extends Specification {
 
     def "should get address"() {
         given:
-        def daoToSave = AddressDao.builder()
-                .country("Polska")
-                .municipality("Toruń")
-                .region("kujawsko-pomorskie")
-                .zipCode("87-100")
-                .street("Jasna")
-                .buildingNumber("1")
-                .additionalIdentifier("2p")
-                .build()
+        def daoToSave = addressDaoSample().build()
         def addressId = repository.save(daoToSave).id
 
         when:
@@ -68,15 +52,7 @@ class AddressRepositoryMockTest extends Specification {
 
     def "should delete address"() {
         given:
-        def daoToSave = AddressDao.builder()
-                .country("Polska")
-                .municipality("Toruń")
-                .region("kujawsko-pomorskie")
-                .zipCode("87-100")
-                .street("Jasna")
-                .buildingNumber("1")
-                .additionalIdentifier("2p")
-                .build()
+        def daoToSave = addressDaoSample().build()
         def addressId = repository.save(daoToSave).id
 
         when:
@@ -88,15 +64,7 @@ class AddressRepositoryMockTest extends Specification {
 
     def "should return repository size"() {
         when:
-        repository.save(AddressDao.builder()
-                .country("Polska")
-                .municipality("Toruń")
-                .region("kujawsko-pomorskie")
-                .zipCode("87-100")
-                .street("Jasna")
-                .buildingNumber("1")
-                .additionalIdentifier("2p")
-                .build())
+        repository.save(addressDaoSample().build())
 
         then:
         repository.size() == 1

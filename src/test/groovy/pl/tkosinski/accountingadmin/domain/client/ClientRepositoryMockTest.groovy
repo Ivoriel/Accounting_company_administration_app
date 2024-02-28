@@ -3,9 +3,10 @@ package pl.tkosinski.accountingadmin.domain.client
 import pl.tkosinski.accountingadmin.common.FullName
 import pl.tkosinski.accountingadmin.domain.address.AddressFacade
 import pl.tkosinski.accountingadmin.domain.address.AddressRepositoryMock
+import pl.tkosinski.accountingadmin.domain.sample.UsesClientSample
 import spock.lang.Specification
 
-class ClientRepositoryMockTest extends Specification {
+class ClientRepositoryMockTest extends Specification implements UsesClientSample{
 
     ClientRepository repository = new ClientRepositoryMock(new HashMap(), new AddressFacade(new AddressRepositoryMock(
             new HashMap())))
@@ -20,10 +21,7 @@ class ClientRepositoryMockTest extends Specification {
 
     def "should create client"() {
         given:
-        var daoToSave = ClientDao.builder()
-                .name(FullName.ofValue("Teodor", "Nowak"))
-                .addressId(1)
-                .build()
+        var daoToSave = clientDaoSample().build()
 
         when:
         var savedDao = repository.save(daoToSave)
@@ -35,10 +33,7 @@ class ClientRepositoryMockTest extends Specification {
 
     def "should get client"() {
         given:
-        var daoToSave = ClientDao.builder()
-                .name(FullName.ofValue("Teodor", "Nowak"))
-                .addressId(1)
-                .build()
+        var daoToSave = clientDaoSample().build()
         var clientId = repository.save(daoToSave).id
 
         when:
@@ -51,10 +46,7 @@ class ClientRepositoryMockTest extends Specification {
 
     def "should delete client"() {
         given:
-        var daoToSave = ClientDao.builder()
-                .name(FullName.ofValue("Teodor", "Nowak"))
-                .addressId(1)
-                .build()
+        var daoToSave = clientDaoSample().build()
         var clientId = repository.save(daoToSave).id
 
         when:
@@ -66,10 +58,7 @@ class ClientRepositoryMockTest extends Specification {
 
     def "should return repository size"() {
         when:
-        repository.save(ClientDao.builder()
-                .name(FullName.ofValue("Teodor", "Nowak"))
-                .addressId(1)
-                .build())
+        repository.save(clientDaoSample().build())
 
         then:
         repository.size() == 1

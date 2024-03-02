@@ -1,19 +1,14 @@
 package pl.tkosinski.accountingadmin.domain.task
 
+import pl.tkosinski.accountingadmin.domain.sample.UsesTaskSample
 import spock.lang.Specification
 
-import java.time.LocalDateTime
-
-class TaskMapperTest extends Specification {
+class TaskMapperTest extends Specification implements UsesTaskSample {
 
     TaskMapper mapper = new TaskMapper()
 
     def "should map task dao to dto"() {
-        def dao = TaskDao.builder()
-                .start(LocalDateTime.now().minusMinutes(60))
-                .end(LocalDateTime.now().minusMinutes(5))
-                .comment("test comment")
-                .build()
+        def dao = taskDaoSample().build()
 
         when:
         def dto = mapper.toDto(dao)

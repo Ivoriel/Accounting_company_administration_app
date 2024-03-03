@@ -1,11 +1,11 @@
 package pl.tkosinski.accountingadmin.domain.task
 
-
+import pl.tkosinski.accountingadmin.domain.sample.UsesTaskSample
 import spock.lang.Specification
 
 import java.time.LocalDateTime
 
-class TaskRepositoryMockTest extends Specification {
+class TaskRepositoryMockTest extends Specification implements UsesTaskSample {
 
     TaskRepository repository = new TaskRepositoryMock(new HashMap<Long, TaskDao>())
 
@@ -19,11 +19,7 @@ class TaskRepositoryMockTest extends Specification {
 
     def "should create and save task"() {
         given:
-        var daoToSave = TaskDao.builder()
-                .start(LocalDateTime.now().minusMinutes(60))
-                .end(LocalDateTime.now().minusMinutes(5))
-                .comment("test comment")
-                .build()
+        var daoToSave = taskDaoSample().build()
 
         when:
         var savedDao = repository.save(daoToSave)
@@ -36,11 +32,7 @@ class TaskRepositoryMockTest extends Specification {
 
     def "should retrieve task"() {
         given:
-        var daoToSave = TaskDao.builder()
-                .start(LocalDateTime.now().minusMinutes(60))
-                .end(LocalDateTime.now().minusMinutes(5))
-                .comment("test comment")
-                .build()
+        var daoToSave = taskDaoSample().build()
         var taskId = repository.save(daoToSave).id
 
         when:
@@ -54,11 +46,7 @@ class TaskRepositoryMockTest extends Specification {
 
     def "should delete task"() {
         given:
-        var daoToSave = TaskDao.builder()
-                .start(LocalDateTime.now().minusMinutes(60))
-                .end(LocalDateTime.now().minusMinutes(5))
-                .comment("test comment")
-                .build()
+        var daoToSave = taskDaoSample().build()
         var taskId = repository.save(daoToSave).id
 
         when:
@@ -70,11 +58,7 @@ class TaskRepositoryMockTest extends Specification {
 
     def "should return repository size"() {
         when:
-        repository.save(TaskDao.builder()
-                .start(LocalDateTime.now().minusMinutes(60))
-                .end(LocalDateTime.now().minusMinutes(5))
-                .comment("test comment")
-                .build())
+        repository.save(taskDaoSample().build())
 
         then:
         repository.size() == 1

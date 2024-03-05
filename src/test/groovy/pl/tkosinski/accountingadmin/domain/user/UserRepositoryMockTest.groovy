@@ -1,9 +1,10 @@
 package pl.tkosinski.accountingadmin.domain.user
 
-import pl.tkosinski.accountingadmin.common.FullName
+
+import pl.tkosinski.accountingadmin.domain.sample.UsesUserSample
 import spock.lang.Specification
 
-class UserRepositoryMockTest extends Specification {
+class UserRepositoryMockTest extends Specification implements UsesUserSample {
 
     UserRepository repository = new UserRepositoryMock(new HashMap<Long, UserDao>())
 
@@ -17,10 +18,7 @@ class UserRepositoryMockTest extends Specification {
 
     def "should create and save task"() {
         given:
-        var daoToSave = UserDao.builder()
-                .id(616)
-                .name(FullName.ofValue("Teodor", "Nowak"))
-                .build()
+        var daoToSave = userDaoSample().build()
 
         when:
         var savedDao = repository.save(daoToSave)
@@ -32,10 +30,7 @@ class UserRepositoryMockTest extends Specification {
 
     def "should retrieve task"() {
         given:
-        var daoToSave = UserDao.builder()
-                .id(616)
-                .name(FullName.ofValue("Teodor", "Nowak"))
-                .build()
+        var daoToSave = userDaoSample().build()
         var userId = repository.save(daoToSave).id
 
         when:
@@ -47,10 +42,7 @@ class UserRepositoryMockTest extends Specification {
 
     def "should delete user"() {
         given:
-        var daoToSave = UserDao.builder()
-                .id(616)
-                .name(FullName.ofValue("Teodor", "Nowak"))
-                .build()
+        var daoToSave = userDaoSample().build()
         var userId = repository.save(daoToSave).id
 
         when:
@@ -62,10 +54,7 @@ class UserRepositoryMockTest extends Specification {
 
     def "should return repository size"() {
         when:
-        repository.save(UserDao.builder()
-                .id(616)
-                .name(FullName.ofValue("Teodor", "Nowak"))
-                .build())
+        repository.save(userDaoSample().build())
 
         then:
         repository.size() == 1

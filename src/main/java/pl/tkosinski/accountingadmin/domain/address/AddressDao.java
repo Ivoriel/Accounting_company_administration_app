@@ -3,12 +3,13 @@ package pl.tkosinski.accountingadmin.domain.address;
 import lombok.Builder;
 import lombok.Getter;
 import pl.tkosinski.accountingadmin.common.BaseDao;
+import pl.tkosinski.accountingadmin.common.model.Id;
 
 @Builder
 @Getter
 public class AddressDao extends BaseDao {
     
-    private final long id;
+    private final Id id;
     private String country;
     private String municipality;
     private String region;
@@ -17,7 +18,7 @@ public class AddressDao extends BaseDao {
     private String buildingNumber;
     private String additionalIdentifier;
 
-    public AddressDao(long id, String country, String municipality, String region, String zipCode, String street,
+    public AddressDao(Id id, String country, String municipality, String region, String zipCode, String street,
                String buildingNumber, String additionalIdentifier) {
         this.id = id;
         this.country = country;

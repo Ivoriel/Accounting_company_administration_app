@@ -8,7 +8,7 @@ public class Id {
         this.value = value;
     }
 
-    public Id ofValue(long value) {
+    public static Id ofValue(long value) {
         return new Id(value);
     }
 

@@ -1,14 +1,16 @@
 package pl.tkosinski.accountingadmin.common;
 
+import pl.tkosinski.accountingadmin.common.model.Id;
+
 import java.util.Optional;
 
 public interface BaseRepository<T extends BaseDao> {
 
     T save(T dao);
 
-    Optional<T> get(long id);
+    Optional<T> get(Id id);
 
-    void delete(long id);
+    void delete(Id id);
 
     int size();
 

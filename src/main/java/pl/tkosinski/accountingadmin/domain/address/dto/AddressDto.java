@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 import lombok.Value;
+import pl.tkosinski.accountingadmin.common.model.Id;
 
 import static lombok.AccessLevel.PRIVATE;
 
@@ -13,7 +14,7 @@ import static lombok.AccessLevel.PRIVATE;
 @NoArgsConstructor(access = PRIVATE, force = true)
 public class AddressDto {
 
-    long id;
+    Id id;
     String country;
     String municipality;
     String region;

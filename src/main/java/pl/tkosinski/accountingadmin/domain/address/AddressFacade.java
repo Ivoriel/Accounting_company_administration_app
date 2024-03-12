@@ -2,6 +2,7 @@ package pl.tkosinski.accountingadmin.domain.address;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
 
 import java.util.NoSuchElementException;
@@ -17,11 +18,11 @@ public class AddressFacade {
                 .ifPresentOrElse(it -> updateAddress(it, addressDto), () -> createAddress(addressDto));
     }
 
-    public AddressDto get(long id) {
+    public AddressDto get(Id id) {
         return AddressMapper.toDto(addressRepository.get(id).orElseThrow(NoSuchElementException::new));
     }
 
-    public void delete(long id) {
+    public void delete(Id id) {
         addressRepository.delete(id);
     }
 
@@ -39,8 +40,8 @@ public class AddressFacade {
     }
 
     private void createAddress(AddressDto dto) {
-        addressRepository.save(new AddressDao(addressRepository.size(), dto.getCountry(), dto.getMunicipality(),
-                dto.getRegion(), dto.getZipCode(), dto.getStreet(), dto.getBuildingNumber(),
+        addressRepository.save(new AddressDao(Id.ofValue(addressRepository.size()), dto.getCountry(),
+                dto.getMunicipality(), dto.getRegion(), dto.getZipCode(), dto.getStreet(), dto.getBuildingNumber(),
                 dto.getAdditionalIdentifier()));
     }
 }

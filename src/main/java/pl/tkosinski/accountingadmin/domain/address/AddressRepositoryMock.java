@@ -3,6 +3,7 @@ package pl.tkosinski.accountingadmin.domain.address;
 import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
+import pl.tkosinski.accountingadmin.common.model.Id;
 
 import java.util.HashMap;
 import java.util.Optional;
@@ -16,7 +17,7 @@ import java.util.concurrent.ThreadLocalRandom;
 @AllArgsConstructor
 class AddressRepositoryMock implements AddressRepository{
 
-    HashMap<Long, AddressDao> addressDb;
+    HashMap<Id, AddressDao> addressDb;
 
     @PostConstruct
     public void init() {
@@ -30,12 +31,12 @@ class AddressRepositoryMock implements AddressRepository{
     }
 
     @Override
-    public Optional<AddressDao> get(long id) {
+    public Optional<AddressDao> get(Id id) {
         return Optional.of(addressDb.get(id));
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(Id id) {
         addressDb.remove(id);
     }
 
@@ -59,8 +60,8 @@ class AddressRepositoryMock implements AddressRepository{
     }
 
     private AddressDao generateAddress() {
-        return new AddressDao(size(), generateCountry(), generateMunicipality(), generateRegion(), generateZipCode(),
-                generateStreet(), generateBuildingNumber(), generateAdditionalIdentifier());
+        return new AddressDao(Id.ofValue(size()), generateCountry(), generateMunicipality(), generateRegion(),
+                generateZipCode(), generateStreet(), generateBuildingNumber(), generateAdditionalIdentifier());
     }
 
     private String generateCountry() {

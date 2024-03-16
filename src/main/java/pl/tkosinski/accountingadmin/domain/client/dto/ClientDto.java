@@ -2,6 +2,7 @@ package pl.tkosinski.accountingadmin.domain.client.dto;
 
 import lombok.*;
 import pl.tkosinski.accountingadmin.common.FullName;
+import pl.tkosinski.accountingadmin.common.model.Id;
 
 import static lombok.AccessLevel.PRIVATE;
 
@@ -11,8 +12,8 @@ import static lombok.AccessLevel.PRIVATE;
 @NoArgsConstructor(access = PRIVATE, force = true)
 public class ClientDto {
 
-    long id;
+    Id id;
     FullName name;
-    long addressId;
+    Id addressId;
 
 }

@@ -2,6 +2,7 @@ package pl.tkosinski.accountingadmin.domain.client;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.client.dto.ClientDto;
 
 import java.util.NoSuchElementException;
@@ -38,7 +39,7 @@ public class ClientFacade {
 
     private void createClient(ClientDto dto) {
         clientRepository.save(ClientDao.builder()
-                .id(clientRepository.size())
+                .id(Id.ofValue(clientRepository.size()))
                 .name(dto.getName())
                 .addressId(dto.getAddressId())
                 .build());

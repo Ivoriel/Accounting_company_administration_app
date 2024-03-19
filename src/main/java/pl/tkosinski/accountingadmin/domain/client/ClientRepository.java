@@ -1,6 +1,7 @@
 package pl.tkosinski.accountingadmin.domain.client;
 
 import pl.tkosinski.accountingadmin.common.BaseRepository;
+import pl.tkosinski.accountingadmin.common.model.Id;
 
 import java.util.Optional;
 
@@ -8,9 +9,9 @@ interface ClientRepository extends BaseRepository<ClientDao> {
 
     ClientDao save(ClientDao clientDao);
 
-    Optional<ClientDao> get(long id);
+    Optional<ClientDao> get(Id id);
 
-    void delete(long id);
+    void delete(Id id);
 
     int size();
 

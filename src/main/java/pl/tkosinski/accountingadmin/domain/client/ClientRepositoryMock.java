@@ -4,6 +4,7 @@ import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.common.generator.FullNameGenerator;
+import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.address.AddressFacade;
 
 import java.util.HashMap;
@@ -17,7 +18,7 @@ import java.util.Optional;
 @AllArgsConstructor
 class ClientRepositoryMock implements ClientRepository {
 
-    HashMap<Long, ClientDao> clientDb;
+    HashMap<Id, ClientDao> clientDb;
     AddressFacade addressFacade;
 
     @PostConstruct
@@ -32,12 +33,12 @@ class ClientRepositoryMock implements ClientRepository {
     }
 
     @Override
-    public Optional<ClientDao> get(long id) {
+    public Optional<ClientDao> get(Id id) {
         return Optional.of(clientDb.get(id));
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(Id id) {
         clientDb.remove(id);
     }
 
@@ -62,7 +63,7 @@ class ClientRepositoryMock implements ClientRepository {
 
     private ClientDao generateClient() {
         return ClientDao.builder()
-                .id(size())
+                .id(Id.ofValue(size()))
                 .name(FullNameGenerator.generate())
                 .addressId(addressFacade.generate().getId())
                 .build();

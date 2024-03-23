@@ -1,6 +1,7 @@
 package pl.tkosinski.accountingadmin.domain.company;
 
 import pl.tkosinski.accountingadmin.common.BaseRepository;
+import pl.tkosinski.accountingadmin.common.model.Id;
 
 import java.util.Optional;
 
@@ -8,9 +9,9 @@ interface CompanyRepository extends BaseRepository<CompanyDao> {
 
     CompanyDao save(CompanyDao companyDao);
 
-    Optional<CompanyDao> get(long id);
+    Optional<CompanyDao> get(Id id);
 
-    void delete(long id);
+    void delete(Id id);
 
     int size();
 

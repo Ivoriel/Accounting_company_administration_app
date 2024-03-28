@@ -2,6 +2,7 @@ package pl.tkosinski.accountingadmin.domain.task;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.task.dto.TaskDto;
 
 import java.util.NoSuchElementException;
@@ -16,11 +17,11 @@ public class TaskFacade {
         repository.get(dto.getId()).ifPresentOrElse(it -> update(it, dto), () -> create(dto));
     }
 
-    public TaskDto get(Long id) {
+    public TaskDto get(Id id) {
         return TaskMapper.toDto(repository.get(id).orElseThrow(NoSuchElementException::new));
     }
 
-    public void delete(Long id) {
+    public void delete(Id id) {
         repository.delete(id);
     }
 
@@ -38,7 +39,7 @@ public class TaskFacade {
 
     private void create(TaskDto dto) {
         repository.save(TaskDao.builder()
-                .id(repository.size())
+                .id(Id.ofValue(repository.size()))
                 .build());
     }
 }

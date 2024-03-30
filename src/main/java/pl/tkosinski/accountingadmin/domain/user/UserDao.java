@@ -4,15 +4,16 @@ import lombok.Builder;
 import lombok.Getter;
 import pl.tkosinski.accountingadmin.common.BaseDao;
 import pl.tkosinski.accountingadmin.common.FullName;
+import pl.tkosinski.accountingadmin.common.model.Id;
 
 @Getter
 @Builder
 public class UserDao extends BaseDao {
 
-    private final long id;
+    private final Id id;
     private FullName name;
 
-    public UserDao(long id, FullName name) {
+    public UserDao(Id id, FullName name) {
         this.id = id;
         this.name = name;
     }

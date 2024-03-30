@@ -3,6 +3,7 @@ package pl.tkosinski.accountingadmin.domain.task;
 import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
+import pl.tkosinski.accountingadmin.common.model.Id;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -17,7 +18,7 @@ import java.util.concurrent.ThreadLocalRandom;
 @AllArgsConstructor
 public class TaskRepositoryMock implements TaskRepository {
 
-    HashMap<Long, TaskDao> taskDb;
+    HashMap<Id, TaskDao> taskDb;
 
     @PostConstruct
     public void init() {
@@ -31,12 +32,12 @@ public class TaskRepositoryMock implements TaskRepository {
     }
 
     @Override
-    public Optional<TaskDao> get(long id) {
+    public Optional<TaskDao> get(Id id) {
         return Optional.of(taskDb.get(id));
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(Id id) {
         taskDb.remove(id);
     }
 
@@ -50,7 +51,7 @@ public class TaskRepositoryMock implements TaskRepository {
         var start = generateRandomInt(60, 240);
 
         return TaskDao.builder()
-                .id(taskDb.size())
+                .id(Id.ofValue(taskDb.size()))
                 .start(LocalDateTime.now().minusMinutes(start))
                 .end(LocalDateTime.now().minusMinutes(start+60))
                 .build();

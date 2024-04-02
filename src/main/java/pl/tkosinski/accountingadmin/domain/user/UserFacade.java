@@ -2,6 +2,7 @@ package pl.tkosinski.accountingadmin.domain.user;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserDto;
 
 import java.util.NoSuchElementException;
@@ -16,11 +17,11 @@ public class UserFacade {
         repository.get(dto.getId()).ifPresentOrElse(it -> update(it, dto), () -> create(dto));
     }
 
-    public UserDto get(Long id) {
+    public UserDto get(Id id) {
         return UserMapper.toDto(repository.get(id).orElseThrow(NoSuchElementException::new));
     }
 
-    public void delete(long id) {
+    public void delete(Id id) {
         repository.delete(id);
     }
 
@@ -34,7 +35,7 @@ public class UserFacade {
 
     private void create(UserDto dto) {
         repository.save(UserDao.builder()
-                .id(repository.size())
+                .id(Id.ofValue(repository.size()))
                 .name(dto.getName())
                 .build());
     }

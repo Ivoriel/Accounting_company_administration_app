@@ -4,6 +4,7 @@ import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.common.generator.FullNameGenerator;
+import pl.tkosinski.accountingadmin.common.model.Id;
 
 import java.util.HashMap;
 import java.util.Optional;
@@ -16,7 +17,7 @@ import java.util.Optional;
 @AllArgsConstructor
 public class UserRepositoryMock implements UserRepository{
 
-    HashMap<Long, UserDao> userDb;
+    HashMap<Id, UserDao> userDb;
 
     @PostConstruct
     public void init() {
@@ -30,12 +31,12 @@ public class UserRepositoryMock implements UserRepository{
     }
 
     @Override
-    public Optional<UserDao> get(long id) {
+    public Optional<UserDao> get(Id id) {
         return Optional.of(userDb.get(id));
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(Id id) {
         userDb.remove(id);
     }
 
@@ -62,7 +63,7 @@ public class UserRepositoryMock implements UserRepository{
 
     private UserDao generateUser() {
         return UserDao.builder()
-                .id(userDb.size())
+                .id(Id.ofValue(userDb.size()))
                 .name(FullNameGenerator.generate())
                 .build();
     }

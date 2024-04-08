@@ -1,4 +1,4 @@
-package pl.tkosinski.accountingadmin.common;
+package pl.tkosinski.accountingadmin.common.model;
 
 import lombok.Builder;
 import lombok.Value;

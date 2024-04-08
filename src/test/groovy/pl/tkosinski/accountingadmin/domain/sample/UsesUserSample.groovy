@@ -1,6 +1,6 @@
 package pl.tkosinski.accountingadmin.domain.sample
 
-import pl.tkosinski.accountingadmin.common.FullName
+import pl.tkosinski.accountingadmin.common.model.FullName
 import pl.tkosinski.accountingadmin.domain.user.UserDao
 
 trait UsesUserSample {

@@ -1,7 +1,7 @@
 package pl.tkosinski.accountingadmin.domain.client.dto;
 
 import lombok.*;
-import pl.tkosinski.accountingadmin.common.FullName;
+import pl.tkosinski.accountingadmin.common.model.FullName;
 import pl.tkosinski.accountingadmin.common.model.Id;
 
 import static lombok.AccessLevel.PRIVATE;

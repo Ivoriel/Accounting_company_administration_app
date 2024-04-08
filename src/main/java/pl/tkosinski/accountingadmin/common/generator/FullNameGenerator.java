@@ -1,6 +1,6 @@
 package pl.tkosinski.accountingadmin.common.generator;
 
-import pl.tkosinski.accountingadmin.common.FullName;
+import pl.tkosinski.accountingadmin.common.model.FullName;
 
 import java.util.concurrent.ThreadLocalRandom;
 

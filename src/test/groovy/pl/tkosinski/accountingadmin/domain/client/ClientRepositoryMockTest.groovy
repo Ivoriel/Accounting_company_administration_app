@@ -1,6 +1,6 @@
 package pl.tkosinski.accountingadmin.domain.client
 
-import pl.tkosinski.accountingadmin.common.FullName
+
 import pl.tkosinski.accountingadmin.domain.address.AddressFacade
 import pl.tkosinski.accountingadmin.domain.address.AddressRepositoryMock
 import pl.tkosinski.accountingadmin.domain.sample.UsesClientSample

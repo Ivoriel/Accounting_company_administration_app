@@ -17,11 +17,11 @@ public class ClientFacade {
         clientRepository.get(dto.getId()).ifPresentOrElse(it -> updateClient(it, dto), () -> createClient(dto));
     }
 
-    public ClientDto get(Long id) {
+    public ClientDto get(Id id) {
         return ClientMapper.toDto(clientRepository.get(id).orElseThrow(NoSuchElementException::new));
     }
 
-    public void delete(Long id) {
+    public void delete(Id id) {
         clientRepository.delete(id);
     }
 

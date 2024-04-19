@@ -19,13 +19,13 @@ public class AddressController {
     }
 
     @GetMapping("/{id}")
-    public AddressDto get(@PathVariable Long id) {
-        return facade.get(Id.ofValue(id));
+    public AddressDto get(@PathVariable Id id) {
+        return facade.get(id);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
-        facade.delete(Id.ofValue(id));
+    public void delete(@PathVariable Id id) {
+        facade.delete(id);
     }
 
     @GetMapping("/generate")

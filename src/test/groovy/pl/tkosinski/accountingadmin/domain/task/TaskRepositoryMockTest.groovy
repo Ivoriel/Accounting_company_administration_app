@@ -1,5 +1,6 @@
 package pl.tkosinski.accountingadmin.domain.task
 
+import pl.tkosinski.accountingadmin.common.model.Id
 import pl.tkosinski.accountingadmin.domain.sample.UsesTaskSample
 import spock.lang.Specification
 
@@ -7,7 +8,7 @@ import java.time.LocalDateTime
 
 class TaskRepositoryMockTest extends Specification implements UsesTaskSample {
 
-    TaskRepository repository = new TaskRepositoryMock(new HashMap<Long, TaskDao>())
+    TaskRepository repository = new TaskRepositoryMock(new HashMap<Id, TaskDao>())
 
     def "should generate initial db when instance is created"() {
         when:

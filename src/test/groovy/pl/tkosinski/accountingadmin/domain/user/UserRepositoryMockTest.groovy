@@ -1,12 +1,12 @@
 package pl.tkosinski.accountingadmin.domain.user
 
-
+import pl.tkosinski.accountingadmin.common.model.Id
 import pl.tkosinski.accountingadmin.domain.sample.UsesUserSample
 import spock.lang.Specification
 
 class UserRepositoryMockTest extends Specification implements UsesUserSample {
 
-    UserRepository repository = new UserRepositoryMock(new HashMap<Long, UserDao>())
+    UserRepository repository = new UserRepositoryMock(new HashMap<Id, UserDao>())
 
     def "should generate initial db when instance is created"() {
         when:

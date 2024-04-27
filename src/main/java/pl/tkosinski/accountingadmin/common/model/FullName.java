@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @Value
 @Builder
-public class FullName implements Serializable {
+public class FullName implements Serializable, Validatable {
 
     String givenName;
     String lastName;
@@ -32,6 +32,12 @@ public class FullName implements Serializable {
 
     public static FullName ofValue(String givenName, String lastName, String otherIdentifier) {
         return new FullName(givenName, lastName, otherIdentifier);
+    }
+
+    public void validate() {
+        if (givenName == null && lastName == null) {
+            throw new UnsupportedOperationException();
+        }
     }
 
     @Override

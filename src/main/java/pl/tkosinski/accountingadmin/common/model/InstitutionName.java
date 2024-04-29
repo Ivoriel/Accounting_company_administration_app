@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @Value
 @Builder
-public class InstitutionName implements Serializable {
+public class InstitutionName implements Serializable, Validatable {
 
     String name;
     String otherIdentifier;
@@ -29,6 +29,12 @@ public class InstitutionName implements Serializable {
 
     public static InstitutionName ofValue(String givenName, String otherIdentifier) {
         return new InstitutionName(givenName, otherIdentifier);
+    }
+
+    public void validate() {
+        if (name == null) {
+            throw new UnsupportedOperationException();
+        }
     }
 
     @Override

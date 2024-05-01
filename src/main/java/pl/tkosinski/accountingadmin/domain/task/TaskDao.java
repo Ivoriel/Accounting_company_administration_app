@@ -5,6 +5,7 @@ import lombok.Getter;
 import pl.tkosinski.accountingadmin.common.BaseDao;
 import pl.tkosinski.accountingadmin.common.model.Comment;
 import pl.tkosinski.accountingadmin.common.model.Id;
+import pl.tkosinski.accountingadmin.domain.user.UserDao;
 
 import java.time.LocalDateTime;
 
@@ -16,6 +17,7 @@ public class TaskDao extends BaseDao {
     private LocalDateTime start;
     private LocalDateTime end;
     private Comment comment;
+    private UserDao performer;
 
     public TaskDao edit(LocalDateTime start, LocalDateTime end, Comment comment) {
         this.start = start;

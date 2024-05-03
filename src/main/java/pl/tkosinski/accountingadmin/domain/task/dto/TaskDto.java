@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 public class TaskDto {
 
     Id id;
+    Id performerId;
     LocalDateTime start;
     LocalDateTime end;
     Comment comment;

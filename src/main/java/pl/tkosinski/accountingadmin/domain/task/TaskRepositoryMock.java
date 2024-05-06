@@ -3,7 +3,9 @@ package pl.tkosinski.accountingadmin.domain.task;
 import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
+import pl.tkosinski.accountingadmin.common.model.Comment;
 import pl.tkosinski.accountingadmin.common.model.Id;
+import pl.tkosinski.accountingadmin.domain.user.UserFacade;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -19,6 +21,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class TaskRepositoryMock implements TaskRepository {
 
     HashMap<Id, TaskDao> taskDb;
+    UserFacade userFacade;
 
     @PostConstruct
     public void init() {
@@ -52,8 +55,10 @@ public class TaskRepositoryMock implements TaskRepository {
 
         return TaskDao.builder()
                 .id(Id.ofValue(taskDb.size()))
+                .performerId(userFacade.generate().getId())
                 .start(LocalDateTime.now().minusMinutes(start))
-                .end(LocalDateTime.now().minusMinutes(start+60))
+                .end(LocalDateTime.now().minusMinutes(start+60L))
+                .comment(Comment.ofValue("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at."))
                 .build();
     }
 

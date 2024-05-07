@@ -2,13 +2,17 @@ package pl.tkosinski.accountingadmin.domain.task
 
 import pl.tkosinski.accountingadmin.common.model.Id
 import pl.tkosinski.accountingadmin.domain.sample.UsesTaskSample
+import pl.tkosinski.accountingadmin.domain.user.UserDao
+import pl.tkosinski.accountingadmin.domain.user.UserFacade
+import pl.tkosinski.accountingadmin.domain.user.UserRepositoryMock
 import spock.lang.Specification
 
 import java.time.LocalDateTime
 
 class TaskRepositoryMockTest extends Specification implements UsesTaskSample {
 
-    TaskRepository repository = new TaskRepositoryMock(new HashMap<Id, TaskDao>())
+    TaskRepository repository = new TaskRepositoryMock(new HashMap<Id, TaskDao>(),
+            new UserFacade(new UserRepositoryMock(new HashMap<Id, UserDao>())))
 
     def "should generate initial db when instance is created"() {
         when:
@@ -26,6 +30,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample {
         var savedDao = repository.save(daoToSave)
 
         then:
+        savedDao.performerId == daoToSave.performerId
         savedDao.start == daoToSave.start
         savedDao.end == daoToSave.end
         savedDao.comment == daoToSave.comment
@@ -40,6 +45,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample {
         var retrievedDao = repository.get(taskId).get()
 
         then:
+        retrievedDao.performerId == daoToSave.performerId
         retrievedDao.start == daoToSave.start
         retrievedDao.end == daoToSave.end
         retrievedDao.comment == daoToSave.comment
@@ -70,6 +76,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample {
         def generatedDao = repository.generate()
 
         then:
+        generatedDao.performerId != null
         generatedDao.start != null
         generatedDao.end != null
         generatedDao.comment != null
@@ -83,6 +90,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample {
         def retrievedDao = repository.get(generatedDao.id).get()
 
         then:
+        generatedDao.performerId == retrievedDao.performerId
         generatedDao.start == retrievedDao.start
         generatedDao.end == retrievedDao.end
         generatedDao.comment == retrievedDao.comment

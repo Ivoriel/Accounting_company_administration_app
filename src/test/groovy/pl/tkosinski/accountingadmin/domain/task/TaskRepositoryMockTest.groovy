@@ -84,7 +84,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample {
 
     def "should generate and return saved task"() {
         given:
-        def generatedDao = repository.generate()
+        def generatedDao = repository.generateAndSave()
 
         when:
         def retrievedDao = repository.get(generatedDao.id).get()

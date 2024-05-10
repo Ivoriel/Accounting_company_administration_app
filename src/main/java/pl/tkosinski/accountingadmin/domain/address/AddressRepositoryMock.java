@@ -32,7 +32,8 @@ class AddressRepositoryMock implements AddressRepository{
 
     @Override
     public Optional<AddressDao> get(Id id) {
-        return Optional.of(addressDb.get(id));
+        var test = Optional.ofNullable(addressDb.get(id));
+        return test;
     }
 
     @Override

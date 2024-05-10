@@ -32,8 +32,7 @@ class AddressRepositoryMock implements AddressRepository{
 
     @Override
     public Optional<AddressDao> get(Id id) {
-        var test = Optional.ofNullable(addressDb.get(id));
-        return test;
+        return Optional.ofNullable(addressDb.get(id));
     }
 
     @Override
@@ -47,8 +46,8 @@ class AddressRepositoryMock implements AddressRepository{
     }
 
     private void populateAddressDb(){
-        for (long i = 1; i < 10; i++) {
-            save(generateAddress());
+        for (int i = 1; i < 10; i++) {
+            generateAndSave();
         }
     }
 
@@ -57,7 +56,7 @@ class AddressRepositoryMock implements AddressRepository{
     }
 
     public AddressDao generateAndSave() {
-        return save(generateAddress());
+        return save(generate());
     }
 
     private AddressDao generateAddress() {

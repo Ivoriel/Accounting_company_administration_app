@@ -56,7 +56,7 @@ class ClientRepositoryMock implements ClientRepository {
     }
 
     private void populateClientDb() {
-        for (long i = 1; i < 10; i++) {
+        for (int i = 1; i < 10; i++) {
             generateAndSave();
         }
     }
@@ -65,7 +65,7 @@ class ClientRepositoryMock implements ClientRepository {
         return ClientDao.builder()
                 .id(Id.ofValue(size()))
                 .name(FullNameGenerator.generate())
-                .addressId(addressFacade.generate().getId())
+                .addressId(addressFacade.get(Id.ofValue(size())).getId())
                 .build();
     }
 }

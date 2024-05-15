@@ -55,7 +55,7 @@ public class TaskRepositoryMock implements TaskRepository {
 
         return TaskDao.builder()
                 .id(Id.ofValue(taskDb.size()))
-                .performerId(userFacade.generate().getId())
+                .performerId(userFacade.get(Id.ofValue(size())).getId())
                 .start(LocalDateTime.now().minusMinutes(start))
                 .end(LocalDateTime.now().minusMinutes(start+60L))
                 .comment(Comment.ofValue("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at."))

@@ -36,6 +36,11 @@ class AddressRepositoryMock implements AddressRepository{
     }
 
     @Override
+    public Optional<AddressDao> getLast() {
+        return Optional.ofNullable(addressDb.get(Id.ofValue(size())));
+    }
+
+    @Override
     public void delete(Id id) {
         addressDb.remove(id);
     }

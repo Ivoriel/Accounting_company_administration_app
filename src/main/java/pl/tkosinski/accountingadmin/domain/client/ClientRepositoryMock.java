@@ -65,7 +65,7 @@ class ClientRepositoryMock implements ClientRepository {
         return ClientDao.builder()
                 .id(Id.ofValue(size()))
                 .name(FullNameGenerator.generate())
-                .addressId(addressFacade.get(Id.ofValue(size())).getId())
+                .addressId(addressFacade.getRequestedOrLast(Id.ofValue(size())).getId())
                 .build();
     }
 }

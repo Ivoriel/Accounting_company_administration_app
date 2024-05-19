@@ -22,6 +22,11 @@ public class AddressFacade {
         return AddressMapper.toDto(addressRepository.get(id).orElseThrow(NoSuchElementException::new));
     }
 
+    public AddressDto getRequestedOrLast(Id id) {
+        return AddressMapper.toDto(addressRepository.get(id)
+                .orElse(addressRepository.getLast().orElseThrow(NoSuchElementException::new)));
+    }
+
     public void delete(Id id) {
         addressRepository.delete(id);
     }

@@ -21,6 +21,11 @@ public class ClientFacade {
         return ClientMapper.toDto(clientRepository.get(id).orElseThrow(NoSuchElementException::new));
     }
 
+    public ClientDto getRequestedOrLast(Id id) {
+        return ClientMapper.toDto(clientRepository.get(id)
+                .orElse(clientRepository.getLast().orElseThrow(NoSuchElementException::new)));
+    }
+
     public void delete(Id id) {
         clientRepository.delete(id);
     }

@@ -3,11 +3,13 @@ package pl.tkosinski.accountingadmin.domain.sample
 import pl.tkosinski.accountingadmin.common.model.Id
 import pl.tkosinski.accountingadmin.domain.address.AddressDao
 
+import java.util.concurrent.ThreadLocalRandom
+
 trait UsesAddressSample {
 
-    AddressDao.AddressDaoBuilder addressDaoSample() {
+    AddressDao.AddressDaoBuilder addressDaoSample(def args = null) {
         AddressDao.builder()
-                .id(Id.ofValue(125))
+                .id(Id.ofValue(args?.id ?: 125))
                 .country("Polska")
                 .municipality("Toruń")
                 .region("kujawsko-pomorskie")

@@ -6,9 +6,9 @@ import pl.tkosinski.accountingadmin.domain.client.ClientDao
 
 trait UsesClientSample {
 
-    ClientDao.ClientDaoBuilder clientDaoSample() {
+    ClientDao.ClientDaoBuilder clientDaoSample(def args = null) {
         ClientDao.builder()
-                .id(Id.ofValue(16))
+                .id(Id.ofValue(args?.id ?: 16))
                 .name(FullName.ofValue("Teodor", "Nowak"))
                 .addressId(Id.ofValue(165))
     }

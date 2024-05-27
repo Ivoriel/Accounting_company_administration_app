@@ -6,9 +6,9 @@ import pl.tkosinski.accountingadmin.domain.company.CompanyDao
 
 trait UsesCompanySample {
 
-    CompanyDao.CompanyDaoBuilder companyDaoSample() {
+    CompanyDao.CompanyDaoBuilder companyDaoSample(def args = null) {
         CompanyDao.builder()
-                .id(Id.ofValue(616))
+                .id(Id.ofValue(args?.id ?: 16))
                 .name(InstitutionName.ofValue("Test company name"))
                 .addressId(Id.ofValue(919))
                 .clientId(Id.ofValue(818))

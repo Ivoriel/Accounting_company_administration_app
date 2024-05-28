@@ -6,9 +6,9 @@ import pl.tkosinski.accountingadmin.domain.user.UserDao
 
 trait UsesUserSample {
 
-    UserDao.UserDaoBuilder userDaoSample() {
+    UserDao.UserDaoBuilder userDaoSample(def args = null) {
         UserDao.builder()
-                .id(Id.ofValue(616))
+                .id(Id.ofValue(args?.id ?: 16))
                 .name(FullName.ofValue("Teodor", "Nowak"))
     }
 }

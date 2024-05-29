@@ -8,8 +8,9 @@ import java.time.LocalDateTime
 
 trait UsesTaskSample {
 
-    TaskDao.TaskDaoBuilder taskDaoSample() {
+    TaskDao.TaskDaoBuilder taskDaoSample(def args = null) {
         TaskDao.builder()
+                .id(Id.ofValue(args?.id ?: 16))
                 .performerId(Id.ofValue(808))
                 .start(LocalDateTime.now().minusMinutes(60))
                 .end(LocalDateTime.now().minusMinutes(5))

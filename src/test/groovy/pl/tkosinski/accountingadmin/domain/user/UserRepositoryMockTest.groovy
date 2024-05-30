@@ -40,6 +40,24 @@ class UserRepositoryMockTest extends Specification implements UsesUserSample {
         retrievedDao.name == daoToSave.name
     }
 
+    def "should get last user"() {
+        given:
+        var firstDaoToSave = userDaoSample(id: 1).build()
+        repository.save(firstDaoToSave).id
+        var secondDaoToSave = userDaoSample(id: 2).build()
+        repository.save(secondDaoToSave).id
+        var thirdDaoToSave = userDaoSample(id: 3).build()
+        repository.save(thirdDaoToSave).id
+
+        when:
+        var retrievedDao = repository.getLast().get()
+
+        then:
+        retrievedDao.id != firstDaoToSave.id
+        retrievedDao.id != secondDaoToSave.id
+        retrievedDao.id == thirdDaoToSave.id
+    }
+
     def "should delete user"() {
         given:
         var daoToSave = userDaoSample().build()

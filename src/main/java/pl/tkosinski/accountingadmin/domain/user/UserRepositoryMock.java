@@ -36,6 +36,11 @@ public class UserRepositoryMock implements UserRepository{
     }
 
     @Override
+    public Optional<UserDao> getLast() {
+        return Optional.ofNullable(userDb.get(Id.ofValue(size())));
+    }
+
+    @Override
     public void delete(Id id) {
         userDb.remove(id);
     }

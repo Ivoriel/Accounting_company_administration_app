@@ -21,7 +21,7 @@ public class UserDao extends BaseDao {
         this.name = name;
     }
 
-    public UserDao edit(FullName name) {
+    public UserDao editName(FullName name) {
         this.name = name;
         return this;
     }

@@ -46,6 +46,6 @@ public class UserFacade {
     }
 
     private void update(UserDao dao, UserDto dto) {
-        repository.save(dao.edit(dto.getName()));
+        repository.save(dao.editName(dto.getName()));
     }
 }

@@ -25,4 +25,9 @@ public class UserDao extends BaseDao {
         this.name = name;
         return this;
     }
+
+    public UserDao switchRole(Role role) {
+        this.role = role;
+        return this;
+    }
 }

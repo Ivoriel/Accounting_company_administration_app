@@ -5,9 +5,12 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.common.generator.FullNameGenerator;
 import pl.tkosinski.accountingadmin.common.model.Id;
+import pl.tkosinski.accountingadmin.common.model.Role;
 
 import java.util.HashMap;
 import java.util.Optional;
+
+import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE;
 
 /**
  * The purpose of this class is to operate as a mock db during development.
@@ -70,6 +73,7 @@ public class UserRepositoryMock implements UserRepository{
         return UserDao.builder()
                 .id(Id.ofValue(userDb.size()))
                 .name(FullNameGenerator.generate())
+                .role(EMPLOYEE)
                 .build();
     }
 }

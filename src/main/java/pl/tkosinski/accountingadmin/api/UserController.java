@@ -2,6 +2,7 @@ package pl.tkosinski.accountingadmin.api;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import pl.tkosinski.accountingadmin.common.model.FullName;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.user.UserFacade;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserDto;
@@ -16,6 +17,11 @@ public class UserController {
     @PostMapping("/save")
     public void save(@RequestBody UserDto dto) {
         facade.save(dto);
+    }
+
+    @PostMapping("/edit-name")
+    public void editName(@PathVariable Id id, @RequestBody FullName name) {
+        facade.editName(id, name);
     }
 
     @GetMapping("/{id}/get")

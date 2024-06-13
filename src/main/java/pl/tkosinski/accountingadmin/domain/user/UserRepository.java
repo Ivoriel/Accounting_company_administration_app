@@ -1,6 +1,7 @@
 package pl.tkosinski.accountingadmin.domain.user;
 
 import pl.tkosinski.accountingadmin.common.BaseRepository;
+import pl.tkosinski.accountingadmin.common.model.FullName;
 import pl.tkosinski.accountingadmin.common.model.Id;
 
 import java.util.Optional;
@@ -8,6 +9,8 @@ import java.util.Optional;
 public interface UserRepository extends BaseRepository<UserDao> {
 
     UserDao save(UserDao userDao);
+
+    UserDao editName(Id id, FullName name);
 
     Optional<UserDao> get(Id id);
 

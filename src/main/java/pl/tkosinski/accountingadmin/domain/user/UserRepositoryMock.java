@@ -4,6 +4,7 @@ import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.common.generator.FullNameGenerator;
+import pl.tkosinski.accountingadmin.common.model.FullName;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.common.model.Role;
 
@@ -31,6 +32,11 @@ public class UserRepositoryMock implements UserRepository{
     public UserDao save(UserDao userDao) {
         userDb.put(userDao.getId(), userDao);
         return userDb.get(userDao.getId());
+    }
+
+    @Override
+    public UserDao editName(Id id, FullName name) {
+        return userDb.get(id).editName(name);
     }
 
     @Override

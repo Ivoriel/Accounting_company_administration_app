@@ -1,5 +1,6 @@
 package pl.tkosinski.accountingadmin.domain.user
 
+import pl.tkosinski.accountingadmin.common.model.FullName
 import pl.tkosinski.accountingadmin.common.model.Id
 import pl.tkosinski.accountingadmin.domain.sample.UsesUserSample
 import spock.lang.Specification
@@ -28,7 +29,7 @@ class UserRepositoryMockTest extends Specification implements UsesUserSample {
         savedDao.name == daoToSave.name
     }
 
-    def "should retrieve task"() {
+    def "should retrieve user"() {
         given:
         var daoToSave = userDaoSample().build()
         var userId = repository.save(daoToSave).id
@@ -56,6 +57,19 @@ class UserRepositoryMockTest extends Specification implements UsesUserSample {
         retrievedDao.id != firstDaoToSave.id
         retrievedDao.id != secondDaoToSave.id
         retrievedDao.id == thirdDaoToSave.id
+    }
+
+    def "should edit name of user"() {
+        given:
+        var daoToSave = userDaoSample().build()
+        var name = daoToSave.getName()
+        var userId = repository.save(daoToSave).id
+
+        when:
+        var retrievedDao = repository.editName(userId, FullName.ofValue("differentFirstname", "differentLastName"))
+
+        then:
+        retrievedDao.name != name
     }
 
     def "should delete user"() {

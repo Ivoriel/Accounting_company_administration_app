@@ -9,9 +9,9 @@ import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE
 trait UsesUserSample {
 
     UserDao.UserDaoBuilder userDaoSample(def args = null) {
-        UserDao.builder()
+        return UserDao.builder()
                 .id(Id.ofValue(args?.id ?: 16))
-                .role(EMPLOYEE)
+                .role(args?.role ?: EMPLOYEE)
                 .name(FullName.ofValue("Teodor", "Nowak"))
     }
 }

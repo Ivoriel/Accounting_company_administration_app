@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.common.model.FullName;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserDto;
+import pl.tkosinski.accountingadmin.domain.user.service.RoleSwitcher;
 
 import java.util.NoSuchElementException;
 
@@ -13,6 +14,8 @@ import java.util.NoSuchElementException;
 public class UserFacade {
 
     private final UserRepository repository;
+
+    private final RoleSwitcher switcher;
 
     public void save(UserDto dto) {
         repository.get(dto.getId()).ifPresentOrElse(it -> update(it, dto), () -> create(dto));
@@ -33,6 +36,14 @@ public class UserFacade {
 
     public void delete(Id id) {
         repository.delete(id);
+    }
+
+    public void switchRoleToEmployee(Id id) {
+        switcher.switchRoleToEmployee(id);
+    }
+
+    public void switchRoleToClient(Id id) {
+        switcher.switchRoleToClient(id);
     }
 
     public UserDto generate() {

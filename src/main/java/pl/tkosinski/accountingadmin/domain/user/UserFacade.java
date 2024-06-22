@@ -29,9 +29,8 @@ public class UserFacade {
         return UserMapper.toDto(repository.get(id).orElseThrow(NoSuchElementException::new));
     }
 
-    public UserDto getRequestedOrLast(Id id) {
-        return UserMapper.toDto(repository.get(id)
-                .orElse(repository.getLast().orElseThrow(NoSuchElementException::new)));
+    public UserDto getRequestedOrGenerateAndSave(Id id) {
+        return UserMapper.toDto(repository.get(id).orElse(repository.generateAndSave()));
     }
 
     public void delete(Id id) {

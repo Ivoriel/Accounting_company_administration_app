@@ -21,9 +21,9 @@ public class ClientFacade {
         return ClientMapper.toDto(clientRepository.get(id).orElseThrow(NoSuchElementException::new));
     }
 
-    public ClientDto getRequestedOrLast(Id id) {
+    public ClientDto getRequestedOrGenerateAndSave(Id id) {
         return ClientMapper.toDto(clientRepository.get(id)
-                .orElse(clientRepository.getLast().orElseThrow(NoSuchElementException::new)));
+                .orElse(clientRepository.generateAndSave()));
     }
 
     public void delete(Id id) {

@@ -2,17 +2,20 @@ package pl.tkosinski.accountingadmin.domain.task
 
 import pl.tkosinski.accountingadmin.common.model.Id
 import pl.tkosinski.accountingadmin.domain.sample.UsesTaskSample
-import pl.tkosinski.accountingadmin.domain.user.UserDao
+import pl.tkosinski.accountingadmin.domain.sample.UsesUserSample
 import pl.tkosinski.accountingadmin.domain.user.UserFacade
-import pl.tkosinski.accountingadmin.domain.user.UserRepositoryMock
+import spock.lang.Shared
 import spock.lang.Specification
 
-import java.time.LocalDateTime
+class TaskRepositoryMockTest extends Specification implements UsesTaskSample, UsesUserSample {
 
-class TaskRepositoryMockTest extends Specification implements UsesTaskSample {
+    @Shared
+    UserFacade userFacade = Stub()
+    TaskRepository repository = new TaskRepositoryMock(new HashMap<Id, TaskDao>(), userFacade)
 
-    TaskRepository repository = new TaskRepositoryMock(new HashMap<Id, TaskDao>(),
-            new UserFacade(new UserRepositoryMock(new HashMap<Id, UserDao>())))
+    def setupSpec() {
+        userFacade.getRequestedOrGenerateAndSave(_ as Id) >> userDtoSample().build()
+    }
 
     def "should generate initial db when instance is created"() {
         when:

@@ -34,6 +34,16 @@ public class UserController {
         facade.delete(id);
     }
 
+    @PutMapping("/switch-role-employee")
+    public void switchRoleToEmployee(@PathVariable Id id) {
+        facade.switchRoleToEmployee(id);
+    }
+
+    @PutMapping("/switch-role-client")
+    public void switchRoleToClient(@PathVariable Id id) {
+        facade.switchRoleToClient(id);
+    }
+
     @GetMapping("/generate")
     public UserDto generate() {
         return facade.generate();

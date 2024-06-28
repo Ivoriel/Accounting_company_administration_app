@@ -1,17 +1,29 @@
 package pl.tkosinski.accountingadmin.domain.company
 
+import pl.tkosinski.accountingadmin.common.model.Id
 import pl.tkosinski.accountingadmin.domain.address.AddressFacade
-import pl.tkosinski.accountingadmin.domain.address.AddressRepositoryMock
 import pl.tkosinski.accountingadmin.domain.client.ClientFacade
-import pl.tkosinski.accountingadmin.domain.client.ClientRepositoryMock
+import pl.tkosinski.accountingadmin.domain.sample.UsesAddressSample
+import pl.tkosinski.accountingadmin.domain.sample.UsesClientSample
 import pl.tkosinski.accountingadmin.domain.sample.UsesCompanySample
+import spock.lang.Shared
 import spock.lang.Specification
 
-class CompanyRepositoryMockTest extends Specification implements UsesCompanySample {
+class CompanyRepositoryMockTest extends Specification implements
+        UsesCompanySample,
+        UsesAddressSample,
+        UsesClientSample {
 
-    AddressFacade addressFacade = new AddressFacade(new AddressRepositoryMock(new HashMap()))
-    CompanyRepository repository = new CompanyRepositoryMock(new HashMap(), addressFacade,
-            new ClientFacade(new ClientRepositoryMock(new HashMap(), addressFacade)))
+    @Shared
+    AddressFacade addressFacade = Stub()
+    @Shared
+    ClientFacade clientFacade = Stub()
+    CompanyRepository repository = new CompanyRepositoryMock(new HashMap(), addressFacade, clientFacade)
+
+    def setupSpec() {
+        addressFacade.getRequestedOrGenerateAndSave(_ as Id) >> addressDtoSample().build()
+        clientFacade.getRequestedOrGenerateAndSave(_ as Id) >> clientDtoSample().build()
+    }
 
     def "should generate initial db when instance is created"() {
         when:

@@ -16,6 +16,7 @@ class UserMapperTest extends Specification implements UsesUserSample {
 
         then:
         dto.id == dao.id
+        dto.role == dao.role
         dto.name == dao.name
     }
 }

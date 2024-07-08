@@ -18,7 +18,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 @Component
 @AllArgsConstructor
-public class TaskRepositoryMock implements TaskRepository {
+class TaskRepositoryMock implements TaskRepository {
 
     HashMap<Id, TaskDao> taskDb;
     UserFacade userFacade;

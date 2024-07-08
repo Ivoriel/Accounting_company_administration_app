@@ -19,7 +19,7 @@ import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE;
 
 @Component
 @AllArgsConstructor
-public class UserRepositoryMock implements UserRepository{
+class UserRepositoryMock implements UserRepository{
 
     HashMap<Id, UserDao> userDb;
 

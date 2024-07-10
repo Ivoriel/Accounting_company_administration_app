@@ -12,7 +12,7 @@ import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE;
 
 @Getter
 @Builder
-public class UserDao extends BaseDao {
+class UserDao extends BaseDao {
 
     private final Id id;
     private Role role;

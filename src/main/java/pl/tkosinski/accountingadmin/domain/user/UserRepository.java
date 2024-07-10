@@ -6,7 +6,7 @@ import pl.tkosinski.accountingadmin.common.model.Id;
 
 import java.util.Optional;
 
-public interface UserRepository extends BaseRepository<UserDao> {
+interface UserRepository extends BaseRepository<UserDao> {
 
     UserDao save(UserDao userDao);
 

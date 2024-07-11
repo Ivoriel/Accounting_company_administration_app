@@ -1,8 +1,8 @@
-package pl.tkosinski.accountingadmin.domain.user.service;
+package pl.tkosinski.accountingadmin.domain.user;
 
 import pl.tkosinski.accountingadmin.common.model.Id;
 
-public interface RoleSwitcher {
+interface RoleSwitcher {
 
     void switchRoleToEmployee(Id userId);
 

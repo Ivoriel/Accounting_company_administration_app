@@ -2,6 +2,7 @@ package pl.tkosinski.accountingadmin.domain.user.service
 
 import pl.tkosinski.accountingadmin.common.model.Id
 import pl.tkosinski.accountingadmin.domain.sample.UsesUserSample
+import pl.tkosinski.accountingadmin.domain.user.RoleService
 import pl.tkosinski.accountingadmin.domain.user.UserDao
 import pl.tkosinski.accountingadmin.domain.user.UserRepository
 import pl.tkosinski.accountingadmin.domain.user.UserRepositoryMock

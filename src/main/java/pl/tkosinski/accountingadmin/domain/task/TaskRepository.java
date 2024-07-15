@@ -5,7 +5,7 @@ import pl.tkosinski.accountingadmin.common.model.Id;
 
 import java.util.Optional;
 
-public interface TaskRepository extends BaseRepository<TaskDao> {
+interface TaskRepository extends BaseRepository<TaskDao> {
 
     TaskDao save(TaskDao taskDao);
 

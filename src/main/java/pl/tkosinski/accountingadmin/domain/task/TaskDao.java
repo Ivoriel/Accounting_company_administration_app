@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Builder
-public class TaskDao extends BaseDao {
+class TaskDao extends BaseDao {
 
     private final Id id;
     private Id performerId;

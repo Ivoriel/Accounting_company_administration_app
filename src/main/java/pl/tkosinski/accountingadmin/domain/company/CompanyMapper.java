@@ -2,7 +2,7 @@ package pl.tkosinski.accountingadmin.domain.company;
 
 import pl.tkosinski.accountingadmin.domain.company.dto.CompanyDto;
 
-public class CompanyMapper {
+class CompanyMapper {
 
     public static CompanyDto toDto(CompanyDao companyDao) {
         return CompanyDto.builder()

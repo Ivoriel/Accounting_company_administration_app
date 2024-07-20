@@ -2,7 +2,7 @@ package pl.tkosinski.accountingadmin.domain.client;
 
 import pl.tkosinski.accountingadmin.domain.client.dto.ClientDto;
 
-public class ClientMapper {
+class ClientMapper {
 
     public static ClientDto toDto(ClientDao dao) {
         return ClientDto.builder()

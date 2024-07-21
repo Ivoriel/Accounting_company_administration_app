@@ -8,7 +8,7 @@ import pl.tkosinski.accountingadmin.common.model.Id;
 
 @Builder
 @Getter
-public class ClientDao extends BaseDao {
+class ClientDao extends BaseDao {
 
     private final Id id;
     private FullName name;

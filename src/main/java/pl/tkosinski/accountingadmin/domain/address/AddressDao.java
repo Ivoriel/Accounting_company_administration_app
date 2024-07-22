@@ -7,7 +7,7 @@ import pl.tkosinski.accountingadmin.common.model.Id;
 
 @Builder
 @Getter
-public class AddressDao extends BaseDao {
+class AddressDao extends BaseDao {
     
     private final Id id;
     private String country;

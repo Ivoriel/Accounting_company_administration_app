@@ -9,7 +9,7 @@ import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
 @RestController
 @RequestMapping("/address")
 @RequiredArgsConstructor
-public class AddressController {
+class AddressController {
 
     private final AddressFacade facade;
 

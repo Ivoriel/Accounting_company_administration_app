@@ -2,7 +2,7 @@ package pl.tkosinski.accountingadmin.domain.address;
 
 import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
 
-public class AddressMapper {
+class AddressMapper {
 
     public static AddressDto toDto(AddressDao addressDao) {
         return AddressDto.builder()

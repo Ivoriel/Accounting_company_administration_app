@@ -9,7 +9,7 @@ import pl.tkosinski.accountingadmin.domain.client.dto.ClientDto;
 @RestController
 @RequestMapping("/client")
 @RequiredArgsConstructor
-public class ClientController {
+class ClientController {
 
     private final ClientFacade facade;
 

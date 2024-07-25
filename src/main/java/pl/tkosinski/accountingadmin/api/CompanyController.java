@@ -9,7 +9,7 @@ import pl.tkosinski.accountingadmin.domain.company.dto.CompanyDto;
 @RestController
 @RequestMapping("/company")
 @RequiredArgsConstructor
-public class CompanyController {
+class CompanyController {
 
     private final CompanyFacade facade;
 

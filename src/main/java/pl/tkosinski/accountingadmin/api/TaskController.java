@@ -3,14 +3,13 @@ package pl.tkosinski.accountingadmin.api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import pl.tkosinski.accountingadmin.common.model.Id;
-import pl.tkosinski.accountingadmin.domain.company.dto.CompanyDto;
 import pl.tkosinski.accountingadmin.domain.task.TaskFacade;
 import pl.tkosinski.accountingadmin.domain.task.dto.TaskDto;
 
 @RestController
 @RequestMapping("/task")
 @RequiredArgsConstructor
-public class TaskController {
+class TaskController {
 
     private final TaskFacade facade;
 

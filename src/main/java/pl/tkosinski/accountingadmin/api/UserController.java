@@ -10,7 +10,7 @@ import pl.tkosinski.accountingadmin.domain.user.dto.UserDto;
 @RestController
 @RequestMapping("/user")
 @RequiredArgsConstructor
-public class UserController {
+class UserController {
 
     private final UserFacade facade;
 

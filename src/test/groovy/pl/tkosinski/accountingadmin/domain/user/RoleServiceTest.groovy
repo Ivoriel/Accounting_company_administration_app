@@ -1,11 +1,7 @@
-package pl.tkosinski.accountingadmin.domain.user.service
+package pl.tkosinski.accountingadmin.domain.user
 
 import pl.tkosinski.accountingadmin.common.model.Id
 import pl.tkosinski.accountingadmin.domain.sample.UsesUserSample
-import pl.tkosinski.accountingadmin.domain.user.RoleService
-import pl.tkosinski.accountingadmin.domain.user.UserDao
-import pl.tkosinski.accountingadmin.domain.user.UserRepository
-import pl.tkosinski.accountingadmin.domain.user.UserRepositoryMock
 import spock.lang.Specification
 
 import static pl.tkosinski.accountingadmin.common.model.Role.CLIENT

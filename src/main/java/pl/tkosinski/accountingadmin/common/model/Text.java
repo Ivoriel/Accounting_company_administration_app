@@ -5,16 +5,16 @@ import lombok.Value;
 import java.io.Serializable;
 
 @Value
-public class Comment implements Serializable, Validatable {
+public class Text implements Serializable, Validatable {
 
     String value;
 
-    private Comment(String value) {
+    private Text(String value) {
         this.value = value;
     }
 
-    public static Comment ofValue(String value) {
-        return new Comment(value);
+    public static Text ofValue(String value) {
+        return new Text(value);
     }
 
     public void validate() {

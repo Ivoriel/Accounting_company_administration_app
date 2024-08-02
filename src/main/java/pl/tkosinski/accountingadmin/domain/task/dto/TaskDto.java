@@ -2,7 +2,7 @@ package pl.tkosinski.accountingadmin.domain.task.dto;
 
 import lombok.Builder;
 import lombok.Value;
-import pl.tkosinski.accountingadmin.common.model.Comment;
+import pl.tkosinski.accountingadmin.common.model.Text;
 import pl.tkosinski.accountingadmin.common.model.Id;
 
 import java.time.LocalDateTime;
@@ -15,5 +15,6 @@ public class TaskDto {
     Id performerId;
     LocalDateTime start;
     LocalDateTime end;
-    Comment comment;
+    Text title;
+    Text comment;
 }

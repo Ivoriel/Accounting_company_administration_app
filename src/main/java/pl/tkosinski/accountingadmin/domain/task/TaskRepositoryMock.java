@@ -3,7 +3,7 @@ package pl.tkosinski.accountingadmin.domain.task;
 import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
-import pl.tkosinski.accountingadmin.common.model.Comment;
+import pl.tkosinski.accountingadmin.common.model.Text;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.user.UserFacade;
 
@@ -58,7 +58,8 @@ class TaskRepositoryMock implements TaskRepository {
                 .performerId(userFacade.getRequestedOrGenerateAndSave(Id.ofValue(size())).getId())
                 .start(LocalDateTime.now().minusMinutes(start))
                 .end(LocalDateTime.now().minusMinutes(start+60L))
-                .comment(Comment.ofValue("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at."))
+                .title(Text.ofValue("Lorem ipsum dolor sit amet"))
+                .comment(Text.ofValue("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at."))
                 .build();
     }
 

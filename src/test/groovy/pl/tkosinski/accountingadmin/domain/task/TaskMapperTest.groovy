@@ -17,6 +17,7 @@ class TaskMapperTest extends Specification implements UsesTaskSample {
         dto.id == dao.id
         dto.start == dao.start
         dto.end == dao.end
+        dto.title == dao.title
         dto.comment == dao.comment
     }
 }

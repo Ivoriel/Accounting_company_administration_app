@@ -36,6 +36,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
         savedDao.performerId == daoToSave.performerId
         savedDao.start == daoToSave.start
         savedDao.end == daoToSave.end
+        savedDao.title == daoToSave.title
         savedDao.comment == daoToSave.comment
     }
 
@@ -51,6 +52,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
         retrievedDao.performerId == daoToSave.performerId
         retrievedDao.start == daoToSave.start
         retrievedDao.end == daoToSave.end
+        retrievedDao.title = retrievedDao.title
         retrievedDao.comment == daoToSave.comment
     }
 
@@ -82,6 +84,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
         generatedDao.performerId != null
         generatedDao.start != null
         generatedDao.end != null
+        generatedDao.title != null
         generatedDao.comment != null
     }
 
@@ -96,6 +99,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
         generatedDao.performerId == retrievedDao.performerId
         generatedDao.start == retrievedDao.start
         generatedDao.end == retrievedDao.end
+        generatedDao.title == retrievedDao.title
         generatedDao.comment == retrievedDao.comment
     }
 }

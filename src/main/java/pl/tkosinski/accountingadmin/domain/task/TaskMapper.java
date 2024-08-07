@@ -10,6 +10,7 @@ class TaskMapper {
                 .performerId(dao.getPerformerId())
                 .start(dao.getStart())
                 .end(dao.getEnd())
+                .title(dao.getTitle())
                 .comment(dao.getComment())
                 .build();
     }

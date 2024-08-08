@@ -52,7 +52,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
         retrievedDao.performerId == daoToSave.performerId
         retrievedDao.start == daoToSave.start
         retrievedDao.end == daoToSave.end
-        retrievedDao.title = retrievedDao.title
+        retrievedDao.title == retrievedDao.title
         retrievedDao.comment == daoToSave.comment
     }
 

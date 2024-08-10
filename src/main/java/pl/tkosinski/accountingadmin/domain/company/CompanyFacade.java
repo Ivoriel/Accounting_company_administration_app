@@ -21,6 +21,10 @@ public class CompanyFacade {
         return CompanyMapper.toDto(repository.get(id).orElseThrow(NoSuchElementException::new));
     }
 
+    public CompanyDto getRequestedOrGenerateAndSave(Id id) {
+        return CompanyMapper.toDto(repository.get(id).orElse(repository.generateAndSave()));
+    }
+
     public void delete(Id id) {
         repository.delete(id);
     }

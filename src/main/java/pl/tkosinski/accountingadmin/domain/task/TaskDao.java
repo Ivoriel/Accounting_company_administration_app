@@ -19,7 +19,7 @@ class TaskDao extends BaseDao {
     private Text title;
     private Text comment;
 
-    public TaskDao edit(Id performerId, LocalDateTime start, LocalDateTime end, Text title, Text comment) {
+    protected TaskDao edit(Id performerId, LocalDateTime start, LocalDateTime end, Text title, Text comment) {
         this.performerId = performerId;
         this.start = start;
         this.end = end;

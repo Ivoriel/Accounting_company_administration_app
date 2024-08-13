@@ -13,6 +13,7 @@ public class TaskDto {
 
     Id id;
     Id performerId;
+    Id clientCompanyId;
     LocalDateTime start;
     LocalDateTime end;
     Text title;

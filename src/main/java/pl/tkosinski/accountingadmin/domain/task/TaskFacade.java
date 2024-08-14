@@ -34,7 +34,8 @@ public class TaskFacade {
     }
 
     private void update(TaskDao dao, TaskDto dto) {
-        repository.save(dao.edit(dto.getPerformerId(), dto.getStart(), dto.getEnd(), dto.getTitle(), dto.getComment()));
+        repository.save(dao.edit(dto.getPerformerId(), dto.getClientCompanyId(), dto.getStart(), dto.getEnd(),
+                dto.getTitle(), dto.getComment()));
     }
 
     private void create(TaskDto dto) {

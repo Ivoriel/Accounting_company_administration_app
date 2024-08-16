@@ -8,6 +8,7 @@ class TaskMapper {
         return TaskDto.builder()
                 .id(dao.getId())
                 .performerId(dao.getPerformerId())
+                .clientCompanyId(dao.getClientCompanyId())
                 .start(dao.getStart())
                 .end(dao.getEnd())
                 .title(dao.getTitle())

@@ -15,6 +15,8 @@ class TaskMapperTest extends Specification implements UsesTaskSample {
 
         then:
         dto.id == dao.id
+        dto.performerId == dao.performerId
+        dto.clientCompanyId == dao.clientCompanyId
         dto.start == dao.start
         dto.end == dao.end
         dto.title == dao.title

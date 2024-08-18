@@ -1,20 +1,25 @@
 package pl.tkosinski.accountingadmin.domain.task
 
 import pl.tkosinski.accountingadmin.common.model.Id
+import pl.tkosinski.accountingadmin.domain.company.CompanyFacade
+import pl.tkosinski.accountingadmin.domain.sample.UsesCompanySample
 import pl.tkosinski.accountingadmin.domain.sample.UsesTaskSample
 import pl.tkosinski.accountingadmin.domain.sample.UsesUserSample
 import pl.tkosinski.accountingadmin.domain.user.UserFacade
 import spock.lang.Shared
 import spock.lang.Specification
 
-class TaskRepositoryMockTest extends Specification implements UsesTaskSample, UsesUserSample {
+class TaskRepositoryMockTest extends Specification implements UsesTaskSample, UsesUserSample, UsesCompanySample {
 
     @Shared
     UserFacade userFacade = Stub()
-    TaskRepository repository = new TaskRepositoryMock(new HashMap<Id, TaskDao>(), userFacade)
+    @Shared
+    CompanyFacade companyFacade = Stub()
+    TaskRepository repository = new TaskRepositoryMock(new HashMap<Id, TaskDao>(), userFacade, companyFacade)
 
     def setupSpec() {
         userFacade.getRequestedOrGenerateAndSave(_ as Id) >> userDtoSample().build()
+        companyFacade.getRequestedOrGenerateAndSave(_ as Id) >> companyDtoSample().build()
     }
 
     def "should generate initial db when instance is created"() {
@@ -34,6 +39,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
 
         then:
         savedDao.performerId == daoToSave.performerId
+        savedDao.clientCompanyId == daoToSave.clientCompanyId
         savedDao.start == daoToSave.start
         savedDao.end == daoToSave.end
         savedDao.title == daoToSave.title
@@ -50,6 +56,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
 
         then:
         retrievedDao.performerId == daoToSave.performerId
+        retrievedDao.clientCompanyId == daoToSave.clientCompanyId
         retrievedDao.start == daoToSave.start
         retrievedDao.end == daoToSave.end
         retrievedDao.title == retrievedDao.title
@@ -82,6 +89,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
 
         then:
         generatedDao.performerId != null
+        generatedDao.clientCompanyId != null
         generatedDao.start != null
         generatedDao.end != null
         generatedDao.title != null
@@ -97,6 +105,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
 
         then:
         generatedDao.performerId == retrievedDao.performerId
+        generatedDao.clientCompanyId == retrievedDao.clientCompanyId
         generatedDao.start == retrievedDao.start
         generatedDao.end == retrievedDao.end
         generatedDao.title == retrievedDao.title

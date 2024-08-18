@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.common.model.Text;
 import pl.tkosinski.accountingadmin.common.model.Id;
+import pl.tkosinski.accountingadmin.domain.company.CompanyFacade;
 import pl.tkosinski.accountingadmin.domain.user.UserFacade;
 
 import java.time.LocalDateTime;
@@ -22,6 +23,7 @@ class TaskRepositoryMock implements TaskRepository {
 
     HashMap<Id, TaskDao> taskDb;
     UserFacade userFacade;
+    CompanyFacade companyFacade;
 
     @PostConstruct
     public void init() {
@@ -56,6 +58,7 @@ class TaskRepositoryMock implements TaskRepository {
         return TaskDao.builder()
                 .id(Id.ofValue(taskDb.size()))
                 .performerId(userFacade.getRequestedOrGenerateAndSave(Id.ofValue(size())).getId())
+                .clientCompanyId(companyFacade.getRequestedOrGenerateAndSave(Id.ofValue(size())).getId())
                 .start(LocalDateTime.now().minusMinutes(start))
                 .end(LocalDateTime.now().minusMinutes(start+60L))
                 .title(Text.ofValue("Lorem ipsum dolor sit amet"))

@@ -41,6 +41,12 @@ public class TaskFacade {
     private void create(TaskDto dto) {
         repository.save(TaskDao.builder()
                 .id(Id.ofValue(repository.size()))
+                .performerId(dto.getPerformerId())
+                .clientCompanyId(dto.getClientCompanyId())
+                .title(dto.getTitle())
+                .comment(dto.getComment())
+                .start(dto.getStart())
+                .end(dto.getEnd())
                 .build());
     }
 }

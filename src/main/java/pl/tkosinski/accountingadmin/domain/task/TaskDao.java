@@ -30,4 +30,8 @@ class TaskDao extends BaseDao {
         this.comment = comment;
         return this;
     }
+
+    protected void assignTask(Id performerId) {
+        this.performerId = performerId;
+    }
 }

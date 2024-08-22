@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.task.TaskFacade;
+import pl.tkosinski.accountingadmin.domain.task.dto.TaskAssignmentDto;
 import pl.tkosinski.accountingadmin.domain.task.dto.TaskDto;
 
 @RestController
@@ -36,5 +37,10 @@ class TaskController {
     @GetMapping("/generate-and-save")
     public TaskDto generateAndSave() {
         return facade.generateAndSave();
+    }
+
+    @PostMapping("/assign")
+    public void assign(@RequestBody TaskAssignmentDto dto) {
+        facade.assignTask(dto);
     }
 }

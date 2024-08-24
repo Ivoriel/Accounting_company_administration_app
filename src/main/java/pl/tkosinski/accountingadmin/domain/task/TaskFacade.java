@@ -3,6 +3,7 @@ package pl.tkosinski.accountingadmin.domain.task;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.common.model.Id;
+import pl.tkosinski.accountingadmin.domain.task.dto.TaskAssignmentDto;
 import pl.tkosinski.accountingadmin.domain.task.dto.TaskDto;
 
 import java.util.NoSuchElementException;
@@ -31,6 +32,10 @@ public class TaskFacade {
 
     public TaskDto generateAndSave() {
         return TaskMapper.toDto(repository.generateAndSave());
+    }
+
+    public void assignTask(TaskAssignmentDto dto) {
+        repository.assignTask(dto);
     }
 
     private void update(TaskDao dao, TaskDto dto) {

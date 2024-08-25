@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.common.model.Text;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.company.CompanyFacade;
+import pl.tkosinski.accountingadmin.domain.task.dto.TaskAssignmentDto;
 import pl.tkosinski.accountingadmin.domain.user.UserFacade;
 
 import java.time.LocalDateTime;
@@ -69,6 +70,11 @@ class TaskRepositoryMock implements TaskRepository {
     @Override
     public TaskDao generateAndSave() {
         return save(generate());
+    }
+
+    @Override
+    public void assignTask(TaskAssignmentDto dto) {
+        taskDb.get(dto.getTaskId()).assignTask(dto.getPerformerId());
     }
 
     private void populateTaskDb() {

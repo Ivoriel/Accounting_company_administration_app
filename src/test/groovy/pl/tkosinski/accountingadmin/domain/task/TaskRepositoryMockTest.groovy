@@ -5,6 +5,7 @@ import pl.tkosinski.accountingadmin.domain.company.CompanyFacade
 import pl.tkosinski.accountingadmin.domain.sample.UsesCompanySample
 import pl.tkosinski.accountingadmin.domain.sample.UsesTaskSample
 import pl.tkosinski.accountingadmin.domain.sample.UsesUserSample
+import pl.tkosinski.accountingadmin.domain.task.dto.TaskAssignmentDto
 import pl.tkosinski.accountingadmin.domain.user.UserFacade
 import spock.lang.Shared
 import spock.lang.Specification
@@ -110,5 +111,18 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
         generatedDao.end == retrievedDao.end
         generatedDao.title == retrievedDao.title
         generatedDao.comment == retrievedDao.comment
+    }
+
+    def "should assign task"() {
+        given:
+        def generatedDao = repository.generateAndSave()
+        def performerId = Id.ofValue(Long.MAX_VALUE)
+
+        when:
+        repository.assignTask(new TaskAssignmentDto(generatedDao.id, performerId))
+        def assignedTaskDao = repository.get(generatedDao.id).get()
+
+                then:
+        generatedDao.performerId == assignedTaskDao.performerId
     }
 }

@@ -34,4 +34,10 @@ class TaskDao extends BaseDao {
     protected void assignTask(Id performerId) {
         this.performerId = performerId;
     }
+
+    protected LocalDateTime beginTask() {
+        this.start = LocalDateTime.now();
+
+        return start;
+    }
 }

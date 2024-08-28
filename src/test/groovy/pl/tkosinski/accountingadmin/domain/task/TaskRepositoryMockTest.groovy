@@ -125,4 +125,15 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
                 then:
         generatedDao.performerId == assignedTaskDao.performerId
     }
+
+    def "should begin task"() {
+        given:
+        def generatedDao = repository.generateAndSave()
+
+        when:
+        var start = repository.beginTask(generatedDao.id)
+
+        then:
+        repository.get(generatedDao.id).get().start == start
+    }
 }

@@ -4,6 +4,7 @@ import pl.tkosinski.accountingadmin.common.BaseRepository;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.task.dto.TaskAssignmentDto;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 interface TaskRepository extends BaseRepository<TaskDao> {
@@ -21,4 +22,6 @@ interface TaskRepository extends BaseRepository<TaskDao> {
     TaskDao generateAndSave();
 
     void assignTask(TaskAssignmentDto dto);
+
+    LocalDateTime beginTask(Id taskId);
 }

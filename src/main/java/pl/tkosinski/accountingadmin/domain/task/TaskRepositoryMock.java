@@ -77,6 +77,11 @@ class TaskRepositoryMock implements TaskRepository {
         taskDb.get(dto.getTaskId()).assignTask(dto.getPerformerId());
     }
 
+    @Override
+    public LocalDateTime beginTask(Id taskId) {
+        return taskDb.get(taskId).beginTask();
+    }
+
     private void populateTaskDb() {
         for (long i = 1; i < 10; i++) {
             generateAndSave();

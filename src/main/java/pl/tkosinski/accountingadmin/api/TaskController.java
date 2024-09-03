@@ -44,7 +44,7 @@ class TaskController {
         facade.assignTask(dto);
     }
 
-    @PostMapping("/assign")
+    @PostMapping("/begin")
     public void begin(@RequestBody Id taskId) {
         facade.beginTask(taskId);
     }

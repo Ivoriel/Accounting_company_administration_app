@@ -40,4 +40,10 @@ class TaskDao extends BaseDao {
 
         return start;
     }
+
+    protected LocalDateTime finishTask() {
+        this.start = LocalDateTime.now();
+
+        return end;
+    }
 }

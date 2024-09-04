@@ -42,6 +42,10 @@ public class TaskFacade {
         repository.beginTask(taskId);
     }
 
+    public void finishTask(Id taskId) {
+        repository.finishTask(taskId);
+    }
+
     private void update(TaskDao dao, TaskDto dto) {
         repository.save(dao.edit(dto.getPerformerId(), dto.getClientCompanyId(), dto.getStart(), dto.getEnd(),
                 dto.getTitle(), dto.getComment()));

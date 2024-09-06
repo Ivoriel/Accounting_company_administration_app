@@ -24,4 +24,6 @@ interface TaskRepository extends BaseRepository<TaskDao> {
     void assignTask(TaskAssignmentDto dto);
 
     LocalDateTime beginTask(Id taskId);
+
+    LocalDateTime finishTask(Id taskId);
 }

@@ -48,4 +48,9 @@ class TaskController {
     public void begin(@RequestBody Id taskId) {
         facade.beginTask(taskId);
     }
+
+    @PostMapping("/finish")
+    public void finish(@RequestBody Id taskId) {
+        facade.finishTask(taskId);
+    }
 }

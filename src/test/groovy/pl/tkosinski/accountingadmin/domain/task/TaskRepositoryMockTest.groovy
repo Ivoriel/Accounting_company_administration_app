@@ -136,4 +136,15 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
         then:
         repository.get(generatedDao.id).get().start == start
     }
+
+    def "should finish task"() {
+        given:
+        def generatedDao = repository.generateAndSave()
+
+        when:
+        var finish = repository.finishTask(generatedDao.id)
+
+        then:
+        repository.get(generatedDao.id).get().end == finish
+    }
 }

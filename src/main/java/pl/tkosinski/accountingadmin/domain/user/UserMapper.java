@@ -5,10 +5,6 @@ import pl.tkosinski.accountingadmin.domain.user.dto.UserDto;
 class UserMapper {
 
     public static UserDto toDto(UserDao dao) {
-        return UserDto.builder()
-                .id(dao.getId())
-                .role(dao.getRole())
-                .name(dao.getName())
-                .build();
+        return new UserDto(dao.getId(), dao.getRole(), dao.getName());
     }
 }

@@ -1,6 +1,9 @@
 package pl.tkosinski.accountingadmin.domain.client.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+import lombok.Value;
 import pl.tkosinski.accountingadmin.common.model.FullName;
 import pl.tkosinski.accountingadmin.common.model.Id;
 

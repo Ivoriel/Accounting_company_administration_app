@@ -17,6 +17,8 @@ import java.util.concurrent.ThreadLocalRandom;
 @AllArgsConstructor
 class AddressRepositoryMock implements AddressRepository{
 
+    private static final String COUNTRY = "Polska";
+
     HashMap<Id, AddressDao> addressDb;
 
     @PostConstruct
@@ -70,7 +72,7 @@ class AddressRepositoryMock implements AddressRepository{
     }
 
     private String generateCountry() {
-        return "Polska";
+        return COUNTRY;
     }
 
     private String generateMunicipality() {

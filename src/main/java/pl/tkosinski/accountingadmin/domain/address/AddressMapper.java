@@ -2,7 +2,13 @@ package pl.tkosinski.accountingadmin.domain.address;
 
 import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
 
+import static pl.tkosinski.accountingadmin.common.exception.code.Utility.UTILITY_CLASS;
+
 class AddressMapper {
+
+    private AddressMapper() {
+        throw new IllegalStateException(UTILITY_CLASS.message);
+    }
 
     public static AddressDto toDto(AddressDao addressDao) {
         return AddressDto.builder()

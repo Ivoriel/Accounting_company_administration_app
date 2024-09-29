@@ -29,9 +29,8 @@ class UserDao extends BaseDao {
         return this;
     }
 
-    public UserDao switchRoleToEmployee() {
+    public void switchRoleToEmployee() {
         this.role = EMPLOYEE;
-        return this;
     }
 
     public UserDao switchRoleToClient() {

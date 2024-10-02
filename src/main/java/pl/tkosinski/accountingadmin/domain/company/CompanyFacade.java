@@ -14,7 +14,7 @@ public class CompanyFacade {
     private final CompanyRepository repository;
 
     public void save(CompanyDto dto) {
-        repository.get(dto.getId()).ifPresentOrElse(it -> updateCompany(it, dto), () -> createCompany(dto));
+        repository.get(dto.id()).ifPresentOrElse(it -> updateCompany(it, dto), () -> createCompany(dto));
     }
 
     public CompanyDto get(Id id) {
@@ -38,15 +38,15 @@ public class CompanyFacade {
     }
 
     private void updateCompany(CompanyDao dao, CompanyDto dto) {
-        repository.save(dao.edit(dto.getName(), dto.getClientId(), dto.getAddressId()));
+        repository.save(dao.edit(dto.name(), dto.clientId(), dto.addressId()));
     }
 
     private void createCompany(CompanyDto dto) {
         repository.save(CompanyDao.builder()
                 .id(Id.ofValue(repository.size()))
-                .name(dto.getName())
-                .clientId(dto.getClientId())
-                .addressId(dto.getAddressId())
+                .name(dto.name())
+                .clientId(dto.clientId())
+                .addressId(dto.addressId())
                 .build());
     }
 }

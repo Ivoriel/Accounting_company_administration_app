@@ -58,8 +58,8 @@ class TaskRepositoryMock implements TaskRepository {
 
         return TaskDao.builder()
                 .id(Id.ofValue(taskDb.size()))
-                .performerId(userFacade.getRequestedOrGenerateAndSave(Id.ofValue(size())).getId())
-                .clientCompanyId(companyFacade.getRequestedOrGenerateAndSave(Id.ofValue(size())).getId())
+                .performerId(userFacade.getRequestedOrGenerateAndSave(Id.ofValue(size())).id())
+                .clientCompanyId(companyFacade.getRequestedOrGenerateAndSave(Id.ofValue(size())).id())
                 .start(LocalDateTime.now().minusMinutes(start))
                 .end(LocalDateTime.now().minusMinutes(start+60L))
                 .title(Text.ofValue("Lorem ipsum dolor sit amet"))
@@ -74,7 +74,7 @@ class TaskRepositoryMock implements TaskRepository {
 
     @Override
     public void assignTask(TaskAssignmentDto dto) {
-        taskDb.get(dto.getTaskId()).assignTask(dto.getPerformerId());
+        taskDb.get(dto.taskId()).assignTask(dto.performerId());
     }
 
     @Override

@@ -15,7 +15,7 @@ public class TaskFacade {
     private final TaskRepository repository;
 
     public void save(TaskDto dto) {
-        repository.get(dto.getId()).ifPresentOrElse(it -> update(it, dto), () -> create(dto));
+        repository.get(dto.id()).ifPresentOrElse(it -> update(it, dto), () -> create(dto));
     }
 
     public TaskDto get(Id id) {
@@ -47,19 +47,19 @@ public class TaskFacade {
     }
 
     private void update(TaskDao dao, TaskDto dto) {
-        repository.save(dao.edit(dto.getPerformerId(), dto.getClientCompanyId(), dto.getStart(), dto.getEnd(),
-                dto.getTitle(), dto.getComment()));
+        repository.save(dao.edit(dto.performerId(), dto.clientCompanyId(), dto.start(), dto.end(),
+                dto.title(), dto.comment()));
     }
 
     private void create(TaskDto dto) {
         repository.save(TaskDao.builder()
                 .id(Id.ofValue(repository.size()))
-                .performerId(dto.getPerformerId())
-                .clientCompanyId(dto.getClientCompanyId())
-                .title(dto.getTitle())
-                .comment(dto.getComment())
-                .start(dto.getStart())
-                .end(dto.getEnd())
+                .performerId(dto.performerId())
+                .clientCompanyId(dto.clientCompanyId())
+                .title(dto.title())
+                .comment(dto.comment())
+                .start(dto.start())
+                .end(dto.end())
                 .build());
     }
 }

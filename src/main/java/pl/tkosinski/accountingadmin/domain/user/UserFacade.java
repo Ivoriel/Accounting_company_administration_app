@@ -17,7 +17,7 @@ public class UserFacade {
     private final RoleSwitcher switcher;
 
     public void save(UserDto dto) {
-        repository.get(dto.getId()).ifPresentOrElse(it -> update(it, dto), () -> create(dto));
+        repository.get(dto.id()).ifPresentOrElse(it -> update(it, dto), () -> create(dto));
     }
 
     public void editName(Id id, FullName name) {
@@ -55,11 +55,11 @@ public class UserFacade {
     private void create(UserDto dto) {
         repository.save(UserDao.builder()
                 .id(Id.ofValue(repository.size()))
-                .name(dto.getName())
+                .name(dto.name())
                 .build());
     }
 
     private void update(UserDao dao, UserDto dto) {
-        repository.save(dao.editName(dto.getName()));
+        repository.save(dao.editName(dto.name()));
     }
 }

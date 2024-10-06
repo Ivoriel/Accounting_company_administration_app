@@ -2,7 +2,7 @@ package pl.tkosinski.accountingadmin.common.model;
 
 import java.io.Serializable;
 
-public record Text(String value) implements Serializable, Validatable {
+public record Text(String value) implements Serializable {
 
     public static Text ofValue(String value) {
         return new Text(value);

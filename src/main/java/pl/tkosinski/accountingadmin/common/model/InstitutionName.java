@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @Value
 @Builder
-public class InstitutionName implements Serializable, Validatable {
+public class InstitutionName implements Serializable {
 
     String name;
     String otherIdentifier;

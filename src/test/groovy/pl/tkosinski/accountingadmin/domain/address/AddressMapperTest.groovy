@@ -5,13 +5,11 @@ import spock.lang.Specification
 
 class AddressMapperTest extends Specification implements UsesAddressSample {
 
-    AddressMapper mapper = new AddressMapper()
-
     def "should map address entity to dto"() {
         def dao = addressDaoSample().build()
 
         when:
-        def dto = mapper.toDto(dao)
+        def dto = AddressMapper.toDto(dao)
 
         then:
         dto.id == dao.id

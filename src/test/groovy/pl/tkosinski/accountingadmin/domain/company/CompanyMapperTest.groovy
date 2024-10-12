@@ -5,13 +5,11 @@ import spock.lang.Specification
 
 class CompanyMapperTest extends Specification implements UsesCompanySample{
 
-    CompanyMapper mapper = new CompanyMapper()
-
     def "should map company entity to dto"() {
         def dao = companyDaoSample().build()
 
         when:
-        def dto = mapper.toDto(dao)
+        def dto = CompanyMapper.toDto(dao)
 
         then:
         dto.id == dao.id

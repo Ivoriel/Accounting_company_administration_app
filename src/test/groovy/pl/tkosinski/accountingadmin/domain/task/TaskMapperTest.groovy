@@ -5,13 +5,11 @@ import spock.lang.Specification
 
 class TaskMapperTest extends Specification implements UsesTaskSample {
 
-    TaskMapper mapper = new TaskMapper()
-
     def "should map task dao to dto"() {
         def dao = taskDaoSample().build()
 
         when:
-        def dto = mapper.toDto(dao)
+        def dto = TaskMapper.toDto(dao)
 
         then:
         dto.id == dao.id

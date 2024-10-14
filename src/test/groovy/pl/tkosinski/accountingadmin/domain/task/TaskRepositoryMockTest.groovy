@@ -19,8 +19,8 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
     TaskRepository repository = new TaskRepositoryMock(new HashMap<Id, TaskDao>(), userFacade, companyFacade)
 
     def setupSpec() {
-        userFacade.getRequestedOrGenerateAndSave(_ as Id) >> userDtoSample().build()
-        companyFacade.getRequestedOrGenerateAndSave(_ as Id) >> companyDtoSample().build()
+        userFacade.getRequestedOrGenerateAndSave(_ as Id) >> userDtoSample()
+        companyFacade.getRequestedOrGenerateAndSave(_ as Id) >> companyDtoSample()
     }
 
     def "should generate initial db when instance is created"() {

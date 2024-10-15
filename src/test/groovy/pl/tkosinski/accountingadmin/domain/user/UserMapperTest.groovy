@@ -6,13 +6,11 @@ import spock.lang.Specification
 
 class UserMapperTest extends Specification implements UsesUserSample {
 
-    UserMapper mapper = new UserMapper()
-
     def "should map user dao to dto"() {
         def dao = userDaoSample().build()
 
         when:
-        def dto = mapper.toDto(dao)
+        def dto = UserMapper.toDto(dao)
 
         then:
         dto.id == dao.id

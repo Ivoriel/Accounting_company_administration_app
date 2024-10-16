@@ -15,11 +15,11 @@ trait UsesCompanySample {
                 .clientId(Id.ofValue(818))
     }
 
-    CompanyDto.CompanyDtoBuilder companyDtoSample(def args = null) {
-        CompanyDto.builder()
-                .id(Id.ofValue(args?.id ?: 16))
-                .name(InstitutionName.ofValue("Test company name"))
-                .addressId(Id.ofValue(919))
-                .clientId(Id.ofValue(818))
+    CompanyDto companyDtoSample(def args = null) {
+        new CompanyDto(
+                Id.ofValue(args?.id ?: 16),
+                InstitutionName.ofValue("Test company name"),
+                Id.ofValue(919),
+                Id.ofValue(818))
     }
 }

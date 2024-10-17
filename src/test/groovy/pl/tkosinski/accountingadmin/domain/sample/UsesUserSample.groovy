@@ -16,10 +16,10 @@ trait UsesUserSample {
                 .name(FullName.ofValue("Teodor", "Nowak"))
     }
 
-    UserDto.UserDtoBuilder userDtoSample(def args = null) {
-        return UserDto.builder()
-                .id(Id.ofValue(args?.id ?: 16))
-                .role(args?.role ?: EMPLOYEE)
-                .name(FullName.ofValue("Teodor", "Nowak"))
+    UserDto userDtoSample(def args = null) {
+        new UserDto(
+                Id.ofValue(args?.id ?: 16),
+                args?.role ?: EMPLOYEE,
+                FullName.ofValue("Teodor", "Nowak"))
     }
 }

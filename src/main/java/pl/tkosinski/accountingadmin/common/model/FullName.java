@@ -1,13 +1,11 @@
 package pl.tkosinski.accountingadmin.common.model;
 
-import lombok.Builder;
 import lombok.Value;
 
 import java.io.Serializable;
 import java.util.Objects;
 
 @Value
-@Builder
 public class FullName implements Serializable {
 
     String givenName;

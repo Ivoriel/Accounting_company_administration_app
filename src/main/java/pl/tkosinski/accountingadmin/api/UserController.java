@@ -44,6 +44,11 @@ class UserController {
         facade.switchRoleToClient(id);
     }
 
+    @PutMapping("/switch-role-admin")
+    public void switchRoleToAdmin(@PathVariable Id id) {
+        facade.switchRoleToClient(id);
+    }
+
     @GetMapping("/generate")
     public UserDto generate() {
         return facade.generate();

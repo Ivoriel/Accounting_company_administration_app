@@ -7,8 +7,7 @@ import pl.tkosinski.accountingadmin.common.model.FullName;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.common.model.Role;
 
-import static pl.tkosinski.accountingadmin.common.model.Role.CLIENT;
-import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE;
+import static pl.tkosinski.accountingadmin.common.model.Role.*;
 
 @Getter
 @Builder
@@ -35,5 +34,9 @@ class UserDao extends BaseDao {
 
     public void switchRoleToClient() {
         this.role = CLIENT;
+    }
+
+    public void switchRoleToAdmin() {
+        this.role = ADMIN;
     }
 }

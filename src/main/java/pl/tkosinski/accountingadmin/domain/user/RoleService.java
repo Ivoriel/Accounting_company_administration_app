@@ -19,4 +19,9 @@ class RoleService implements RoleSwitcher {
     public void switchRoleToClient(Id userId) {
         repository.get(userId).ifPresent(UserDao::switchRoleToClient);
     }
+
+    @Override
+    public void switchRoleToAdmin(Id userId) {
+        repository.get(userId).ifPresent(UserDao::switchRoleToAdmin);
+    }
 }

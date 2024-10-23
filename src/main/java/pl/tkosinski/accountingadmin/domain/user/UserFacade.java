@@ -44,6 +44,10 @@ public class UserFacade {
         switcher.switchRoleToClient(id);
     }
 
+    public void switchRoleToAdmin(Id id) {
+        switcher.switchRoleToAdmin(id);
+    }
+
     public UserDto generate() {
         return UserMapper.toDto(repository.generate());
     }

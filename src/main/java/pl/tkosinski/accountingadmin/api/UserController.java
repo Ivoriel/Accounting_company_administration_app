@@ -2,6 +2,7 @@ package pl.tkosinski.accountingadmin.api;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import pl.tkosinski.accountingadmin.common.dto.IdRequest;
 import pl.tkosinski.accountingadmin.common.model.FullName;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.user.UserFacade;
@@ -10,7 +11,7 @@ import pl.tkosinski.accountingadmin.domain.user.dto.UserDto;
 @RestController
 @RequestMapping("/user")
 @RequiredArgsConstructor
-class UserController {
+class UserController extends BaseController {
 
     private final UserFacade facade;
 
@@ -35,18 +36,24 @@ class UserController {
     }
 
     @PutMapping("/switch-role-employee")
-    public void switchRoleToEmployee(@PathVariable Id id) {
-        facade.switchRoleToEmployee(id);
+    public void switchRoleToEmployee(@RequestBody IdRequest request) {
+        validateAdmin(request.getUserId());
+
+        facade.switchRoleToEmployee(request.getId());
     }
 
     @PutMapping("/switch-role-client")
-    public void switchRoleToClient(@PathVariable Id id) {
-        facade.switchRoleToClient(id);
+    public void switchRoleToClient(@RequestBody IdRequest request) {
+        validateAdmin(request.getUserId());
+
+        facade.switchRoleToClient(request.getId());
     }
 
     @PutMapping("/switch-role-admin")
-    public void switchRoleToAdmin(@PathVariable Id id) {
-        facade.switchRoleToClient(id);
+    public void switchRoleToAdmin(@RequestBody IdRequest request) {
+        validateAdmin(request.getUserId());
+
+        facade.switchRoleToClient(request.getId());
     }
 
     @GetMapping("/generate")

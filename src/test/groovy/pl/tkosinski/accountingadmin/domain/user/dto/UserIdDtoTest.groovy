@@ -25,7 +25,18 @@ class UserIdDtoTest extends Specification {
         CLIENT   || FALSE
     }
 
-    def "IsEmployee"() {
+    def "should return boolean appropriate for role when checking whether user is employee"() {
+        when:
+        def dto = new UserIdDto(role)
+
+        then:
+        result == dto.isEmployee()
+
+        where:
+        role     || result
+        ADMIN    || FALSE
+        EMPLOYEE || TRUE
+        CLIENT   || FALSE
     }
 
     def "IsEmployeeOrAdmin"() {

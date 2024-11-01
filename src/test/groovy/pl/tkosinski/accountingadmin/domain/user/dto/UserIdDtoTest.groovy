@@ -54,5 +54,16 @@ class UserIdDtoTest extends Specification {
     }
 
     def "IsClient"() {
+        when:
+        def dto = new UserIdDto(role)
+
+        then:
+        result == dto.isClient()
+
+        where:
+        role     || result
+        ADMIN    || FALSE
+        EMPLOYEE || FALSE
+        CLIENT   || TRUE
     }
 }

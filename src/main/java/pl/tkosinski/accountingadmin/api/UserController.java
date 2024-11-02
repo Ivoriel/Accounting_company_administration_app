@@ -30,9 +30,11 @@ class UserController extends BaseController {
         return facade.get(id);
     }
 
-    @DeleteMapping("/{id}/delete")
-    public void delete(@PathVariable Id id) {
-        facade.delete(id);
+    @DeleteMapping("/delete")
+    public void delete(@RequestBody IdRequest request) {
+        validateAdmin(request.getUserId());
+
+        facade.delete(request.getId());
     }
 
     @PutMapping("/switch-role-employee")

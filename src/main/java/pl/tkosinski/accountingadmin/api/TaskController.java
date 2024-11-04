@@ -2,6 +2,7 @@ package pl.tkosinski.accountingadmin.api;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import pl.tkosinski.accountingadmin.common.dto.IdRequest;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.task.TaskFacade;
 import pl.tkosinski.accountingadmin.domain.task.dto.TaskAssignmentDto;
@@ -10,7 +11,7 @@ import pl.tkosinski.accountingadmin.domain.task.dto.TaskDto;
 @RestController
 @RequestMapping("/task")
 @RequiredArgsConstructor
-class TaskController {
+class TaskController extends BaseController{
 
     private final TaskFacade facade;
 
@@ -50,7 +51,9 @@ class TaskController {
     }
 
     @PostMapping("/finish")
-    public void finish(@RequestBody Id taskId) {
-        facade.finishTask(taskId);
+    public void finish(@RequestBody IdRequest request) {
+        validateAdminOrEmployee(request.getUserId());
+
+        facade.finishTask(request.getId());
     }
 }

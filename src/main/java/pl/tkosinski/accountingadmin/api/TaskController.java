@@ -46,8 +46,10 @@ class TaskController extends BaseController{
     }
 
     @PostMapping("/begin")
-    public void begin(@RequestBody Id taskId) {
-        facade.beginTask(taskId);
+    public void begin(@RequestBody IdRequest request) {
+        validateEmployee(request.getUserId());
+
+        facade.beginTask(request.getId());
     }
 
     @PostMapping("/finish")

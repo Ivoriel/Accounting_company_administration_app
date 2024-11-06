@@ -25,9 +25,11 @@ class TaskController extends BaseController{
         return facade.get(id);
     }
 
-    @DeleteMapping("/{id}/delete")
-    public void delete(@PathVariable Id id) {
-        facade.delete(id);
+    @DeleteMapping("/delete")
+    public void delete(@RequestBody IdRequest request) {
+        validateAdminOrEmployee(request.getUserId());
+
+        facade.delete(request.getId());
     }
 
     @GetMapping("/generate")

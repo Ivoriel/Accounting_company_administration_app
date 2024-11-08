@@ -2,6 +2,7 @@ package pl.tkosinski.accountingadmin.api;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import pl.tkosinski.accountingadmin.common.dto.IdRequest;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.company.CompanyFacade;
 import pl.tkosinski.accountingadmin.domain.company.dto.CompanyDto;
@@ -9,7 +10,7 @@ import pl.tkosinski.accountingadmin.domain.company.dto.CompanyDto;
 @RestController
 @RequestMapping("/company")
 @RequiredArgsConstructor
-class CompanyController {
+class CompanyController extends BaseController{
 
     private final CompanyFacade facade;
 
@@ -23,9 +24,11 @@ class CompanyController {
         return facade.get(id);
     }
 
-    @DeleteMapping("/{id}/delete")
-    public void delete(@PathVariable Id id) {
-        facade.delete(id);
+    @DeleteMapping("/delete")
+    public void delete(@RequestBody IdRequest request) {
+        validateAdminOrEmployee(request.getUserId());
+
+        facade.delete(request.getId());
     }
 
     @GetMapping("/generate")

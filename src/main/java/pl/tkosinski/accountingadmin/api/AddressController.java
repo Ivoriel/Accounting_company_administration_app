@@ -2,6 +2,7 @@ package pl.tkosinski.accountingadmin.api;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import pl.tkosinski.accountingadmin.common.dto.IdRequest;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.address.AddressFacade;
 import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
@@ -9,7 +10,7 @@ import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
 @RestController
 @RequestMapping("/address")
 @RequiredArgsConstructor
-class AddressController {
+class AddressController extends BaseController {
 
     private final AddressFacade facade;
 
@@ -24,8 +25,10 @@ class AddressController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Id id) {
-        facade.delete(id);
+    public void delete(@RequestBody IdRequest request) {
+        validateAdminOrEmployee(request.getUserId());
+
+        facade.delete(request.getId());
     }
 
     @GetMapping("/generate")

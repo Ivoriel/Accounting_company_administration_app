@@ -44,6 +44,8 @@ class TaskController extends BaseController{
 
     @PostMapping("/assign")
     public void assign(@RequestBody TaskAssignmentDto dto) {
+        validateAdminOrEmployee(dto.userDto());
+
         facade.assignTask(dto);
     }
 

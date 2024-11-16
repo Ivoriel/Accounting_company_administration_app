@@ -12,6 +12,7 @@ import pl.tkosinski.accountingadmin.common.dto.IdRequest;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.address.AddressFacade;
 import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
+import pl.tkosinski.accountingadmin.domain.user.dto.UserIdDto;
 
 @RestController
 @RequestMapping("/address")
@@ -38,8 +39,8 @@ class AddressController extends BaseController {
     }
 
     @GetMapping("/generate")
-    public void generate() {
-        facade.generate();
+    public AddressDto generate() {
+        return facade.generate();
     }
 
     @GetMapping("/generate-and-save")

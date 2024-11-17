@@ -44,7 +44,7 @@ class AddressController extends BaseController {
     }
 
     @GetMapping("/generate-and-save")
-    public void generateAndSave() {
-        facade.generateAndSave();
+    public AddressDto generateAndSave() {
+        return facade.generateAndSave();
     }
 }

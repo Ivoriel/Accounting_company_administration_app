@@ -39,7 +39,9 @@ class AddressController extends BaseController {
     }
 
     @GetMapping("/generate")
-    public AddressDto generate() {
+    public AddressDto generate(@RequestBody UserIdDto request) {
+        validateAdminOrEmployee(request);
+
         return facade.generate();
     }
 

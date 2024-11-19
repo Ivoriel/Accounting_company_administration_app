@@ -12,6 +12,7 @@ import pl.tkosinski.accountingadmin.common.dto.IdRequest;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.client.ClientFacade;
 import pl.tkosinski.accountingadmin.domain.client.dto.ClientDto;
+import pl.tkosinski.accountingadmin.domain.user.dto.UserIdDto;
 
 @RestController
 @RequestMapping("/client")
@@ -38,7 +39,9 @@ class ClientController extends BaseController {
     }
 
     @GetMapping("/generate")
-    public ClientDto generate() {
+    public ClientDto generate(@RequestBody UserIdDto request) {
+        validateAdminOrEmployee(request);
+
         return facade.generate();
     }
 

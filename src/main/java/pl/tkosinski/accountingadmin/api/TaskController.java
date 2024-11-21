@@ -13,6 +13,7 @@ import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.task.TaskFacade;
 import pl.tkosinski.accountingadmin.domain.task.dto.TaskAssignmentDto;
 import pl.tkosinski.accountingadmin.domain.task.dto.TaskDto;
+import pl.tkosinski.accountingadmin.domain.user.dto.UserIdDto;
 
 @RestController
 @RequestMapping("/task")
@@ -39,7 +40,9 @@ class TaskController extends BaseController{
     }
 
     @GetMapping("/generate")
-    public TaskDto generate() {
+    public TaskDto generate(@RequestBody UserIdDto request) {
+        validateAdminOrEmployee(request);
+
         return facade.generate();
     }
 

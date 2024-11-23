@@ -46,7 +46,9 @@ class AddressController extends BaseController {
     }
 
     @GetMapping("/generate-and-save")
-    public AddressDto generateAndSave() {
+    public AddressDto generateAndSave(@RequestBody UserIdDto request) {
+        validateAdminOrEmployee(request);
+
         return facade.generateAndSave();
     }
 }

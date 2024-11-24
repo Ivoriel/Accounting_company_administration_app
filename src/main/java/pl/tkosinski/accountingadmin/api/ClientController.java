@@ -46,7 +46,9 @@ class ClientController extends BaseController {
     }
 
     @GetMapping("/generate-and-save")
-    public ClientDto generateAndSave() {
+    public ClientDto generateAndSave(@RequestBody UserIdDto request) {
+        validateAdminOrEmployee(request);
+
         return facade.generateAndSave();
     }
 }

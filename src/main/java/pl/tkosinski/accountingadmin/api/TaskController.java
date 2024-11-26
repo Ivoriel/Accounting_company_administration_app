@@ -47,7 +47,9 @@ class TaskController extends BaseController{
     }
 
     @GetMapping("/generate-and-save")
-    public TaskDto generateAndSave() {
+    public TaskDto generateAndSave(@RequestBody UserIdDto request) {
+        validateAdminOrEmployee(request);
+
         return facade.generateAndSave();
     }
 

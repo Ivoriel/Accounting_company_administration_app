@@ -24,6 +24,8 @@ class TaskController extends BaseController{
 
     @PostMapping("/save")
     public void save(@RequestBody TaskDto dto) {
+        validateAdminOrEmployee(dto.userId());
+
         facade.save(dto);
     }
 

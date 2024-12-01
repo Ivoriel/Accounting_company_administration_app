@@ -30,8 +30,10 @@ class TaskController extends BaseController{
     }
 
     @GetMapping("/{id}/get")
-    public TaskDto get(@PathVariable Id id) {
-        return facade.get(id);
+    public TaskDto get(@RequestBody IdRequest request) {
+        validateAdminOrEmployee(request.getUserId());
+
+        return facade.get(request.getId());
     }
 
     @DeleteMapping("/delete")

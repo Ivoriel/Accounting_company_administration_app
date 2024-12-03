@@ -16,6 +16,7 @@ import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE;
 public class UserIdDto {
 
     private static final List<Role> INTERNAL_ROLES = List.of(ADMIN, EMPLOYEE);
+    private static final List<Role> AUTHORIZED_ROLES = List.of(ADMIN, EMPLOYEE, CLIENT);
 
     private final Role role;
 
@@ -33,5 +34,9 @@ public class UserIdDto {
 
     public boolean isClient() {
         return CLIENT == role;
+    }
+
+    public boolean isAuthorized() {
+        return AUTHORIZED_ROLES.contains(role);
     }
 }

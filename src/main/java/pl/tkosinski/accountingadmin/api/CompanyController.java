@@ -23,6 +23,8 @@ class CompanyController extends BaseController{
 
     @PostMapping("/save")
     public void save(@RequestBody CompanyDto dto) {
+        validateAdminOrEmployee(dto.userId());
+
         facade.save(dto);
     }
 

@@ -27,4 +27,10 @@ public class BaseController {
             throw new UnsupportedOperationException("Client privileges required for this operation");
         }
     }
+
+    void validateAuthorized(UserIdDto userId) {
+        if (!userId.isAuthorized()) {
+            throw new UnsupportedOperationException("Authorized user privileges required for this operation");
+        }
+    }
 }

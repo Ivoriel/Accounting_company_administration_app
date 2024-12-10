@@ -12,6 +12,7 @@ import pl.tkosinski.accountingadmin.common.dto.IdRequest;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.client.ClientFacade;
 import pl.tkosinski.accountingadmin.domain.client.dto.ClientDto;
+import pl.tkosinski.accountingadmin.domain.client.dto.ClientRequest;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserIdDto;
 
 @RestController
@@ -22,10 +23,10 @@ class ClientController extends BaseController {
     private final ClientFacade facade;
 
     @PostMapping("/save")
-    public void save(@RequestBody ClientDto dto) {
-        validateAdminOrEmployee(dto.userId());
+    public void save(@RequestBody ClientRequest request) {
+        validateAdminOrEmployee(request.userId());
 
-        facade.save(dto);
+        facade.save(request);
     }
 
     @GetMapping("/{id}/get")

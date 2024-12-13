@@ -11,10 +11,6 @@ class ClientMapper {
     }
 
     public static ClientDto toDto(ClientDao dao) {
-        return ClientDto.builder()
-                .id(dao.getId())
-                .name(dao.getName())
-                .addressId(dao.getAddressId())
-                .build();
+        return new ClientDto(dao.getId(), dao.getName(), dao.getAddressId());
     }
 }

@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.company.dto.CompanyDto;
+import pl.tkosinski.accountingadmin.domain.company.dto.CompanyRequest;
 
 import java.util.NoSuchElementException;
 
@@ -13,8 +14,8 @@ public class CompanyFacade {
 
     private final CompanyRepository repository;
 
-    public void save(CompanyDto dto) {
-        repository.get(dto.id()).ifPresentOrElse(it -> updateCompany(it, dto), () -> createCompany(dto));
+    public void save(CompanyRequest request) {
+        repository.get(request.id()).ifPresentOrElse(it -> updateCompany(it, request), () -> createCompany(request));
     }
 
     public CompanyDto get(Id id) {
@@ -37,16 +38,16 @@ public class CompanyFacade {
         return CompanyMapper.toDto(repository.generateAndSave());
     }
 
-    private void updateCompany(CompanyDao dao, CompanyDto dto) {
-        repository.save(dao.edit(dto.name(), dto.clientId(), dto.addressId()));
+    private void updateCompany(CompanyDao dao, CompanyRequest request) {
+        repository.save(dao.edit(request.name(), request.clientId(), request.addressId()));
     }
 
-    private void createCompany(CompanyDto dto) {
+    private void createCompany(CompanyRequest request) {
         repository.save(CompanyDao.builder()
                 .id(Id.ofValue(repository.size()))
-                .name(dto.name())
-                .clientId(dto.clientId())
-                .addressId(dto.addressId())
+                .name(request.name())
+                .clientId(request.clientId())
+                .addressId(request.addressId())
                 .build());
     }
 }

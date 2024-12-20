@@ -22,7 +22,7 @@ class CompanyRepositoryMockTest extends Specification implements
 
     def setupSpec() {
         addressFacade.getRequestedOrGenerateAndSave(_ as Id) >> addressDtoSample().build()
-        clientFacade.getRequestedOrGenerateAndSave(_ as Id) >> clientDtoSample().build()
+        clientFacade.getRequestedOrGenerateAndSave(_ as Id) >> clientDtoSample()
     }
 
     def "should generate initial db when instance is created"() {

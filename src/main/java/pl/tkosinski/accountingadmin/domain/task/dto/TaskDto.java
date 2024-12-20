@@ -7,7 +7,6 @@ import pl.tkosinski.accountingadmin.domain.user.dto.UserIdDto;
 import java.time.LocalDateTime;
 
 public record TaskDto(
-        UserIdDto userId,
         Id id,
         Id performerId,
         Id clientCompanyId, LocalDateTime start,

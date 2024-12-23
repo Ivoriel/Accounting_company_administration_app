@@ -11,6 +11,7 @@ import pl.tkosinski.accountingadmin.common.dto.IdRequest;
 import pl.tkosinski.accountingadmin.domain.task.TaskFacade;
 import pl.tkosinski.accountingadmin.domain.task.dto.TaskAssignmentDto;
 import pl.tkosinski.accountingadmin.domain.task.dto.TaskDto;
+import pl.tkosinski.accountingadmin.domain.task.dto.TaskRequest;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserIdDto;
 
 @RestController
@@ -21,10 +22,10 @@ class TaskController extends BaseController{
     private final TaskFacade facade;
 
     @PostMapping("/save")
-    public void save(@RequestBody TaskDto dto) {
-        validateAdminOrEmployee(dto.userId());
+    public void save(@RequestBody TaskRequest request) {
+        validateAdminOrEmployee(request.userId());
 
-        facade.save(dto);
+        facade.save(request);
     }
 
     @GetMapping("/{id}/get")

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.task.dto.TaskAssignmentDto;
 import pl.tkosinski.accountingadmin.domain.task.dto.TaskDto;
+import pl.tkosinski.accountingadmin.domain.task.dto.TaskRequest;
 
 import java.util.NoSuchElementException;
 
@@ -14,8 +15,8 @@ public class TaskFacade {
 
     private final TaskRepository repository;
 
-    public void save(TaskDto dto) {
-        repository.get(dto.id()).ifPresentOrElse(it -> update(it, dto), () -> create(dto));
+    public void save(TaskRequest request) {
+        repository.get(request.id()).ifPresentOrElse(it -> update(it, request), () -> create(request));
     }
 
     public TaskDto get(Id id) {
@@ -46,20 +47,20 @@ public class TaskFacade {
         repository.finishTask(taskId);
     }
 
-    private void update(TaskDao dao, TaskDto dto) {
-        repository.save(dao.edit(dto.performerId(), dto.clientCompanyId(), dto.start(), dto.end(),
-                dto.title(), dto.comment()));
+    private void update(TaskDao dao, TaskRequest request) {
+        repository.save(dao.edit(request.performerId(), request.clientCompanyId(), request.start(), request.end(),
+                request.title(), request.comment()));
     }
 
-    private void create(TaskDto dto) {
+    private void create(TaskRequest request) {
         repository.save(TaskDao.builder()
                 .id(Id.ofValue(repository.size()))
-                .performerId(dto.performerId())
-                .clientCompanyId(dto.clientCompanyId())
-                .title(dto.title())
-                .comment(dto.comment())
-                .start(dto.start())
-                .end(dto.end())
+                .performerId(request.performerId())
+                .clientCompanyId(request.clientCompanyId())
+                .title(request.title())
+                .comment(request.comment())
+                .start(request.start())
+                .end(request.end())
                 .build());
     }
 }

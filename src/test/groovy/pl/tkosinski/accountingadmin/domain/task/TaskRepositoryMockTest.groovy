@@ -7,8 +7,11 @@ import pl.tkosinski.accountingadmin.domain.sample.UsesTaskSample
 import pl.tkosinski.accountingadmin.domain.sample.UsesUserSample
 import pl.tkosinski.accountingadmin.domain.task.dto.TaskAssignmentDto
 import pl.tkosinski.accountingadmin.domain.user.UserFacade
+import pl.tkosinski.accountingadmin.domain.user.dto.UserIdDto
 import spock.lang.Shared
 import spock.lang.Specification
+
+import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE
 
 class TaskRepositoryMockTest extends Specification implements UsesTaskSample, UsesUserSample, UsesCompanySample {
 
@@ -119,7 +122,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
         def performerId = Id.ofValue(Long.MAX_VALUE)
 
         when:
-        repository.assignTask(new TaskAssignmentDto(generatedDao.id, performerId))
+        repository.assignTask(new TaskAssignmentDto(new UserIdDto(EMPLOYEE), generatedDao.id, performerId))
         def assignedTaskDao = repository.get(generatedDao.id).get()
 
                 then:

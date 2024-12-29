@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.common.model.FullName;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserDto;
+import pl.tkosinski.accountingadmin.domain.user.dto.UserRequest;
 
 import java.util.NoSuchElementException;
 
@@ -16,8 +17,8 @@ public class UserFacade {
 
     private final RoleSwitcher switcher;
 
-    public void save(UserDto dto) {
-        repository.get(dto.id()).ifPresentOrElse(it -> update(it, dto), () -> create(dto));
+    public void save(UserRequest request) {
+        repository.get(request.id()).ifPresentOrElse(it -> update(it, request), () -> create(request));
     }
 
     public void editName(Id id, FullName name) {
@@ -56,14 +57,14 @@ public class UserFacade {
         return UserMapper.toDto(repository.generateAndSave());
     }
 
-    private void create(UserDto dto) {
+    private void create(UserRequest request) {
         repository.save(UserDao.builder()
                 .id(Id.ofValue(repository.size()))
-                .name(dto.name())
+                .name(request.name())
                 .build());
     }
 
-    private void update(UserDao dao, UserDto dto) {
-        repository.save(dao.editName(dto.name()));
+    private void update(UserDao dao, UserRequest request) {
+        repository.save(dao.editName(request.name()));
     }
 }

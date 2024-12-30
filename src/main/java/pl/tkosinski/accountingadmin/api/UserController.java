@@ -15,6 +15,7 @@ import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.user.UserFacade;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserDto;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserIdDto;
+import pl.tkosinski.accountingadmin.domain.user.dto.UserRequest;
 
 @RestController
 @RequestMapping("/user")
@@ -24,10 +25,10 @@ class UserController extends BaseController {
     private final UserFacade facade;
 
     @PostMapping("/save")
-    public void save(@RequestBody UserDto dto) {
-        validateAdminOrEmployee(dto.userId());
+    public void save(@RequestBody UserRequest request) {
+        validateAdminOrEmployee(request.userId());
 
-        facade.save(dto);
+        facade.save(request);
     }
 
     @PostMapping("/edit-name")

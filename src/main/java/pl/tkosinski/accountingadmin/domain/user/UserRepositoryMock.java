@@ -75,10 +75,6 @@ class UserRepositoryMock implements UserRepository{
     }
 
     private UserDao generateUser() {
-        return UserDao.builder()
-                .id(Id.ofValue(userDb.size()))
-                .name(FullNameGenerator.generate())
-                .role(EMPLOYEE)
-                .build();
+        return new UserDao(Id.ofValue(userDb.size()), EMPLOYEE, FullNameGenerator.generate());
     }
 }

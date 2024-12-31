@@ -14,10 +14,7 @@ trait UsesClientSample {
                 .addressId(Id.ofValue(165))
     }
 
-    ClientDto.ClientDtoBuilder clientDtoSample(def args = null) {
-        ClientDto.builder()
-                .id(Id.ofValue(args?.id ?: 16))
-                .name(FullName.ofValue("Teodor", "Nowak"))
-                .addressId(Id.ofValue(165))
+    ClientDto clientDtoSample(def args = null) {
+        return new ClientDto(Id.ofValue(args?.id ?: 16), FullName.ofValue("Teodor", "Nowak"), Id.ofValue(165))
     }
 }

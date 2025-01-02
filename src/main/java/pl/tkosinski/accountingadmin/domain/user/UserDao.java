@@ -10,7 +10,6 @@ import pl.tkosinski.accountingadmin.common.model.Role;
 import static pl.tkosinski.accountingadmin.common.model.Role.*;
 
 @Getter
-@Builder
 class UserDao extends BaseDao {
 
     private final Id id;

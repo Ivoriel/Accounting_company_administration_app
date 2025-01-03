@@ -58,10 +58,7 @@ public class UserFacade {
     }
 
     private void create(UserRequest request) {
-        repository.save(UserDao.builder()
-                .id(Id.ofValue(repository.size()))
-                .name(request.name())
-                .build());
+        repository.save(new UserDao(Id.ofValue(repository.size()), request.role(), request.name()));
     }
 
     private void update(UserDao dao, UserRequest request) {

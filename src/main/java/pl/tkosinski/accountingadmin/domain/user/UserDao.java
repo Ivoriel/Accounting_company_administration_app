@@ -1,13 +1,14 @@
 package pl.tkosinski.accountingadmin.domain.user;
 
-import lombok.Builder;
 import lombok.Getter;
 import pl.tkosinski.accountingadmin.common.BaseDao;
 import pl.tkosinski.accountingadmin.common.model.FullName;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.common.model.Role;
 
-import static pl.tkosinski.accountingadmin.common.model.Role.*;
+import static pl.tkosinski.accountingadmin.common.model.Role.ADMIN;
+import static pl.tkosinski.accountingadmin.common.model.Role.CLIENT;
+import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE;
 
 @Getter
 class UserDao extends BaseDao {

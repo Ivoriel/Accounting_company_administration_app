@@ -1,5 +1,6 @@
 package pl.tkosinski.accountingadmin.domain.user;
 
+import lombok.Builder;
 import lombok.Getter;
 import pl.tkosinski.accountingadmin.common.BaseDao;
 import pl.tkosinski.accountingadmin.common.model.FullName;
@@ -11,6 +12,7 @@ import static pl.tkosinski.accountingadmin.common.model.Role.CLIENT;
 import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE;
 
 @Getter
+@Builder
 class UserDao extends BaseDao {
 
     private final Id id;
@@ -21,6 +23,10 @@ class UserDao extends BaseDao {
         this.id = id;
         this.role = role;
         this.name = name;
+    }
+
+    public static UserDao valueOf(Id id, Role role, FullName name) {
+        return new UserDao(id, role, name);
     }
 
     public UserDao editName(FullName name) {

@@ -25,10 +25,6 @@ class UserDao extends BaseDao {
         this.name = name;
     }
 
-    public static UserDao valueOf(Id id, Role role, FullName name) {
-        return new UserDao(id, role, name);
-    }
-
     public UserDao editName(FullName name) {
         this.name = name;
         return this;

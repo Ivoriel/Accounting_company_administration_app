@@ -12,6 +12,7 @@ import pl.tkosinski.accountingadmin.common.dto.IdRequest;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.address.AddressFacade;
 import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
+import pl.tkosinski.accountingadmin.domain.address.dto.AddressRequest;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserIdDto;
 
 @RestController
@@ -22,8 +23,10 @@ class AddressController extends BaseController {
     private final AddressFacade facade;
 
     @PostMapping("/save")
-    public void save(@RequestBody AddressDto dto) {
-        facade.save(dto);
+    public void save(@RequestBody AddressRequest request) {
+        validateAuthorized(request.userId());
+
+        facade.save(request);
     }
 
     @GetMapping("/{id}")

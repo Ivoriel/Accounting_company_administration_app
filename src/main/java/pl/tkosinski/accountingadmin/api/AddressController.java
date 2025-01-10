@@ -30,8 +30,10 @@ class AddressController extends BaseController {
     }
 
     @GetMapping("/{id}")
-    public AddressDto get(@PathVariable Id id) {
-        return facade.get(id);
+    public AddressDto get(@PathVariable IdRequest request) {
+        validateAdminOrEmployee(request.getUserId());
+
+        return facade.get(request.getId());
     }
 
     @DeleteMapping("/{id}")

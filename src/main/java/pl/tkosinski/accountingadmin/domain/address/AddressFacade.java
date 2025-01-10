@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
+import pl.tkosinski.accountingadmin.domain.address.dto.AddressRequest;
 
 import java.util.NoSuchElementException;
 
@@ -13,9 +14,9 @@ public class AddressFacade {
 
     private final AddressRepository addressRepository;
 
-    public void save(AddressDto addressDto) {
-        addressRepository.get(addressDto.getId())
-                .ifPresentOrElse(it -> updateAddress(it, addressDto), () -> createAddress(addressDto));
+    public void save(AddressRequest request) {
+        addressRepository.get(request.id())
+                .ifPresentOrElse(it -> updateAddress(it, request), () -> createAddress(request));
     }
 
     public AddressDto get(Id id) {
@@ -39,14 +40,14 @@ public class AddressFacade {
         return AddressMapper.toDto(addressRepository.generateAndSave());
     }
 
-    private void updateAddress(AddressDao dao, AddressDto dto) {
-        addressRepository.save(dao.edit(dto.getCountry(), dto.getMunicipality(), dto.getRegion(), dto.getZipCode(),
-                dto.getStreet(), dto.getBuildingNumber(), dto.getAdditionalIdentifier()));
+    private void updateAddress(AddressDao dao, AddressRequest request) {
+        addressRepository.save(dao.edit(request.country(), request.municipality(), request.region(), request.zipCode(),
+                request.street(), request.buildingNumber(), request.additionalIdentifier()));
     }
 
-    private void createAddress(AddressDto dto) {
-        addressRepository.save(new AddressDao(Id.ofValue(addressRepository.size()), dto.getCountry(),
-                dto.getMunicipality(), dto.getRegion(), dto.getZipCode(), dto.getStreet(), dto.getBuildingNumber(),
-                dto.getAdditionalIdentifier()));
+    private void createAddress(AddressRequest request) {
+        addressRepository.save(new AddressDao(Id.ofValue(addressRepository.size()), request.country(),
+                request.municipality(), request.region(), request.zipCode(), request.street(), request.buildingNumber(),
+                request.additionalIdentifier()));
     }
 }

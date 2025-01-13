@@ -2,7 +2,7 @@ package pl.tkosinski.accountingadmin.api;
 
 import pl.tkosinski.accountingadmin.domain.user.dto.UserIdDto;
 
-public class BaseController {
+class BaseController {
 
     void validateAdmin(UserIdDto userId) {
         if (!userId.isAdmin()) {

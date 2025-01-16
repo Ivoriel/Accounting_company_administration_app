@@ -3,13 +3,11 @@ package pl.tkosinski.accountingadmin.api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.tkosinski.accountingadmin.common.dto.IdRequest;
-import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.company.CompanyFacade;
 import pl.tkosinski.accountingadmin.domain.company.dto.CompanyDto;
 import pl.tkosinski.accountingadmin.domain.company.dto.CompanyRequest;
@@ -30,8 +28,10 @@ class CompanyController extends BaseController{
     }
 
     @GetMapping("/{id}/get")
-    public CompanyDto get(@PathVariable Id id) {
-        return facade.get(id);
+    public CompanyDto get(@RequestBody IdRequest request) {
+        validateAuthorized(request.getUserId());
+
+        return facade.get(request.getId());
     }
 
     @DeleteMapping("/delete")

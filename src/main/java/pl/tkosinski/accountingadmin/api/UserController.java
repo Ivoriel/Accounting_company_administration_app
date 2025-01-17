@@ -37,8 +37,10 @@ class UserController extends BaseController {
     }
 
     @GetMapping("/{id}/get")
-    public UserDto get(@PathVariable Id id) {
-        return facade.get(id);
+    public UserDto get(@RequestBody IdRequest request) {
+        validateAdminOrEmployee(request.getUserId());
+
+        return facade.get(request.getId());
     }
 
     @DeleteMapping("/delete")

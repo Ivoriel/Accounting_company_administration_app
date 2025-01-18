@@ -15,6 +15,7 @@ import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.user.UserFacade;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserDto;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserIdDto;
+import pl.tkosinski.accountingadmin.domain.user.dto.UserNameRequest;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserRequest;
 
 @RestController
@@ -32,8 +33,10 @@ class UserController extends BaseController {
     }
 
     @PostMapping("/edit-name")
-    public void editName(@PathVariable Id id, @RequestBody FullName name) {
-        facade.editName(id, name);
+    public void editName(@RequestBody UserNameRequest request) {
+        validateAdminOrEmployee(request.userId());
+
+        facade.editName(request);
     }
 
     @GetMapping("/{id}/get")

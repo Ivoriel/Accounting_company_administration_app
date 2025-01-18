@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.common.model.FullName;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserDto;
+import pl.tkosinski.accountingadmin.domain.user.dto.UserNameRequest;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserRequest;
 
 import java.util.NoSuchElementException;
@@ -21,8 +22,8 @@ public class UserFacade {
         repository.get(request.id()).ifPresentOrElse(it -> update(it, request), () -> create(request));
     }
 
-    public void editName(Id id, FullName name) {
-        repository.editName(id, name);
+    public void editName(UserNameRequest request) {
+        repository.editName(request);
     }
 
     public UserDto get(Id id) {

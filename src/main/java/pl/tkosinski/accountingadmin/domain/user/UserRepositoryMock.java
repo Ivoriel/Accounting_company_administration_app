@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.common.generator.FullNameGenerator;
 import pl.tkosinski.accountingadmin.common.model.FullName;
 import pl.tkosinski.accountingadmin.common.model.Id;
+import pl.tkosinski.accountingadmin.domain.user.dto.UserNameRequest;
 
 import java.util.HashMap;
 import java.util.Optional;
@@ -34,8 +35,8 @@ class UserRepositoryMock implements UserRepository{
     }
 
     @Override
-    public UserDao editName(Id id, FullName name) {
-        return userDb.get(id).editName(name);
+    public UserDao editName(UserNameRequest request) {
+        return userDb.get(request.id()).editName(request.name());
     }
 
     @Override

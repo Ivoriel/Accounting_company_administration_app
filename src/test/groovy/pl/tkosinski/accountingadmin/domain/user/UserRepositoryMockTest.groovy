@@ -2,8 +2,13 @@ package pl.tkosinski.accountingadmin.domain.user
 
 import pl.tkosinski.accountingadmin.common.model.FullName
 import pl.tkosinski.accountingadmin.common.model.Id
+import pl.tkosinski.accountingadmin.common.model.Role
 import pl.tkosinski.accountingadmin.domain.sample.UsesUserSample
+import pl.tkosinski.accountingadmin.domain.user.dto.UserIdDto
+import pl.tkosinski.accountingadmin.domain.user.dto.UserNameRequest
 import spock.lang.Specification
+
+import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE
 
 class UserRepositoryMockTest extends Specification implements UsesUserSample {
 
@@ -66,7 +71,7 @@ class UserRepositoryMockTest extends Specification implements UsesUserSample {
         var userId = repository.save(daoToSave).id
 
         when:
-        var retrievedDao = repository.editName(userId, FullName.ofValue("differentFirstname", "differentLastName"))
+        var retrievedDao = repository.editName(new UserNameRequest(new UserIdDto(EMPLOYEE), userId, FullName.ofValue("differentFirstname", "differentLastName")))
 
         then:
         retrievedDao.name != name

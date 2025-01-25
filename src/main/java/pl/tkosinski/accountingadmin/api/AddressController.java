@@ -29,7 +29,7 @@ class AddressController extends BaseController {
 
     @GetMapping("/{id}")
     public AddressDto get(@RequestBody IdRequest request) {
-        validateAdminOrEmployee(request.getUserId());
+        validateAuthorized(request.getUserId());
 
         return facade.get(request.getId());
     }

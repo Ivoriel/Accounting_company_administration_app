@@ -5,6 +5,14 @@ import spock.lang.Specification
 
 class AddressMapperTest extends Specification implements UsesAddressSample {
 
+    def "should not allow creating TaskMapper object"() {
+        when:
+        new AddressMapper()
+
+        then:
+        thrown(IllegalStateException.class)
+    }
+
     def "should map address entity to dto"() {
         def dao = addressDaoSample().build()
 

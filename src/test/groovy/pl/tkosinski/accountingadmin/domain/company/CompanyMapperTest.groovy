@@ -5,6 +5,14 @@ import spock.lang.Specification
 
 class CompanyMapperTest extends Specification implements UsesCompanySample{
 
+    def "should not allow creating CompanyMapper object"() {
+        when:
+        new CompanyMapper()
+
+        then:
+        thrown(IllegalStateException.class)
+    }
+
     def "should map company entity to dto"() {
         def dao = companyDaoSample().build()
 

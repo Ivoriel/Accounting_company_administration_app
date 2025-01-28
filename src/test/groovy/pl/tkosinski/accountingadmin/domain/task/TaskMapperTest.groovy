@@ -5,6 +5,14 @@ import spock.lang.Specification
 
 class TaskMapperTest extends Specification implements UsesTaskSample {
 
+    def "should not allow creating TaskMapper object"() {
+        when:
+        new TaskMapper()
+
+        then:
+        thrown(IllegalStateException.class)
+    }
+
     def "should map task dao to dto"() {
         def dao = taskDaoSample().build()
 

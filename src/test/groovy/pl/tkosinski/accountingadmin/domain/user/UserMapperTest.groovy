@@ -1,10 +1,17 @@
 package pl.tkosinski.accountingadmin.domain.user
 
-
 import pl.tkosinski.accountingadmin.domain.sample.UsesUserSample
 import spock.lang.Specification
 
 class UserMapperTest extends Specification implements UsesUserSample {
+
+    def "should not allow creating UserMapper object"() {
+        when:
+        new UserMapper()
+
+        then:
+        thrown(IllegalStateException.class)
+    }
 
     def "should map user dao to dto"() {
         def dao = userDaoSample().build()

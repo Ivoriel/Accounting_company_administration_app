@@ -41,8 +41,7 @@ public class AddressFacade {
     }
 
     private void updateAddress(AddressDao dao, AddressRequest request) {
-        addressRepository.save(dao.edit(request.country(), request.municipality(), request.region(), request.zipCode(),
-                request.street(), request.buildingNumber(), request.additionalIdentifier()));
+        addressRepository.save(dao.edit(request));
     }
 
     private void createAddress(AddressRequest request) {

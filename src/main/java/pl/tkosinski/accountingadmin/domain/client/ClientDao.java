@@ -5,6 +5,7 @@ import lombok.Getter;
 import pl.tkosinski.accountingadmin.common.BaseDao;
 import pl.tkosinski.accountingadmin.common.model.FullName;
 import pl.tkosinski.accountingadmin.common.model.Id;
+import pl.tkosinski.accountingadmin.domain.client.dto.ClientRequest;
 
 @Builder
 @Getter
@@ -20,9 +21,9 @@ class ClientDao extends BaseDao {
         this.addressId = addressId;
     }
 
-    public ClientDao edit(FullName name, Id addressId) {
-        this.name = name;
-        this.addressId = addressId;
+    public ClientDao edit(ClientRequest request) {
+        this.name = request.name();
+        this.addressId = request.addressId();
         return this;
     }
 }

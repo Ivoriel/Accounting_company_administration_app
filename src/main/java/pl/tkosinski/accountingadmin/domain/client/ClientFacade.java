@@ -40,7 +40,7 @@ public class ClientFacade {
     }
 
     private void updateClient(ClientDao dao, ClientRequest request) {
-        clientRepository.save(dao.edit(request.name(), request.addressId()));
+        clientRepository.save(dao.edit(request));
     }
 
     private void createClient(ClientRequest request) {

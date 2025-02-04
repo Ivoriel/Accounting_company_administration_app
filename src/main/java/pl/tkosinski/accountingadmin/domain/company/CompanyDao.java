@@ -5,6 +5,7 @@ import lombok.Getter;
 import pl.tkosinski.accountingadmin.common.BaseDao;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.common.model.InstitutionName;
+import pl.tkosinski.accountingadmin.domain.company.dto.CompanyRequest;
 
 @Getter
 @Builder
@@ -22,10 +23,10 @@ class CompanyDao extends BaseDao {
         this.addressId = addressId;
     }
 
-    public CompanyDao edit(InstitutionName name, Id clientId, Id addressId) {
-        this.name = name;
-        this.clientId = clientId;
-        this.addressId = addressId;
+    public CompanyDao edit(CompanyRequest request) {
+        this.name = request.name();
+        this.clientId = request.clientId();
+        this.addressId = request.addressId();
         return this;
     }
 }

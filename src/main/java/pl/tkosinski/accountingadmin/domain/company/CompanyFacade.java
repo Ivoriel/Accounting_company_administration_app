@@ -39,7 +39,7 @@ public class CompanyFacade {
     }
 
     private void updateCompany(CompanyDao dao, CompanyRequest request) {
-        repository.save(dao.edit(request.name(), request.clientId(), request.addressId()));
+        repository.save(dao.edit(request));
     }
 
     private void createCompany(CompanyRequest request) {

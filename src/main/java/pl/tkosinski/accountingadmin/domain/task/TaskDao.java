@@ -3,8 +3,9 @@ package pl.tkosinski.accountingadmin.domain.task;
 import lombok.Builder;
 import lombok.Getter;
 import pl.tkosinski.accountingadmin.common.BaseDao;
-import pl.tkosinski.accountingadmin.common.model.Text;
 import pl.tkosinski.accountingadmin.common.model.Id;
+import pl.tkosinski.accountingadmin.common.model.Text;
+import pl.tkosinski.accountingadmin.domain.task.dto.TaskRequest;
 
 import java.time.LocalDateTime;
 
@@ -20,14 +21,13 @@ class TaskDao extends BaseDao {
     private Text title;
     private Text comment;
 
-    protected TaskDao edit(Id performerId, Id clientCompanyId, LocalDateTime start, LocalDateTime end, Text title,
-                        Text comment) {
-        this.performerId = performerId;
-        this.clientCompanyId = clientCompanyId;
-        this.start = start;
-        this.end = end;
-        this.title = title;
-        this.comment = comment;
+    protected TaskDao edit(TaskRequest request) {
+        this.performerId = request.performerId();
+        this.clientCompanyId = request.clientCompanyId();
+        this.start = request.start();
+        this.end = request.end();
+        this.title = request.title();
+        this.comment = request.comment();
         return this;
     }
 

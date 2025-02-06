@@ -48,8 +48,7 @@ public class TaskFacade {
     }
 
     private void update(TaskDao dao, TaskRequest request) {
-        repository.save(dao.edit(request.performerId(), request.clientCompanyId(), request.start(), request.end(),
-                request.title(), request.comment()));
+        repository.save(dao.edit(request));
     }
 
     private void create(TaskRequest request) {

@@ -31,6 +31,17 @@ class AddressDao extends BaseDao {
         this.additionalIdentifier = additionalIdentifier;
     }
 
+    public AddressDao(Id id, AddressRequest request) {
+        this.id = id;
+        this.country = request.country();
+        this.municipality = request.municipality();
+        this.region = request.region();
+        this.zipCode = request.zipCode();
+        this.street = request.street();
+        this.buildingNumber = request.buildingNumber();
+        this.additionalIdentifier = request.additionalIdentifier();
+    }
+
     public AddressDao edit(AddressRequest request) {
         this.country = request.country();
         this.municipality = request.municipality();

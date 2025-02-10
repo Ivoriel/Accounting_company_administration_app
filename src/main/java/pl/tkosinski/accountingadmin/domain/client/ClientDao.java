@@ -15,10 +15,10 @@ class ClientDao extends BaseDao {
     private FullName name;
     private Id addressId;
 
-    public ClientDao(Id id, FullName name, Id addressId) {
+    public ClientDao(Id id, ClientRequest request) {
         this.id = id;
-        this.name = name;
-        this.addressId = addressId;
+        this.name = request.name();
+        this.addressId = request.addressId();
     }
 
     public ClientDao edit(ClientRequest request) {

@@ -16,11 +16,11 @@ class CompanyDao extends BaseDao {
     private Id clientId;
     private Id addressId;
 
-    public CompanyDao(Id id, InstitutionName name, Id clientId, Id addressId) {
+    public CompanyDao(Id id, CompanyRequest request) {
         this.id = id;
-        this.name = name;
-        this.clientId = clientId;
-        this.addressId = addressId;
+        this.name = request.name();
+        this.clientId = request.clientId();
+        this.addressId = request.addressId();
     }
 
     public CompanyDao edit(CompanyRequest request) {

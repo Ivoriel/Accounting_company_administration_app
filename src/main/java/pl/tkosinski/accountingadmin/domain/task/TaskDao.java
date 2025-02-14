@@ -21,6 +21,16 @@ class TaskDao extends BaseDao {
     private Text title;
     private Text comment;
 
+    public TaskDao(Id id, TaskRequest request) {
+        this.id = id;
+        this.performerId = request.performerId();
+        this.clientCompanyId = request.clientCompanyId();
+        this.start = request.start();
+        this.end = request.end();
+        this.title = request.title();
+        this.comment = request.comment();
+    }
+
     protected TaskDao edit(TaskRequest request) {
         this.performerId = request.performerId();
         this.clientCompanyId = request.clientCompanyId();

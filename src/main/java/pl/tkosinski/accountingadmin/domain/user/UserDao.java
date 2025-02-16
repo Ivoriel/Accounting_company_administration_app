@@ -6,6 +6,7 @@ import pl.tkosinski.accountingadmin.common.BaseDao;
 import pl.tkosinski.accountingadmin.common.model.FullName;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.common.model.Role;
+import pl.tkosinski.accountingadmin.domain.user.dto.UserRequest;
 
 import static pl.tkosinski.accountingadmin.common.model.Role.ADMIN;
 import static pl.tkosinski.accountingadmin.common.model.Role.CLIENT;
@@ -23,6 +24,12 @@ class UserDao extends BaseDao {
         this.id = id;
         this.role = role;
         this.name = name;
+    }
+
+    public UserDao(Id id, UserRequest request) {
+        this.id = id;
+        this.role = request.role();
+        this.name = request.name();
     }
 
     public UserDao editName(FullName name) {

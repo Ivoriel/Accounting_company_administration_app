@@ -52,14 +52,6 @@ public class TaskFacade {
     }
 
     private void create(TaskRequest request) {
-        repository.save(TaskDao.builder()
-                .id(Id.ofValue(repository.size()))
-                .performerId(request.performerId())
-                .clientCompanyId(request.clientCompanyId())
-                .title(request.title())
-                .comment(request.comment())
-                .start(request.start())
-                .end(request.end())
-                .build());
+        repository.save(new TaskDao(Id.ofValue(repository.size()), request));
     }
 }

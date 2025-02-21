@@ -1,5 +1,6 @@
 package pl.tkosinski.accountingadmin.domain.client;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import pl.tkosinski.accountingadmin.common.BaseDao;
@@ -7,8 +8,11 @@ import pl.tkosinski.accountingadmin.common.model.FullName;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.client.dto.ClientRequest;
 
+import static lombok.AccessLevel.PRIVATE;
+
 @Builder
 @Getter
+@AllArgsConstructor(access = PRIVATE)
 class ClientDao extends BaseDao {
 
     private final Id id;

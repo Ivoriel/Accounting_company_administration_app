@@ -1,5 +1,6 @@
 package pl.tkosinski.accountingadmin.domain.task;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import pl.tkosinski.accountingadmin.common.BaseDao;
@@ -9,8 +10,11 @@ import pl.tkosinski.accountingadmin.domain.task.dto.TaskRequest;
 
 import java.time.LocalDateTime;
 
+import static lombok.AccessLevel.PRIVATE;
+
 @Getter
 @Builder
+@AllArgsConstructor(access = PRIVATE)
 class TaskDao extends BaseDao {
 
     private final Id id;

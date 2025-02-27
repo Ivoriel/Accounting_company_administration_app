@@ -1,4 +1,4 @@
-package pl.tkosinski.accountingadmin.api;
+package pl.tkosinski.accountingadmin.common.api;
 
 import pl.tkosinski.accountingadmin.domain.user.dto.UserIdDto;
 

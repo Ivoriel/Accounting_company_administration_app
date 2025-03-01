@@ -1,4 +1,4 @@
-package pl.tkosinski.accountingadmin.api;
+package pl.tkosinski.accountingadmin.domain.company.api;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pl.tkosinski.accountingadmin.common.api.BaseController;
 import pl.tkosinski.accountingadmin.common.dto.IdRequest;
 import pl.tkosinski.accountingadmin.domain.company.CompanyFacade;
 import pl.tkosinski.accountingadmin.domain.company.dto.CompanyDto;
@@ -16,7 +17,7 @@ import pl.tkosinski.accountingadmin.domain.user.dto.UserIdDto;
 @RestController
 @RequestMapping("/company")
 @RequiredArgsConstructor
-class CompanyController extends BaseController{
+class CompanyController extends BaseController {
 
     private final CompanyFacade facade;
 

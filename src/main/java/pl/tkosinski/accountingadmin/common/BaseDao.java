@@ -2,8 +2,8 @@ package pl.tkosinski.accountingadmin.common;
 
 import pl.tkosinski.accountingadmin.common.model.Id;
 
-public abstract class BaseDao {
+public interface BaseDao {
 
-    public abstract Id getId();
+    Id getId();
 
 }

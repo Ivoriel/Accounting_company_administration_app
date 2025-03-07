@@ -8,7 +8,7 @@ import pl.tkosinski.accountingadmin.domain.address.dto.AddressRequest;
 
 @Builder
 @Getter
-class AddressDao extends BaseDao {
+class AddressDao implements BaseDao {
     
     private final Id id;
     private String country;

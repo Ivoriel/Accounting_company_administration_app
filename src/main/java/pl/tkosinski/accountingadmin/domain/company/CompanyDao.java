@@ -13,7 +13,7 @@ import static lombok.AccessLevel.PRIVATE;
 @Getter
 @Builder
 @AllArgsConstructor(access = PRIVATE)
-class CompanyDao extends BaseDao {
+class CompanyDao implements BaseDao {
 
     private final Id id;
     private InstitutionName name;

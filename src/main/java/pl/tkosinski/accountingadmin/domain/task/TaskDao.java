@@ -15,7 +15,7 @@ import static lombok.AccessLevel.PRIVATE;
 @Getter
 @Builder
 @AllArgsConstructor(access = PRIVATE)
-class TaskDao extends BaseDao {
+class TaskDao implements BaseDao {
 
     private final Id id;
     private Id performerId;

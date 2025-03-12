@@ -14,7 +14,7 @@ import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE;
 
 @Getter
 @Builder
-class UserDao extends BaseDao {
+class UserDao implements BaseDao {
 
     private final Id id;
     private Role role;

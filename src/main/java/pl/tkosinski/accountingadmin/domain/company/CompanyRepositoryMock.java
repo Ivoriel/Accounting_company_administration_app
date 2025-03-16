@@ -66,7 +66,7 @@ class CompanyRepositoryMock implements CompanyRepository{
                 .id(Id.ofValue(size()))
                 .name(generateCompanyName())
                 .clientId(clientFacade.getRequestedOrGenerateAndSave(Id.ofValue(size())).id())
-                .addressId(addressFacade.getRequestedOrGenerateAndSave(Id.ofValue(size())).getId())
+                .addressId(addressFacade.getRequestedOrGenerateAndSave(Id.ofValue(size())).id())
                 .build();
     }
 

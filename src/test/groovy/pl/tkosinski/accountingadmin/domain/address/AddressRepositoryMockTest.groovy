@@ -52,11 +52,11 @@ class AddressRepositoryMockTest extends Specification implements UsesAddressSamp
 
     def "should get last address"() {
         given:
-        def firstDaoToSave = addressDaoSample(id: 1).build()
+        def firstDaoToSave = addressDaoSample().build()
         repository.save(firstDaoToSave)
-        def secondDaoToSave = addressDaoSample(id: 2).build()
+        def secondDaoToSave = addressDaoSample().build()
         repository.save(secondDaoToSave)
-        def thirdDaoToSave = addressDaoSample(id: 3).build()
+        def thirdDaoToSave = addressDaoSample().build()
         repository.save(thirdDaoToSave)
 
         when:

@@ -52,11 +52,11 @@ class ClientRepositoryMockTest extends Specification implements UsesClientSample
 
     def "should get last client"() {
         given:
-        var firstDaoToSave = clientDaoSample(id: 1).build()
+        var firstDaoToSave = clientDaoSample().build()
         repository.save(firstDaoToSave).id
-        var secondDaoToSave = clientDaoSample(id: 2).build()
+        var secondDaoToSave = clientDaoSample().build()
         repository.save(secondDaoToSave).id
-        var thirdDaoToSave = clientDaoSample(id: 3).build()
+        var thirdDaoToSave = clientDaoSample().build()
         repository.save(thirdDaoToSave).id
 
         when:

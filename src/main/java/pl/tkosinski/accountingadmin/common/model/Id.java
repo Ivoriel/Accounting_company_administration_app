@@ -1,8 +1,14 @@
 package pl.tkosinski.accountingadmin.common.model;
 
-public record Id(long value) {
+import java.util.UUID;
 
-    public static Id ofValue(long value) {
+public record Id(UUID value) {
+
+    public static Id ofValue(UUID value) {
         return new Id(value);
+    }
+
+    public static Id generate() {
+        return new Id(UUID.randomUUID());
     }
 }

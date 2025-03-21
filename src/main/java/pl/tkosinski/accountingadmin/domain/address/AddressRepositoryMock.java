@@ -39,7 +39,7 @@ class AddressRepositoryMock implements AddressRepository{
 
     @Override
     public Optional<AddressDao> getLast() {
-        return Optional.ofNullable(addressDb.get(Id.ofValue(size())));
+        return Optional.ofNullable(addressDb.get(Id.generate()));
     }
 
     @Override
@@ -67,7 +67,7 @@ class AddressRepositoryMock implements AddressRepository{
     }
 
     private AddressDao generateAddress() {
-        return new AddressDao(Id.ofValue(size()), generateCountry(), generateMunicipality(), generateRegion(),
+        return new AddressDao(Id.generate(), generateCountry(), generateMunicipality(), generateRegion(),
                 generateZipCode(), generateStreet(), generateBuildingNumber(), generateAdditionalIdentifier());
     }
 

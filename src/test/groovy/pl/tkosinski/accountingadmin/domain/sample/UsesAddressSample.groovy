@@ -10,7 +10,7 @@ trait UsesAddressSample {
 
     AddressDao.AddressDaoBuilder addressDaoSample(def args = null) {
         AddressDao.builder()
-                .id(Id.ofValue(args?.id ?: 125))
+                .id(args?.id ?: Id.generate())
                 .country("Polska")
                 .municipality("Toruń")
                 .region("kujawsko-pomorskie")
@@ -22,7 +22,7 @@ trait UsesAddressSample {
 
     AddressDto.AddressDtoBuilder addressDtoSample(def args = null) {
         AddressDto.builder()
-                .id(Id.ofValue(args?.id ?: 125))
+                .id(args?.id ?: Id.generate())
                 .country("Polska")
                 .municipality("Toruń")
                 .region("kujawsko-pomorskie")

@@ -39,7 +39,7 @@ class ClientRepositoryMock implements ClientRepository {
 
     @Override
     public Optional<ClientDao> getLast() {
-        return Optional.ofNullable(clientDb.get(Id.ofValue(size())));
+        return Optional.ofNullable(clientDb.get(Id.generate()));
     }
 
     @Override
@@ -68,9 +68,9 @@ class ClientRepositoryMock implements ClientRepository {
 
     private ClientDao generateClient() {
         return ClientDao.builder()
-                .id(Id.ofValue(size()))
+                .id(Id.generate())
                 .name(FullNameGenerator.generate())
-                .addressId(addressFacade.getRequestedOrGenerateAndSave(Id.ofValue(size())).id())
+                .addressId(addressFacade.getRequestedOrGenerateAndSave(Id.generate()).id())
                 .build();
     }
 }

@@ -43,6 +43,6 @@ public class CompanyFacade {
     }
 
     private void createCompany(CompanyRequest request) {
-        repository.save(new CompanyDao(Id.ofValue(repository.size()), request));
+        repository.save(new CompanyDao(Id.generate(), request));
     }
 }

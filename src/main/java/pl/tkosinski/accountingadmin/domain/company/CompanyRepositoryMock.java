@@ -63,10 +63,10 @@ class CompanyRepositoryMock implements CompanyRepository{
 
     private CompanyDao generateCompany() {
         return CompanyDao.builder()
-                .id(Id.ofValue(size()))
+                .id(Id.generate())
                 .name(generateCompanyName())
-                .clientId(clientFacade.getRequestedOrGenerateAndSave(Id.ofValue(size())).id())
-                .addressId(addressFacade.getRequestedOrGenerateAndSave(Id.ofValue(size())).id())
+                .clientId(clientFacade.getRequestedOrGenerateAndSave(Id.generate()).id())
+                .addressId(addressFacade.getRequestedOrGenerateAndSave(Id.generate()).id())
                 .build();
     }
 

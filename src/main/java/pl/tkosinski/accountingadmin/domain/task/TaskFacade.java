@@ -52,6 +52,6 @@ public class TaskFacade {
     }
 
     private void create(TaskRequest request) {
-        repository.save(new TaskDao(Id.ofValue(repository.size()), request));
+        repository.save(new TaskDao(Id.generate(), request));
     }
 }

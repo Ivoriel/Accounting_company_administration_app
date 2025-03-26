@@ -57,9 +57,9 @@ class TaskRepositoryMock implements TaskRepository {
         var start = generateRandomInt(60, 240);
 
         return TaskDao.builder()
-                .id(Id.ofValue(taskDb.size()))
-                .performerId(userFacade.getRequestedOrGenerateAndSave(Id.ofValue(size())).id())
-                .clientCompanyId(companyFacade.getRequestedOrGenerateAndSave(Id.ofValue(size())).id())
+                .id(Id.generate())
+                .performerId(userFacade.getRequestedOrGenerateAndSave(Id.generate()).id())
+                .clientCompanyId(companyFacade.getRequestedOrGenerateAndSave(Id.generate()).id())
                 .start(LocalDateTime.now().minusMinutes(start))
                 .end(LocalDateTime.now().minusMinutes(start+60L))
                 .title(Text.ofValue("Lorem ipsum dolor sit amet"))

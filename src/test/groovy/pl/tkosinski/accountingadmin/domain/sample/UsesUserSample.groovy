@@ -11,14 +11,14 @@ trait UsesUserSample {
 
     UserDao.UserDaoBuilder userDaoSample(def args = null) {
         UserDao.builder()
-                .id(Id.ofValue(args?.id ?: 16))
+                .id(args?.id ?: Id.generate())
                 .role(args?.role ?: EMPLOYEE)
                 .name(FullName.ofValue("Teodor", "Nowak"))
     }
 
     UserDto userDtoSample(def args = null) {
         new UserDto(
-                Id.ofValue(args?.id ?: 16),
+                args?.id ?: Id.generate(),
                 args?.role ?: EMPLOYEE,
                 FullName.ofValue("Teodor", "Nowak"))
     }

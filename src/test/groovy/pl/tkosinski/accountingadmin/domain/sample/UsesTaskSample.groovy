@@ -10,8 +10,8 @@ trait UsesTaskSample {
 
     TaskDao.TaskDaoBuilder taskDaoSample(def args = null) {
         TaskDao.builder()
-                .id(Id.ofValue(args?.id ?: 16))
-                .performerId(Id.ofValue(808))
+                .id(args?.id ?: Id.generate())
+                .performerId(Id.generate())
                 .start(LocalDateTime.now().minusMinutes(60))
                 .end(LocalDateTime.now().minusMinutes(5))
                 .title(Text.ofValue("test title"))

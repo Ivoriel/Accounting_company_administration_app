@@ -9,7 +9,7 @@ trait UsesCompanySample {
 
     CompanyDao.CompanyDaoBuilder companyDaoSample(def args = null) {
         CompanyDao.builder()
-                .id(Id.ofValue(args?.id ?: 16))
+                .id(args?.id ?: Id.generate())
                 .name(InstitutionName.ofValue("Test company name"))
                 .addressId(Id.ofValue(919))
                 .clientId(Id.ofValue(818))
@@ -17,9 +17,9 @@ trait UsesCompanySample {
 
     CompanyDto companyDtoSample(def args = null) {
         new CompanyDto(
-                Id.ofValue(args?.id ?: 16),
+                args?.id ?: Id.generate(),
                 InstitutionName.ofValue("Test company name"),
-                Id.ofValue(919),
-                Id.ofValue(818))
+                Id.generate(),
+                Id.generate())
     }
 }

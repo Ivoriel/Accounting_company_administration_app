@@ -9,12 +9,12 @@ trait UsesClientSample {
 
     ClientDao.ClientDaoBuilder clientDaoSample(def args = null) {
         ClientDao.builder()
-                .id(Id.ofValue(args?.id ?: 16))
+                .id(args?.id ?: Id.generate())
                 .name(FullName.ofValue("Teodor", "Nowak"))
                 .addressId(Id.ofValue(165))
     }
 
     ClientDto clientDtoSample(def args = null) {
-        return new ClientDto(Id.ofValue(args?.id ?: 16), FullName.ofValue("Teodor", "Nowak"), Id.ofValue(165))
+        return new ClientDto(args?.id ?: Id.generate(), FullName.ofValue("Teodor", "Nowak"), Id.ofValue(165))
     }
 }

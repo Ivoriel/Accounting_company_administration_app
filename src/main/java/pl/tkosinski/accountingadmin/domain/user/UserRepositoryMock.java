@@ -45,7 +45,7 @@ class UserRepositoryMock implements UserRepository{
 
     @Override
     public Optional<UserDao> getLast() {
-        return Optional.ofNullable(userDb.get(Id.ofValue(size())));
+        return Optional.ofNullable(userDb.get(Id.generate()));
     }
 
     @Override
@@ -75,6 +75,6 @@ class UserRepositoryMock implements UserRepository{
     }
 
     private UserDao generateUser() {
-        return new UserDao(Id.ofValue(userDb.size()), EMPLOYEE, FullNameGenerator.generate());
+        return new UserDao(Id.generate(), EMPLOYEE, FullNameGenerator.generate());
     }
 }

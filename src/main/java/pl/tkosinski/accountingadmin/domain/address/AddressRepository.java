@@ -11,8 +11,6 @@ interface AddressRepository extends BaseRepository<AddressDao> {
 
     Optional<AddressDao> get(Id id);
 
-    Optional<AddressDao> getLast();
-
     void delete(Id id);
 
     int size();

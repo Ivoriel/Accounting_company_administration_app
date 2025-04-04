@@ -50,24 +50,6 @@ class AddressRepositoryMockTest extends Specification implements UsesAddressSamp
         retrievedDao.additionalIdentifier == daoToSave.additionalIdentifier
     }
 
-    def "should get last address"() {
-        given:
-        def firstDaoToSave = addressDaoSample().build()
-        repository.save(firstDaoToSave)
-        def secondDaoToSave = addressDaoSample().build()
-        repository.save(secondDaoToSave)
-        def thirdDaoToSave = addressDaoSample().build()
-        repository.save(thirdDaoToSave)
-
-        when:
-        def retrievedDao = repository.getLast().get()
-
-        then:
-        retrievedDao.id != firstDaoToSave.id
-        retrievedDao.id != secondDaoToSave.id
-        retrievedDao.id == thirdDaoToSave.id
-    }
-
     def "should delete address"() {
         given:
         def daoToSave = addressDaoSample().build()

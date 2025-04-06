@@ -38,11 +38,6 @@ class ClientRepositoryMock implements ClientRepository {
     }
 
     @Override
-    public Optional<ClientDao> getLast() {
-        return Optional.ofNullable(clientDb.get(Id.generate()));
-    }
-
-    @Override
     public void delete(Id id) {
         clientDb.remove(id);
     }

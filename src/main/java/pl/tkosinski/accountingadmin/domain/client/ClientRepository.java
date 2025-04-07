@@ -11,8 +11,6 @@ interface ClientRepository extends BaseRepository<ClientDao> {
 
     Optional<ClientDao> get(Id id);
 
-    Optional<ClientDao> getLast();
-
     void delete(Id id);
 
     int size();

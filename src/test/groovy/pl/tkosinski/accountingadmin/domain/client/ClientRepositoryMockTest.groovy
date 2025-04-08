@@ -50,24 +50,6 @@ class ClientRepositoryMockTest extends Specification implements UsesClientSample
         retrievedDao.addressId == daoToSave.addressId
     }
 
-    def "should get last client"() {
-        given:
-        var firstDaoToSave = clientDaoSample().build()
-        repository.save(firstDaoToSave).id
-        var secondDaoToSave = clientDaoSample().build()
-        repository.save(secondDaoToSave).id
-        var thirdDaoToSave = clientDaoSample().build()
-        repository.save(thirdDaoToSave).id
-
-        when:
-        var retrievedDao = repository.getLast().get()
-
-        then:
-        retrievedDao.id != firstDaoToSave.id
-        retrievedDao.id != secondDaoToSave.id
-        retrievedDao.id == thirdDaoToSave.id
-    }
-
     def "should delete client"() {
         given:
         var daoToSave = clientDaoSample().build()

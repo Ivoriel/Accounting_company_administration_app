@@ -15,8 +15,6 @@ interface UserRepository extends BaseRepository<UserDao> {
 
     Optional<UserDao> get(Id id);
 
-    Optional<UserDao> getLast();
-
     void delete(Id id);
 
     int size();

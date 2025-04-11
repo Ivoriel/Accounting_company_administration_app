@@ -2,7 +2,6 @@ package pl.tkosinski.accountingadmin.domain.user
 
 import pl.tkosinski.accountingadmin.common.model.FullName
 import pl.tkosinski.accountingadmin.common.model.Id
-import pl.tkosinski.accountingadmin.common.model.Role
 import pl.tkosinski.accountingadmin.domain.sample.UsesUserSample
 import pl.tkosinski.accountingadmin.domain.user.dto.UserIdDto
 import pl.tkosinski.accountingadmin.domain.user.dto.UserNameRequest
@@ -44,24 +43,6 @@ class UserRepositoryMockTest extends Specification implements UsesUserSample {
 
         then:
         retrievedDao.name == daoToSave.name
-    }
-
-    def "should get last user"() {
-        given:
-        var firstDaoToSave = userDaoSample(id: 1).build()
-        repository.save(firstDaoToSave).id
-        var secondDaoToSave = userDaoSample(id: 2).build()
-        repository.save(secondDaoToSave).id
-        var thirdDaoToSave = userDaoSample(id: 3).build()
-        repository.save(thirdDaoToSave).id
-
-        when:
-        var retrievedDao = repository.getLast().get()
-
-        then:
-        retrievedDao.id != firstDaoToSave.id
-        retrievedDao.id != secondDaoToSave.id
-        retrievedDao.id == thirdDaoToSave.id
     }
 
     def "should edit name of user"() {

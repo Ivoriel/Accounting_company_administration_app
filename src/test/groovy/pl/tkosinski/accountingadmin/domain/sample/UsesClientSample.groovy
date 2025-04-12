@@ -11,10 +11,10 @@ trait UsesClientSample {
         ClientDao.builder()
                 .id(args?.id ?: Id.generate())
                 .name(FullName.ofValue("Teodor", "Nowak"))
-                .addressId(Id.ofValue(165))
+                .addressId(Id.generate())
     }
 
     ClientDto clientDtoSample(def args = null) {
-        return new ClientDto(args?.id ?: Id.generate(), FullName.ofValue("Teodor", "Nowak"), Id.ofValue(165))
+        return new ClientDto(args?.id ?: Id.generate(), FullName.ofValue("Teodor", "Nowak"), Id.generate())
     }
 }

@@ -119,7 +119,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
     def "should assign task"() {
         given:
         def generatedDao = repository.generateAndSave()
-        def performerId = Id.ofValue(Long.MAX_VALUE)
+        def performerId = Id.generate()
 
         when:
         repository.assignTask(new TaskAssignmentDto(new UserIdDto(EMPLOYEE), generatedDao.id, performerId))

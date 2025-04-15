@@ -1,7 +1,6 @@
 package pl.tkosinski.accountingadmin.domain.user;
 
 import pl.tkosinski.accountingadmin.common.BaseRepository;
-import pl.tkosinski.accountingadmin.common.model.FullName;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserNameRequest;
 

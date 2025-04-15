@@ -11,15 +11,15 @@ trait UsesCompanySample {
         CompanyDao.builder()
                 .id(args?.id ?: Id.generate())
                 .name(InstitutionName.ofValue("Test company name"))
-                .addressId(Id.ofValue(919))
-                .clientId(Id.ofValue(818))
+                .addressId(args?.addressId ?: Id.generate())
+                .clientId(args?.clientId ?: Id.generate())
     }
 
     CompanyDto companyDtoSample(def args = null) {
         new CompanyDto(
                 args?.id ?: Id.generate(),
                 InstitutionName.ofValue("Test company name"),
-                Id.generate(),
-                Id.generate())
+                args?.addressId ?: Id.generate(),
+                args?.clientId ?: Id.generate())
     }
 }

@@ -24,7 +24,6 @@ class CompanyRepositoryMock implements CompanyRepository{
     AddressFacade addressFacade;
     ClientFacade clientFacade;
 
-
     @PostConstruct
     public void init() {
         populateCompanyDb();

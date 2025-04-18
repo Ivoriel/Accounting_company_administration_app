@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
+import pl.tkosinski.accountingadmin.domain.address.dto.AddressRecord;
 import pl.tkosinski.accountingadmin.domain.address.dto.AddressRequest;
 
 import java.util.NoSuchElementException;
@@ -14,7 +15,7 @@ public class AddressFacade {
 
     private final AddressRepository addressRepository;
 
-    public void save(AddressRequest request) {
+    public void save(AddressRecord request) {
         addressRepository.get(request.id())
                 .ifPresentOrElse(it -> updateAddress(it, request), () -> createAddress(request));
     }
@@ -40,11 +41,11 @@ public class AddressFacade {
         return AddressMapper.toDto(addressRepository.generateAndSave());
     }
 
-    private void updateAddress(AddressDao dao, AddressRequest request) {
+    private void updateAddress(AddressDao dao, AddressRecord request) {
         addressRepository.save(dao.edit(request));
     }
 
-    private void createAddress(AddressRequest request) {
+    private void createAddress(AddressRecord request) {
         addressRepository.save(new AddressDao(Id.generate(), request));
     }
 }

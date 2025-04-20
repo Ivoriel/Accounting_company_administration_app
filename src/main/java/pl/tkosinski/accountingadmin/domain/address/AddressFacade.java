@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
 import pl.tkosinski.accountingadmin.domain.address.dto.AddressRecord;
-import pl.tkosinski.accountingadmin.domain.address.dto.AddressRequest;
+import pl.tkosinski.accountingadmin.domain.address.generator.AddressGenerator;
 
 import java.util.NoSuchElementException;
 
@@ -34,11 +34,11 @@ public class AddressFacade {
     }
 
     public AddressDto generate() {
-        return AddressMapper.toDto(addressRepository.generate());
+        return new AddressGenerator().generate();
     }
 
     public AddressDto generateAndSave() {
-        return AddressMapper.toDto(addressRepository.generateAndSave());
+        return addressRepository.save(new AddressGenerator().generate());
     }
 
     private void updateAddress(AddressDao dao, AddressRecord request) {

@@ -1,28 +1,15 @@
 package pl.tkosinski.accountingadmin.domain.address.generator;
 
-import lombok.AllArgsConstructor;
 import pl.tkosinski.accountingadmin.common.model.Id;
-import pl.tkosinski.accountingadmin.domain.address.AddressFacade;
 import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-@AllArgsConstructor
-class AddressGenerator {
+public class AddressGenerator {
 
     private static final String COUNTRY = "Polska";
 
-    private final AddressFacade facade;
-
     public AddressDto generate() {
-        return generateAddress();
-    }
-
-    public AddressDto generateAndSave() {
-        return facade.save(generate());
-    }
-
-    private AddressDto generateAddress() {
         return new AddressDto(Id.generate(), generateCountry(), generateMunicipality(), generateRegion(),
                 generateZipCode(), generateStreet(), generateBuildingNumber(), generateAdditionalIdentifier());
     }

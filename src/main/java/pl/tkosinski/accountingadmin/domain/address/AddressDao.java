@@ -4,7 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import pl.tkosinski.accountingadmin.common.BaseDao;
 import pl.tkosinski.accountingadmin.common.model.Id;
-import pl.tkosinski.accountingadmin.domain.address.dto.AddressRequest;
+import pl.tkosinski.accountingadmin.domain.address.dto.AddressRecord;
 
 @Builder
 @Getter
@@ -31,7 +31,7 @@ class AddressDao implements BaseDao {
         this.additionalIdentifier = additionalIdentifier;
     }
 
-    public AddressDao(Id id, AddressRequest request) {
+    public AddressDao(Id id, AddressRecord request) {
         this.id = id;
         this.country = request.country();
         this.municipality = request.municipality();
@@ -42,7 +42,7 @@ class AddressDao implements BaseDao {
         this.additionalIdentifier = request.additionalIdentifier();
     }
 
-    public AddressDao edit(AddressRequest request) {
+    public AddressDao edit(AddressRecord request) {
         this.country = request.country();
         this.municipality = request.municipality();
         this.region = request.region();

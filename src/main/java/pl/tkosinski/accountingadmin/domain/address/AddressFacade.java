@@ -38,7 +38,7 @@ public class AddressFacade {
     }
 
     public AddressDto generateAndSave() {
-        return addressRepository.save(new AddressGenerator().generate());
+        return AddressMapper.toDto(addressRepository.save(AddressMapper.toDao(generate())));
     }
 
     private void updateAddress(AddressDao dao, AddressRecord request) {

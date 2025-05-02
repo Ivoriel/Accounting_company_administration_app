@@ -7,14 +7,14 @@ import pl.tkosinski.accountingadmin.domain.client.dto.ClientDto;
 
 public class ClientGenerator {
 
-    public ClientDto generateClient(AddressFacade addressFacade) {
+    public ClientDto generate(AddressFacade addressFacade) {
         return new ClientDto(
                 Id.generate(),
                 FullNameGenerator.generate(),
                 addressFacade.generateAndSave().id());
     }
 
-    public ClientDto generateClient(Id addressId) {
+    public ClientDto generate(Id addressId) {
         return new ClientDto(
                 Id.generate(),
                 FullNameGenerator.generate(),

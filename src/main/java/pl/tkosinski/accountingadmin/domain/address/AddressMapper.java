@@ -11,21 +11,21 @@ class AddressMapper {
         throw new IllegalStateException(UTILITY_CLASS.message);
     }
 
-    public static AddressDto toDto(AddressDao addressDao) {
+    public static AddressDto toDto(AddressEntity addressEntity) {
         return AddressDto.builder()
-                .id(addressDao.getId())
-                .country(addressDao.getCountry())
-                .municipality(addressDao.getMunicipality())
-                .region(addressDao.getRegion())
-                .zipCode(addressDao.getZipCode())
-                .street(addressDao.getStreet())
-                .buildingNumber(addressDao.getBuildingNumber())
-                .additionalIdentifier(addressDao.getAdditionalIdentifier())
+                .id(addressEntity.getId())
+                .country(addressEntity.getCountry())
+                .municipality(addressEntity.getMunicipality())
+                .region(addressEntity.getRegion())
+                .zipCode(addressEntity.getZipCode())
+                .street(addressEntity.getStreet())
+                .buildingNumber(addressEntity.getBuildingNumber())
+                .additionalIdentifier(addressEntity.getAdditionalIdentifier())
                 .build();
     }
 
-    public static AddressDao toDao(AddressRecord dto) {
-        return AddressDao.builder()
+    public static AddressEntity toDao(AddressRecord dto) {
+        return AddressEntity.builder()
                 .id(dto.id())
                 .country(dto.country())
                 .municipality(dto.municipality())

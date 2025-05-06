@@ -13,4 +13,8 @@ class ClientMapper {
     public static ClientDto toDto(ClientDao dao) {
         return new ClientDto(dao.getId(), dao.getName(), dao.getAddressId());
     }
+
+    public static ClientDao toEntity(ClientDto data) {
+        return new ClientDao(data.id(), data.name(), data.addressId());
+    }
 }

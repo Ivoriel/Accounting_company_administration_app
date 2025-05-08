@@ -8,7 +8,7 @@ import pl.tkosinski.accountingadmin.domain.address.dto.AddressRecord;
 
 @Builder
 @Getter
-class AddressDao implements BaseDao {
+class AddressEntity implements BaseDao {
     
     private final Id id;
     private String country;
@@ -19,8 +19,8 @@ class AddressDao implements BaseDao {
     private String buildingNumber;
     private String additionalIdentifier;
 
-    public AddressDao(Id id, String country, String municipality, String region, String zipCode, String street,
-               String buildingNumber, String additionalIdentifier) {
+    public AddressEntity(Id id, String country, String municipality, String region, String zipCode, String street,
+                         String buildingNumber, String additionalIdentifier) {
         this.id = id;
         this.country = country;
         this.municipality = municipality;
@@ -31,7 +31,7 @@ class AddressDao implements BaseDao {
         this.additionalIdentifier = additionalIdentifier;
     }
 
-    public AddressDao(Id id, AddressRecord request) {
+    public AddressEntity(Id id, AddressRecord request) {
         this.id = id;
         this.country = request.country();
         this.municipality = request.municipality();
@@ -42,7 +42,7 @@ class AddressDao implements BaseDao {
         this.additionalIdentifier = request.additionalIdentifier();
     }
 
-    public AddressDao edit(AddressRecord request) {
+    public AddressEntity edit(AddressRecord request) {
         this.country = request.country();
         this.municipality = request.municipality();
         this.region = request.region();

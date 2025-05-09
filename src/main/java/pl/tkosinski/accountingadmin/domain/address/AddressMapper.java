@@ -24,7 +24,7 @@ class AddressMapper {
                 .build();
     }
 
-    public static AddressEntity toDao(AddressRecord dto) {
+    public static AddressEntity toEntity(AddressRecord dto) {
         return AddressEntity.builder()
                 .id(dto.id())
                 .country(dto.country())

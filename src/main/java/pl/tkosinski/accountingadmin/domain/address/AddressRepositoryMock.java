@@ -19,7 +19,7 @@ class AddressRepositoryMock implements AddressRepository{
 
     private static final String COUNTRY = "Polska";
 
-    HashMap<Id, AddressDao> addressDb;
+    HashMap<Id, AddressEntity> addressDb;
 
     @PostConstruct
     public void init() {
@@ -27,13 +27,13 @@ class AddressRepositoryMock implements AddressRepository{
     }
 
     @Override
-    public AddressDao save(AddressDao addressDao) {
-        addressDb.put(addressDao.getId(), addressDao);
-        return addressDb.get(addressDao.getId());
+    public AddressEntity save(AddressEntity addressEntity) {
+        addressDb.put(addressEntity.getId(), addressEntity);
+        return addressDb.get(addressEntity.getId());
     }
 
     @Override
-    public Optional<AddressDao> get(Id id) {
+    public Optional<AddressEntity> get(Id id) {
         return Optional.ofNullable(addressDb.get(id));
     }
 
@@ -53,16 +53,16 @@ class AddressRepositoryMock implements AddressRepository{
         }
     }
 
-    public AddressDao generate() {
+    public AddressEntity generate() {
         return generateAddress();
     }
 
-    public AddressDao generateAndSave() {
+    public AddressEntity generateAndSave() {
         return save(generate());
     }
 
-    private AddressDao generateAddress() {
-        return new AddressDao(Id.generate(), generateCountry(), generateMunicipality(), generateRegion(),
+    private AddressEntity generateAddress() {
+        return new AddressEntity(Id.generate(), generateCountry(), generateMunicipality(), generateRegion(),
                 generateZipCode(), generateStreet(), generateBuildingNumber(), generateAdditionalIdentifier());
     }
 

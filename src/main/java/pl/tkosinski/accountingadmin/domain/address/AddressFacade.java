@@ -38,14 +38,14 @@ public class AddressFacade {
     }
 
     public AddressDto generateAndSave() {
-        return AddressMapper.toDto(addressRepository.save(AddressMapper.toDao(generate())));
+        return AddressMapper.toDto(addressRepository.save(AddressMapper.toEntity(generate())));
     }
 
-    private void updateAddress(AddressDao dao, AddressRecord request) {
+    private void updateAddress(AddressEntity dao, AddressRecord request) {
         addressRepository.save(dao.edit(request));
     }
 
     private void createAddress(AddressRecord request) {
-        addressRepository.save(new AddressDao(Id.generate(), request));
+        addressRepository.save(new AddressEntity(Id.generate(), request));
     }
 }

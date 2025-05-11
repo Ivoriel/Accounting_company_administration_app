@@ -5,17 +5,17 @@ import pl.tkosinski.accountingadmin.common.model.Id;
 
 import java.util.Optional;
 
-interface AddressRepository extends BaseRepository<AddressDao> {
+interface AddressRepository extends BaseRepository<AddressEntity> {
 
-    AddressDao save(AddressDao addressDao);
+    AddressEntity save(AddressEntity addressEntity);
 
-    Optional<AddressDao> get(Id id);
+    Optional<AddressEntity> get(Id id);
 
     void delete(Id id);
 
     int size();
 
-    AddressDao generate();
+    AddressEntity generate();
 
-    AddressDao generateAndSave();
+    AddressEntity generateAndSave();
 }

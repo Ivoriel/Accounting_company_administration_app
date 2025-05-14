@@ -39,11 +39,11 @@ public class ClientFacade {
         return ClientMapper.toDto(clientRepository.generateAndSave());
     }
 
-    private void updateClient(ClientDao dao, ClientRequest request) {
+    private void updateClient(ClientEntity dao, ClientRequest request) {
         clientRepository.save(dao.edit(request));
     }
 
     private void createClient(ClientRequest request) {
-        clientRepository.save(new ClientDao(Id.generate(), request));
+        clientRepository.save(new ClientEntity(Id.generate(), request));
     }
 }

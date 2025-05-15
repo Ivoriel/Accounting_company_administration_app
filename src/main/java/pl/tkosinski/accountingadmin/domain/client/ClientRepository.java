@@ -5,17 +5,17 @@ import pl.tkosinski.accountingadmin.common.model.Id;
 
 import java.util.Optional;
 
-interface ClientRepository extends BaseRepository<ClientDao> {
+interface ClientRepository extends BaseRepository<ClientEntity> {
 
-    ClientDao save(ClientDao clientDao);
+    ClientEntity save(ClientEntity clientEntity);
 
-    Optional<ClientDao> get(Id id);
+    Optional<ClientEntity> get(Id id);
 
     void delete(Id id);
 
     int size();
 
-    ClientDao generate();
+    ClientEntity generate();
 
-    ClientDao generateAndSave();
+    ClientEntity generateAndSave();
 }

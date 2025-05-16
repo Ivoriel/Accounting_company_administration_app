@@ -18,7 +18,7 @@ import java.util.Optional;
 @AllArgsConstructor
 class ClientRepositoryMock implements ClientRepository {
 
-    HashMap<Id, ClientDao> clientDb;
+    HashMap<Id, ClientEntity> clientDb;
     AddressFacade addressFacade;
 
     @PostConstruct
@@ -27,13 +27,13 @@ class ClientRepositoryMock implements ClientRepository {
     }
 
     @Override
-    public ClientDao save(ClientDao clientDao) {
-        clientDb.put(clientDao.getId(), clientDao);
-        return clientDb.get(clientDao.getId());
+    public ClientEntity save(ClientEntity clientEntity) {
+        clientDb.put(clientEntity.getId(), clientEntity);
+        return clientDb.get(clientEntity.getId());
     }
 
     @Override
-    public Optional<ClientDao> get(Id id) {
+    public Optional<ClientEntity> get(Id id) {
         return Optional.of(clientDb.get(id));
     }
 
@@ -47,11 +47,11 @@ class ClientRepositoryMock implements ClientRepository {
         return clientDb.size();
     }
 
-    public ClientDao generate() {
+    public ClientEntity generate() {
         return generateClient();
     }
 
-    public ClientDao generateAndSave() {
+    public ClientEntity generateAndSave() {
         return save(generateClient());
     }
 
@@ -61,8 +61,8 @@ class ClientRepositoryMock implements ClientRepository {
         }
     }
 
-    private ClientDao generateClient() {
-        return ClientDao.builder()
+    private ClientEntity generateClient() {
+        return ClientEntity.builder()
                 .id(Id.generate())
                 .name(FullNameGenerator.generate())
                 .addressId(addressFacade.getRequestedOrGenerateAndSave(Id.generate()).id())

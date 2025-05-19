@@ -38,7 +38,7 @@ public class ClientFacade {
     }
 
     public ClientDto generateAndSave() {
-        return ClientMapper.toDto(clientRepository.generateAndSave());
+        return ClientMapper.toDto(clientRepository.save(ClientMapper.toEntity(generate())));
     }
 
     private void updateClient(ClientEntity dao, ClientRequest request) {

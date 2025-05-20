@@ -3,6 +3,8 @@ package pl.tkosinski.accountingadmin.domain.company;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.common.model.Id;
+import pl.tkosinski.accountingadmin.domain.address.AddressFacade;
+import pl.tkosinski.accountingadmin.domain.client.ClientFacade;
 import pl.tkosinski.accountingadmin.domain.company.dto.CompanyDto;
 import pl.tkosinski.accountingadmin.domain.company.dto.CompanyRequest;
 
@@ -13,6 +15,8 @@ import java.util.NoSuchElementException;
 public class CompanyFacade {
 
     private final CompanyRepository repository;
+    private final AddressFacade addressFacade;
+    private final ClientFacade clientFacade;
 
     public void save(CompanyRequest request) {
         repository.get(request.id()).ifPresentOrElse(it -> updateCompany(it, request), () -> createCompany(request));
@@ -31,7 +35,7 @@ public class CompanyFacade {
     }
 
     public CompanyDto generate() {
-        return CompanyMapper.toDto(repository.generate());
+        return new CompanyGenerator().generate(clientFacade, addressFacade);
     }
 
     public CompanyDto generateAndSave() {

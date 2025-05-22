@@ -1,15 +1,13 @@
 package pl.tkosinski.accountingadmin.domain.sample
 
 import pl.tkosinski.accountingadmin.common.model.Id
-import pl.tkosinski.accountingadmin.domain.address.AddressDao
+import pl.tkosinski.accountingadmin.domain.address.AddressEntity
 import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto
-
-import java.util.concurrent.ThreadLocalRandom
 
 trait UsesAddressSample {
 
-    AddressDao.AddressDaoBuilder addressDaoSample(def args = null) {
-        AddressDao.builder()
+    AddressEntity.AddressEntityBuilder addressDaoSample(def args = null) {
+        AddressEntity.builder()
                 .id(args?.id ?: Id.generate())
                 .country("Polska")
                 .municipality("Toruń")

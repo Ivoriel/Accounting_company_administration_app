@@ -51,7 +51,7 @@ public class UserFacade {
     }
 
     public UserDto generate() {
-        return UserMapper.toDto(repository.generate());
+        return new UserGenerator().generate();
     }
 
     public UserDto generateAndSave() {

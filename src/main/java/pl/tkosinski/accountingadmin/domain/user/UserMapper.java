@@ -13,4 +13,8 @@ class UserMapper {
     public static UserDto toDto(UserDao dao) {
         return new UserDto(dao.getId(), dao.getRole(), dao.getName());
     }
+
+    public static UserDao toDao(UserDto userDto) {
+        return new UserDao(userDto.id(), userDto.role(), userDto.name());
+    }
 }

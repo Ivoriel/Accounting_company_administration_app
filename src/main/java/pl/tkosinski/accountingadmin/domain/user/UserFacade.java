@@ -55,7 +55,7 @@ public class UserFacade {
     }
 
     public UserDto generateAndSave() {
-        return UserMapper.toDto(repository.generateAndSave());
+        return UserMapper.toDto(repository.save(UserMapper.toDao(generate())));
     }
 
     private void create(UserRequest request) {

@@ -14,4 +14,8 @@ class CompanyMapper {
         return new CompanyDto(companyDao.getId(), companyDao.getName(), companyDao.getClientId(),
         companyDao.getAddressId());
     }
+
+    public static CompanyDao toDao(CompanyDto dto) {
+        return new CompanyDao(dto);
+    }
 }

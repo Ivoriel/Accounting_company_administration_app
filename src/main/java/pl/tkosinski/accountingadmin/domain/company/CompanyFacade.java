@@ -39,7 +39,7 @@ public class CompanyFacade {
     }
 
     public CompanyDto generateAndSave() {
-        return CompanyMapper.toDto(repository.generateAndSave());
+        return CompanyMapper.toDto(repository.save(CompanyMapper.toDao(generate())));
     }
 
     private void updateCompany(CompanyDao dao, CompanyRequest request) {

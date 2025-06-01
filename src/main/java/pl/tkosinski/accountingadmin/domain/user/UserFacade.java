@@ -2,7 +2,6 @@ package pl.tkosinski.accountingadmin.domain.user;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import pl.tkosinski.accountingadmin.common.model.FullName;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserDto;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserNameRequest;
@@ -59,10 +58,10 @@ public class UserFacade {
     }
 
     private void create(UserRequest request) {
-        repository.save(new UserDao(Id.generate(), request));
+        repository.save(new UserEntity(Id.generate(), request));
     }
 
-    private void update(UserDao dao, UserRequest request) {
+    private void update(UserEntity dao, UserRequest request) {
         repository.save(dao.editName(request.name()));
     }
 }

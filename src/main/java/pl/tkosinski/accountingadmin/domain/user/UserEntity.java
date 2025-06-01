@@ -14,25 +14,25 @@ import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE;
 
 @Getter
 @Builder
-class UserDao implements BaseDao {
+class UserEntity implements BaseDao {
 
     private final Id id;
     private Role role;
     private FullName name;
 
-    public UserDao(Id id, Role role, FullName name) {
+    public UserEntity(Id id, Role role, FullName name) {
         this.id = id;
         this.role = role;
         this.name = name;
     }
 
-    public UserDao(Id id, UserRequest request) {
+    public UserEntity(Id id, UserRequest request) {
         this.id = id;
         this.role = request.role();
         this.name = request.name();
     }
 
-    public UserDao editName(FullName name) {
+    public UserEntity editName(FullName name) {
         this.name = name;
         return this;
     }

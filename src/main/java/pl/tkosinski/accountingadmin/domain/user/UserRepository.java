@@ -6,19 +6,19 @@ import pl.tkosinski.accountingadmin.domain.user.dto.UserNameRequest;
 
 import java.util.Optional;
 
-interface UserRepository extends BaseRepository<UserDao> {
+interface UserRepository extends BaseRepository<UserEntity> {
 
-    UserDao save(UserDao userDao);
+    UserEntity save(UserEntity userEntity);
 
-    UserDao editName(UserNameRequest request);
+    UserEntity editName(UserNameRequest request);
 
-    Optional<UserDao> get(Id id);
+    Optional<UserEntity> get(Id id);
 
     void delete(Id id);
 
     int size();
 
-    UserDao generate();
+    UserEntity generate();
 
-    UserDao generateAndSave();
+    UserEntity generateAndSave();
 }

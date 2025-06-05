@@ -20,7 +20,7 @@ import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE;
 @AllArgsConstructor
 class UserRepositoryMock implements UserRepository{
 
-    HashMap<Id, UserDao> userDb;
+    HashMap<Id, UserEntity> userDb;
 
     @PostConstruct
     public void init() {
@@ -28,18 +28,18 @@ class UserRepositoryMock implements UserRepository{
     }
 
     @Override
-    public UserDao save(UserDao userDao) {
-        userDb.put(userDao.getId(), userDao);
-        return userDb.get(userDao.getId());
+    public UserEntity save(UserEntity userEntity) {
+        userDb.put(userEntity.getId(), userEntity);
+        return userDb.get(userEntity.getId());
     }
 
     @Override
-    public UserDao editName(UserNameRequest request) {
+    public UserEntity editName(UserNameRequest request) {
         return userDb.get(request.id()).editName(request.name());
     }
 
     @Override
-    public Optional<UserDao> get(Id id) {
+    public Optional<UserEntity> get(Id id) {
         return Optional.of(userDb.get(id));
     }
 
@@ -54,12 +54,12 @@ class UserRepositoryMock implements UserRepository{
     }
 
     @Override
-    public UserDao generate() {
+    public UserEntity generate() {
         return generateUser();
     }
 
     @Override
-    public UserDao generateAndSave() {
+    public UserEntity generateAndSave() {
         return save(generateUser());
     }
 
@@ -69,7 +69,7 @@ class UserRepositoryMock implements UserRepository{
         }
     }
 
-    private UserDao generateUser() {
-        return new UserDao(Id.generate(), EMPLOYEE, FullNameGenerator.generate());
+    private UserEntity generateUser() {
+        return new UserEntity(Id.generate(), EMPLOYEE, FullNameGenerator.generate());
     }
 }

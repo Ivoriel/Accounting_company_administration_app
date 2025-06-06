@@ -11,7 +11,7 @@ import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE
 
 class UserRepositoryMockTest extends Specification implements UsesUserSample {
 
-    UserRepository repository = new UserRepositoryMock(new HashMap<Id, UserDao>())
+    UserRepository repository = new UserRepositoryMock(new HashMap<Id, UserEntity>())
 
     def "should generate initial db when instance is created"() {
         when:

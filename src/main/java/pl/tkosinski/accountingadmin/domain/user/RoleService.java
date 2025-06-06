@@ -12,16 +12,16 @@ class RoleService implements RoleSwitcher {
 
     @Override
     public void switchRoleToEmployee(Id userId) {
-        repository.get(userId).ifPresent(UserDao::switchRoleToEmployee);
+        repository.get(userId).ifPresent(UserEntity::switchRoleToEmployee);
     }
 
     @Override
     public void switchRoleToClient(Id userId) {
-        repository.get(userId).ifPresent(UserDao::switchRoleToClient);
+        repository.get(userId).ifPresent(UserEntity::switchRoleToClient);
     }
 
     @Override
     public void switchRoleToAdmin(Id userId) {
-        repository.get(userId).ifPresent(UserDao::switchRoleToAdmin);
+        repository.get(userId).ifPresent(UserEntity::switchRoleToAdmin);
     }
 }

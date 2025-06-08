@@ -3,9 +3,11 @@ package pl.tkosinski.accountingadmin.domain.task;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.common.model.Id;
+import pl.tkosinski.accountingadmin.domain.company.CompanyFacade;
 import pl.tkosinski.accountingadmin.domain.task.dto.TaskAssignmentDto;
 import pl.tkosinski.accountingadmin.domain.task.dto.TaskDto;
 import pl.tkosinski.accountingadmin.domain.task.dto.TaskRequest;
+import pl.tkosinski.accountingadmin.domain.user.UserFacade;
 
 import java.util.NoSuchElementException;
 
@@ -14,6 +16,8 @@ import java.util.NoSuchElementException;
 public class TaskFacade {
 
     private final TaskRepository repository;
+    private final UserFacade userFacade;
+    private final CompanyFacade companyFacade;
 
     public void save(TaskRequest request) {
         repository.get(request.id()).ifPresentOrElse(it -> update(it, request), () -> create(request));
@@ -28,7 +32,7 @@ public class TaskFacade {
     }
 
     public TaskDto generate() {
-        return TaskMapper.toDto(repository.generate());
+        return new TaskGenerator().generate(userFacade, companyFacade);
     }
 
     public TaskDto generateAndSave() {

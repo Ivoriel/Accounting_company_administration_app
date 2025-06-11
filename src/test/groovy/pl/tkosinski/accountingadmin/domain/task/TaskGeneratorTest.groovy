@@ -15,7 +15,17 @@ class TaskGeneratorTest extends Specification {
         this.generator = new TaskGenerator()
     }
 
-    def "Generate"() {
+    def "should generate and return task when user and company facades are provided"() {
+        when:
+        def generatedDao = generator.generate(userFacade, companyFacade)
+
+        then:
+        generatedDao.performerId != null
+        generatedDao.clientCompanyId != null
+        generatedDao.start != null
+        generatedDao.end != null
+        generatedDao.title != null
+        generatedDao.comment != null
     }
 
     def "should generate and return task when user and company facades and with start and end params are provided"() {

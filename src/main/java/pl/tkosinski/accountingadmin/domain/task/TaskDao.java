@@ -10,11 +10,9 @@ import pl.tkosinski.accountingadmin.domain.task.dto.TaskRequest;
 
 import java.time.LocalDateTime;
 
-import static lombok.AccessLevel.PRIVATE;
-
 @Getter
 @Builder
-@AllArgsConstructor(access = PRIVATE)
+@AllArgsConstructor
 class TaskDao implements BaseDao {
 
     private final Id id;

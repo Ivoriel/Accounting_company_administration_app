@@ -36,7 +36,7 @@ public class TaskFacade {
     }
 
     public TaskDto generateAndSave() {
-        return TaskMapper.toDto(repository.generateAndSave());
+        return TaskMapper.toDto(repository.save(TaskMapper.toDao(generate())));
     }
 
     public void assignTask(TaskAssignmentDto dto) {

@@ -11,7 +11,24 @@ class TaskMapper {
     }
 
     public static TaskDto toDto(TaskDao dao) {
-        return new TaskDto(dao.getId(), dao.getPerformerId(), dao.getClientCompanyId(), dao.getStart(), dao.getEnd(),
-                dao.getTitle(), dao.getComment());
+        return new TaskDto(
+                dao.getId(),
+                dao.getPerformerId(),
+                dao.getClientCompanyId(),
+                dao.getStart(),
+                dao.getEnd(),
+                dao.getTitle(),
+                dao.getComment());
+    }
+
+    public static TaskDao toDao(TaskDto dto) {
+        return new TaskDao(
+                dto.id(),
+                dto.performerId(),
+                dto.clientCompanyId(),
+                dto.start(),
+                dto.end(),
+                dto.title(),
+                dto.comment());
     }
 }

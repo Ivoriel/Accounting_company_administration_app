@@ -9,7 +9,7 @@ import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE
 
 class RoleServiceTest extends Specification implements UsesUserSample {
 
-    UserRepository repository = new UserRepositoryMock(new HashMap<Id, UserDao>())
+    UserRepository repository = new UserRepositoryMock(new HashMap<Id, UserEntity>())
 
     RoleService service = new RoleService(repository)
 

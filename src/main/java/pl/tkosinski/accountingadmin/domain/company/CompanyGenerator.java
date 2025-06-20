@@ -11,11 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class CompanyGenerator {
 
     public CompanyDto generate(ClientFacade clientFacade, AddressFacade addressFacade) {
-        return new CompanyDto(
-                Id.generate(),
-                generateCompanyName(),
-                clientFacade.getRequestedOrGenerateAndSave(Id.generate()).id(),
-                addressFacade.getRequestedOrGenerateAndSave(Id.generate()).id());
+        return generate(clientFacade.generateAndSave().id(), addressFacade.generateAndSave().id());
     }
 
     public CompanyDto generate(Id clientId, Id addressId) {

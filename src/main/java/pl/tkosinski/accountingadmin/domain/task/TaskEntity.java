@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Getter
 @Builder
 @AllArgsConstructor
-class TaskDao implements BaseDao {
+class TaskEntity implements BaseDao {
 
     private final Id id;
     private Id performerId;
@@ -23,7 +23,7 @@ class TaskDao implements BaseDao {
     private Text title;
     private Text comment;
 
-    public TaskDao(Id id, TaskRequest request) {
+    public TaskEntity(Id id, TaskRequest request) {
         this.id = id;
         this.performerId = request.performerId();
         this.clientCompanyId = request.clientCompanyId();
@@ -33,7 +33,7 @@ class TaskDao implements BaseDao {
         this.comment = request.comment();
     }
 
-    protected TaskDao edit(TaskRequest request) {
+    protected TaskEntity edit(TaskRequest request) {
         this.performerId = request.performerId();
         this.clientCompanyId = request.clientCompanyId();
         this.start = request.start();

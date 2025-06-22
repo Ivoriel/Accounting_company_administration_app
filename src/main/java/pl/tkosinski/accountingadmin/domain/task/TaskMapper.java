@@ -10,7 +10,7 @@ class TaskMapper {
         throw new IllegalStateException(UTILITY_CLASS.message);
     }
 
-    public static TaskDto toDto(TaskDao dao) {
+    public static TaskDto toDto(TaskEntity dao) {
         return new TaskDto(
                 dao.getId(),
                 dao.getPerformerId(),
@@ -21,8 +21,8 @@ class TaskMapper {
                 dao.getComment());
     }
 
-    public static TaskDao toDao(TaskDto dto) {
-        return new TaskDao(
+    public static TaskEntity toDao(TaskDto dto) {
+        return new TaskEntity(
                 dto.id(),
                 dto.performerId(),
                 dto.clientCompanyId(),

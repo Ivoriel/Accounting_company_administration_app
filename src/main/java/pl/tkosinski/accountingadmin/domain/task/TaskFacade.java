@@ -51,11 +51,11 @@ public class TaskFacade {
         repository.finishTask(taskId);
     }
 
-    private void update(TaskDao dao, TaskRequest request) {
+    private void update(TaskEntity dao, TaskRequest request) {
         repository.save(dao.edit(request));
     }
 
     private void create(TaskRequest request) {
-        repository.save(new TaskDao(Id.generate(), request));
+        repository.save(new TaskEntity(Id.generate(), request));
     }
 }

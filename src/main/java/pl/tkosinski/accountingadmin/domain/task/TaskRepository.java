@@ -7,19 +7,19 @@ import pl.tkosinski.accountingadmin.domain.task.dto.TaskAssignmentDto;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-interface TaskRepository extends BaseRepository<TaskDao> {
+interface TaskRepository extends BaseRepository<TaskEntity> {
 
-    TaskDao save(TaskDao taskDao);
+    TaskEntity save(TaskEntity taskEntity);
 
-    Optional<TaskDao> get(Id id);
+    Optional<TaskEntity> get(Id id);
 
     void delete(Id id);
 
     int size();
 
-    TaskDao generate();
+    TaskEntity generate();
 
-    TaskDao generateAndSave();
+    TaskEntity generateAndSave();
 
     void assignTask(TaskAssignmentDto dto);
 

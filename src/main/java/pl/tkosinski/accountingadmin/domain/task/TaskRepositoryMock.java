@@ -22,7 +22,7 @@ import java.util.concurrent.ThreadLocalRandom;
 @AllArgsConstructor
 class TaskRepositoryMock implements TaskRepository {
 
-    HashMap<Id, TaskDao> taskDb;
+    HashMap<Id, TaskEntity> taskDb;
     UserFacade userFacade;
     CompanyFacade companyFacade;
 
@@ -32,13 +32,13 @@ class TaskRepositoryMock implements TaskRepository {
     }
 
     @Override
-    public TaskDao save(TaskDao taskDao) {
-        taskDb.put(taskDao.getId(), taskDao);
-        return taskDb.get(taskDao.getId());
+    public TaskEntity save(TaskEntity taskEntity) {
+        taskDb.put(taskEntity.getId(), taskEntity);
+        return taskDb.get(taskEntity.getId());
     }
 
     @Override
-    public Optional<TaskDao> get(Id id) {
+    public Optional<TaskEntity> get(Id id) {
         return Optional.of(taskDb.get(id));
     }
 
@@ -53,10 +53,10 @@ class TaskRepositoryMock implements TaskRepository {
     }
 
     @Override
-    public TaskDao generate() {
+    public TaskEntity generate() {
         var start = generateRandomInt(60, 240);
 
-        return TaskDao.builder()
+        return TaskEntity.builder()
                 .id(Id.generate())
                 .performerId(userFacade.getRequestedOrGenerateAndSave(Id.generate()).id())
                 .clientCompanyId(companyFacade.getRequestedOrGenerateAndSave(Id.generate()).id())
@@ -68,7 +68,7 @@ class TaskRepositoryMock implements TaskRepository {
     }
 
     @Override
-    public TaskDao generateAndSave() {
+    public TaskEntity generateAndSave() {
         return save(generate());
     }
 

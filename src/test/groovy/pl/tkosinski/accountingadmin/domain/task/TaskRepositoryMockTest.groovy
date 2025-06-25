@@ -19,7 +19,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
     UserFacade userFacade = Stub()
     @Shared
     CompanyFacade companyFacade = Stub()
-    TaskRepository repository = new TaskRepositoryMock(new HashMap<Id, TaskDao>(), userFacade, companyFacade)
+    TaskRepository repository = new TaskRepositoryMock(new HashMap<Id, TaskEntity>(), userFacade, companyFacade)
 
     def setupSpec() {
         userFacade.getRequestedOrGenerateAndSave(_ as Id) >> userDtoSample()

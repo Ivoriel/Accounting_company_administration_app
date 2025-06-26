@@ -14,28 +14,28 @@ import static lombok.AccessLevel.PRIVATE;
 @Getter
 @Builder
 @AllArgsConstructor(access = PRIVATE)
-class CompanyDao implements BaseDao {
+class CompanyEntity implements BaseDao {
 
     private final Id id;
     private InstitutionName name;
     private Id clientId;
     private Id addressId;
 
-    public CompanyDao(Id id, CompanyRequest request) {
+    public CompanyEntity(Id id, CompanyRequest request) {
         this.id = id;
         this.name = request.name();
         this.clientId = request.clientId();
         this.addressId = request.addressId();
     }
 
-    public CompanyDao(CompanyDto dto) {
+    public CompanyEntity(CompanyDto dto) {
         this.id = dto.id();
         this.name = dto.name();
         this.clientId = dto.clientId();
         this.addressId = dto.addressId();
     }
 
-    public CompanyDao edit(CompanyRequest request) {
+    public CompanyEntity edit(CompanyRequest request) {
         this.name = request.name();
         this.clientId = request.clientId();
         this.addressId = request.addressId();

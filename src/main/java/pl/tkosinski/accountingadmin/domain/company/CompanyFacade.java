@@ -42,11 +42,11 @@ public class CompanyFacade {
         return CompanyMapper.toDto(repository.save(CompanyMapper.toDao(generate())));
     }
 
-    private void updateCompany(CompanyDao dao, CompanyRequest request) {
+    private void updateCompany(CompanyEntity dao, CompanyRequest request) {
         repository.save(dao.edit(request));
     }
 
     private void createCompany(CompanyRequest request) {
-        repository.save(new CompanyDao(Id.generate(), request));
+        repository.save(new CompanyEntity(Id.generate(), request));
     }
 }

@@ -10,12 +10,12 @@ class CompanyMapper {
         throw new IllegalStateException(UTILITY_CLASS.message);
     }
 
-    public static CompanyDto toDto(CompanyDao companyDao) {
-        return new CompanyDto(companyDao.getId(), companyDao.getName(), companyDao.getClientId(),
-        companyDao.getAddressId());
+    public static CompanyDto toDto(CompanyEntity companyEntity) {
+        return new CompanyDto(companyEntity.getId(), companyEntity.getName(), companyEntity.getClientId(),
+        companyEntity.getAddressId());
     }
 
-    public static CompanyDao toDao(CompanyDto dto) {
-        return new CompanyDao(dto);
+    public static CompanyEntity toDao(CompanyDto dto) {
+        return new CompanyEntity(dto);
     }
 }

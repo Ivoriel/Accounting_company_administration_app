@@ -20,7 +20,7 @@ import java.util.concurrent.ThreadLocalRandom;
 @AllArgsConstructor
 class CompanyRepositoryMock implements CompanyRepository{
 
-    HashMap<Id, CompanyDao> companyDb;
+    HashMap<Id, CompanyEntity> companyDb;
     AddressFacade addressFacade;
     ClientFacade clientFacade;
 
@@ -30,13 +30,13 @@ class CompanyRepositoryMock implements CompanyRepository{
     }
 
     @Override
-    public CompanyDao save(CompanyDao companyDao) {
-        companyDb.put(companyDao.getId(), companyDao);
-        return companyDb.get(companyDao.getId());
+    public CompanyEntity save(CompanyEntity companyEntity) {
+        companyDb.put(companyEntity.getId(), companyEntity);
+        return companyDb.get(companyEntity.getId());
     }
 
     @Override
-    public Optional<CompanyDao> get(Id id) {
+    public Optional<CompanyEntity> get(Id id) {
         return Optional.ofNullable(companyDb.get(id));
     }
 
@@ -51,17 +51,17 @@ class CompanyRepositoryMock implements CompanyRepository{
     }
 
     @Override
-    public CompanyDao generate() {
+    public CompanyEntity generate() {
         return generateCompany();
     }
 
     @Override
-    public CompanyDao generateAndSave() {
+    public CompanyEntity generateAndSave() {
         return save(generateCompany());
     }
 
-    private CompanyDao generateCompany() {
-        return CompanyDao.builder()
+    private CompanyEntity generateCompany() {
+        return CompanyEntity.builder()
                 .id(Id.generate())
                 .name(generateCompanyName())
                 .clientId(clientFacade.getRequestedOrGenerateAndSave(Id.generate()).id())

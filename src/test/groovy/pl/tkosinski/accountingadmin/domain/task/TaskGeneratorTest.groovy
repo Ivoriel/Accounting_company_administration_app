@@ -7,9 +7,9 @@ import spock.lang.Specification
 
 class TaskGeneratorTest extends Specification {
 
-    private final UserFacade userFacade
-    private final CompanyFacade companyFacade
-    TaskGenerator generator;
+    UserFacade userFacade
+    CompanyFacade companyFacade
+    TaskGenerator generator
 
     def setup() {
         this.generator = new TaskGenerator()

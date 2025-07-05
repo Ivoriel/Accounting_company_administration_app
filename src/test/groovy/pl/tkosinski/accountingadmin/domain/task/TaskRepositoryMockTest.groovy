@@ -36,7 +36,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
 
     def "should create and save task"() {
         given:
-        var daoToSave = taskDaoSample().build()
+        var daoToSave = taskEntitySample().build()
 
         when:
         var savedDao = repository.save(daoToSave)
@@ -52,7 +52,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
 
     def "should retrieve task"() {
         given:
-        var daoToSave = taskDaoSample().build()
+        var daoToSave = taskEntitySample().build()
         var taskId = repository.save(daoToSave).id
 
         when:
@@ -69,7 +69,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
 
     def "should delete task"() {
         given:
-        var daoToSave = taskDaoSample().build()
+        var daoToSave = taskEntitySample().build()
         var taskId = repository.save(daoToSave).id
 
         when:
@@ -81,7 +81,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
 
     def "should return repository size"() {
         when:
-        repository.save(taskDaoSample().build())
+        repository.save(taskEntitySample().build())
 
         then:
         repository.size() == 1

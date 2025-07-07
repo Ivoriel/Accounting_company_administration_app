@@ -14,7 +14,7 @@ class CompanyMapperTest extends Specification implements UsesCompanySample{
     }
 
     def "should map company entity to dto"() {
-        def dao = companyDaoSample().build()
+        def dao = companyEntitySample().build()
 
         when:
         def dto = CompanyMapper.toDto(dao)

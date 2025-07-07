@@ -14,7 +14,7 @@ class TaskMapperTest extends Specification implements UsesTaskSample {
     }
 
     def "should map task dao to dto"() {
-        def dao = taskDaoSample().build()
+        def dao = taskEntitySample().build()
 
         when:
         def dto = TaskMapper.toDto(dao)

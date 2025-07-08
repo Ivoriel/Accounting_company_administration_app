@@ -35,7 +35,7 @@ class CompanyRepositoryMockTest extends Specification implements
 
     def "should create and save company"() {
         given:
-        var companyToSave = companyDaoSample().build()
+        var companyToSave = companyEntitySample().build()
 
         when:
         var savedDao = repository.save(companyToSave)
@@ -48,7 +48,7 @@ class CompanyRepositoryMockTest extends Specification implements
 
     def "should get company"() {
         given:
-        var companyToSave = companyDaoSample().build()
+        var companyToSave = companyEntitySample().build()
         var savedDaoId = repository.save(companyToSave).id
 
         when:
@@ -62,7 +62,7 @@ class CompanyRepositoryMockTest extends Specification implements
 
     def "should delete company"() {
         given:
-        var companyToSave = companyDaoSample().build()
+        var companyToSave = companyEntitySample().build()
         var savedDaoId = repository.save(companyToSave).id
 
         when:
@@ -74,7 +74,7 @@ class CompanyRepositoryMockTest extends Specification implements
 
     def "should return repository size"() {
         when:
-        repository.save(companyDaoSample().build())
+        repository.save(companyEntitySample().build())
 
         then:
         repository.size() == 1

@@ -14,7 +14,7 @@ class AddressMapperTest extends Specification implements UsesAddressSample {
     }
 
     def "should map address entity to dto"() {
-        def dao = addressDaoSample().build()
+        def dao = addressEntitySample().build()
 
         when:
         def dto = AddressMapper.toDto(dao)

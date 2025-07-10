@@ -6,7 +6,7 @@ import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto
 
 trait UsesAddressSample {
 
-    AddressEntity.AddressEntityBuilder addressDaoSample(def args = null) {
+    AddressEntity.AddressEntityBuilder addressEntitySample(def args = null) {
         AddressEntity.builder()
                 .id(args?.id ?: Id.generate())
                 .country("Polska")

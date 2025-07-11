@@ -17,7 +17,7 @@ class AddressRepositoryMockTest extends Specification implements UsesAddressSamp
 
     def "should create address"() {
         given:
-        def daoToSave = addressDaoSample().build()
+        def daoToSave = addressEntitySample().build()
 
         when:
         def savedDao = repository.save(daoToSave)
@@ -34,7 +34,7 @@ class AddressRepositoryMockTest extends Specification implements UsesAddressSamp
 
     def "should get address"() {
         given:
-        def daoToSave = addressDaoSample().build()
+        def daoToSave = addressEntitySample().build()
         def addressId = repository.save(daoToSave).id
 
         when:
@@ -52,7 +52,7 @@ class AddressRepositoryMockTest extends Specification implements UsesAddressSamp
 
     def "should delete address"() {
         given:
-        def daoToSave = addressDaoSample().build()
+        def daoToSave = addressEntitySample().build()
         def addressId = repository.save(daoToSave).id
 
         when:
@@ -64,7 +64,7 @@ class AddressRepositoryMockTest extends Specification implements UsesAddressSamp
 
     def "should return repository size"() {
         when:
-        repository.save(addressDaoSample().build())
+        repository.save(addressEntitySample().build())
 
         then:
         repository.size() == 1

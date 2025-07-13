@@ -27,7 +27,7 @@ class ClientRepositoryMockTest extends Specification implements UsesClientSample
 
     def "should create client"() {
         given:
-        var daoToSave = clientDaoSample().build()
+        var daoToSave = clientEntitySample().build()
 
         when:
         var savedDao = repository.save(daoToSave)
@@ -39,7 +39,7 @@ class ClientRepositoryMockTest extends Specification implements UsesClientSample
 
     def "should get client"() {
         given:
-        var daoToSave = clientDaoSample().build()
+        var daoToSave = clientEntitySample().build()
         var clientId = repository.save(daoToSave).id
 
         when:
@@ -52,7 +52,7 @@ class ClientRepositoryMockTest extends Specification implements UsesClientSample
 
     def "should delete client"() {
         given:
-        var daoToSave = clientDaoSample().build()
+        var daoToSave = clientEntitySample().build()
         var clientId = repository.save(daoToSave).id
 
         when:
@@ -64,7 +64,7 @@ class ClientRepositoryMockTest extends Specification implements UsesClientSample
 
     def "should return repository size"() {
         when:
-        repository.save(clientDaoSample().build())
+        repository.save(clientEntitySample().build())
 
         then:
         repository.size() == 1

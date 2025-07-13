@@ -15,7 +15,7 @@ class ClientMapperTest extends Specification implements UsesClientSample {
 
     def "should map client entity to dto"() {
         given:
-        def dao = clientDaoSample().build()
+        def dao = clientEntitySample().build()
 
         when:
         def dto = ClientMapper.toDto(dao)

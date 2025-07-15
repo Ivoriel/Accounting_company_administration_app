@@ -15,7 +15,7 @@ class RoleServiceTest extends Specification implements UsesUserSample {
 
     def "should switch role to employee"() {
         given:
-        var savedDao = repository.save(userDaoSample(role: CLIENT).build())
+        var savedDao = repository.save(userEntitySample(role: CLIENT).build())
 
         when:
         service.switchRoleToEmployee(savedDao.getId())
@@ -27,7 +27,7 @@ class RoleServiceTest extends Specification implements UsesUserSample {
 
     def "should switch role to client"() {
         given:
-        var savedDao = repository.save(userDaoSample(role: EMPLOYEE).build())
+        var savedDao = repository.save(userEntitySample(role: EMPLOYEE).build())
 
         when:
         service.switchRoleToClient(savedDao.getId())

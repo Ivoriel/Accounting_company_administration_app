@@ -14,7 +14,7 @@ class UserMapperTest extends Specification implements UsesUserSample {
     }
 
     def "should map user dao to dto"() {
-        def dao = userDaoSample().build()
+        def dao = userEntitySample().build()
 
         when:
         def dto = UserMapper.toDto(dao)

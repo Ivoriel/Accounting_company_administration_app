@@ -23,7 +23,7 @@ class UserRepositoryMockTest extends Specification implements UsesUserSample {
 
     def "should create and save task"() {
         given:
-        var daoToSave = userDaoSample().build()
+        var daoToSave = userEntitySample().build()
 
         when:
         var savedDao = repository.save(daoToSave)
@@ -35,7 +35,7 @@ class UserRepositoryMockTest extends Specification implements UsesUserSample {
 
     def "should retrieve user"() {
         given:
-        var daoToSave = userDaoSample().build()
+        var daoToSave = userEntitySample().build()
         var userId = repository.save(daoToSave).id
 
         when:
@@ -47,7 +47,7 @@ class UserRepositoryMockTest extends Specification implements UsesUserSample {
 
     def "should edit name of user"() {
         given:
-        var daoToSave = userDaoSample().build()
+        var daoToSave = userEntitySample().build()
         var name = daoToSave.getName()
         var userId = repository.save(daoToSave).id
 
@@ -60,7 +60,7 @@ class UserRepositoryMockTest extends Specification implements UsesUserSample {
 
     def "should delete user"() {
         given:
-        var daoToSave = userDaoSample().build()
+        var daoToSave = userEntitySample().build()
         var userId = repository.save(daoToSave).id
 
         when:
@@ -72,7 +72,7 @@ class UserRepositoryMockTest extends Specification implements UsesUserSample {
 
     def "should return repository size"() {
         when:
-        repository.save(userDaoSample().build())
+        repository.save(userEntitySample().build())
 
         then:
         repository.size() == 1

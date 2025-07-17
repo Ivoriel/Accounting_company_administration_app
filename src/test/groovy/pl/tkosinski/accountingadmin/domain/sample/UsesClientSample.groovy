@@ -7,7 +7,7 @@ import pl.tkosinski.accountingadmin.domain.client.dto.ClientDto
 
 trait UsesClientSample {
 
-    ClientEntity.ClientEntityBuilder clientDaoSample(def args = null) {
+    ClientEntity.ClientEntityBuilder clientEntitySample(def args = null) {
         ClientEntity.builder()
                 .id(args?.id ?: Id.generate())
                 .name(FullName.ofValue("Teodor", "Nowak"))

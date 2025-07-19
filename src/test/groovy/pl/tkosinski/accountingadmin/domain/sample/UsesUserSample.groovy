@@ -9,7 +9,7 @@ import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE
 
 trait UsesUserSample {
 
-    UserEntity.UserEntityBuilder userDaoSample(def args = null) {
+    UserEntity.UserEntityBuilder userEntitySample(def args = null) {
         UserEntity.builder()
                 .id(args?.id ?: Id.generate())
                 .role(args?.role ?: EMPLOYEE)

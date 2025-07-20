@@ -14,19 +14,19 @@ class AddressMapperTest extends Specification implements UsesAddressSample {
     }
 
     def "should map address entity to dto"() {
-        def dao = addressEntitySample().build()
+        def entity = addressEntitySample().build()
 
         when:
-        def dto = AddressMapper.toDto(dao)
+        def dto = AddressMapper.toDto(entity)
 
         then:
-        dto.id == dao.id
-        dto.country == dao.country
-        dto.municipality == dao.municipality
-        dto.region == dao.region
-        dto.zipCode == dao.zipCode
-        dto.street == dao.street
-        dto.buildingNumber == dao.buildingNumber
-        dto.additionalIdentifier == dao.additionalIdentifier
+        dto.id == entity.id
+        dto.country == entity.country
+        dto.municipality == entity.municipality
+        dto.region == entity.region
+        dto.zipCode == entity.zipCode
+        dto.street == entity.street
+        dto.buildingNumber == entity.buildingNumber
+        dto.additionalIdentifier == entity.additionalIdentifier
     }
 }

@@ -17,43 +17,43 @@ class AddressRepositoryMockTest extends Specification implements UsesAddressSamp
 
     def "should create address"() {
         given:
-        def daoToSave = addressEntitySample().build()
+        def dataToSave = addressEntitySample().build()
 
         when:
-        def savedDao = repository.save(daoToSave)
+        def savedData = repository.save(dataToSave)
 
         then:
-        savedDao.country == daoToSave.country
-        savedDao.municipality == daoToSave.municipality
-        savedDao.region == daoToSave.region
-        savedDao.zipCode == daoToSave.zipCode
-        savedDao.street == daoToSave.street
-        savedDao.buildingNumber == daoToSave.buildingNumber
-        savedDao.additionalIdentifier == daoToSave.additionalIdentifier
+        savedData.country == dataToSave.country
+        savedData.municipality == dataToSave.municipality
+        savedData.region == dataToSave.region
+        savedData.zipCode == dataToSave.zipCode
+        savedData.street == dataToSave.street
+        savedData.buildingNumber == dataToSave.buildingNumber
+        savedData.additionalIdentifier == dataToSave.additionalIdentifier
     }
 
     def "should get address"() {
         given:
-        def daoToSave = addressEntitySample().build()
-        def addressId = repository.save(daoToSave).id
+        def dataToSave = addressEntitySample().build()
+        def addressId = repository.save(dataToSave).id
 
         when:
-        def retrievedDao = repository.get(addressId).get()
+        def retrievedData = repository.get(addressId).get()
 
         then:
-        retrievedDao.country == daoToSave.country
-        retrievedDao.municipality == daoToSave.municipality
-        retrievedDao.region == daoToSave.region
-        retrievedDao.zipCode == daoToSave.zipCode
-        retrievedDao.street == daoToSave.street
-        retrievedDao.buildingNumber == daoToSave.buildingNumber
-        retrievedDao.additionalIdentifier == daoToSave.additionalIdentifier
+        retrievedData.country == dataToSave.country
+        retrievedData.municipality == dataToSave.municipality
+        retrievedData.region == dataToSave.region
+        retrievedData.zipCode == dataToSave.zipCode
+        retrievedData.street == dataToSave.street
+        retrievedData.buildingNumber == dataToSave.buildingNumber
+        retrievedData.additionalIdentifier == dataToSave.additionalIdentifier
     }
 
     def "should delete address"() {
         given:
-        def daoToSave = addressEntitySample().build()
-        def addressId = repository.save(daoToSave).id
+        def dataToSave = addressEntitySample().build()
+        def addressId = repository.save(dataToSave).id
 
         when:
         repository.delete(addressId)
@@ -72,32 +72,32 @@ class AddressRepositoryMockTest extends Specification implements UsesAddressSamp
 
     def "should generate and return address"() {
         when:
-        def generatedDao = repository.generate()
+        def generatedEntity = repository.generate()
 
         then:
-        generatedDao.country != null
-        generatedDao.municipality != null
-        generatedDao.region != null
-        generatedDao.zipCode != null
-        generatedDao.street != null
-        generatedDao.buildingNumber != null
-        generatedDao.additionalIdentifier != null
+        generatedEntity.country != null
+        generatedEntity.municipality != null
+        generatedEntity.region != null
+        generatedEntity.zipCode != null
+        generatedEntity.street != null
+        generatedEntity.buildingNumber != null
+        generatedEntity.additionalIdentifier != null
     }
 
     def "should generate and save address"() {
         given:
-        def generatedDao = repository.generateAndSave()
+        def generatedEntity = repository.generateAndSave()
 
         when:
-        def retrievedDao = repository.get(generatedDao.id).get()
+        def retrievedEntity = repository.get(generatedEntity.id).get()
 
         then:
-        retrievedDao.country == generatedDao.country
-        retrievedDao.municipality == generatedDao.municipality
-        retrievedDao.region == generatedDao.region
-        retrievedDao.zipCode == generatedDao.zipCode
-        retrievedDao.street == generatedDao.street
-        retrievedDao.buildingNumber == generatedDao.buildingNumber
-        retrievedDao.additionalIdentifier == generatedDao.additionalIdentifier
+        retrievedEntity.country == generatedEntity.country
+        retrievedEntity.municipality == generatedEntity.municipality
+        retrievedEntity.region == generatedEntity.region
+        retrievedEntity.zipCode == generatedEntity.zipCode
+        retrievedEntity.street == generatedEntity.street
+        retrievedEntity.buildingNumber == generatedEntity.buildingNumber
+        retrievedEntity.additionalIdentifier == generatedEntity.additionalIdentifier
     }
 }

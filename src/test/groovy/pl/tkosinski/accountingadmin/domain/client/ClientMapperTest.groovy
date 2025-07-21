@@ -15,14 +15,14 @@ class ClientMapperTest extends Specification implements UsesClientSample {
 
     def "should map client entity to dto"() {
         given:
-        def dao = clientEntitySample().build()
+        def entity = clientEntitySample().build()
 
         when:
-        def dto = ClientMapper.toDto(dao)
+        def dto = ClientMapper.toDto(entity)
 
         then:
-        dto.id == dao.id
-        dto.name == dao.name
-        dto.addressId == dao.addressId
+        dto.id == entity.id
+        dto.name == entity.name
+        dto.addressId == entity.addressId
     }
 }

@@ -14,15 +14,15 @@ class CompanyMapperTest extends Specification implements UsesCompanySample{
     }
 
     def "should map company entity to dto"() {
-        def dao = companyEntitySample().build()
+        def entity = companyEntitySample().build()
 
         when:
-        def dto = CompanyMapper.toDto(dao)
+        def dto = CompanyMapper.toDto(entity)
 
         then:
-        dto.id == dao.id
-        dto.name == dao.name
-        dto.addressId == dao.addressId
-        dto.clientId == dao.clientId
+        dto.id == entity.id
+        dto.name == entity.name
+        dto.addressId == entity.addressId
+        dto.clientId == entity.clientId
     }
 }

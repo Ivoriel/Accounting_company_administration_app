@@ -27,33 +27,33 @@ class ClientRepositoryMockTest extends Specification implements UsesClientSample
 
     def "should create client"() {
         given:
-        var daoToSave = clientEntitySample().build()
+        var dataToSave = clientEntitySample().build()
 
         when:
-        var savedDao = repository.save(daoToSave)
+        var savedData = repository.save(dataToSave)
 
         then:
-        savedDao.name == daoToSave.name
-        savedDao.addressId == daoToSave.addressId
+        savedData.name == dataToSave.name
+        savedData.addressId == dataToSave.addressId
     }
 
     def "should get client"() {
         given:
-        var daoToSave = clientEntitySample().build()
-        var clientId = repository.save(daoToSave).id
+        var dataToSave = clientEntitySample().build()
+        var clientId = repository.save(dataToSave).id
 
         when:
-        var retrievedDao = repository.get(clientId).get()
+        var retrievedData = repository.get(clientId).get()
 
         then:
-        retrievedDao.name == daoToSave.name
-        retrievedDao.addressId == daoToSave.addressId
+        retrievedData.name == dataToSave.name
+        retrievedData.addressId == dataToSave.addressId
     }
 
     def "should delete client"() {
         given:
-        var daoToSave = clientEntitySample().build()
-        var clientId = repository.save(daoToSave).id
+        var dataToSave = clientEntitySample().build()
+        var clientId = repository.save(dataToSave).id
 
         when:
         repository.delete(clientId)
@@ -72,21 +72,21 @@ class ClientRepositoryMockTest extends Specification implements UsesClientSample
 
     def "should generate and return client"() {
         when:
-        def generatedDao = repository.generate()
+        def generatedEntity = repository.generate()
 
         then:
-        generatedDao.name != null
+        generatedEntity.name != null
     }
 
     def "should generate and return saved client"() {
         given:
-        def generatedDao = repository.generateAndSave()
+        def generatedEntity = repository.generateAndSave()
 
         when:
-        def retrievedDao = repository.get(generatedDao.id).get()
+        def retrievedEntity = repository.get(generatedEntity.id).get()
 
         then:
-        retrievedDao.name == generatedDao.name
-        retrievedDao.addressId == generatedDao.addressId
+        retrievedEntity.name == generatedEntity.name
+        retrievedEntity.addressId == generatedEntity.addressId
     }
 }

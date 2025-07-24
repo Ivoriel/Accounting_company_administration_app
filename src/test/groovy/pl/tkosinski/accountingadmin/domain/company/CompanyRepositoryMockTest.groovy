@@ -38,35 +38,35 @@ class CompanyRepositoryMockTest extends Specification implements
         var companyToSave = companyEntitySample().build()
 
         when:
-        var savedDao = repository.save(companyToSave)
+        var savedData = repository.save(companyToSave)
 
         then:
-        savedDao.name == companyToSave.name
-        savedDao.addressId == companyToSave.addressId
-        savedDao.clientId == companyToSave.clientId
+        savedData.name == companyToSave.name
+        savedData.addressId == companyToSave.addressId
+        savedData.clientId == companyToSave.clientId
     }
 
     def "should get company"() {
         given:
         var companyToSave = companyEntitySample().build()
-        var savedDaoId = repository.save(companyToSave).id
+        var savedEntityId = repository.save(companyToSave).id
 
         when:
-        var retrievedDao = repository.get(savedDaoId).get()
+        var retrievedData = repository.get(savedEntityId).get()
 
         then:
-        retrievedDao.name == companyToSave.name
-        retrievedDao.addressId == companyToSave.addressId
-        retrievedDao.clientId == companyToSave.clientId
+        retrievedData.name == companyToSave.name
+        retrievedData.addressId == companyToSave.addressId
+        retrievedData.clientId == companyToSave.clientId
     }
 
     def "should delete company"() {
         given:
         var companyToSave = companyEntitySample().build()
-        var savedDaoId = repository.save(companyToSave).id
+        var savedEntityId = repository.save(companyToSave).id
 
         when:
-        repository.delete(savedDaoId)
+        repository.delete(savedEntityId)
 
         then:
         repository.companyDb.isEmpty()
@@ -82,22 +82,22 @@ class CompanyRepositoryMockTest extends Specification implements
 
     def "should generate and return company"() {
         when:
-        def generatedDao = repository.generate()
+        def generatedEntity = repository.generate()
 
         then:
-        generatedDao.name != null
+        generatedEntity.name != null
     }
 
     def "should generate and save company"() {
         given:
-        def generatedDao = repository.generateAndSave()
+        def generatedEntity = repository.generateAndSave()
 
         when:
-        def retrievedDao = repository.get(generatedDao.id).get()
+        def retrievedEntity = repository.get(generatedEntity.id).get()
 
         then:
-        retrievedDao.name == generatedDao.name
-        retrievedDao.addressId == generatedDao.addressId
-        retrievedDao.clientId == generatedDao.clientId
+        retrievedEntity.name == generatedEntity.name
+        retrievedEntity.addressId == generatedEntity.addressId
+        retrievedEntity.clientId == generatedEntity.clientId
     }
 }

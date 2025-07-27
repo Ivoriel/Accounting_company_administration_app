@@ -17,53 +17,53 @@ class TaskGeneratorTest extends Specification {
 
     def "should generate and return task when user and company facades are provided"() {
         when:
-        def generatedDao = generator.generate(userFacade, companyFacade)
+        def generatedDto = generator.generate(userFacade, companyFacade)
 
         then:
-        generatedDao.performerId != null
-        generatedDao.clientCompanyId != null
-        generatedDao.start != null
-        generatedDao.end != null
-        generatedDao.title != null
-        generatedDao.comment != null
+        generatedDto.performerId != null
+        generatedDto.clientCompanyId != null
+        generatedDto.start != null
+        generatedDto.end != null
+        generatedDto.title != null
+        generatedDto.comment != null
     }
 
     def "should generate and return task when user and company facades and with start and end params are provided"() {
         when:
-        def generatedDao = generator.generate(userFacade, companyFacade, 40, 220)
+        def generatedDto = generator.generate(userFacade, companyFacade, 40, 220)
 
         then:
-        generatedDao.performerId != null
-        generatedDao.clientCompanyId != null
-        generatedDao.start != null
-        generatedDao.end != null
-        generatedDao.title != null
-        generatedDao.comment != null
+        generatedDto.performerId != null
+        generatedDto.clientCompanyId != null
+        generatedDto.start != null
+        generatedDto.end != null
+        generatedDto.title != null
+        generatedDto.comment != null
     }
 
     def "should generate and return task when user and company ids are provided"() {
         when:
-        def generatedDao = generator.generate(Id.generate(), Id.generate())
+        def generatedDto = generator.generate(Id.generate(), Id.generate())
 
         then:
-        generatedDao.performerId != null
-        generatedDao.clientCompanyId != null
-        generatedDao.start != null
-        generatedDao.end != null
-        generatedDao.title != null
-        generatedDao.comment != null
+        generatedDto.performerId != null
+        generatedDto.clientCompanyId != null
+        generatedDto.start != null
+        generatedDto.end != null
+        generatedDto.title != null
+        generatedDto.comment != null
     }
 
     def "should generate and return task when all parameters are provided"() {
         when:
-        def generatedDao = generator.generate(Id.generate(), Id.generate(), 50, 230)
+        def generatedDto = generator.generate(Id.generate(), Id.generate(), 50, 230)
 
         then:
-        generatedDao.performerId != null
-        generatedDao.clientCompanyId != null
-        generatedDao.start != null
-        generatedDao.end != null
-        generatedDao.title != null
-        generatedDao.comment != null
+        generatedDto.performerId != null
+        generatedDto.clientCompanyId != null
+        generatedDto.start != null
+        generatedDto.end != null
+        generatedDto.title != null
+        generatedDto.comment != null
     }
 }

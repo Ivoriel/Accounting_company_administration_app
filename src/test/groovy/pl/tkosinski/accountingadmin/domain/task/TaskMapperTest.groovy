@@ -13,19 +13,19 @@ class TaskMapperTest extends Specification implements UsesTaskSample {
         thrown(IllegalStateException.class)
     }
 
-    def "should map task dao to dto"() {
-        def dao = taskEntitySample().build()
+    def "should map task entity to dto"() {
+        def entity = taskEntitySample().build()
 
         when:
-        def dto = TaskMapper.toDto(dao)
+        def dto = TaskMapper.toDto(entity)
 
         then:
-        dto.id == dao.id
-        dto.performerId == dao.performerId
-        dto.clientCompanyId == dao.clientCompanyId
-        dto.start == dao.start
-        dto.end == dao.end
-        dto.title == dao.title
-        dto.comment == dao.comment
+        dto.id == entity.id
+        dto.performerId == entity.performerId
+        dto.clientCompanyId == entity.clientCompanyId
+        dto.start == entity.start
+        dto.end == entity.end
+        dto.title == entity.title
+        dto.comment == entity.comment
     }
 }

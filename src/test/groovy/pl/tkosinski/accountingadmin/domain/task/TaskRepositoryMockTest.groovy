@@ -36,41 +36,41 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
 
     def "should create and save task"() {
         given:
-        var daoToSave = taskEntitySample().build()
+        var dataToSave = taskEntitySample().build()
 
         when:
-        var savedDao = repository.save(daoToSave)
+        var savedData = repository.save(dataToSave)
 
         then:
-        savedDao.performerId == daoToSave.performerId
-        savedDao.clientCompanyId == daoToSave.clientCompanyId
-        savedDao.start == daoToSave.start
-        savedDao.end == daoToSave.end
-        savedDao.title == daoToSave.title
-        savedDao.comment == daoToSave.comment
+        savedData.performerId == dataToSave.performerId
+        savedData.clientCompanyId == dataToSave.clientCompanyId
+        savedData.start == dataToSave.start
+        savedData.end == dataToSave.end
+        savedData.title == dataToSave.title
+        savedData.comment == dataToSave.comment
     }
 
     def "should retrieve task"() {
         given:
-        var daoToSave = taskEntitySample().build()
-        var taskId = repository.save(daoToSave).id
+        var dataToSave = taskEntitySample().build()
+        var taskId = repository.save(dataToSave).id
 
         when:
-        var retrievedDao = repository.get(taskId).get()
+        var retrievedData = repository.get(taskId).get()
 
         then:
-        retrievedDao.performerId == daoToSave.performerId
-        retrievedDao.clientCompanyId == daoToSave.clientCompanyId
-        retrievedDao.start == daoToSave.start
-        retrievedDao.end == daoToSave.end
-        retrievedDao.title == retrievedDao.title
-        retrievedDao.comment == daoToSave.comment
+        retrievedData.performerId == dataToSave.performerId
+        retrievedData.clientCompanyId == dataToSave.clientCompanyId
+        retrievedData.start == dataToSave.start
+        retrievedData.end == dataToSave.end
+        retrievedData.title == dataToSave.title
+        retrievedData.comment == dataToSave.comment
     }
 
     def "should delete task"() {
         given:
-        var daoToSave = taskEntitySample().build()
-        var taskId = repository.save(daoToSave).id
+        var dataToSave = taskEntitySample().build()
+        var taskId = repository.save(dataToSave).id
 
         when:
         repository.delete(taskId)
@@ -89,65 +89,65 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
 
     def "should generate and return task"() {
         when:
-        def generatedDao = repository.generate()
+        def generatedData = repository.generate()
 
         then:
-        generatedDao.performerId != null
-        generatedDao.clientCompanyId != null
-        generatedDao.start != null
-        generatedDao.end != null
-        generatedDao.title != null
-        generatedDao.comment != null
+        generatedData.performerId != null
+        generatedData.clientCompanyId != null
+        generatedData.start != null
+        generatedData.end != null
+        generatedData.title != null
+        generatedData.comment != null
     }
 
     def "should generate and return saved task"() {
         given:
-        def generatedDao = repository.generateAndSave()
+        def generatedData = repository.generateAndSave()
 
         when:
-        def retrievedDao = repository.get(generatedDao.id).get()
+        def retrievedData = repository.get(generatedData.id).get()
 
         then:
-        generatedDao.performerId == retrievedDao.performerId
-        generatedDao.clientCompanyId == retrievedDao.clientCompanyId
-        generatedDao.start == retrievedDao.start
-        generatedDao.end == retrievedDao.end
-        generatedDao.title == retrievedDao.title
-        generatedDao.comment == retrievedDao.comment
+        generatedData.performerId == retrievedData.performerId
+        generatedData.clientCompanyId == retrievedData.clientCompanyId
+        generatedData.start == retrievedData.start
+        generatedData.end == retrievedData.end
+        generatedData.title == retrievedData.title
+        generatedData.comment == retrievedData.comment
     }
 
     def "should assign task"() {
         given:
-        def generatedDao = repository.generateAndSave()
+        def generatedEntity = repository.generateAndSave()
         def performerId = Id.generate()
 
         when:
-        repository.assignTask(new TaskAssignmentDto(new UserIdDto(EMPLOYEE), generatedDao.id, performerId))
-        def assignedTaskDao = repository.get(generatedDao.id).get()
+        repository.assignTask(new TaskAssignmentDto(new UserIdDto(EMPLOYEE), generatedEntity.id, performerId))
+        def assignedTaskEntity = repository.get(generatedEntity.id).get()
 
                 then:
-        generatedDao.performerId == assignedTaskDao.performerId
+        generatedEntity.performerId == assignedTaskEntity.performerId
     }
 
     def "should begin task"() {
         given:
-        def generatedDao = repository.generateAndSave()
+        def generatedEntity = repository.generateAndSave()
 
         when:
-        var start = repository.beginTask(generatedDao.id)
+        var start = repository.beginTask(generatedEntity.id)
 
         then:
-        repository.get(generatedDao.id).get().start == start
+        repository.get(generatedEntity.id).get().start == start
     }
 
     def "should finish task"() {
         given:
-        def generatedDao = repository.generateAndSave()
+        def generatedEntity = repository.generateAndSave()
 
         when:
-        var finish = repository.finishTask(generatedDao.id)
+        var finish = repository.finishTask(generatedEntity.id)
 
         then:
-        repository.get(generatedDao.id).get().end == finish
+        repository.get(generatedEntity.id).get().end == finish
     }
 }

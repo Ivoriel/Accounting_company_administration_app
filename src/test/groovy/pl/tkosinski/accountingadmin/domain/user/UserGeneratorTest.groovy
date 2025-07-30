@@ -9,9 +9,9 @@ class UserGeneratorTest extends Specification {
         def generator = new UserGenerator()
 
         when:
-        def generatedDao = generator.generate()
+        def generatedDto = generator.generate()
 
         then:
-        generatedDao.name != null
+        generatedDto.name != null
     }
 }

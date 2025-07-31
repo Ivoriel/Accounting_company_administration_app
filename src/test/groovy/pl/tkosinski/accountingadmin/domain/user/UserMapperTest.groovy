@@ -13,7 +13,7 @@ class UserMapperTest extends Specification implements UsesUserSample {
         thrown(IllegalStateException.class)
     }
 
-    def "should map user dao to dto"() {
+    def 'should map user entity to dto'() {
         def dao = userEntitySample().build()
 
         when:

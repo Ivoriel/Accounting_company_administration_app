@@ -13,7 +13,7 @@ import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE;
 
 @AllArgsConstructor(access = PRIVATE)
 @NoArgsConstructor(access = PRIVATE, force = true)
-public class UserIdDto {
+public class UserRoleDto {
 
     private static final List<Role> INTERNAL_ROLES = List.of(ADMIN, EMPLOYEE);
     private static final List<Role> AUTHORIZED_ROLES = List.of(ADMIN, EMPLOYEE, CLIENT);

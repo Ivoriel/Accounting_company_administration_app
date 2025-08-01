@@ -23,45 +23,45 @@ class UserRepositoryMockTest extends Specification implements UsesUserSample {
 
     def "should create and save task"() {
         given:
-        var daoToSave = userEntitySample().build()
+        var dataToSave = userEntitySample().build()
 
         when:
-        var savedDao = repository.save(daoToSave)
+        var savedData = repository.save(dataToSave)
 
         then:
-        savedDao.id == daoToSave.id
-        savedDao.name == daoToSave.name
+        savedData.id == dataToSave.id
+        savedData.name == dataToSave.name
     }
 
     def "should retrieve user"() {
         given:
-        var daoToSave = userEntitySample().build()
-        var userId = repository.save(daoToSave).id
+        var dataToSave = userEntitySample().build()
+        var userId = repository.save(dataToSave).id
 
         when:
-        var retrievedDao = repository.get(userId).get()
+        var retrievedData = repository.get(userId).get()
 
         then:
-        retrievedDao.name == daoToSave.name
+        retrievedData.name == dataToSave.name
     }
 
     def "should edit name of user"() {
         given:
-        var daoToSave = userEntitySample().build()
-        var name = daoToSave.getName()
-        var userId = repository.save(daoToSave).id
+        var dataToSave = userEntitySample().build()
+        var name = dataToSave.getName()
+        var userId = repository.save(dataToSave).id
 
         when:
-        var retrievedDao = repository.editName(new UserNameRequest(new UserIdDto(EMPLOYEE), userId, FullName.ofValue("differentFirstname", "differentLastName")))
+        var retrievedData = repository.editName(new UserNameRequest(new UserIdDto(EMPLOYEE), userId, FullName.ofValue("differentFirstname", "differentLastName")))
 
         then:
-        retrievedDao.name != name
+        retrievedData.name != name
     }
 
     def "should delete user"() {
         given:
-        var daoToSave = userEntitySample().build()
-        var userId = repository.save(daoToSave).id
+        var dataToSave = userEntitySample().build()
+        var userId = repository.save(dataToSave).id
 
         when:
         repository.delete(userId)
@@ -80,20 +80,20 @@ class UserRepositoryMockTest extends Specification implements UsesUserSample {
 
     def "should generate and return user"() {
         when:
-        def generatedDao = repository.generate()
+        def generatedEntity = repository.generate()
 
         then:
-        generatedDao.name != null
+        generatedEntity.name != null
     }
 
     def "should generate and save user"() {
         given:
-        def generatedDao = repository.generateAndSave()
+        def generatedEntity = repository.generateAndSave()
 
         when:
-        def retrievedDao = repository.get(generatedDao.id).get()
+        def retrievedData = repository.get(generatedEntity.id).get()
 
         then:
-        retrievedDao.name == generatedDao.name
+        retrievedData.name == generatedEntity.name
     }
 }

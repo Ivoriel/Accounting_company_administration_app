@@ -9,11 +9,11 @@ import static pl.tkosinski.accountingadmin.common.model.Role.ADMIN
 import static pl.tkosinski.accountingadmin.common.model.Role.CLIENT
 import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE
 
-class UserIdDtoTest extends Specification {
+class UserRoleDtoTest extends Specification {
 
     def "should return boolean appropriate for role when checking whether user is admin"() {
         when:
-        def dto = new UserIdDto(role)
+        def dto = new UserRoleDto(role)
 
         then:
         result == dto.isAdmin()
@@ -27,7 +27,7 @@ class UserIdDtoTest extends Specification {
 
     def "should return boolean appropriate for role when checking whether user is employee"() {
         when:
-        def dto = new UserIdDto(role)
+        def dto = new UserRoleDto(role)
 
         then:
         result == dto.isEmployee()
@@ -41,7 +41,7 @@ class UserIdDtoTest extends Specification {
 
     def "IsEmployeeOrAdmin"() {
         when:
-        def dto = new UserIdDto(role)
+        def dto = new UserRoleDto(role)
 
         then:
         result == dto.isEmployeeOrAdmin()
@@ -55,7 +55,7 @@ class UserIdDtoTest extends Specification {
 
     def "IsClient"() {
         when:
-        def dto = new UserIdDto(role)
+        def dto = new UserRoleDto(role)
 
         then:
         result == dto.isClient()

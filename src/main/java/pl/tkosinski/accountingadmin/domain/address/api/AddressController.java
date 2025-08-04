@@ -12,7 +12,7 @@ import pl.tkosinski.accountingadmin.common.dto.IdRequest;
 import pl.tkosinski.accountingadmin.domain.address.AddressFacade;
 import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
 import pl.tkosinski.accountingadmin.domain.address.dto.AddressRequest;
-import pl.tkosinski.accountingadmin.domain.user.dto.UserIdDto;
+import pl.tkosinski.accountingadmin.domain.user.dto.UserRoleDto;
 
 @RestController
 @RequestMapping("/address")
@@ -43,14 +43,14 @@ class AddressController extends BaseController {
     }
 
     @GetMapping("/generate")
-    public AddressDto generate(@RequestBody UserIdDto request) {
+    public AddressDto generate(@RequestBody UserRoleDto request) {
         validateAdminOrEmployee(request);
 
         return facade.generate();
     }
 
     @GetMapping("/generate-and-save")
-    public AddressDto generateAndSave(@RequestBody UserIdDto request) {
+    public AddressDto generateAndSave(@RequestBody UserRoleDto request) {
         validateAdminOrEmployee(request);
 
         return facade.generateAndSave();

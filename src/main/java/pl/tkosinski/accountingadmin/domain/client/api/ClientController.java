@@ -12,7 +12,7 @@ import pl.tkosinski.accountingadmin.common.dto.IdRequest;
 import pl.tkosinski.accountingadmin.domain.client.ClientFacade;
 import pl.tkosinski.accountingadmin.domain.client.dto.ClientDto;
 import pl.tkosinski.accountingadmin.domain.client.dto.ClientRequest;
-import pl.tkosinski.accountingadmin.domain.user.dto.UserIdDto;
+import pl.tkosinski.accountingadmin.domain.user.dto.UserRoleDto;
 
 @RestController
 @RequestMapping("/client")
@@ -43,14 +43,14 @@ class ClientController extends BaseController {
     }
 
     @GetMapping("/generate")
-    public ClientDto generate(@RequestBody UserIdDto request) {
+    public ClientDto generate(@RequestBody UserRoleDto request) {
         validateAdminOrEmployee(request);
 
         return facade.generate();
     }
 
     @GetMapping("/generate-and-save")
-    public ClientDto generateAndSave(@RequestBody UserIdDto request) {
+    public ClientDto generateAndSave(@RequestBody UserRoleDto request) {
         validateAdminOrEmployee(request);
 
         return facade.generateAndSave();

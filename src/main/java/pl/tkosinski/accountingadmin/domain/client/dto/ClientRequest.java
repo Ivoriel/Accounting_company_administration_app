@@ -2,9 +2,9 @@ package pl.tkosinski.accountingadmin.domain.client.dto;
 
 import pl.tkosinski.accountingadmin.common.model.FullName;
 import pl.tkosinski.accountingadmin.common.model.Id;
-import pl.tkosinski.accountingadmin.domain.user.dto.UserIdDto;
+import pl.tkosinski.accountingadmin.domain.user.dto.UserRoleDto;
 
-public record ClientRequest(UserIdDto userId, ClientDto clientData) {
+public record ClientRequest(UserRoleDto userId, ClientDto clientData) {
 
     public Id id() {
         return clientData.id();

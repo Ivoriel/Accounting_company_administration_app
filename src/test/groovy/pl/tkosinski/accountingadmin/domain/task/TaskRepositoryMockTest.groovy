@@ -7,7 +7,7 @@ import pl.tkosinski.accountingadmin.domain.sample.UsesTaskSample
 import pl.tkosinski.accountingadmin.domain.sample.UsesUserSample
 import pl.tkosinski.accountingadmin.domain.task.dto.TaskAssignmentDto
 import pl.tkosinski.accountingadmin.domain.user.UserFacade
-import pl.tkosinski.accountingadmin.domain.user.dto.UserIdDto
+import pl.tkosinski.accountingadmin.domain.user.dto.UserRoleDto
 import spock.lang.Shared
 import spock.lang.Specification
 
@@ -122,7 +122,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
         def performerId = Id.generate()
 
         when:
-        repository.assignTask(new TaskAssignmentDto(new UserIdDto(EMPLOYEE), generatedEntity.id, performerId))
+        repository.assignTask(new TaskAssignmentDto(new UserRoleDto(EMPLOYEE), generatedEntity.id, performerId))
         def assignedTaskEntity = repository.get(generatedEntity.id).get()
 
                 then:

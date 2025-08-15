@@ -12,7 +12,7 @@ import pl.tkosinski.accountingadmin.common.api.BaseController;
 import pl.tkosinski.accountingadmin.common.dto.IdRequest;
 import pl.tkosinski.accountingadmin.domain.user.UserFacade;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserDto;
-import pl.tkosinski.accountingadmin.domain.user.dto.UserIdDto;
+import pl.tkosinski.accountingadmin.domain.user.dto.UserRoleDto;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserNameRequest;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserRequest;
 
@@ -73,14 +73,14 @@ class UserController extends BaseController {
     }
 
     @GetMapping("/generate")
-    public UserDto generate(@RequestBody UserIdDto request) {
+    public UserDto generate(@RequestBody UserRoleDto request) {
         validateAdminOrEmployee(request);
 
         return facade.generate();
     }
 
     @GetMapping("/generate-and-save")
-    public UserDto generateAndSave(@RequestBody UserIdDto request) {
+    public UserDto generateAndSave(@RequestBody UserRoleDto request) {
         validateAdminOrEmployee(request);
 
         return facade.generateAndSave();

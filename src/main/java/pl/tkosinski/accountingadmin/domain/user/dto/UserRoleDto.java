@@ -9,6 +9,7 @@ import java.util.List;
 import static lombok.AccessLevel.PRIVATE;
 import static pl.tkosinski.accountingadmin.common.model.Role.ADMIN;
 import static pl.tkosinski.accountingadmin.common.model.Role.CLIENT;
+import static pl.tkosinski.accountingadmin.common.model.Role.CLIENT_ADMIN;
 import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE;
 
 @AllArgsConstructor(access = PRIVATE)
@@ -16,7 +17,7 @@ import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE;
 public class UserRoleDto {
 
     private static final List<Role> INTERNAL_ROLES = List.of(ADMIN, EMPLOYEE);
-    private static final List<Role> AUTHORIZED_ROLES = List.of(ADMIN, EMPLOYEE, CLIENT);
+    private static final List<Role> AUTHORIZED_ROLES = List.of(ADMIN, EMPLOYEE, CLIENT_ADMIN, CLIENT);
 
     private final Role role;
 

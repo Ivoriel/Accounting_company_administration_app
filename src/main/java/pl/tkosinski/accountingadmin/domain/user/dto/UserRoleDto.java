@@ -37,6 +37,10 @@ public class UserRoleDto {
         return CLIENT == role;
     }
 
+    public boolean isClientAdmin() {
+        return CLIENT_ADMIN == role;
+    }
+
     public boolean isAuthorized() {
         return AUTHORIZED_ROLES.contains(role);
     }

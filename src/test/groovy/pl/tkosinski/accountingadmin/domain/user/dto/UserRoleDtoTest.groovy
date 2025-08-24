@@ -7,6 +7,7 @@ import static java.lang.Boolean.FALSE
 import static java.lang.Boolean.TRUE
 import static pl.tkosinski.accountingadmin.common.model.Role.ADMIN
 import static pl.tkosinski.accountingadmin.common.model.Role.CLIENT
+import static pl.tkosinski.accountingadmin.common.model.Role.CLIENT_ADMIN
 import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE
 
 class UserRoleDtoTest extends Specification {
@@ -61,9 +62,10 @@ class UserRoleDtoTest extends Specification {
         result == dto.isClient()
 
         where:
-        role     || result
-        ADMIN    || FALSE
-        EMPLOYEE || FALSE
-        CLIENT   || TRUE
+        role         || result
+        ADMIN        || FALSE
+        EMPLOYEE     || FALSE
+        CLIENT_ADMIN || TRUE
+        CLIENT       || TRUE
     }
 }

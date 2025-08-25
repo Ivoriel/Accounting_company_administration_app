@@ -28,6 +28,12 @@ public class BaseController {
         }
     }
 
+    protected void validateClientAdmin(UserRoleDto userId) {
+        if (!userId.isClientAdmin()) {
+            throw new UnsupportedOperationException("Client administrator privileges required for this operation");
+        }
+    }
+
     protected void validateAuthorized(UserRoleDto userId) {
         if (!userId.isAuthorized()) {
             throw new UnsupportedOperationException("Authorized user privileges required for this operation");

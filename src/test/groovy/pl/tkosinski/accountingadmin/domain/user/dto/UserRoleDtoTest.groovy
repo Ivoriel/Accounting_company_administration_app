@@ -68,4 +68,19 @@ class UserRoleDtoTest extends Specification {
         CLIENT_ADMIN || TRUE
         CLIENT       || TRUE
     }
+
+    def "IsClientAdmin"() {
+        when:
+        def dto = new UserRoleDto(role)
+
+        then:
+        result == dto.isClientAdmin()
+
+        where:
+        role         || result
+        ADMIN        || FALSE
+        EMPLOYEE     || FALSE
+        CLIENT_ADMIN || TRUE
+        CLIENT       || FALSE
+    }
 }

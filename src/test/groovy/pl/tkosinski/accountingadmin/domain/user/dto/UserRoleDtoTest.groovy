@@ -54,7 +54,7 @@ class UserRoleDtoTest extends Specification {
         CLIENT   || FALSE
     }
 
-    def "IsClient"() {
+    def "should return boolean appropriate for role when checking whether user is a client"() {
         when:
         def dto = new UserRoleDto(role)
 

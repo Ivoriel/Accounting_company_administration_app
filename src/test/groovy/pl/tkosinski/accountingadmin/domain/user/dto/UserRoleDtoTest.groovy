@@ -69,7 +69,7 @@ class UserRoleDtoTest extends Specification {
         CLIENT       || TRUE
     }
 
-    def "IsClientAdmin"() {
+    def "should return boolean appropriate for role when checking whether user is a client administrator"() {
         when:
         def dto = new UserRoleDto(role)
 

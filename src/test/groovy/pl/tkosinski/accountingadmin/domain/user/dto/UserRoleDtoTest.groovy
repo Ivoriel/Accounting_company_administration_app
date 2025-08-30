@@ -26,7 +26,7 @@ class UserRoleDtoTest extends Specification {
         CLIENT   || FALSE
     }
 
-    def "should return boolean appropriate for role when checking whether user is employee"() {
+    def "should return boolean appropriate for role when checking whether user is an employee"() {
         when:
         def dto = new UserRoleDto(role)
 

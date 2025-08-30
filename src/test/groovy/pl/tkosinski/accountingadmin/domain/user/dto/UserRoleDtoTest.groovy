@@ -12,7 +12,7 @@ import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE
 
 class UserRoleDtoTest extends Specification {
 
-    def "should return boolean appropriate for role when checking whether user is admin"() {
+    def "should return boolean appropriate for role when checking whether user is an administrator"() {
         when:
         def dto = new UserRoleDto(role)
 

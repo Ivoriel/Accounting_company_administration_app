@@ -5,7 +5,7 @@ import spock.lang.Specification
 
 class AddressMapperTest extends Specification implements UsesAddressSample {
 
-    def "should not allow creating TaskMapper object"() {
+    def "should not allow creating AddressMapper object"() {
         when:
         new AddressMapper()
 

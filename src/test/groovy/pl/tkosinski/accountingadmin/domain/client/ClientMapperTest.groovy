@@ -5,7 +5,7 @@ import spock.lang.Specification
 
 class ClientMapperTest extends Specification implements UsesClientSample {
 
-    def "should not allow creating TaskMapper object"() {
+    def "should not allow creating ClientMapper object"() {
         when:
         new ClientMapper()
 

@@ -2,9 +2,10 @@ package pl.tkosinski.accountingadmin.domain.client
 
 import pl.tkosinski.accountingadmin.common.model.Id
 import pl.tkosinski.accountingadmin.domain.address.AddressFacade
+import pl.tkosinski.accountingadmin.domain.sample.UsesAddressSample
 import spock.lang.Specification
 
-class ClientGeneratorTest extends Specification {
+class ClientGeneratorTest extends Specification implements UsesAddressSample{
 
     def "should generate and return client given addressId"() {
         given:
@@ -22,7 +23,8 @@ class ClientGeneratorTest extends Specification {
     def "should generate and return client given addressFacade"() {
         given:
         def generator = new ClientGenerator()
-        def addressFacade = new AddressFacade()
+        AddressFacade addressFacade = Mock()
+        addressFacade.generateAndSave() >> addressDtoSample()
 
         when:
         def generatedDto = generator.generate(addressFacade)

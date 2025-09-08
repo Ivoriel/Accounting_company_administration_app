@@ -14,7 +14,7 @@ class ClientRepositoryMockTest extends Specification implements UsesClientSample
     ClientRepository repository = new ClientRepositoryMock(new HashMap(), addressFacade)
 
     def setupSpec() {
-        addressFacade.getRequestedOrGenerateAndSave(_ as Id) >> addressDtoSample().build()
+        addressFacade.getRequestedOrGenerateAndSave(_ as Id) >> addressDtoSample()
     }
 
     def "should generate initial db when instance is created"() {

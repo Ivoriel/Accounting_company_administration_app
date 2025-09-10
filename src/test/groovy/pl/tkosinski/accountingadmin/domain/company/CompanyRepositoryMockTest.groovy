@@ -21,7 +21,7 @@ class CompanyRepositoryMockTest extends Specification implements
     CompanyRepository repository = new CompanyRepositoryMock(new HashMap(), addressFacade, clientFacade)
 
     def setupSpec() {
-        addressFacade.getRequestedOrGenerateAndSave(_ as Id) >> addressDtoSample().build()
+        addressFacade.getRequestedOrGenerateAndSave(_ as Id) >> addressDtoSample()
         clientFacade.getRequestedOrGenerateAndSave(_ as Id) >> clientDtoSample()
     }
 

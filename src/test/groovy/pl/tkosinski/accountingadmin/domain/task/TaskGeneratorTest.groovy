@@ -36,6 +36,12 @@ class TaskGeneratorTest extends Specification implements UsesUserSample, UsesCom
     }
 
     def "should generate and return task when user and company facades and with start and end params are provided"() {
+        given:
+        UserFacade userFacade = Mock()
+        userFacade.generate() >> userDtoSample()
+        CompanyFacade companyFacade = Mock()
+        companyFacade.generate() >> companyDtoSample()
+
         when:
         def generatedDto = generator.generate(userFacade, companyFacade, 40, 220)
 

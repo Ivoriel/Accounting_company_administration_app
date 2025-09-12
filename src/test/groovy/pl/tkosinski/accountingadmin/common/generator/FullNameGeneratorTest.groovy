@@ -1,6 +1,5 @@
 package pl.tkosinski.accountingadmin.common.generator
 
-import pl.tkosinski.accountingadmin.domain.address.AddressMapper
 import spock.lang.Specification
 
 class FullNameGeneratorTest extends Specification {

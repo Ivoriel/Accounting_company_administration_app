@@ -18,7 +18,7 @@ trait UsesAddressSample {
                 .additionalIdentifier("2p")
     }
 
-    AddressDto.AddressDtoBuilder addressDtoSample(def args = null) {
+    AddressDto addressDtoSample(def args = null) {
         AddressDto.builder()
                 .id(args?.id ?: Id.generate())
                 .country("Polska")
@@ -28,5 +28,6 @@ trait UsesAddressSample {
                 .street("Jasna")
                 .buildingNumber("1")
                 .additionalIdentifier("2p")
+                .build()
     }
 }

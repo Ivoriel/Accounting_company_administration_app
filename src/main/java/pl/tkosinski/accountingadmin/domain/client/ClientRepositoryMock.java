@@ -34,7 +34,7 @@ class ClientRepositoryMock implements ClientRepository {
 
     @Override
     public Optional<ClientEntity> get(Id id) {
-        return Optional.of(clientDb.get(id));
+        return Optional.ofNullable(clientDb.get(id));
     }
 
     @Override

@@ -40,7 +40,7 @@ class UserRepositoryMock implements UserRepository{
 
     @Override
     public Optional<UserEntity> get(Id id) {
-        return Optional.of(userDb.get(id));
+        return Optional.ofNullable(userDb.get(id));
     }
 
     @Override

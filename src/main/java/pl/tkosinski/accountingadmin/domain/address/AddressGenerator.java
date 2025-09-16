@@ -1,4 +1,4 @@
-package pl.tkosinski.accountingadmin.domain.address.generator;
+package pl.tkosinski.accountingadmin.domain.address;
 
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;

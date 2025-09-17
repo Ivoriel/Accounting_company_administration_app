@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
 import pl.tkosinski.accountingadmin.domain.address.dto.AddressRecord;
-import pl.tkosinski.accountingadmin.domain.address.generator.AddressGenerator;
 
 import java.util.NoSuchElementException;
 

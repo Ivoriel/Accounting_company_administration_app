@@ -1,4 +1,5 @@
-package pl.tkosinski.accountingadmin.domain.address.generator
+package pl.tkosinski.accountingadmin.domain.address
+
 
 import spock.lang.Specification
 

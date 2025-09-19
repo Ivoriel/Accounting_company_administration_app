@@ -28,7 +28,7 @@ class AddressController extends BaseController {
         facade.save(request);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping()
     public AddressDto get(@RequestBody IdRequest request) {
         validateAuthorized(request.getUserId());
 

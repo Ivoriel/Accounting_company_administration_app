@@ -29,7 +29,7 @@ class TaskController extends BaseController {
         facade.save(request);
     }
 
-    @GetMapping("/{id}/get")
+    @GetMapping("/get")
     public TaskDto get(@RequestBody IdRequest request) {
         validateAdminOrEmployee(request.getUserId());
 

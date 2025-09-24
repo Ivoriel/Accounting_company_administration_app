@@ -35,7 +35,7 @@ class AddressController extends BaseController {
         return facade.get(request.getId());
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping()
     public void delete(@RequestBody IdRequest request) {
         validateAdminOrEmployee(request.getUserId());
 

@@ -15,7 +15,7 @@ import pl.tkosinski.accountingadmin.domain.address.dto.AddressRequest;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserRoleDto;
 
 @RestController
-@RequestMapping("/address")
+@RequestMapping("address")
 @RequiredArgsConstructor
 class AddressController extends BaseController {
 

@@ -42,7 +42,7 @@ class AddressController extends BaseController {
         facade.delete(request.getId());
     }
 
-    @GetMapping("/generate")
+    @GetMapping("generate")
     public AddressDto generate(@RequestBody UserRoleDto request) {
         validateAdminOrEmployee(request);
 

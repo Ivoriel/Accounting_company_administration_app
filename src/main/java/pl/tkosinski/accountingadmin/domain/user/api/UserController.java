@@ -17,7 +17,7 @@ import pl.tkosinski.accountingadmin.domain.user.dto.UserNameRequest;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserRequest;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("user")
 @RequiredArgsConstructor
 class UserController extends BaseController {
 

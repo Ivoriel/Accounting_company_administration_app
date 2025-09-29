@@ -23,7 +23,7 @@ class UserController extends BaseController {
 
     private final UserFacade facade;
 
-    @PostMapping("/save")
+    @PostMapping("save")
     public void save(@RequestBody UserRequest request) {
         validateAdminOrEmployee(request.userId());
 

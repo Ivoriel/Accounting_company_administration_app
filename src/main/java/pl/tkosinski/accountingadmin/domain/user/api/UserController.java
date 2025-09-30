@@ -30,7 +30,7 @@ class UserController extends BaseController {
         facade.save(request);
     }
 
-    @PostMapping("/edit-name")
+    @PostMapping("edit-name")
     public void editName(@RequestBody UserNameRequest request) {
         validateAdminOrEmployee(request.userId());
 

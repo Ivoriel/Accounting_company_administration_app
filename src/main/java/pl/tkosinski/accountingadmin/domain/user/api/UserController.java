@@ -44,7 +44,7 @@ class UserController extends BaseController {
         return facade.get(request.getId());
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("delete")
     public void delete(@RequestBody IdRequest request) {
         validateAdmin(request.getUserId());
 

@@ -16,7 +16,7 @@ import pl.tkosinski.accountingadmin.domain.task.dto.TaskRequest;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserRoleDto;
 
 @RestController
-@RequestMapping("/task")
+@RequestMapping("task")
 @RequiredArgsConstructor
 class TaskController extends BaseController {
 

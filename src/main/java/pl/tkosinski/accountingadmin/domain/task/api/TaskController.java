@@ -22,7 +22,7 @@ class TaskController extends BaseController {
 
     private final TaskFacade facade;
 
-    @PostMapping("/save")
+    @PostMapping("save")
     public void save(@RequestBody TaskRequest request) {
         validateAdminOrEmployee(request.userId());
 

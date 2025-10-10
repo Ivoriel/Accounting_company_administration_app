@@ -43,7 +43,7 @@ class TaskController extends BaseController {
         facade.delete(request.getId());
     }
 
-    @GetMapping("/generate")
+    @GetMapping("generate")
     public TaskDto generate(@RequestBody UserRoleDto request) {
         validateAdminOrEmployee(request);
 

@@ -50,7 +50,7 @@ class TaskController extends BaseController {
         return facade.generate();
     }
 
-    @GetMapping("/generate-and-save")
+    @GetMapping("generate-and-save")
     public TaskDto generateAndSave(@RequestBody UserRoleDto request) {
         validateAdminOrEmployee(request);
 

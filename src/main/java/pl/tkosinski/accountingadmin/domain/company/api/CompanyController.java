@@ -15,7 +15,7 @@ import pl.tkosinski.accountingadmin.domain.company.dto.CompanyRequest;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserRoleDto;
 
 @RestController
-@RequestMapping("/company")
+@RequestMapping("company")
 @RequiredArgsConstructor
 class CompanyController extends BaseController {
 

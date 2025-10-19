@@ -42,7 +42,7 @@ class CompanyController extends BaseController {
         facade.delete(request.getId());
     }
 
-    @GetMapping("/generate")
+    @GetMapping("generate")
     public CompanyDto generate(@RequestBody UserRoleDto request) {
         validateAdminOrEmployee(request);
 

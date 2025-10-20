@@ -15,7 +15,7 @@ import pl.tkosinski.accountingadmin.domain.client.dto.ClientRequest;
 import pl.tkosinski.accountingadmin.domain.user.dto.UserRoleDto;
 
 @RestController
-@RequestMapping("/client")
+@RequestMapping("client")
 @RequiredArgsConstructor
 class ClientController extends BaseController {
 

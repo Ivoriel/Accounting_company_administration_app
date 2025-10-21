@@ -21,7 +21,7 @@ class ClientController extends BaseController {
 
     private final ClientFacade facade;
 
-    @PostMapping("/save")
+    @PostMapping("save")
     public void save(@RequestBody ClientRequest request) {
         validateAdminOrEmployee(request.userId());
 

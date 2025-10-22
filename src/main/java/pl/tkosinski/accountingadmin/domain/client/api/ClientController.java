@@ -28,7 +28,7 @@ class ClientController extends BaseController {
         facade.save(request);
     }
 
-    @GetMapping("/get")
+    @GetMapping("get")
     public ClientDto get(@RequestBody IdRequest request) {
         validateAuthorized(request.getUserId());
 

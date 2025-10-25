@@ -49,7 +49,7 @@ class AddressController extends BaseController {
         return facade.generate();
     }
 
-    @GetMapping("/generate-and-save")
+    @GetMapping("generate-and-save")
     public AddressDto generateAndSave(@RequestBody UserRoleDto request) {
         validateAdminOrEmployee(request);
 

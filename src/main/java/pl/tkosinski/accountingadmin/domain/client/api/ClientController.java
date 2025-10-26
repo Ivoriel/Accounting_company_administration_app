@@ -49,7 +49,7 @@ class ClientController extends BaseController {
         return facade.generate();
     }
 
-    @GetMapping("/generate-and-save")
+    @GetMapping("generate-and-save")
     public ClientDto generateAndSave(@RequestBody UserRoleDto request) {
         validateAdminOrEmployee(request);
 

@@ -49,7 +49,7 @@ class CompanyController extends BaseController {
         return facade.generate();
     }
 
-    @GetMapping("/generate-and-save")
+    @GetMapping("generate-and-save")
     public CompanyDto generateAndSave(@RequestBody UserRoleDto request) {
         validateAdminOrEmployee(request);
 

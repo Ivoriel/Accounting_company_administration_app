@@ -37,7 +37,7 @@ class UserController extends BaseController {
         facade.editName(request);
     }
 
-    @GetMapping("get")
+    @GetMapping()
     public UserDto get(@RequestBody IdRequest request) {
         validateAdminOrEmployee(request.getUserId());
 

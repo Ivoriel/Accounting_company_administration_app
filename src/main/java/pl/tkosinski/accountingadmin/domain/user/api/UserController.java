@@ -79,7 +79,7 @@ class UserController extends BaseController {
         return facade.generate();
     }
 
-    @GetMapping("/generate-and-save")
+    @GetMapping("generate-and-save")
     public UserDto generateAndSave(@RequestBody UserRoleDto request) {
         validateAdminOrEmployee(request);
 

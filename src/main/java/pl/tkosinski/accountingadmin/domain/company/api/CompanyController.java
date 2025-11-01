@@ -28,7 +28,7 @@ class CompanyController extends BaseController {
         facade.save(request);
     }
 
-    @GetMapping("get")
+    @GetMapping()
     public CompanyDto get(@RequestBody IdRequest request) {
         validateAuthorized(request.getUserId());
 

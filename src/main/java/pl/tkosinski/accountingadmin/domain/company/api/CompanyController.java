@@ -35,7 +35,7 @@ class CompanyController extends BaseController {
         return facade.get(request.getId());
     }
 
-    @DeleteMapping("delete")
+    @DeleteMapping()
     public void delete(@RequestBody IdRequest request) {
         validateAdminOrEmployee(request.getUserId());
 

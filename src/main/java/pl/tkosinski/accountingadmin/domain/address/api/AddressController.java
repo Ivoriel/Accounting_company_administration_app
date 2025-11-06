@@ -21,7 +21,7 @@ class AddressController extends BaseController {
 
     private final AddressFacade facade;
 
-    @PostMapping("save")
+    @PostMapping()
     public void save(@RequestBody AddressRequest request) {
         validateAuthorized(request.userId());
 

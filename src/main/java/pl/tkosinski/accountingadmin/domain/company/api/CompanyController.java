@@ -21,7 +21,7 @@ class CompanyController extends BaseController {
 
     private final CompanyFacade facade;
 
-    @PostMapping("save")
+    @PostMapping()
     public void save(@RequestBody CompanyRequest request) {
         validateAdminOrEmployee(request.userId());
 

@@ -51,7 +51,7 @@ class UserController extends BaseController {
         facade.delete(request.getId());
     }
 
-    @PutMapping("switch-role-employee")
+    @PostMapping("switch-role-employee")
     public void switchRoleToEmployee(@RequestBody IdRequest request) {
         validateAdmin(request.getUserId());
 

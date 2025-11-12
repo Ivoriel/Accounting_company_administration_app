@@ -58,7 +58,7 @@ class UserController extends BaseController {
         facade.switchRoleToEmployee(request.getId());
     }
 
-    @PutMapping("switch-role-client")
+    @PostMapping("switch-role-client")
     public void switchRoleToClient(@RequestBody IdRequest request) {
         validateAdmin(request.getUserId());
 

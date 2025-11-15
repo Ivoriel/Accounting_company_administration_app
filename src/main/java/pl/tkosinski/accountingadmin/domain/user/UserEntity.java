@@ -10,6 +10,7 @@ import pl.tkosinski.accountingadmin.domain.user.dto.UserRequest;
 
 import static pl.tkosinski.accountingadmin.common.model.Role.ADMIN;
 import static pl.tkosinski.accountingadmin.common.model.Role.CLIENT;
+import static pl.tkosinski.accountingadmin.common.model.Role.CLIENT_ADMIN;
 import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE;
 
 @Getter
@@ -43,6 +44,10 @@ class UserEntity implements BaseDao {
 
     public void switchRoleToClient() {
         this.role = CLIENT;
+    }
+
+    public void switchRoleToClientAdmin() {
+        this.role = CLIENT_ADMIN;
     }
 
     public void switchRoleToAdmin() {

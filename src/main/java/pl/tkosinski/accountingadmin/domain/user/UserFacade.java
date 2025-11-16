@@ -45,6 +45,10 @@ public class UserFacade {
         switcher.switchRoleToClient(id);
     }
 
+    public void switchRoleToClientAdmin(Id id) {
+        switcher.switchRoleToClientAdmin(id);
+    }
+
     public void switchRoleToAdmin(Id id) {
         switcher.switchRoleToAdmin(id);
     }

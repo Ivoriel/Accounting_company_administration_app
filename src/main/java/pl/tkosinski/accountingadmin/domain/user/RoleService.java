@@ -21,6 +21,11 @@ class RoleService implements RoleSwitcher {
     }
 
     @Override
+    public void switchRoleToClientAdmin(Id userId) {
+        repository.get(userId).ifPresent(UserEntity::switchRoleToClientAdmin);
+    }
+
+    @Override
     public void switchRoleToAdmin(Id userId) {
         repository.get(userId).ifPresent(UserEntity::switchRoleToAdmin);
     }

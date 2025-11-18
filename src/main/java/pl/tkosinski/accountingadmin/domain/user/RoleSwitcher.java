@@ -8,5 +8,7 @@ interface RoleSwitcher {
 
     void switchRoleToClient(Id userId);
 
+    void switchRoleToClientAdmin(Id userId);
+
     void switchRoleToAdmin(Id userId);
 }

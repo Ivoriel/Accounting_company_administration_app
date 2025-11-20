@@ -5,6 +5,7 @@ import pl.tkosinski.accountingadmin.domain.sample.UsesUserSample
 import spock.lang.Specification
 
 import static pl.tkosinski.accountingadmin.common.model.Role.CLIENT
+import static pl.tkosinski.accountingadmin.common.model.Role.CLIENT_ADMIN
 import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE
 
 class RoleServiceTest extends Specification implements UsesUserSample {
@@ -35,5 +36,17 @@ class RoleServiceTest extends Specification implements UsesUserSample {
         then:
         var test = repository.get(savedDao.getId()).get()
         test.role == CLIENT
+    }
+
+    def "should switch role to client admin"() {
+        given:
+        var savedDao = repository.save(userEntitySample(role: EMPLOYEE).build())
+
+        when:
+        service.switchRoleToClientAdmin(savedDao.getId())
+
+        then:
+        var test = repository.get(savedDao.getId()).get()
+        test.role == CLIENT_ADMIN
     }
 }

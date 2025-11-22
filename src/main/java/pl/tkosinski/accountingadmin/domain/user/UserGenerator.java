@@ -6,9 +6,9 @@ import pl.tkosinski.accountingadmin.domain.user.dto.UserDto;
 
 import static pl.tkosinski.accountingadmin.common.model.Role.EMPLOYEE;
 
-public class UserGenerator {
+class UserGenerator {
 
-    public UserDto generate() {
+    UserDto generate() {
         return new UserDto(
                 Id.generate(),
                 EMPLOYEE,

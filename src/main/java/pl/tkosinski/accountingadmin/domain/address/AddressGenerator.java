@@ -5,11 +5,11 @@ import pl.tkosinski.accountingadmin.domain.address.dto.AddressDto;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class AddressGenerator {
+class AddressGenerator {
 
     private static final String COUNTRY = "Polska";
 
-    public AddressDto generate() {
+    AddressDto generate() {
         return new AddressDto(Id.generate(), generateCountry(), generateMunicipality(), generateRegion(),
                 generateZipCode(), generateStreet(), generateBuildingNumber(), generateAdditionalIdentifier());
     }

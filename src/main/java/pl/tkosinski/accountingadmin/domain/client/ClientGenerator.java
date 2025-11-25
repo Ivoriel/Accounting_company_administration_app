@@ -5,13 +5,13 @@ import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.address.AddressFacade;
 import pl.tkosinski.accountingadmin.domain.client.dto.ClientDto;
 
-public class ClientGenerator {
+class ClientGenerator {
 
-    public ClientDto generate(AddressFacade addressFacade) {
+    ClientDto generate(AddressFacade addressFacade) {
         return generate(addressFacade.generateAndSave().id());
     }
 
-    public ClientDto generate(Id addressId) {
+    ClientDto generate(Id addressId) {
         return new ClientDto(
                 Id.generate(),
                 FullNameGenerator.generate(),

@@ -8,13 +8,13 @@ import pl.tkosinski.accountingadmin.domain.company.dto.CompanyDto;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class CompanyGenerator {
+class CompanyGenerator {
 
-    public CompanyDto generate(ClientFacade clientFacade, AddressFacade addressFacade) {
+    CompanyDto generate(ClientFacade clientFacade, AddressFacade addressFacade) {
         return generate(clientFacade.generateAndSave().id(), addressFacade.generateAndSave().id());
     }
 
-    public CompanyDto generate(Id clientId, Id addressId) {
+    CompanyDto generate(Id clientId, Id addressId) {
         return new CompanyDto(
                 Id.generate(),
                 generateCompanyName(),

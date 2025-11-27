@@ -9,21 +9,21 @@ import pl.tkosinski.accountingadmin.domain.user.UserFacade;
 import java.time.LocalDateTime;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class TaskGenerator {
+class TaskGenerator {
 
-    public TaskDto generate(UserFacade userFacade, CompanyFacade companyFacade) {
+    TaskDto generate(UserFacade userFacade, CompanyFacade companyFacade) {
         return generate(userFacade.generate().id(), companyFacade.generate().id());
     }
 
-    public TaskDto generate(UserFacade userFacade, CompanyFacade companyFacade, int min, int max) {
+    TaskDto generate(UserFacade userFacade, CompanyFacade companyFacade, int min, int max) {
         return generate(userFacade.generate().id(), companyFacade.generate().id(), min, max);
     }
 
-    public TaskDto generate(Id performerId, Id companyId) {
+    TaskDto generate(Id performerId, Id companyId) {
         return generate(performerId, companyId, 60, 240);
     }
 
-    public TaskDto generate(Id performerId, Id companyId, int min, int max) {
+    TaskDto generate(Id performerId, Id companyId, int min, int max) {
         var start = generateRandomInt(min, max);
 
         return new TaskDto(

@@ -60,7 +60,7 @@ class TaskRepositoryMock implements TaskRepository {
                 .id(Id.generate())
                 .performerId(userFacade.getRequestedOrGenerateAndSave(Id.generate()).id())
                 .clientCompanyId(companyFacade.getRequestedOrGenerateAndSave(Id.generate()).id())
-                .start(LocalDateTime.now().minusMinutes(start))
+                .period(LocalDateTime.now().minusMinutes(start))
                 .end(LocalDateTime.now().minusMinutes(start+60L))
                 .title(Text.ofValue("Lorem ipsum dolor sit amet"))
                 .comment(Text.ofValue("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at."))
@@ -78,13 +78,13 @@ class TaskRepositoryMock implements TaskRepository {
     }
 
     @Override
-    public LocalDateTime beginTask(Id taskId) {
-        return taskDb.get(taskId).beginTask();
+    public void beginTask(Id taskId) {
+        taskDb.get(taskId).beginTask();
     }
 
     @Override
-    public LocalDateTime finishTask(Id taskId) {
-        return taskDb.get(taskId).finishTask();
+    public void finishTask(Id taskId) {
+        taskDb.get(taskId).finishTask();
     }
 
     private void populateTaskDb() {

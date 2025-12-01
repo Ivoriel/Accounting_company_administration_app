@@ -14,7 +14,7 @@ public class TimeRange {
         this.to = to;
     }
 
-    public TimeRange ofValue(LocalDateTime from, LocalDateTime to) {
+    public static TimeRange ofValue(LocalDateTime from, LocalDateTime to) {
         return new TimeRange(from, to);
     }
 

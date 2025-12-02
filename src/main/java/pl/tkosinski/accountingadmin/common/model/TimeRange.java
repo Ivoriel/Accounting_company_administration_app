@@ -18,6 +18,10 @@ public class TimeRange {
         return new TimeRange(from, to);
     }
 
+    public static TimeRange ofValue(LocalDateTime from) {
+        return new TimeRange(from, null);
+    }
+
     public LocalDateTime getFrom() {
         return from;
     }

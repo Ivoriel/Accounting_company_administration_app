@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import pl.tkosinski.accountingadmin.common.model.Text;
 import pl.tkosinski.accountingadmin.common.model.Id;
+import pl.tkosinski.accountingadmin.common.model.TimeRange;
 import pl.tkosinski.accountingadmin.domain.company.CompanyFacade;
 import pl.tkosinski.accountingadmin.domain.task.dto.TaskAssignmentDto;
 import pl.tkosinski.accountingadmin.domain.user.UserFacade;
@@ -60,8 +61,7 @@ class TaskRepositoryMock implements TaskRepository {
                 .id(Id.generate())
                 .performerId(userFacade.getRequestedOrGenerateAndSave(Id.generate()).id())
                 .clientCompanyId(companyFacade.getRequestedOrGenerateAndSave(Id.generate()).id())
-                .period(LocalDateTime.now().minusMinutes(start))
-                .end(LocalDateTime.now().minusMinutes(start+60L))
+                .period(TimeRange.ofValue(LocalDateTime.now().minusMinutes(start)))
                 .title(Text.ofValue("Lorem ipsum dolor sit amet"))
                 .comment(Text.ofValue("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at."))
                 .build();

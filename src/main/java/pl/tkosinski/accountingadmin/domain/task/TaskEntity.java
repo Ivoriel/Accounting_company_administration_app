@@ -45,11 +45,17 @@ class TaskEntity implements BaseDao {
         this.performerId = performerId;
     }
 
-    protected void beginTask() {
-        this.period.setFrom(LocalDateTime.now());
+    protected LocalDateTime beginTask() {
+        var time = LocalDateTime.now();
+        this.period.setFrom(time);
+
+        return time;
     }
 
-    protected void finishTask() {
-        this.period.setTo(LocalDateTime.now());
+    protected LocalDateTime finishTask() {
+        var time = LocalDateTime.now();
+        this.period.setTo(time);
+
+        return time;
     }
 }

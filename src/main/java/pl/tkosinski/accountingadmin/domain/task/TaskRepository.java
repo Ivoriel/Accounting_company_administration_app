@@ -23,7 +23,7 @@ interface TaskRepository extends BaseRepository<TaskEntity> {
 
     void assignTask(TaskAssignmentDto dto);
 
-    void beginTask(Id taskId);
+    LocalDateTime beginTask(Id taskId);
 
-    void finishTask(Id taskId);
+    LocalDateTime finishTask(Id taskId);
 }

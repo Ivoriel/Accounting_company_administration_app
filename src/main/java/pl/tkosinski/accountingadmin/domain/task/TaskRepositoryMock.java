@@ -78,13 +78,13 @@ class TaskRepositoryMock implements TaskRepository {
     }
 
     @Override
-    public void beginTask(Id taskId) {
-        taskDb.get(taskId).beginTask();
+    public LocalDateTime beginTask(Id taskId) {
+        return taskDb.get(taskId).beginTask();
     }
 
     @Override
-    public void finishTask(Id taskId) {
-        taskDb.get(taskId).finishTask();
+    public LocalDateTime finishTask(Id taskId) {
+        return taskDb.get(taskId).finishTask();
     }
 
     private void populateTaskDb() {

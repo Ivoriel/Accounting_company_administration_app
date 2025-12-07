@@ -62,8 +62,8 @@ class AddressRepositoryMock implements AddressRepository{
     }
 
     private AddressEntity generateAddress() {
-        return new AddressEntity(Id.generate(), generateCountry(), generateMunicipality(), generateRegion(),
-                generateZipCode(), generateStreet(), generateBuildingNumber(), generateAdditionalIdentifier());
+        return new AddressEntity(Id.generate(), generateCountry(), generateMunicipality(), generateZipCode(),
+                generateStreetAndBuildingId());
     }
 
     private String generateCountry() {
@@ -76,11 +76,6 @@ class AddressRepositoryMock implements AddressRepository{
         return municipalities[generateRandomInt(0, municipalities.length - 1)];
     }
 
-    private String generateRegion() {
-        String[] regions = {"Kujawsko-Pomorskie", "Mazowieckie", "Śląskie"};
-        return regions[generateRandomInt(0, regions.length - 1)];
-    }
-
     private String generateZipCode() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 6; i++) {
@@ -91,6 +86,10 @@ class AddressRepositoryMock implements AddressRepository{
             }
         }
         return sb.toString();
+    }
+
+    private String generateStreetAndBuildingId() {
+        return String.join(", ", generateStreet(), generateBuildingNumber(), generateAdditionalIdentifier());
     }
 
     private String generateStreet() {

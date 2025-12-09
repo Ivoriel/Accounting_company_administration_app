@@ -10,8 +10,8 @@ class AddressGenerator {
     private static final String COUNTRY = "Polska";
 
     AddressDto generate() {
-        return new AddressDto(Id.generate(), generateCountry(), generateMunicipality(), generateRegion(),
-                generateZipCode(), generateStreet(), generateBuildingNumber(), generateAdditionalIdentifier());
+        return new AddressDto(Id.generate(), generateCountry(), generateMunicipality(), generateZipCode(),
+                generateStreetAndBuildingId());
     }
 
     private String generateCountry() {
@@ -39,6 +39,10 @@ class AddressGenerator {
             }
         }
         return sb.toString();
+    }
+
+    private String generateStreetAndBuildingId() {
+        return String.join(", ", generateStreet(), generateBuildingNumber(), generateAdditionalIdentifier());
     }
 
     private String generateStreet() {

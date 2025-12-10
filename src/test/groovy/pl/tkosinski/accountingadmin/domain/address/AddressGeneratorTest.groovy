@@ -15,10 +15,7 @@ class AddressGeneratorTest extends Specification {
         then:
         generatedDto.country() != null
         generatedDto.municipality() != null
-        generatedDto.region() != null
         generatedDto.zipCode() != null
-        generatedDto.street() != null
-        generatedDto.buildingNumber() != null
-        generatedDto.additionalIdentifier() != null
+        generatedDto.streetAndBuildingId() != null
     }
 }

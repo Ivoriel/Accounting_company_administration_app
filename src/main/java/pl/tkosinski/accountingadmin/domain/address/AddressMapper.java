@@ -16,11 +16,8 @@ class AddressMapper {
                 .id(addressEntity.getId())
                 .country(addressEntity.getCountry())
                 .municipality(addressEntity.getMunicipality())
-                .region(addressEntity.getRegion())
                 .zipCode(addressEntity.getZipCode())
-                .street(addressEntity.getStreet())
-                .buildingNumber(addressEntity.getBuildingNumber())
-                .additionalIdentifier(addressEntity.getAdditionalIdentifier())
+                .streetAndBuildingId(addressEntity.getStreetAndBuildingId())
                 .build();
     }
 
@@ -29,11 +26,8 @@ class AddressMapper {
                 .id(dto.id())
                 .country(dto.country())
                 .municipality(dto.municipality())
-                .region(dto.region())
                 .zipCode(dto.zipCode())
-                .street(dto.street())
-                .buildingNumber(dto.buildingNumber())
-                .additionalIdentifier(dto.additionalIdentifier())
+                .streetAndBuildingId(dto.streetAndBuildingId())
                 .build();
     }
 }

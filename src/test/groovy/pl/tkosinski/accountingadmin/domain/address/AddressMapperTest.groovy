@@ -23,10 +23,7 @@ class AddressMapperTest extends Specification implements UsesAddressSample {
         dto.id == entity.id
         dto.country == entity.country
         dto.municipality == entity.municipality
-        dto.region == entity.region
         dto.zipCode == entity.zipCode
-        dto.street == entity.street
-        dto.buildingNumber == entity.buildingNumber
-        dto.additionalIdentifier == entity.additionalIdentifier
+        dto.streetAndBuildingId() == entity.streetAndBuildingId
     }
 }

@@ -10,13 +10,9 @@ public interface AddressRecord {
 
     String municipality();
 
-    String region();
-
     String zipCode();
 
-    String street();
+    String streetAndBuildingId();
 
-    String buildingNumber();
 
-    String additionalIdentifier();
 }

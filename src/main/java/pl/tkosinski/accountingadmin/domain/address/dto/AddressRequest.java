@@ -8,8 +8,6 @@ public record AddressRequest (
         Id id,
         String country,
         String municipality,
-        String region,
         String zipCode,
-        String street,
-        String buildingNumber,
-        String additionalIdentifier) implements AddressRecord{}
+        String streetAndBuildingId
+) implements AddressRecord{}

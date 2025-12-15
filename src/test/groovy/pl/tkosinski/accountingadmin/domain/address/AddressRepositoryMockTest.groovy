@@ -25,11 +25,8 @@ class AddressRepositoryMockTest extends Specification implements UsesAddressSamp
         then:
         savedData.country == dataToSave.country
         savedData.municipality == dataToSave.municipality
-        savedData.region == dataToSave.region
         savedData.zipCode == dataToSave.zipCode
-        savedData.street == dataToSave.street
-        savedData.buildingNumber == dataToSave.buildingNumber
-        savedData.additionalIdentifier == dataToSave.additionalIdentifier
+        savedData.streetAndBuildingId == dataToSave.streetAndBuildingId
     }
 
     def "should get address"() {
@@ -43,11 +40,8 @@ class AddressRepositoryMockTest extends Specification implements UsesAddressSamp
         then:
         retrievedData.country == dataToSave.country
         retrievedData.municipality == dataToSave.municipality
-        retrievedData.region == dataToSave.region
         retrievedData.zipCode == dataToSave.zipCode
-        retrievedData.street == dataToSave.street
-        retrievedData.buildingNumber == dataToSave.buildingNumber
-        retrievedData.additionalIdentifier == dataToSave.additionalIdentifier
+        retrievedData.streetAndBuildingId == dataToSave.streetAndBuildingId
     }
 
     def "should delete address"() {
@@ -77,11 +71,8 @@ class AddressRepositoryMockTest extends Specification implements UsesAddressSamp
         then:
         generatedEntity.country != null
         generatedEntity.municipality != null
-        generatedEntity.region != null
         generatedEntity.zipCode != null
-        generatedEntity.street != null
-        generatedEntity.buildingNumber != null
-        generatedEntity.additionalIdentifier != null
+        generatedEntity.streetAndBuildingId != null
     }
 
     def "should generate and save address"() {
@@ -94,10 +85,7 @@ class AddressRepositoryMockTest extends Specification implements UsesAddressSamp
         then:
         retrievedEntity.country == generatedEntity.country
         retrievedEntity.municipality == generatedEntity.municipality
-        retrievedEntity.region == generatedEntity.region
         retrievedEntity.zipCode == generatedEntity.zipCode
-        retrievedEntity.street == generatedEntity.street
-        retrievedEntity.buildingNumber == generatedEntity.buildingNumber
-        retrievedEntity.additionalIdentifier == generatedEntity.additionalIdentifier
+        retrievedEntity.streetAndBuildingId == generatedEntity.streetAndBuildingId
     }
 }

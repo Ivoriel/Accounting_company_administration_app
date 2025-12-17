@@ -11,11 +11,8 @@ trait UsesAddressSample {
                 .id(args?.id ?: Id.generate())
                 .country("Polska")
                 .municipality("Toruń")
-                .region("kujawsko-pomorskie")
                 .zipCode("87-100")
-                .street("Jasna")
-                .buildingNumber("1")
-                .additionalIdentifier("2p")
+                .streetAndBuildingId("Jasna 1, 2p")
     }
 
     AddressDto addressDtoSample(def args = null) {
@@ -23,11 +20,8 @@ trait UsesAddressSample {
                 .id(args?.id ?: Id.generate())
                 .country("Polska")
                 .municipality("Toruń")
-                .region("kujawsko-pomorskie")
                 .zipCode("87-100")
-                .street("Jasna")
-                .buildingNumber("1")
-                .additionalIdentifier("2p")
+                .streetAndBuildingId("Jasna 1, 2p")
                 .build()
     }
 }

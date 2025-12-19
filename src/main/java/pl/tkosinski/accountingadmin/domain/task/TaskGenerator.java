@@ -2,6 +2,7 @@ package pl.tkosinski.accountingadmin.domain.task;
 
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.common.model.Text;
+import pl.tkosinski.accountingadmin.common.model.TimeRange;
 import pl.tkosinski.accountingadmin.domain.company.CompanyFacade;
 import pl.tkosinski.accountingadmin.domain.task.dto.TaskDto;
 import pl.tkosinski.accountingadmin.domain.user.UserFacade;
@@ -30,8 +31,7 @@ class TaskGenerator {
                 Id.generate(),
                 performerId,
                 companyId,
-                LocalDateTime.now().minusMinutes(start),
-                LocalDateTime.now().minusMinutes(start+60L),
+                TimeRange.ofValue(LocalDateTime.now().minusMinutes(start), LocalDateTime.now().minusMinutes(start+60L)),
                 Text.ofValue("Lorem ipsum dolor sit amet"),
                 Text.ofValue("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at."));
     }

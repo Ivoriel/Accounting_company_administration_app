@@ -29,8 +29,7 @@ class TaskGeneratorTest extends Specification implements UsesUserSample, UsesCom
         then:
         generatedDto.performerId != null
         generatedDto.clientCompanyId != null
-        generatedDto.start != null
-        generatedDto.end != null
+        generatedDto.period != null
         generatedDto.title != null
         generatedDto.comment != null
     }
@@ -48,8 +47,7 @@ class TaskGeneratorTest extends Specification implements UsesUserSample, UsesCom
         then:
         generatedDto.performerId != null
         generatedDto.clientCompanyId != null
-        generatedDto.start != null
-        generatedDto.end != null
+        generatedDto.period != null
         generatedDto.title != null
         generatedDto.comment != null
     }
@@ -61,8 +59,7 @@ class TaskGeneratorTest extends Specification implements UsesUserSample, UsesCom
         then:
         generatedDto.performerId != null
         generatedDto.clientCompanyId != null
-        generatedDto.start != null
-        generatedDto.end != null
+        generatedDto.period != null
         generatedDto.title != null
         generatedDto.comment != null
     }
@@ -74,8 +71,7 @@ class TaskGeneratorTest extends Specification implements UsesUserSample, UsesCom
         then:
         generatedDto.performerId != null
         generatedDto.clientCompanyId != null
-        generatedDto.start != null
-        generatedDto.end != null
+        generatedDto.period != null
         generatedDto.title != null
         generatedDto.comment != null
     }

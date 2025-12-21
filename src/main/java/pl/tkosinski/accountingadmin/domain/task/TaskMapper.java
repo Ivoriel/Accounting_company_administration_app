@@ -15,8 +15,7 @@ class TaskMapper {
                 dao.getId(),
                 dao.getPerformerId(),
                 dao.getClientCompanyId(),
-                dao.getStart(),
-                dao.getEnd(),
+                dao.getPeriod(),
                 dao.getTitle(),
                 dao.getComment());
     }
@@ -26,8 +25,7 @@ class TaskMapper {
                 dto.id(),
                 dto.performerId(),
                 dto.clientCompanyId(),
-                dto.start(),
-                dto.end(),
+                dto.period(),
                 dto.title(),
                 dto.comment());
     }

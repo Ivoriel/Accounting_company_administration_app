@@ -23,8 +23,7 @@ class TaskMapperTest extends Specification implements UsesTaskSample {
         dto.id == entity.id
         dto.performerId == entity.performerId
         dto.clientCompanyId == entity.clientCompanyId
-        dto.start == entity.start
-        dto.end == entity.end
+        dto.period == entity.period
         dto.title == entity.title
         dto.comment == entity.comment
     }

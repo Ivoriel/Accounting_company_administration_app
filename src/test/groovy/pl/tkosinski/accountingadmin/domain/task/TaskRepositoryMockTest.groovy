@@ -44,8 +44,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
         then:
         savedData.performerId == dataToSave.performerId
         savedData.clientCompanyId == dataToSave.clientCompanyId
-        savedData.start == dataToSave.start
-        savedData.end == dataToSave.end
+        savedData.period == dataToSave.period
         savedData.title == dataToSave.title
         savedData.comment == dataToSave.comment
     }
@@ -61,8 +60,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
         then:
         retrievedData.performerId == dataToSave.performerId
         retrievedData.clientCompanyId == dataToSave.clientCompanyId
-        retrievedData.start == dataToSave.start
-        retrievedData.end == dataToSave.end
+        retrievedData.period == dataToSave.period
         retrievedData.title == dataToSave.title
         retrievedData.comment == dataToSave.comment
     }
@@ -94,8 +92,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
         then:
         generatedData.performerId != null
         generatedData.clientCompanyId != null
-        generatedData.start != null
-        generatedData.end != null
+        generatedData.period != null
         generatedData.title != null
         generatedData.comment != null
     }
@@ -110,8 +107,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
         then:
         generatedData.performerId == retrievedData.performerId
         generatedData.clientCompanyId == retrievedData.clientCompanyId
-        generatedData.start == retrievedData.start
-        generatedData.end == retrievedData.end
+        generatedData.period == retrievedData.period
         generatedData.title == retrievedData.title
         generatedData.comment == retrievedData.comment
     }
@@ -137,7 +133,7 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
         var start = repository.beginTask(generatedEntity.id)
 
         then:
-        repository.get(generatedEntity.id).get().start == start
+        repository.get(generatedEntity.id).get().period.from == start
     }
 
     def "should finish task"() {
@@ -148,6 +144,6 @@ class TaskRepositoryMockTest extends Specification implements UsesTaskSample, Us
         var finish = repository.finishTask(generatedEntity.id)
 
         then:
-        repository.get(generatedEntity.id).get().end == finish
+        repository.get(generatedEntity.id).get().period.to == finish
     }
 }

@@ -24,14 +24,6 @@ class AddressEntity implements BaseDao {
         this.streetAndBuildingId = streetAndBuildingId;
     }
 
-    public AddressEntity(Id id, String country, String municipality, String zipCode, String streetAndBuildingId) {
-        this.id = id;
-        this.country = country;
-        this.municipality = municipality;
-        this.zipCode = zipCode;
-        this.streetAndBuildingId = streetAndBuildingId;
-    }
-
     public AddressEntity(Id id, AddressRecord request) {
         this.id = id;
         this.country = request.country();

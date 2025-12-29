@@ -45,6 +45,6 @@ public class AddressFacade {
     }
 
     private void createAddress(AddressRecord request) {
-        addressRepository.save(new AddressEntity(Id.generate(), request));
+        addressRepository.save(new AddressEntity(request));
     }
 }

@@ -62,7 +62,7 @@ class AddressRepositoryMock implements AddressRepository{
     }
 
     private AddressEntity generateAddress() {
-        return new AddressEntity(Id.generate(), generateCountry(), generateMunicipality(), generateZipCode(),
+        return new AddressEntity(generateCountry(), generateMunicipality(), generateZipCode(),
                 generateStreetAndBuildingId());
     }
 

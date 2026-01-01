@@ -21,6 +21,12 @@ class ClientEntity implements BaseDao {
         this.addressId = addressId;
     }
 
+    public ClientEntity(ClientRequest request) {
+        this.id = Id.generate();
+        this.name = request.name();
+        this.addressId = request.addressId();
+    }
+
     public ClientEntity(Id id, ClientRequest request) {
         this.id = id;
         this.name = request.name();

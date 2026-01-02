@@ -56,6 +56,6 @@ public class TaskFacade {
     }
 
     private void create(TaskRequest request) {
-        repository.save(new TaskEntity(Id.generate(), request));
+        repository.save(new TaskEntity(request));
     }
 }

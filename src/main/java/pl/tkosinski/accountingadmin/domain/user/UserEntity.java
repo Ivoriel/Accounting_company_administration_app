@@ -27,6 +27,12 @@ class UserEntity implements BaseDao {
         this.name = name;
     }
 
+    public UserEntity(UserRequest request) {
+        this.id = Id.generate();
+        this.role = request.role();
+        this.name = request.name();
+    }
+
     public UserEntity(Id id, UserRequest request) {
         this.id = id;
         this.role = request.role();

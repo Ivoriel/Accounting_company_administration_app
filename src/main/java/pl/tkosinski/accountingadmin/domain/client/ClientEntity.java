@@ -27,12 +27,6 @@ class ClientEntity implements BaseDao {
         this.addressId = request.addressId();
     }
 
-    public ClientEntity(Id id, ClientRequest request) {
-        this.id = id;
-        this.name = request.name();
-        this.addressId = request.addressId();
-    }
-
     public ClientEntity edit(ClientRequest request) {
         this.name = request.name();
         this.addressId = request.addressId();

@@ -21,6 +21,13 @@ class CompanyEntity implements BaseDao {
     private Id clientId;
     private Id addressId;
 
+    public CompanyEntity(CompanyRequest request) {
+        this.id = Id.generate();
+        this.name = request.name();
+        this.clientId = request.clientId();
+        this.addressId = request.addressId();
+    }
+
     public CompanyEntity(Id id, CompanyRequest request) {
         this.id = id;
         this.name = request.name();

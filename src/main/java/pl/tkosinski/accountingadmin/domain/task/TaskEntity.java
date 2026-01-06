@@ -32,15 +32,6 @@ class TaskEntity implements BaseDao {
         this.comment = request.comment();
     }
 
-    public TaskEntity(Id id, TaskRequest request) {
-        this.id = id;
-        this.performerId = request.performerId();
-        this.clientCompanyId = request.clientCompanyId();
-        this.period = request.period();
-        this.title = request.title();
-        this.comment = request.comment();
-    }
-
     protected TaskEntity edit(TaskRequest request) {
         this.performerId = request.performerId();
         this.clientCompanyId = request.clientCompanyId();

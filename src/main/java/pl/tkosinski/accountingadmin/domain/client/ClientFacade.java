@@ -46,6 +46,6 @@ public class ClientFacade {
     }
 
     private void createClient(ClientRequest request) {
-        clientRepository.save(new ClientEntity(Id.generate(), request));
+        clientRepository.save(new ClientEntity(request));
     }
 }

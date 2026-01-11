@@ -47,6 +47,6 @@ public class CompanyFacade {
     }
 
     private void createCompany(CompanyRequest request) {
-        repository.save(new CompanyEntity(Id.generate(), request));
+        repository.save(new CompanyEntity(request));
     }
 }

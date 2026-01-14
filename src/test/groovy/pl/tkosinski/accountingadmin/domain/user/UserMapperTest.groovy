@@ -14,14 +14,14 @@ class UserMapperTest extends Specification implements UsesUserSample {
     }
 
     def 'should map user entity to dto'() {
-        def dao = userEntitySample().build()
+        def entity = userEntitySample().build()
 
         when:
-        def dto = UserMapper.toDto(dao)
+        def dto = UserMapper.toDto(entity)
 
         then:
-        dto.id == dao.id
-        dto.role == dao.role
-        dto.name == dao.name
+        dto.id == entity.id
+        dto.role == entity.role
+        dto.name == entity.name
     }
 }

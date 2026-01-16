@@ -62,7 +62,7 @@ public class UserFacade {
     }
 
     private void create(UserRequest request) {
-        repository.save(new UserEntity(Id.generate(), request));
+        repository.save(new UserEntity(request));
     }
 
     private void update(UserEntity dao, UserRequest request) {

@@ -14,7 +14,7 @@ class UserMapper {
         return new UserDto(dao.getId(), dao.getRole(), dao.getName());
     }
 
-    public static UserEntity toDao(UserDto userDto) {
+    public static UserEntity toEntity(UserDto userDto) {
         return new UserEntity(userDto.id(), userDto.role(), userDto.name());
     }
 }

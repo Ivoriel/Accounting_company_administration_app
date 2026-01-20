@@ -20,7 +20,7 @@ class TaskMapper {
                 dao.getComment());
     }
 
-    public static TaskEntity toDao(TaskDto dto) {
+    public static TaskEntity toEntity(TaskDto dto) {
         return new TaskEntity(
                 dto.id(),
                 dto.performerId(),

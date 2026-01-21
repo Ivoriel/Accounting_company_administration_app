@@ -10,14 +10,14 @@ class TaskMapper {
         throw new IllegalStateException(UTILITY_CLASS.message);
     }
 
-    public static TaskDto toDto(TaskEntity dao) {
+    public static TaskDto toDto(TaskEntity entity) {
         return new TaskDto(
-                dao.getId(),
-                dao.getPerformerId(),
-                dao.getClientCompanyId(),
-                dao.getPeriod(),
-                dao.getTitle(),
-                dao.getComment());
+                entity.getId(),
+                entity.getPerformerId(),
+                entity.getClientCompanyId(),
+                entity.getPeriod(),
+                entity.getTitle(),
+                entity.getComment());
     }
 
     public static TaskEntity toEntity(TaskDto dto) {

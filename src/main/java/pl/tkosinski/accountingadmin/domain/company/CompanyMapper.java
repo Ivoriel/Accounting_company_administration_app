@@ -15,7 +15,7 @@ class CompanyMapper {
         companyEntity.getAddressId());
     }
 
-    public static CompanyEntity toDao(CompanyDto dto) {
+    public static CompanyEntity toEntity(CompanyDto dto) {
         return new CompanyEntity(dto);
     }
 }

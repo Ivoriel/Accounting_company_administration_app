@@ -42,8 +42,8 @@ public class CompanyFacade {
         return CompanyMapper.toDto(repository.save(CompanyMapper.toEntity(generate())));
     }
 
-    private void updateCompany(CompanyEntity dao, CompanyRequest request) {
-        repository.save(dao.edit(request));
+    private void updateCompany(CompanyEntity entity, CompanyRequest request) {
+        repository.save(entity.edit(request));
     }
 
     private void createCompany(CompanyRequest request) {

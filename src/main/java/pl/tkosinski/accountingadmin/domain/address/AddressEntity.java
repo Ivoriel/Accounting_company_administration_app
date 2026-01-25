@@ -9,14 +9,14 @@ import pl.tkosinski.accountingadmin.domain.address.dto.AddressRecord;
 @Builder
 @Getter
 class AddressEntity implements BaseDao {
-    
+
     private final Id id;
     private String country;
     private String municipality;
     private String zipCode;
     private String streetAndBuildingId;
 
-    private AddressEntity(Id id, String country, String municipality, String zipCode, String streetAndBuildingId) {
+    AddressEntity(Id id, String country, String municipality, String zipCode, String streetAndBuildingId) {
         this.id = id;
         this.country = country;
         this.municipality = municipality;

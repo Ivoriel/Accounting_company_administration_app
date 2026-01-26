@@ -40,8 +40,8 @@ public class AddressFacade {
         return AddressMapper.toDto(addressRepository.save(AddressMapper.toEntity(generate())));
     }
 
-    private void updateAddress(AddressEntity dao, AddressRecord request) {
-        addressRepository.save(dao.edit(request));
+    private void updateAddress(AddressEntity entity, AddressRecord request) {
+        addressRepository.save(entity.edit(request));
     }
 
     private void createAddress(AddressRecord request) {

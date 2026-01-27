@@ -22,12 +22,11 @@ class AddressMapper {
     }
 
     public static AddressEntity toEntity(AddressRecord dto) {
-        return AddressEntity.builder()
-                .id(dto.id())
-                .country(dto.country())
-                .municipality(dto.municipality())
-                .zipCode(dto.zipCode())
-                .streetAndBuildingId(dto.streetAndBuildingId())
-                .build();
+        return new AddressEntity(
+                dto.id(),
+                dto.country(),
+                dto.municipality(),
+                dto.zipCode(),
+                dto.streetAndBuildingId());
     }
 }

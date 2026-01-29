@@ -10,8 +10,8 @@ class ClientMapper {
         throw new IllegalStateException(UTILITY_CLASS.message);
     }
 
-    public static ClientDto toDto(ClientEntity dao) {
-        return new ClientDto(dao.getId(), dao.getName(), dao.getAddressId());
+    public static ClientDto toDto(ClientEntity entity) {
+        return new ClientDto(entity.getId(), entity.getName(), entity.getAddressId());
     }
 
     public static ClientEntity toEntity(ClientDto data) {

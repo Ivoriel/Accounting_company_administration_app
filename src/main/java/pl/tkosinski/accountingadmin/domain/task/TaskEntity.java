@@ -3,7 +3,7 @@ package pl.tkosinski.accountingadmin.domain.task;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import pl.tkosinski.accountingadmin.common.BaseDao;
+import pl.tkosinski.accountingadmin.common.BaseEntity;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.common.model.Text;
 import pl.tkosinski.accountingadmin.common.model.TimeRange;
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Getter
 @Builder
 @AllArgsConstructor
-class TaskEntity implements BaseDao {
+class TaskEntity implements BaseEntity {
 
     private final Id id;
     private Id performerId;

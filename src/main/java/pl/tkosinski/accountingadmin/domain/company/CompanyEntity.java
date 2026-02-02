@@ -3,7 +3,7 @@ package pl.tkosinski.accountingadmin.domain.company;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import pl.tkosinski.accountingadmin.common.BaseDao;
+import pl.tkosinski.accountingadmin.common.BaseEntity;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.common.model.InstitutionName;
 import pl.tkosinski.accountingadmin.domain.company.dto.CompanyDto;
@@ -14,7 +14,7 @@ import static lombok.AccessLevel.PRIVATE;
 @Getter
 @Builder
 @AllArgsConstructor(access = PRIVATE)
-class CompanyEntity implements BaseDao {
+class CompanyEntity implements BaseEntity {
 
     private final Id id;
     private InstitutionName name;

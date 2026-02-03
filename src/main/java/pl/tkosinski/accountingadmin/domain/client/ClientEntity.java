@@ -2,14 +2,14 @@ package pl.tkosinski.accountingadmin.domain.client;
 
 import lombok.Builder;
 import lombok.Getter;
-import pl.tkosinski.accountingadmin.common.BaseDao;
+import pl.tkosinski.accountingadmin.common.BaseEntity;
 import pl.tkosinski.accountingadmin.common.model.FullName;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.client.dto.ClientRequest;
 
 @Builder
 @Getter
-class ClientEntity implements BaseDao {
+class ClientEntity implements BaseEntity {
 
     private final Id id;
     private FullName name;

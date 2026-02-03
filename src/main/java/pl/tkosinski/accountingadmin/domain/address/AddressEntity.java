@@ -2,13 +2,13 @@ package pl.tkosinski.accountingadmin.domain.address;
 
 import lombok.Builder;
 import lombok.Getter;
-import pl.tkosinski.accountingadmin.common.BaseDao;
+import pl.tkosinski.accountingadmin.common.BaseEntity;
 import pl.tkosinski.accountingadmin.common.model.Id;
 import pl.tkosinski.accountingadmin.domain.address.dto.AddressRecord;
 
 @Builder
 @Getter
-class AddressEntity implements BaseDao {
+class AddressEntity implements BaseEntity {
 
     private final Id id;
     private String country;

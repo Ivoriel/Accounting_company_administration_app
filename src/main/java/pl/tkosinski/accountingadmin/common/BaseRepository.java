@@ -4,7 +4,7 @@ import pl.tkosinski.accountingadmin.common.model.Id;
 
 import java.util.Optional;
 
-public interface BaseRepository<T extends BaseDao> {
+public interface BaseRepository<T extends BaseEntity> {
 
     T save(T dao);
 

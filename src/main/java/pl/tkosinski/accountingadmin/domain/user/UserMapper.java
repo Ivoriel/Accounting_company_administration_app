@@ -10,8 +10,8 @@ class UserMapper {
         throw new IllegalStateException(UTILITY_CLASS.message);
     }
 
-    public static UserDto toDto(UserEntity dao) {
-        return new UserDto(dao.getId(), dao.getRole(), dao.getName());
+    public static UserDto toDto(UserEntity entity) {
+        return new UserDto(entity.getId(), entity.getRole(), entity.getName());
     }
 
     public static UserEntity toEntity(UserDto userDto) {

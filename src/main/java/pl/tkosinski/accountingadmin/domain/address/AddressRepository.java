@@ -7,7 +7,7 @@ import java.util.Optional;
 
 interface AddressRepository extends BaseRepository<AddressEntity> {
 
-    AddressEntity save(AddressEntity addressEntity);
+    AddressEntity save(AddressEntity entity);
 
     Optional<AddressEntity> get(Id id);
 

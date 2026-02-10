@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface BaseRepository<T extends BaseEntity> {
 
-    T save(T dao);
+    T save(T entity);
 
     Optional<T> get(Id id);
 

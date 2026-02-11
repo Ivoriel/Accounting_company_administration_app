@@ -7,7 +7,7 @@ import java.util.Optional;
 
 interface ClientRepository extends BaseRepository<ClientEntity> {
 
-    ClientEntity save(ClientEntity clientEntity);
+    ClientEntity save(ClientEntity entity);
 
     Optional<ClientEntity> get(Id id);
 

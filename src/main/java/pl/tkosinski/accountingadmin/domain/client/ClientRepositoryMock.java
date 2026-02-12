@@ -27,9 +27,9 @@ class ClientRepositoryMock implements ClientRepository {
     }
 
     @Override
-    public ClientEntity save(ClientEntity clientEntity) {
-        clientDb.put(clientEntity.getId(), clientEntity);
-        return clientDb.get(clientEntity.getId());
+    public ClientEntity save(ClientEntity entity) {
+        clientDb.put(entity.getId(), entity);
+        return clientDb.get(entity.getId());
     }
 
     @Override

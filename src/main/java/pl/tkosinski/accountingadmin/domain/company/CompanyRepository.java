@@ -7,7 +7,7 @@ import java.util.Optional;
 
 interface CompanyRepository extends BaseRepository<CompanyEntity> {
 
-    CompanyEntity save(CompanyEntity companyEntity);
+    CompanyEntity save(CompanyEntity entity);
 
     Optional<CompanyEntity> get(Id id);
 

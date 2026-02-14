@@ -30,9 +30,9 @@ class CompanyRepositoryMock implements CompanyRepository{
     }
 
     @Override
-    public CompanyEntity save(CompanyEntity companyEntity) {
-        companyDb.put(companyEntity.getId(), companyEntity);
-        return companyDb.get(companyEntity.getId());
+    public CompanyEntity save(CompanyEntity entity) {
+        companyDb.put(entity.getId(), entity);
+        return companyDb.get(entity.getId());
     }
 
     @Override

@@ -9,7 +9,7 @@ import java.util.Optional;
 
 interface TaskRepository extends BaseRepository<TaskEntity> {
 
-    TaskEntity save(TaskEntity taskEntity);
+    TaskEntity save(TaskEntity entity);
 
     Optional<TaskEntity> get(Id id);
 

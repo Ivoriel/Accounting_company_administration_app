@@ -33,9 +33,9 @@ class TaskRepositoryMock implements TaskRepository {
     }
 
     @Override
-    public TaskEntity save(TaskEntity taskEntity) {
-        taskDb.put(taskEntity.getId(), taskEntity);
-        return taskDb.get(taskEntity.getId());
+    public TaskEntity save(TaskEntity entity) {
+        taskDb.put(entity.getId(), entity);
+        return taskDb.get(entity.getId());
     }
 
     @Override

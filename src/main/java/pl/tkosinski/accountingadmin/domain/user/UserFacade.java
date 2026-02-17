@@ -65,7 +65,7 @@ public class UserFacade {
         repository.save(new UserEntity(request));
     }
 
-    private void update(UserEntity dao, UserRequest request) {
-        repository.save(dao.editName(request.name()));
+    private void update(UserEntity entity, UserRequest request) {
+        repository.save(entity.editName(request.name()));
     }
 }

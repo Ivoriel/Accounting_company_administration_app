@@ -8,7 +8,7 @@ import java.util.Optional;
 
 interface UserRepository extends BaseRepository<UserEntity> {
 
-    UserEntity save(UserEntity userEntity);
+    UserEntity save(UserEntity entity);
 
     UserEntity editName(UserNameRequest request);
 
